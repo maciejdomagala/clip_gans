@@ -14,7 +14,7 @@ from operators import get_operators
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--device", type=str, default="cuda")
+parser.add_argument("--device", type=str, default="cpu")
 parser.add_argument("--config", type=str, default="DeepMindBigGAN512")
 parser.add_argument("--generations", type=int, default=500)
 parser.add_argument("--save-each", type=int, default=50)
