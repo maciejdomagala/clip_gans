@@ -8,6 +8,12 @@ from pymoo.algorithms.so_genetic_algorithm import GA
 from pymoo.factory import get_algorithm, get_decision_making, get_decomposition
 from pymoo.visualization.scatter import Scatter
 
+from pymoo.algorithms.so_de import DE
+# from pymoo.factory import get_problem
+from pymoo.operators.sampling.latin_hypercube_sampling import LatinHypercubeSampling
+# from pymoo.optimize import minimize
+
+
 from config import get_config
 from problem import GenerationProblem
 from operators import get_operators
@@ -73,6 +79,19 @@ algorithm = get_algorithm(
     callback=save_callback,
     **(config.algorithm_args[config.algorithm] if "algorithm_args" in config and config.algorithm in config.algorithm_args else dict())
 )
+
+if config.config == "DeepMindBigGAN256_de":
+    # algorithm = get_algorithm(config.algorithm)
+    algorithm = DE(
+        pop_size=100,
+        sampling=LatinHypercubeSampling(iterations=100, criterion="maxmin"),
+        variant="DE/rand/1/bin",
+        CR=0.5,
+        F=0.3,
+        dither="vector",
+        jitter=False
+    )
+
 
 res = minimize(
     problem,
