@@ -134,7 +134,7 @@ configs = dict(
             xu=10
         ),
     ),
-        StyleGAN2_car_d_de=dict(
+    StyleGAN2_car_d_de=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
