@@ -19,34 +19,36 @@ class GPT2(torch.nn.Module):
             print("Weights not found!\nRun: ./download-weights.sh GPT2")
             sys.exit(1)
 
-        state_dict = torch.load(self.config.weights, map_location=self.config.device)
+        state_dict = torch.load(self.config.weights,
+                                map_location=self.config.device)
 
         self.enc = get_encoder(config)
         self.model = GPT2LMHeadModel(GPT2Config())
         self.model = load_weight(self.model, state_dict)
         self.model.to(self.config.device)
         self.model.eval()
-        
-        self.init_tokens = torch.tensor(self.enc.encode(self.config.init_text)).to(self.config.device)
+
+        self.init_tokens = torch.tensor(self.enc.encode(
+            self.config.init_text)).to(self.config.device)
 
     def parse_out(self, out):
         texts = []
         for seq in out:
             if self.enc.encoder["<|endoftext|>"] in seq:
-                text = seq[self.config.dim_z:seq.index(self.enc.encoder["<|endoftext|>"])]
+                text = seq[self.config.dim_z:seq.index(
+                    self.enc.encoder["<|endoftext|>"])]
             else:
                 text = seq[self.config.dim_z:]
             text = self.enc.decode(text)
-            
+
             texts.append(text[:self.config.max_text_len])
         return texts
 
-
     def generate(self, z, minibatch=None):
-        #TODO: implement minibatch
+        # TODO: implement minibatch
         init_tokens = self.init_tokens.repeat(z.shape[0], 1)
         z = torch.cat((z, init_tokens), dim=1)
-        
+
         out = sample_sequence(
             model=self.model,
             length=self.config.max_tokens_len,
@@ -72,7 +74,7 @@ class DeepMindBigGAN(torch.nn.Module):
     def has_discriminator(self):
         return False
 
-    def generate(self, z, class_labels, minibatch = None):
+    def generate(self, z, class_labels, minibatch=None):
         if minibatch is None:
             return self.G(z, class_labels, self.config.truncation)
         else:
@@ -81,10 +83,10 @@ class DeepMindBigGAN(torch.nn.Module):
             for i in range(0, z.shape[0] // minibatch):
                 z_minibatch = z[i*minibatch:(i+1)*minibatch, :]
                 cl_minibatch = class_labels[i*minibatch:(i+1)*minibatch, :]
-                gen_images.append(self.G(z_minibatch, cl_minibatch, self.config.truncation))
+                gen_images.append(
+                    self.G(z_minibatch, cl_minibatch, self.config.truncation))
             gen_images = torch.cat(gen_images)
             return gen_images
-
 
 
 class StyleGAN2(torch.nn.Module):
@@ -97,15 +99,20 @@ class StyleGAN2(torch.nn.Module):
                 model = "car"
             elif "church" in config.config:
                 model = "church"
-            print("Weights not found!\nRun : ./download-weights.sh StyleGAN2-%s" % (model))
+            elif "cat" in config.config:
+                model = "cat"
+            elif "horse" in config.config:
+                model = "horse"
+            print(
+                "Weights not found!\nRun : ./download-weights.sh StyleGAN2-%s" % (model))
             sys.exit(1)
         self.G = stylegan2.models.load(os.path.join(config.weights, "G.pth"))
         self.D = stylegan2.models.load(os.path.join(config.weights, "D.pth"))
-    
+
     def has_discriminator(self):
         return True
-    
-    def generate(self, z, minibatch = None):
+
+    def generate(self, z, minibatch=None):
         if minibatch is None:
             return self.G(z)
         else:
@@ -116,8 +123,8 @@ class StyleGAN2(torch.nn.Module):
                 gen_images.append(self.G(z_minibatch))
             gen_images = torch.cat(gen_images)
             return gen_images
-    
-    def discriminate(self, images, minibatch = None):
+
+    def discriminate(self, images, minibatch=None):
         if minibatch is None:
             return self.D(images)
         else:

@@ -72,6 +72,50 @@ configs = dict(
             xu=2
         )
     ),
+    DeepMindBigGAN256_cmaes=dict(
+        task="txt2img",
+        dim_z=128,
+        num_classes=1000,
+        latent=DeepMindBigGANLatentSpace,
+        model=DeepMindBigGAN,
+        weights="biggan-deep-256",
+        use_discriminator=False,
+        algorithm="cmaes",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        truncation=1.0,
+        pop_size=64,
+        batch_size=32,
+        problem_args=dict(
+            n_var=128 + 1000,
+            n_obj=1,
+            n_constr=128,
+            xl=-2,
+            xu=2
+        )
+    ),
+    DeepMindBigGAN256_brkga=dict(
+        task="txt2img",
+        dim_z=128,
+        num_classes=1000,
+        latent=DeepMindBigGANLatentSpace,
+        model=DeepMindBigGAN,
+        weights="biggan-deep-256",
+        use_discriminator=False,
+        algorithm="brkga",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        truncation=1.0,
+        pop_size=64,
+        batch_size=32,
+        problem_args=dict(
+            n_var=128 + 1000,
+            n_obj=1,
+            n_constr=128,
+            xl=-2,
+            xu=2
+        )
+    ),
     DeepMindBigGAN512=dict(
         task="txt2img",
         dim_z=128,
@@ -122,26 +166,6 @@ configs = dict(
         use_discriminator=True,
         weights="./stylegan2/weights/car-config-f",
         algorithm="nsga2",
-        norm=biggan_norm,
-        denorm=biggan_denorm,
-        pop_size=16,
-        batch_size=4,
-        problem_args=dict(
-            n_var=512,
-            n_obj=2,
-            n_constr=512,
-            xl=-10,
-            xu=10
-        ),
-    ),
-    StyleGAN2_car_d_de=dict(
-        task="txt2img",
-        dim_z=512,
-        latent=StyleGAN2LatentSpace,
-        model=StyleGAN2,
-        use_discriminator=True,
-        weights="./stylegan2/weights/car-config-f",
-        algorithm="de",
         norm=biggan_norm,
         denorm=biggan_denorm,
         pop_size=16,
