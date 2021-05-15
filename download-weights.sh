@@ -32,6 +32,12 @@ case $1 in
     "StyleGAN2-car")
         download_stylegan2 "car-config-f"
         ;;
+    "StyleGAN2-cat")
+        download_stylegan2 "cat-config-f"
+        ;;
+    "StyleGAN2-horse")
+        download_stylegan2 "horse-config-f"
+        ;;
     "GPT2")
         [ -f "gpt2/weights/gpt2-pytorch_model.bin" ] && die "Weights already downloaded" 
         curl --output gpt2/weights/gpt2-pytorch_model.bin https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-pytorch_model.bin
