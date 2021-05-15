@@ -8,33 +8,24 @@ from pymoo.algorithms.so_genetic_algorithm import GA
 from pymoo.factory import get_algorithm, get_decision_making, get_decomposition
 from pymoo.visualization.scatter import Scatter
 
-from pymoo.algorithms.so_de import DE
-# from pymoo.factory import get_problem
-from pymoo.operators.sampling.latin_hypercube_sampling import LatinHypercubeSampling
-# from pymoo.optimize import minimize
-
-
 from config import get_config
 from problem import GenerationProblem
 from operators import get_operators
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--device", type=str, default="cpu")
-parser.add_argument("--config", type=str, default="DeepMindBigGAN256_de")
+parser.add_argument("--device", type=str, default="cuda")
+parser.add_argument("--config", type=str, default="DeepMindBigGAN512")
 parser.add_argument("--generations", type=int, default=500)
 parser.add_argument("--save-each", type=int, default=50)
 parser.add_argument("--tmp-folder", type=str, default="./tmp")
-parser.add_argument("--target", type=str,
-                    default="a wolf at night with the moon in the background")
+parser.add_argument("--target", type=str, default="a wolf at night with the moon in the background")
 
 config = parser.parse_args()
 vars(config).update(get_config(config.config))
 
 
 iteration = 0
-
-
 def save_callback(algorithm):
     global iteration
     global config
@@ -43,31 +34,27 @@ def save_callback(algorithm):
     if iteration % config.save_each == 0 or iteration == config.generations:
         if config.problem_args["n_obj"] == 1:
             sortedpop = sorted(algorithm.pop, key=lambda p: p.F)
-            X = np.stack([p.X for p in sortedpop])
+            X = np.stack([p.X for p in sortedpop])  
         else:
             X = algorithm.pop.get("X")
-
+        
         ls = config.latent(config)
         ls.set_from_population(X)
 
         with torch.no_grad():
-            generated = algorithm.problem.generator.generate(
-                ls, minibatch=config.batch_size)
+            generated = algorithm.problem.generator.generate(ls, minibatch=config.batch_size)
             if config.task == "txt2img":
                 ext = "jpg"
             elif config.task == "img2txt":
                 ext = "txt"
-            name = "genetic-it-%d.%s" % (
-                iteration, ext) if iteration < config.generations else "genetic-it-final.%s" % (ext, )
-            algorithm.problem.generator.save(
-                generated, os.path.join(config.tmp_folder, name))
-
+            name = "genetic-it-%d.%s" % (iteration, ext) if iteration < config.generations else "genetic-it-final.%s" % (ext, )
+            algorithm.problem.generator.save(generated, os.path.join(config.tmp_folder, name))
+        
 
 problem = GenerationProblem(config)
 operators = get_operators(config)
 
-if not os.path.exists(config.tmp_folder):
-    os.mkdir(config.tmp_folder)
+if not os.path.exists(config.tmp_folder): os.mkdir(config.tmp_folder)
 
 algorithm = get_algorithm(
     config.algorithm,
@@ -80,19 +67,6 @@ algorithm = get_algorithm(
     **(config.algorithm_args[config.algorithm] if "algorithm_args" in config and config.algorithm in config.algorithm_args else dict())
 )
 
-if config.config == "DeepMindBigGAN256_de":
-    # algorithm = get_algorithm(config.algorithm)
-    algorithm = DE(
-        pop_size=100,
-        sampling=LatinHypercubeSampling(iterations=100, criterion="maxmin"),
-        variant="DE/rand/1/bin",
-        CR=0.5,
-        F=0.3,
-        dither="vector",
-        jitter=False
-    )
-
-
 res = minimize(
     problem,
     algorithm,
@@ -103,14 +77,14 @@ res = minimize(
 
 
 pickle.dump(dict(
-    X=res.X,
-    F=res.F,
-    G=res.G,
-    CV=res.CV,
+    X = res.X,
+    F = res.F,
+    G = res.G,
+    CV = res.CV,
 ), open(os.path.join(config.tmp_folder, "genetic_result"), "wb"))
 
 if config.problem_args["n_obj"] == 2:
-    plot = Scatter(labels=["similarity", "discriminator", ])
+    plot = Scatter(labels=["similarity", "discriminator",])
     plot.add(res.F, color="red")
     plot.save(os.path.join(config.tmp_folder, "F.jpg"))
 
@@ -148,5 +122,4 @@ if config.task == "txt2img":
 elif config.task == "img2txt":
     ext = "txt"
 
-problem.generator.save(generated, os.path.join(
-    config.tmp_folder, "output.%s" % (ext)))
+problem.generator.save(generated, os.path.join(config.tmp_folder, "output.%s" % (ext)))
