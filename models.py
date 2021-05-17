@@ -4,12 +4,6 @@ import torch
 from pytorch_pretrained_biggan import BigGAN as DMBigGAN
 import stylegan2
 
-from gpt2.model import GPT2LMHeadModel
-from gpt2.utils import load_weight
-from gpt2.config import GPT2Config
-from gpt2.sample import sample_sequence
-from gpt2.encoder import get_encoder
-
 
 # class GPT2(torch.nn.Module):
 #     def __init__(self, config):
