@@ -63,6 +63,7 @@ class Swish(nn.Module):
         affine (bool): Multiply the input to sigmoid
             with a learnable scale. Default value is False.
     """
+
     def __init__(self, affine=False):
         super(Swish, self).__init__()
         if affine:
@@ -188,7 +189,8 @@ def _setup_filter_kernel(filter_kernel, gain=1, up_factor=1, dim=2):
             if k in [1, n]:
                 return 1
             return np.math.factorial(n) / (np.math.factorial(k) * np.math.factorial(n - k))
-        filter_kernel = [binomial(filter_kernel, k) for k in range(1, filter_kernel + 1)]
+        filter_kernel = [binomial(filter_kernel, k)
+                         for k in range(1, filter_kernel + 1)]
     if not torch.is_tensor(filter_kernel):
         filter_kernel = torch.tensor(filter_kernel)
     filter_kernel = filter_kernel.float()
@@ -247,6 +249,7 @@ class BiasActivationWrapper(nn.Module):
             equalized learning rate.
             Default value is True.
     """
+
     def __init__(self,
                  layer,
                  features=None,
@@ -438,7 +441,8 @@ class NoiseInjectionWrapper(nn.Module):
                 assert list(self.noise_storage.size()[2:]) == noise_shape[2:], \
                     'A data size {} has been encountered, '.format(x.size()[2:]) + \
                     'the static noise previously set up does ' + \
-                    'not match this size {}'.format(self.noise_storage.size()[2:])
+                    'not match this size {}'.format(
+                        self.noise_storage.size()[2:])
                 assert self.noise_storage.size(0) == 1 or self.noise_storage.size(0) == x.size(0), \
                     'Static noise batch size mismatch! ' + \
                     'Noise batch size: {}, '.format(self.noise_storage.size(0)) + \
@@ -473,6 +477,7 @@ class FilterLayer(nn.Module):
         pad_constant (float): The constant value to pad with if
             `pad_mode='constant'`. Default value is 0.
     """
+
     def __init__(self,
                  filter_kernel,
                  stride=1,
@@ -515,7 +520,8 @@ class FilterLayer(nn.Module):
         if self.fused_pad:
             conv_kwargs.update(padding=self.padding)
         else:
-            x = F.pad(x, self.padding, mode=self.pad_mode, value=self.pad_constant)
+            x = F.pad(x, self.padding, mode=self.pad_mode,
+                      value=self.pad_constant)
         return _apply_conv(
             input=x,
             transpose=False,
@@ -574,7 +580,8 @@ class Upsample(nn.Module):
                 pad_mode=filter_pad_mode,
                 pad_constant=filter_pad_constant
             )
-            self.register_buffer('weight', torch.ones(*[1 for _ in range(dim + 2)]))
+            self.register_buffer('weight', torch.ones(
+                *[1 for _ in range(dim + 2)]))
         self.mode = mode
 
     def forward(self, input, **kwargs):
@@ -588,7 +595,8 @@ class Upsample(nn.Module):
         if self.mode == 'FIR':
             x = _apply_conv(
                 input=input,
-                weight=self.weight.expand(input.size(1), *self.weight.size()[1:]),
+                weight=self.weight.expand(
+                    input.size(1), *self.weight.size()[1:]),
                 groups=input.size(1),
                 stride=2,
                 transpose=True
@@ -689,6 +697,7 @@ class MinibatchStd(nn.Module):
         eps (float): Epsilon value added for numerical stability.
             Default value is 1e-8.
     """
+
     def __init__(self, group_size=4, eps=1e-8, *args, **kwargs):
         super(MinibatchStd, self).__init__()
         if group_size is None or group_size <= 0:
@@ -765,6 +774,7 @@ class DenseLayer(nn.Module):
             Default value is True.
         gain (float): The gain of this layer. Default value is 1.
     """
+
     def __init__(self,
                  in_features,
                  out_features,
@@ -845,6 +855,7 @@ class ConvLayer(nn.Module):
         eps (float): Epsilon value added for numerical stability.
             Default value is 1e-8.
     """
+
     def __init__(self,
                  in_channels,
                  out_channels,
@@ -990,7 +1001,8 @@ class ConvLayer(nn.Module):
         if self.fused_pad:
             kwargs.update(padding=self.padding)
         else:
-            x = F.pad(x, self.padding, mode=self.pad_mode, value=self.pad_constant)
+            x = F.pad(x, self.padding, mode=self.pad_mode,
+                      value=self.pad_constant)
         return _apply_conv(input=x, weight=weight, transpose=False, **kwargs)
 
     def extra_repr(self):
@@ -1044,7 +1056,8 @@ class ConvUpLayer(ConvLayer):
             self.output_padding = 2 * (self.padding + 1) - self.kernel_size
             if not self.modulate:
                 # pre-prepare weights only once instead of every forward pass
-                self.weight = nn.Parameter(self.weight.data.transpose(0, 1).contiguous())
+                self.weight = nn.Parameter(
+                    self.weight.data.transpose(0, 1).contiguous())
             self.filter = None
             if mode == 'FIR':
                 filter_kernel = _setup_filter_kernel(
@@ -1325,6 +1338,7 @@ class GeneratorConvBlock(nn.Module):
         eps (float): Epsilon value added for numerical stability.
             Default value is 1e-8.
     """
+
     def __init__(self,
                  in_channels,
                  out_channels,
@@ -1496,6 +1510,7 @@ class DiscriminatorConvBlock(nn.Module):
             equalized learning rate. Default value
             is True.
     """
+
     def __init__(self,
                  in_channels,
                  out_channels,

@@ -11,57 +11,57 @@ from gpt2.sample import sample_sequence
 from gpt2.encoder import get_encoder
 
 
-class GPT2(torch.nn.Module):
-    def __init__(self, config):
-        super(GPT2, self).__init__()
-        self.config = config
-        if not os.path.exists(self.config.weights):
-            print("Weights not found!\nRun: ./download-weights.sh GPT2")
-            sys.exit(1)
+# class GPT2(torch.nn.Module):
+#     def __init__(self, config):
+#         super(GPT2, self).__init__()
+#         self.config = config
+#         if not os.path.exists(self.config.weights):
+#             print("Weights not found!\nRun: ./download-weights.sh GPT2")
+#             sys.exit(1)
 
-        state_dict = torch.load(self.config.weights,
-                                map_location=self.config.device)
+#         state_dict = torch.load(self.config.weights,
+#                                 map_location=self.config.device)
 
-        self.enc = get_encoder(config)
-        self.model = GPT2LMHeadModel(GPT2Config())
-        self.model = load_weight(self.model, state_dict)
-        self.model.to(self.config.device)
-        self.model.eval()
+#         self.enc = get_encoder(config)
+#         self.model = GPT2LMHeadModel(GPT2Config())
+#         self.model = load_weight(self.model, state_dict)
+#         self.model.to(self.config.device)
+#         self.model.eval()
 
-        self.init_tokens = torch.tensor(self.enc.encode(
-            self.config.init_text)).to(self.config.device)
+#         self.init_tokens = torch.tensor(self.enc.encode(
+#             self.config.init_text)).to(self.config.device)
 
-    def parse_out(self, out):
-        texts = []
-        for seq in out:
-            if self.enc.encoder["<|endoftext|>"] in seq:
-                text = seq[self.config.dim_z:seq.index(
-                    self.enc.encoder["<|endoftext|>"])]
-            else:
-                text = seq[self.config.dim_z:]
-            text = self.enc.decode(text)
+#     def parse_out(self, out):
+#         texts = []
+#         for seq in out:
+#             if self.enc.encoder["<|endoftext|>"] in seq:
+#                 text = seq[self.config.dim_z:seq.index(
+#                     self.enc.encoder["<|endoftext|>"])]
+#             else:
+#                 text = seq[self.config.dim_z:]
+#             text = self.enc.decode(text)
 
-            texts.append(text[:self.config.max_text_len])
-        return texts
+#             texts.append(text[:self.config.max_text_len])
+#         return texts
 
-    def generate(self, z, minibatch=None):
-        # TODO: implement minibatch
-        init_tokens = self.init_tokens.repeat(z.shape[0], 1)
-        z = torch.cat((z, init_tokens), dim=1)
+#     def generate(self, z, minibatch=None):
+#         # TODO: implement minibatch
+#         init_tokens = self.init_tokens.repeat(z.shape[0], 1)
+#         z = torch.cat((z, init_tokens), dim=1)
 
-        out = sample_sequence(
-            model=self.model,
-            length=self.config.max_tokens_len,
-            context=z,
-            start_token=None,
-            batch_size=self.config.batch_size,
-            temperature=0.7,
-            top_k=40,
-            device=self.config.device,
-            sample=self.config.stochastic
-        )
+#         out = sample_sequence(
+#             model=self.model,
+#             length=self.config.max_tokens_len,
+#             context=z,
+#             start_token=None,
+#             batch_size=self.config.batch_size,
+#             temperature=0.7,
+#             top_k=40,
+#             device=self.config.device,
+#             sample=self.config.stochastic
+#         )
 
-        return self.parse_out(out)
+#         return self.parse_out(out)
 
 
 class DeepMindBigGAN(torch.nn.Module):
