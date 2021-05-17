@@ -1,0 +1,808 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage{amssymb, amsmath}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvips]{graphicx}
+\setlength{\parindent}{7mm}
+\setlength{\parskip}{4mm}
+\usepackage{indentfirst}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{titlesec}
+\usepackage{paralist}
+\usepackage{comment}
+\usepackage{bigints}
+\usepackage{accents}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\restylefloat{table}
+
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}
+\makeatother
+
+
+
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+  \let\itemize\compactitem
+  \let\enditemize\endcompactitem
+  \let\enumerate\compactenum
+  \let\endenumerate\endcompactenum
+  \let\description\compactdesc
+  \let\enddescription\endcompactdesc
+  \pltopsep=1pt
+  \plitemsep=1pt
+  \plparsep=1pt
+
+\newcommand\myeq{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily $\lambda > 0$}}}{=}}}
+
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
+
+\titlespacing*{\section}{0pt}{1.\baselineskip}{\baselineskip}
+
+
+\newtheorem{tw}{Twierdzenie}
+\newtheorem{fakt}[tw]{Fakt}
+\newtheorem{lm}[tw]{Lemat}
+%\newtheorem{wn}[tw]{Wniosek}
+\newtheorem*{wn*}{Wniosek}
+\newtheorem{pr}{Przykład}
+\newtheorem{uwaga}[tw]{Uwaga}
+\newtheorem{zal}{Za³o¿enie}
+\newtheorem{df}{Definicja}
+\newtheorem{dw}{Dowód}
+
+
+\linespread{1.4}
+
+\pagestyle{myheadings}
+\pagestyle{plain}
+\usepackage{geometry}
+\newgeometry{tmargin=2.5cm, bmargin=2.5cm, lmargin=3cm, rmargin=2.5cm}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\newcommand*{\QEDB}{\hfill\ensuremath{\square}}
+\newcommand{\ignore}[1]{}
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{flushleft}
+\end{flushleft}
+\begin{center}
+\textsc{{\huge Politechnika Łódzka}}
+\end{center}
+\bigskip
+\bigskip
+\begin{center}
+\textsc{{\Large Wydział Fizyki Technicznej, Informatyki \\i Matematyki Stosowanej}}
+\end{center}
+\bigskip
+\bigskip
+\begin{center}
+\begin{Large}
+Kierunek: Matematyka Stosowana\\
+Specjalność: Matematyka finansowa i ubezpieczeniowa
+\end{Large}
+\end{center}
+\bigskip
+\bigskip
+\noindent\hrulefill
+\begin{center}
+\textsc{\textbf{{\large O rozkładzie sumy zmiennych losowych
+\\}}}
+\bigskip
+\bigskip
+
+{\large 
+Maciej Domagała
+\\
+Numer albumu: 
+219998
+\\}
+\end{center}
+\noindent\hrulefill
+\bigskip
+\bigskip
+\begin{center}
+{\large Praca magisterska\\
+napisana pod kierunkiem dr inż. Violetty Lipińskiej \\
+Instytut Matematyki
+ }
+\end{center}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\begin{center}
+{\textsc{\large Łódź, maj 2019
+}}
+\end{center}
+\end{titlepage}
+
+
+
+
+
+
+\tableofcontents
+
+
+
+\chapter*{Wstęp}
+\addcontentsline{toc}{chapter}{Wstęp}
+
+
+
+ 
+\chapter{Podstawowe definicje i oznaczenia}
+\section{Podstawowe definicje}
+
+Poniższa praca dotyczy pewnych własności zmiennych losowych, a zatem wskazane jest przytoczenie pewnych podstawowych definicji z zakresu probabilistyki.
+
+\begin{df} \textnormal{([3], str. 18)}\*\\
+Trójkę $(\Omega,\mathcal{F},P)$ gdzie $P$ jest funkcją prawdopodobieństwa określoną na $\sigma$-ciele $\mathcal{F}$ podzbiorów zbioru zdarzeń elementarnych $\Omega$, nazywamy przestrzenią probabilistyczną.
+\end{df}
+
+\begin{df} \textnormal{([3], str. 75)}\*\\
+Funkcję $X: \Omega \rightarrow \mathbb{R}$ nazywamy zmienną losową o wartościach w $\mathbb{R}$, jeżeli dla każdego $a \in \mathbb{R}$ zbiór $X^{-1}((1-\infty,a])$ jest zdarzeniem, czyli $X^{-1}((-\infty,a]) \in \mathcal{F}$.
+\end{df}
+
+Głównymi zmiennymi losowymi rozważanymi w tej pracy będą ciągłe zmienne losowe zdefiniowane następująco:
+
+\begin{df} \textnormal{([1], str. 31)}\*\\
+Mówimy, że zmienna losowa X jest typu ciągłego, jeżeli istnieje nieujemna funkcja f, określona i 
+całkowalna do jedynki na całej osi, spełniająca warunek 
+\begin{center}
+$\forall_{[x_{1}, x_{2}]} \: P\left(\left\lbrace\omega: x_{1} \leqslant X(\omega) \leqslant x_{2}\right\rbrace\right) = \int\limits^{x_2}_{x_1} f(x)dx.$
+\end{center}
+\end{df}
+
+\begin{df} \textnormal{([1], str. 35)}\*\\
+Niech $p \in (0,1)$. Liczbę $q_{p}(X)$ spełniającą warunki:
+
+\begin{center}
+$P(X \leqslant q_{p}(X)) \geqslant p \wedge P(X < q_{p}(X)) \leqslant p$
+\end{center}
+
+nazywamy kwantylem rzędu $p$ zmiennej losowej $X$.
+\end{df}
+
+\noindent Kwantyle tego samego rzędu tworzą przedział $[q^{-}_{X}(p),q^{+}_{X}(p)]$ gdzie
+\begin{gather}
+\begin{split}
+q^{-}_{X}(p) &=\textnormal{sup}\{x: P(X<x)<p\} \\ \nonumber
+								 &=\textnormal{inf} \{x: F(x)\geqslant p \} \nonumber
+\end{split}
+\end{gather}
+oraz\
+\begin{gather}
+\begin{split}
+q^{+}_{X}(p) &=\textnormal{inf}\{x: F(x)>p\} \\ \nonumber
+								 &=\textnormal{sup} \{x:  P(X<x) \leqslant p \}. \nonumber
+\end{split}
+\end{gather}
+
+Można zauważyć, że gdy zmienna losowa $X$ ma ciągłą i ściśle rosnącą dystrybuantę, to zachodzi równość $q^{-}_{X}(p) = q^{+}_{X}(p)$ dla każdego $p \in (0,1)$.\\
+
+
+\section{Miara ryzyka}
+
+Główną miarą ryzyka rozpatrywaną w tej pracy jest miara Value at Risk, zaproponowana w latach pięćdziesiątych zeszłego wieku przez m. in. Henry'ego Markowitza. W latach osiemdziesiątych firma JP Morgan wprowadziła system kalkulacji metryk VaR dla firm jako zastępstwo dla dotychczasowego systemu obliczania ryzyk portfeli inwestycyjnych. Sama miara jak i jej liczne pochodne (Expected Shortfall, CVaR) jest używana do dziś np. w przepisach regulacji zasad wypłacalności firm "Wypłacalność II"$\phantom{c}$opublikowanych przez Europejski Urząd Nadzoru Ubezpieczeń i Pracowniczych Programów Emerytalnych (EIOPA).
+
+
+\begin{df}
+Niech $X$ będzie zmienną losową o dystrybuancie $F$, oznaczającą wielkość straty portfela inwestycyjnego. Na zadanym poziomie ufności $p \in (0,1)$, Value at Risk jest najmniejszą taką liczbą $x$, że prawdopodobieństwo przekroczenia jej przez $X$ jest nie większe niż $(1-p)$:
+
+\begin{center}
+$VaR_{p}(X) = \textnormal{inf} \{x \in \mathbb{R}: F(x)\geqslant p \} = q_{p}(X).$
+\end{center}
+\end{df}
+
+Niech $\mathcal{L}$ oznacza przestrzeń zmiennych losowych opisanych na przestrzeni probabilistycznej $(\Omega,\mathcal{F},P)$, reprezentujących stratę portfela inwestycyjnego w pewnym ustalonym przedziale czasu. W celu poprawnego zdefiniowania miary ryzyka zakładać będziemy, że dla dowolnych $X_{1},X_{2} \in \mathcal{L}$ oraz $\lambda > 0$ zachodzi $X_{1} + X_{2} \in \mathcal{L}$ oraz $\lambda X_{1} \in \mathcal{L}$.
+
+\begin{df}\textnormal{([4], str. 5)}\*\\
+Funkcję rzeczywistą $\rho:\mathcal{L} \rightarrow \mathbb{R}$ nazywamy miarą ryzyka.
+\end{df}
+
+W pracy Artznera z 1999 roku przedstawione zostało pojęcie miar koherentnych, czyli spełniających pewne aksjomaty przedstawione poniżej. Koherentność miary ryzyka jest z finansowego punktu widzenia pożądanym zjawiskiem, wskazującym na dobre przełożenie pomiędzy zachowaniem ryzyk finansowych a wartością miary ryzyka.
+
+\begin{df}\textnormal{([4], str. 7)}\*\\
+Miarę ryzyka $\rho:\mathcal{L} \rightarrow \mathbb{R}$ nazywamy koherentną, jeżeli spełnia własności:
+
+\begin{enumerate}
+
+\item 
+
+monotoniczności, czyli dla dowolnych $X,Y \in \mathcal{L}$
+
+\begin{center}
+$X \leqslant Y \Rightarrow \rho(X) \leqslant \rho(Y)$,
+\end{center}
+
+\item 
+
+niezmienności na przesunięcia, czyli dla dowolnego $c \in \mathbb{R}$ i $X \in \mathcal{L}$
+
+\begin{center}
+$\rho(X+c) = \rho(X) + c$,
+\end{center}
+
+\item 
+
+dodatniej jednorodności, czyli dla dowolnego $\lambda > 0$ i $X \in \mathcal{L}$
+
+\begin{center}
+$\rho(\lambda X) = \lambda\rho(X)$,
+\end{center}
+
+\item 
+
+podaddytywności, czyli dla dowolnych $X,Y \in \mathcal{L}$
+
+\begin{center}
+$\rho(X+Y) \leqslant \rho(X) + \rho(Y)$.
+\end{center}
+
+\end{enumerate}
+
+\end{df}
+
+Warto zauważyć, że pomimo dużej popularności miary Value at Risk, nie spełnia ona wszystkich warunków powyższej definicji.
+
+\begin{lm}\*
+
+\noindent Miara ryzyka Value at Risk spełnia warunki dodatniej jednorodności, niezmienniczości na przesunięcia oraz monotoniczności, natomiast nie spełnia warunku podaddytywności. Nie jest zatem koherentną miarą ryzyka.
+
+\end{lm}
+
+\newpage
+
+\noindent \textit{Dowód.}
+
+\noindent Niech $p \in \mathbb{R}$.
+\begin{enumerate}
+\item
+\noindent Pokażmy warunek monotoniczności. Niech $X,Y \in \mathcal{L}$, $x \in \mathbb{R}$ oraz  $X \leqslant Y$.\\ 
+\noindent Zauważmy, że $Y \leqslant x \Rightarrow X \leqslant x$, co bezpośrednio implikuje $\lbrace \omega \in \Omega: Y(\omega) \leqslant x \rbrace \subset {\lbrace \omega \in \Omega: X(\omega) \leqslant x}\rbrace$. Zatem dla dowolnego poziomu ufności $p \in \mathbb{R}$ zachodzi
+\begin{center}
+$P(Y \leqslant x) \geqslant p \Rightarrow P(X \leqslant x) \geqslant p$.
+\end{center}
+Z dowolności $x \in \mathbb{R}$ mamy zatem 
+\begin{center}
+$\lbrace x \in \mathbb{R}: P(Y \leqslant x) \geqslant p\rbrace \subset \lbrace x \in \mathbb{R}: P(X \leqslant x) \geqslant p \rbrace$,
+\end{center}
+co z własności infimum zbiorów daje
+\begin{center}
+$\textnormal{inf} \lbrace x \in \mathbb{R}: P(X \leqslant x) \geqslant p \rbrace \leqslant  \textnormal{inf} \lbrace x \in \mathbb{R}: P(Y \leqslant x) \geqslant p \rbrace$.
+\end{center}
+Zatem $VaR_{p}(X) \leqslant VaR_{p}(Y)$.
+\item
+\noindent Pokażmy warunek niezmienniczości na przesunięcia. Niech $c \in \mathbb{R}$ i $X \in \mathcal{L}$.
+\begin{center}
+$VaR_{p}(X + c) = \textnormal{inf} \lbrace x \in \mathbb{R}: P(X + c \leqslant x) \geqslant p \rbrace = \textnormal{inf} \lbrace x \in \mathbb{R}: P(X \leqslant x - c) \geqslant p \rbrace$.
+\end{center}
+Dla $ y = x-c$ mamy $x = y +c$ i z własności infimum zbioru
+\begin{gather}
+\textnormal{inf} \lbrace x \in \mathbb{R}: P(X \leqslant x - c) \geqslant p \rbrace = \nonumber \textnormal{inf} \lbrace y+c \in \mathbb{R}: P(X \leqslant y) \geqslant p \rbrace = \nonumber \\ \textnormal{inf} \lbrace y \in \mathbb{R}: P(X \leqslant y) \geqslant p \rbrace + c = VaR_{p}(X) + c. \nonumber
+\end{gather}
+\item
+\noindent Pokażmy warunek dodatniej jednorodności. Niech $\lambda > 0$ i $X \in \mathcal{L}$.
+\begin{gather}
+\begin{split}
+VaR_{p}(\lambda X) &= \textnormal{inf} \lbrace x \in \mathbb{R}: P(\lambda X \leqslant x) \geqslant p \rbrace = \textnormal{inf} \left\lbrace x \in \mathbb{R}: P\left(X \leqslant \dfrac{x}{p}\right) \geqslant p \right\rbrace \nonumber \\
+&= \textnormal{inf} \lbrace \lambda x \in \mathbb{R}: P(X \leqslant x) \geqslant p \rbrace = \lambda VaR_{p}(X). \nonumber
+\end{split}
+\end{gather}
+\item
+\noindent Pokażmy kontrprzykład na warunek podaddytywności. Niech $p = 0.95$.\\
+\noindent Niech $X$ będzie zmienną losową o rozkładzie dyskretnym, który można opisać poniższą tabelą
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{r|c|c}
+${X}$&$100$& $0$\\ \hline
+$p_{i}$ & $0.96$ & $0.04$  \\
+\end{tabular}
+\end{center}
+\end{table}
+
+Niech $Y$ będzie zmienną losową o tym samym rozkładzie, niezależną od $X$.\\ \noindent Zauważmy, że $VaR_{0.95}(X) = VaR_{0.95}(Y) = 0$.\\
+\noindent Rozważmy rozkład sumy $X+Y$. Możemy go przedstawić następująco
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{r|c|c|c}
+${X+Y}$&$200$& $100$ &$0$\\ \hline
+$p_{i}$ & $(0.96)^2 = 0.9216$ & $0.0768$ & $(0.04)^2 = 0.0016$ 
+\end{tabular}
+\end{center}
+\end{table}
+
+\noindent Otrzymujemy, że $VaR_{0.95}(X+Y) = 100$, zatem  $VaR_{0.95}(X+Y) = 100 \nleqslant 0 + 0 = VaR_{0.95}(X) + VaR_{0.95}(Y)$, co przeczy warunkowi subaddytywności.\\
+ \phantom{1} \hfill \QEDB
+
+
+\end{enumerate}
+
+\subsection{Definicja z punktu widzenia inwestora}
+
+Należy nadmienić, że w literaturze występuje zróżnicowanie dotyczące sposobu definiowania Value at Risk oraz aksjomatów określających koherentną miarę ryzyka. Podane w tym podrozdziale definicje dotyczą mierzenia zmiennych losowych opisujących pewną $\textbf{stratę}$. Takie podejście zaprezentowane jest np. w [5], [6] i dotyczy tzw. "ubezpieczeniowej" \phantom{v} wersji Value at Risk. Często (np. w [2]) Value at Risk definiowany jest dla zmiennych losowych określających $\textbf{zysk}$ inwestora, wówczas wprowadzany jest wzór 
+\begin{center}
+$VaR_{p}^{z}(X)  = -q^{+}_{X}(p) =-\textnormal{inf}\lbrace x: P(X \leqslant x) > p \rbrace = VaR_{p}(-X)$.
+\end{center}
+Jeżeli zmienna losowa $X$ przyjmuje jedynie wartości dodatnie, czyli inwestor na pewno nie poniesie żadnych strat, $VaR_{p}^{z}(X)$ przyjmuje wartości ujemne, zatem kapitał inwestora nie jest zagrożony. Znajdywanie wartości $VaR$ portfela związane jest z oszacowaniem dystrybuanty, stąd też w tej pracy wykorzystywana jest definicja $VaR$ bezpośrednio nawiązująca do rozkładu, czyli "kwantylowa" definicja $VaR$.
+
+
+\chapter{Ograniczenia dystrybuanty rozkładu sumy zmiennych losowych}
+
+Rozważmy łączny portfel ubezpieczyciela $\sum\limits_{i=1}^{n} X_{i}$ składający się z ryzyk opisanych przez wektor $X = (X_{1},...,X_{n})$, gdzie dystrybuanty brzegowe  $F_{i} \sim X_{i}$ są znane, ale struktura zależności pomiędzy składowymi portfela jest nieznana. Problem polega na znalezieniu największej i najmniejszej wartości Value at Risk. Zważywszy na przyjętą definicję $VaR$ (kwantyl rozkładu), problem w dużej mierze polega na rozpatrzeniu różnych postaci rozkładu sumy zmiennych losowych. Co za tym idzie, w tym i kolejnym rozdziale przedstawione zostaną rozważania dotyczące ograniczeń dystrybuanty sumy zmiennych oraz twierdzenie łączące otrzymane wyniki z ograniczeniami $VaR$.
+
+Wprowadźmy oznaczenia:
+
+\begin{center}
+$M_{n}(t) := \text{sup} \left\lbrace  P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right): X_{i} \sim F_{i}, 1 \leqslant i \leqslant n \right\rbrace $
+\end{center}
+oraz
+\begin{center}
+$m_{n}(t) := \text{inf} \left\lbrace  P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right): X_{i} \sim F_{i}, 1 \leqslant i \leqslant n \right\rbrace $,
+\end{center}
+gdzie supremum i infimum są brane z uwzględnieniem wszystkich możliwych zależności między zmiennymi $X_{i}$.
+Wówczas powyższe wzory indykują naturalną zależność
+
+\begin{center}
+$m_{n}(t) \leqslant P \left( \sum\limits_{i=1}^{n} X_{i} \leqslant t \right) \leqslant M_{n}(t)$.
+\end{center}
+\newpage
+Na początku przedstawione zostanie twierdzenie wprowadzające tzw. standardowe ograniczenia dystrybuanty sumy zmiennych losowych. Przedstawmy najpierw dwie wykorzystywane w twierdzeniu definicje.
+
+\begin{df} \textnormal{([5], str. 72)}\*\\
+Niech $t \in \mathbb{R}$. Liczbę
+\begin{center}
+$\bigwedge\limits_{i=1}^{n} F_{i}(t) := \textnormal{inf}\left\lbrace\sum\limits_{i=1}^{n} F_{i}(u_i): \sum\limits_{i=1}^{n} u_i = t\right\rbrace$
+\end{center}
+nazywamy \textbf{minimalnym splotem} dystrybuant $(F_{i})$, zaś liczbę
+\begin{center}
+$\bigvee\limits_{i=1}^{n} F_{i}(t) := \textnormal{sup}\left\lbrace\sum\limits_{i=1}^{n} F_{i}(u_i): \sum\limits_{i=1}^{n} u_i = t\right\rbrace$
+\end{center}
+nazywamy \textbf{maksymalnym splotem} dystrybuant $(F_{i})$.
+\end{df}
+
+\begin{tw}\textnormal{([5], str. 72)}\*\\
+Niech $X = (X_{1},...,X_{n})$ będzie wektorem losowym o dystrybuantach brzegowych $F_{1},...,F_{n}$. Wówczas dla dowolnego $t \in \mathbb{R}$ zachodzą nierówności:
+\begin{equation}
+\textnormal{max}\left( \bigvee\limits_{i=1}^{n} F_{i}(t) - (n-1),0 \right) \leqslant P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right) \leqslant \textnormal{min}\left(\bigwedge\limits_{i=1}^{n} F_{i}(t), 1\right). \nonumber
+\end{equation}
+\end{tw}
+
+\noindent \textit{Dowód.}
+
+\noindent Niech $n \in \mathbb{N}$, $t \in \mathbb{R}$ oraz niech $u_{1},...,u_{n} \in \mathbb{R}$ będą tak dobrane, że $\sum\limits_{i=1}^{n} u_{i} = t$.\\
+\noindent Pokażmy najpierw, że zachodzi nierówność
+\begin{equation}
+P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right) \leqslant P\left( \bigcup\limits_{i=1}^{n} \lbrace X_{i} \leqslant u_{i} \rbrace \right) \tag{$\star$}
+\end{equation}
+\noindent Rozważmy następujące podzbiory przestrzeni $\mathbb{R}^n$:
+\begin{center}
+$A_{1} = \lbrace x = (x_{1},...,x_{n}) \in \mathbb{R}^n : x_{1} + ... + x_{n} > u_{1} + ... + u_{n} \rbrace$ \\
+$A_{2} = \lbrace x = (x_{1},...,x_{n}) \in \mathbb{R}^n : \lbrace x_{1} > u_{1} \rbrace \cap  ... \cap \lbrace x_{n} > u_{n} \rbrace$
+\end{center}
+\noindent Zauważmy, że dla pewnego małego $\epsilon > 0$ możemy dobrać następujące elementy:
+\begin{centering}
+$x_{1} = u_{1} + \epsilon$\\
+$x_{1} = u_{1} + \epsilon$\\
+$\vdots$\\
+$x_{n-1} = u_{n-1} + \epsilon$ \\
+\medskip
+$x_{n} = u_{n} - \dfrac{(n-1)\epsilon}{2}.$\\
+\end{centering}
+
+\noindent Wówczas
+\begin{center}
+$x_{1} + ... + x_{n} =  u_{1} + ... + u_{n} + (n-1)\epsilon - \dfrac{(n-1)\epsilon}{2} = u_{1} + ... + u_{n} + \dfrac{(n-1)\epsilon}{2}$.
+\end{center}
+\noindent Widać,  że $x = (x_{1},...,x_{n}) \in A_{1}$, ale $x_{n} < u_{n}$, zatem  $x = (x_{1},...,x_{n}) \notin A_{2}$.\\
+Z drugiej strony, jeżeli dla pewnego $x = (x_{1},...,x_{n}) \in \mathbb{R}^n$ zachodzi warunek $\forall_{i} \phantom{1} x_{i} > u_{i}$, to naturalnie $x_{1} + ... + x_{n} > u_{1} + ... + u_{n}$. Z powyższych wnioskujemy, że $A_{2} \subset A_{1}$ oraz $A_{1} \not\subset A_{2}$. Przechodząc do prawdopodobieństwa, mamy zatem $P(A_{2}) < P(A_{1})$, co implikuje $P(A_{1}^{c}) < P(A_{2}^{c})$, gdzie $A_{i}^{c}$ oznacza dopełnienie zbioru $A_{i}$.  \\
+\noindent Przyjmując $A_{1} = \left\lbrace \sum\limits_{i=1}^{n} X_{i} > t \right\rbrace$ oraz $A_{2} = \bigcup\limits_{i=1}^{n} \left\lbrace X_{i} > u_{i} \right\rbrace $ dostajemy
+\begin{center}
+$P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right) = P(A_{1}^{c}) < P(A_{2}^{c}) =  P\left( \left( \bigcap\limits_{i=1}^{n} \lbrace X_{i} > u_{i} \rbrace \right)^{c} \right) = P\left( \bigcup\limits_{i=1}^{n} \lbrace X_{i} \leqslant u_{i} \rbrace \right)$.
+\end{center}
+\noindent Ponadto zauważmy, że
+\begin{equation}
+P\left( \bigcup\limits_{i=1}^{n} \lbrace X_{i} \leqslant u_{i} \rbrace \right) \leqslant \sum\limits_{i=1}^{n} P\left( \lbrace X_{i} \leqslant u_{i} \rbrace \right) = \sum\limits_{i=1}^{n} F_{i}(u_{i}). \tag{$\star$ $\star$}
+\end{equation}
+\noindent Ograniczenie zostało pokazane dla dowolnych $u_{1},...,u_{n} \in \mathbb{R}$ spełniających $\sum\limits_{i=1}^{n} u_{i} = t$. Biorąc elementy $u_{1},...,u_{n} \in \mathbb{R}$ minimalizujące sumę dystrybuant i korzystając z ($\star$) oraz ($\star \star$) mamy więc
+\begin{center}
+$P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right) \leqslant \textnormal{min}\left(\bigwedge\limits_{i=1}^{n} F_{i}(t), 1\right)$.
+\end{center}
+\noindent Ograniczenie z góry zostało pokazane, pokażmy teraz ograniczenie z dołu.\\ Udowodnimy pomocniczą nierówność
+\begin{equation}
+\sum\limits_{i=1}^{n} F_{i}(t) - (n-1) \leqslant P\left( X_{1} \leqslant u_{1},..., X_{n}  \leqslant u_{n} \right). \tag{$\star$'}
+\end{equation}
+
+\noindent Pokażemy ją w sposób indukcyjny. Zauważmy wpierw, że dla $n= 2$ zbiorów $A_{1}$ i $A_{2}$ zachodzi
+$P(A \cap B) = P(A) + P(B) - P(A \cup B)$, zatem
+\begin{center}
+$P(A \cap B) \geqslant P(A) + P(B) - 1 = P(A) + P(B) - (n-1) $
+\end{center}
+\noindent Załóżmy, że dla dowolnego $n \in \mathbb{N}$ i zbiorów $A_{1},...,A_{n}$ zachodzi
+\begin{gather}
+P\left( \bigcap\limits_{i=1}^{n} A_{i}\right) \geqslant \sum\limits_{i=1}^{n} P(A_{i})  - (n-1). \tag{i}
+\end{gather}
+\noindent Wówczas dla $n+1$ zbiorów $A_{1},...,A_{n+1}$ zachodzi
+\begin{center}
+$P\left( \bigcap\limits_{i=1}^{n+1} A_{i}\right) = P\left( \bigcap\limits_{i=1}^{n} A_{i} \cap A_{n+1} \right) \geqslant P\left( \bigcap\limits_{i=1}^{n} A_{i} \right) + P\left( A_{n+1} \right) -1 \geqslant 
+\sum\limits_{i=1}^{n} P(A_{i})  - (n-1) + P\left( A_{n+1} \right) -1 =  \sum\limits_{i=1}^{n+1} P(A_{i})  - ((n+1)-1) .$
+\end{center}
+\noindent Zatem indukcyjnie pokazaliśmy nierówność (i). Kładąc $A_{i} = \lbrace X_{i} \leqslant u_{i} \rbrace$ otrzymujemy wzór $\star '$. Ponadto, powtarzając rozumowanie z pierwszej części dowodu, jeżeli dla pewnego $x = (x_{1},...,x_{n}) \in \mathbb{R}^n$ zachodzi warunek $\forall_{i} \phantom{1} x_{i} \leqslant u_{i}$, to naturalnie $x_{1} + ... + x_{n} \leqslant u_{1} + ... + u_{n}$. Stąd wynika
+\begin{equation}
+P\left( X_{1} \leqslant u_{1},..., X_{n}  \leqslant u_{n} \right) \leqslant P\left(\sum\limits_{i=1}^{n} X_{i} \leqslant t\right) \tag{$\star\star$'}
+\end{equation}
+Korzystając z $\star$' oraz $\star\star$' oraz dobierając ${u_{i}}$ maksymalizujące sumę dystrybuant otrzymujemy ograniczenie z dołu.
+Łącząc ograniczenia z góry i z dołu otrzymujemy tezę twierdzenia.\\
+ \phantom{1} \hfill \QEDB
+ 
+Należy nadmienić, że udowodnione powyżej twierdzenie jest dość ogólne - zachodzi dla dowolnej liczby zmiennych losowych oraz dla dowolnych postaci dystrybuant tych zmiennych. Wiąże się z tym pewne ograniczenie dokładności wyprowadzonych nierówności, bowiem pokazane w twierdzeniu 2 ograniczenia można polepszyć już dla $n \geqslant 3$ zmiennych, zakładając znajomość rozkładów $X_{i}$. Mimo tego ogólność zastosowania twierdzenia jest użyteczna - otrzymane wyniki można wykorzystać np. przy numerycznym poszukiwaniu wartości dystrybuanty sumy wykorzystując metodę poławiania - wówczas przedział otrzymany przy użyciu twierdzenia 2 możemy traktować jako przedział startowy algorytmu.\\
+Okazuje się, że dla $n = 2$ zmiennych losowych ograniczenia twierdzenia 2 są optymalne - równe są odpowiednio $m_{2}(t)$ oraz $M_{2}(t)$. W kolejnym rozdziale zostanie przedstawiony dowód tego faktu.
+
+\chapter{Maksymalny i minimalny VaR dla sumy dwóch zmiennych losowych}
+\section{Ograniczenia dystrybuanty sumy dwóch zmiennych losowych}
+
+Niech zmienne losowe $X_{1}$ i $X_{2}$ mają dystrybuanty odpowiednio $F_{1}(x) = P(X_{1}\leqslant x)$ i $F_{2}(x) = P(X_{2} \leqslant x)$. Wprowadźmy ponadto dla uproszczenia zapisów $\psi_{i}(p) = VaR_{p}(X_{i}) =  \textnormal{inf} \{x \in \mathbb{R}: F_{i}(x)\geqslant p \}$.\
+Wobec oznaczeń wprowadzonych w poprzednim rozdziale można pokazać, że
+\begin{equation}
+M_{2}(t) = \underset{0 < u_{1} < t}{\textnormal{inf}} \left\lbrace F_{1}(u_{1}) + F_{2}(t -u_{1}) \right\rbrace,\\
+\end{equation}
+\begin{equation}
+m_{2}(t) = \underset{0 < u_{1} < t}{\textnormal{sup}} \left\lbrace F_{1}(u_{1}) + F_{2}(t -u_{1}) \right\rbrace -1.
+\end{equation}
+zakładając, że obie wartości należą do przedziału $[0,1]$. W tej pracy zamieszczone zostaną dowody twierdzeń dotyczących $M_{2}(t)$ - idee wykorzystywane przy rozważaniu $m_{2}(t)$ są analogiczne.\\
+Aby pokazać (3.1), zauważmy najpierw pewną relację.
+
+\begin{tw}\textnormal{(własne)}\*\\
+Niech 
+\begin{equation}
+p^{\star} =  \underset{0 < u_{1} < t}{\textnormal{inf}} \left\lbrace F_{1}(u_{1}) + F_{2}(t -u_{1}) \right\rbrace
+\end{equation}
+oraz 
+\begin{equation}
+\bar c = \textnormal{sup} \left\lbrace 0<c<1: \underset{0<p<c}{\textnormal{sup}} \left\lbrace \psi_{1}(p) + \psi_{2}(c-p) \right\rbrace <t\ \right\rbrace.
+\end{equation}
+Wówczas $p^{\star} = \bar c$.
+\end{tw}
+
+\noindent \textit{Dowód.}
+
+\noindent \textbf{\RomanNumeralCaps{1}.}  Pokażemy, że $p^{\star} \leqslant \bar c$.\\
+\noindent Załóżmy, że $p^{\star} > \bar c$. Wówczas istnieje $\epsilon > 0$ takie, że $ p^{\star} > p^{\star}_{\epsilon} = p^{\star} - \epsilon > \bar c$. Warunek $p^{\star}_{\epsilon} > \bar c$ oznacza istnienie takiego $p' \in (0,p^{\star}_{\epsilon})$, że  $\psi_{1}(p') + \psi_{2}(p^{\star}_{\epsilon}-p')  \geqslant t$.\\
+\noindent Przypuśćmy pierw, że $\psi_{1}(p') + \psi_{2}(p^{\star}_{\epsilon}-p')  = t$.\\
+\noindent Przyjmując $u'_{1} = \psi_{1}(p')$ oraz $u'_{2} = \psi_{2}(p^{\star}_{\epsilon}-p')$ uzyskujemy $u'_{1} + u'_{2} = t$ oraz $F_{1}(u'_{1}) + F_{2}(u'_{2}) = p' + p^{\star}_{\epsilon} - p' = p^{\star}_{\epsilon} <  p^{\star}$ co przeczy definicji $ p^{\star}$.\\
+\noindent Przypuśćmy, że $\psi_{1}(p') + \psi_{2}(p^{\star}_{\epsilon}-p')  = t' > t$.\\
+\noindent Ponownie, niech $u'_{1} = \psi_{1}(p')$ i $u'_{2} = \psi_{2}(p^{\star}_{\epsilon}-p')$. Skoro $t' > t$ to $t' - u'_{1} > t - u'_{1}$. Zatem z monotoniczności dystrybuanty
+\begin{equation}
+F_{1}(u'_{1}) + F_{2}(t - u'_{1}) \leqslant F_{1}(u'_{1}) + F_{2}(t'-u'_{1}) = p^{\star}_{\epsilon}. \nonumber
+\end{equation} 
+Z drugiej strony
+\begin{equation}
+p^{\star} = \underset{0 < u'_{1} < t}{\textnormal{inf}} \left\lbrace F_{1}(u'_{1}) + F_{2}(t -u'_{1}) \right\rbrace \leqslant F_{1}(u'_{1}) + F_{2}(t - u'_{1}), \nonumber
+\end{equation} 
+Co prowadzi do $p^{\star} \leqslant p^{\star}_{\epsilon}$, zatem sprzeczność z $p^{\star} > p^{\star}_{\epsilon}$.\\
+\noindent \textbf{\RomanNumeralCaps{2}.} Pokażemy, że $p^{\star} \geqslant \bar c$.\\
+\noindent Załóżmy, że $p^{\star} < \bar c$. Wówczas dla dowolnego $p' \in (0,p^{\star})$ zachodzi $\psi_{1}(p') + \psi_{2}(p^{\star}-p')  < t$. Z drugiej strony $p^{\star} = F_{1}(u^{\star}_{1}) + F_{2}(t-u^{\star}_{1})$ dla pewnego $u_{1}^{\star} \in (0,t)$, więc
+\begin{equation}
+\psi_{1}(p^{\star}_{1}) + \psi_{2}(p^{\star}-p^{\star}_{1})  = t \nonumber,
+\end{equation}
+co ponownie doprowadza do sprzeczności.\\
+ \phantom{1} \hfill \QEDB
+ 
+Podobnie można przeprowadzić dowód twierdzenia
+
+\begin{tw}\textnormal{(własne)}\*\\
+Niech
+\begin{equation}
+p^{\star\star} =  \underset{0 < u_{1} < t}{\textnormal{sup}} \left\lbrace F_{1}(u_{1}) + F_{2}(t -u_{1}) \right\rbrace -1.
+\end{equation}
+oraz 
+\begin{equation}
+\textrm{\underline{c}} = \textnormal{inf}  \left\lbrace 0<c<1: \underset{c<p<1}{\textnormal{inf}}  \left\lbrace \psi_{1}(p) + \psi_{2}(1+c-p) \right\rbrace  \geqslant t \right\rbrace.
+\end{equation}
+Wówczas $p^{\star\star} = \textrm{\underline{c}}$.
+\end{tw}
+
+Wnioskując z twierdzenia (3), aby pokazać (3.1) wystarczy pokazać, że $M_{2}(t) = \bar c$. Twierdzenie w takiej formie zostało udowodnione przez Makarova w 1981 roku. Dowód z uwzględnieniem prawostronnie ciągłej dystrybuanty zostanie przedstawiony poniżej.
+
+\begin{tw}\textnormal{([3], str. 804)}\*\\
+Niech $t$ będzie dowolną liczbą rzeczywistą. Wówczas zachodzi równość:\
+\begin{center}
+$M_{2}(t) = \textnormal{sup} \left\lbrace 0<c<1: \underset{0<p<c}{\textnormal{sup}} \left\lbrace \psi_{1}(p) + \psi_{2}(c-p) \right\rbrace <t\ \right\rbrace $.
+\end{center}
+\end{tw}
+
+\begin{tw}\textnormal{([3], str. 804)}\*\\
+Niech $t$ będzie dowolną liczbą rzeczywistą. Wówczas zachodzi równość:\
+\begin{center}
+ $m_{2}(t) = \textnormal{inf}  \left\lbrace 0<c<1: \underset{c<p<1}{\textnormal{inf}}  \left\lbrace \psi_{1}(p) + \psi_{2}(1+c-p) \right\rbrace  \geqslant t \right\rbrace $.
+\end{center}
+\end{tw}
+
+Przedstawmy najpierw metodę zdefiniowania zmiennej losowej $\theta$ wykorzystywaną w dowodzie.\
+Zauważmy, że dla dowolnej zmiennej losowej $X$ o dystrybuancie $F$ możemy skonstruować zmienna $\theta$ w następujący sposób: gdy dla zdarzenia losowego $\omega$ zachodzi $P(X = X(\omega)) = 0$, to $\theta(\omega) = F(X(\omega))$, zaś gdy $P(X = X(\omega)) = p_{i} > 0$, to zmienna losowa $\theta$ jest jednostajnie określona na przedziale $[F(X(\omega)) - p_{i}, F(X(\omega))]$. Tak określona zmienna $\theta$ ma rozkład jednostajny na przedziale $[0,1]$.\\
+Ponadto, zachodzi twierdzenie:
+
+\begin{tw}\textnormal{([7], str. 111)}\*\\
+Niech $\theta$ będzie zmienną losową o rozkładzie jednostajnym na przedziale $[0,1]$  niech zmienna losowa $X$ będzie zdefiniowana jako $\psi(\theta)$, gdzie  $\psi(p) =     \textnormal{inf} \{x: F(x)\geqslant p \}$ dla pewnej dystrybuanty $F$. Wówczas zachodzą warunki:
+\begin{enumerate}
+
+\item 
+
+$\lbrace X \leqslant x \rbrace = \lbrace \theta \leqslant F(x) \rbrace$ dla dowolnego $x \in \mathbb{R}$
+
+\item 
+
+$X = \psi(\theta)$ ma rozkład o dystrybuancie $F$.
+
+\end{enumerate}
+
+\end{tw}
+
+\noindent \textit{Dowód.}
+
+\noindent Niech $x \in \mathbb{R}$ oraz $X \leqslant x$. Wówczas $\psi(\theta) \leqslant x$ czyli $\textnormal{inf} \{t: F(t)\geqslant \theta \} \leqslant x$. To z kolei oznacza, że dla dowolnego $\epsilon > 0$ zachodzi $F(x+\epsilon) \geqslant \theta$, co z prawostronnej ciągłości dystrybuanty daje bezpośrednio $F(x) \geqslant \theta$.\\
+\noindent Niech teraz $\theta \leqslant F(x)$ dla pewnego $x \in \mathbb{R}$. Wówczas $X = \psi(\theta) = \textnormal{inf} \{t: F(t)\geqslant \theta \} \leqslant x$, co dowodzi punktu 1 twierdzenia. Punkt 2 jest bezpośrednim następstwem punktu 1.\\
+ \phantom{1} \hfill \QEDB
+
+\noindent \textit{Dowód} twierdzenia 4.\\
+Niech $X_{1}$ i $X_{2}$ będą zmiennymi losowymi o dystrybuantach odpowiednio $F_{1}$ i $F_{2}$ 
+Wprowadźmy oznaczenie
+\begin{center}
+$\bar c =  \textnormal{sup}\{0<c<1: \underset{0<p<c}{\textnormal{sup}}\psi_{1}(p) + \psi_{2}(c-p)\} <t\}$.,\\
+\end{center}
+
+\noindent \textbf{\RomanNumeralCaps{1}.} Pokażemy, że $M_{2}(t) \geqslant \bar c$.\\
+Dla zmiennej losowej $X_{1}$ skonstruujmy zmienną losową $\theta_{1}$ w sposób podany wcześniej. Niech $0 \leqslant c \leqslant \bar c$ oraz
+\[
+  \theta_{2} =
+  \begin{cases}
+                                   c - \theta_{1} & \text{dla} \ \theta_{1} < c \\
+                                   \theta_{1} & \text{dla} \ \theta_{1}  \geqslant c \\
+  \end{cases}
+\]
+
+
+\noindent Zauważmy, że $\psi_{2}(\theta_{2})$ ma rozkład o dystrybuancie $F_{2}$. Mamy
+\begin{gather}
+\begin{split}
+P(\psi_{2}(\theta_{2}) \leqslant y) &= P(\lbrace \psi_{2}(c-\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} < c \rbrace) \nonumber \\
+					  &= P(\lbrace \psi_{2}(\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace) = P_{1} + P_{2}. \nonumber
+\end{split}
+\end{gather}
+
+\noindent Zauważmy, że dla dowolnego $y \in \mathbb{R}$ zachodzi zależność
+\begin{gather}
+\{p:p<F(y)\} \subseteq \{p:\psi(p) \leqslant y\} \subseteq \{p:p \leqslant F(y)\}. \tag{$\star_{1}$}
+\end{gather}
+
+\noindent Istotnie, niech $y \in \mathbb{R}$ oraz $p < F(y)$ i załóżmy, że $\psi(p) > y$. To oznaczałoby, że $\textnormal{inf} \{x: F(x)\geqslant p \} > y$, czyli, że dla dowolnego $x$ spełniającego $F(x) \geqslant p$ zachodzi $x > y$.\\
+\noindent Zauważmy jednak, że istnieje takie $\epsilon > 0$, że $p + \epsilon < F(y)$. Niech $x_{1}$ będzie takie, że $F(x_{1}) = p + \epsilon$. Wówczas z jednej strony $F(x_{1}) = P + \epsilon > p$, zaś z drugiej $F(x_{1}) = p + \epsilon < F(y)$ co pociąga za sobą $x_{1} \leqslant y$. Otrzymujemy sprzeczność z założeniem $\psi(p) > y$.\\
+\noindent Pokażmy teraz drugie zawieranie. Niech $\psi(p) \leqslant y$ i załóżmy, że $p > F(y)$. Warunek $\psi(p) \leqslant y$ oznacza, że istnieje takie $x_{1}$, że $F(x_{1}) \geqslant p$ i $x_{1} \leqslant y$. Skoro $x_{1} \leqslant y$ to z własności dystrybuanty  $F(x_{1}) \leqslant F(y)$ i finalnie $p \leqslant F(x_{1}) \leqslant F(y)$ co przeczy założeniu $p > F(y)$. Powyższe rozważania dowodzą ($\star_{1}$).\\
+\noindent Niech $F_{2}(y) \leqslant c$. Korzystając z wykazanej zależności ($\star_{1}$) możemy zaprezentować poniższe nierówności:
+\begin{gather}
+\begin{split}
+P_{1} &= P(\lbrace \psi_{2}(c-\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} < c \rbrace)  \leqslant P(\lbrace c-\theta_{1} \leqslant F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} < c \rbrace) \\
+&= P(c - F_{2}(y) \leqslant \theta_{1} < c) = c - (c - F_{2}(y)) = F_{2}(y), \nonumber
+\end{split}
+\end{gather}
+\begin{gather}
+\begin{split}
+P_{1} &= P(\lbrace \psi_{2}(c-\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} < c \rbrace)  \geqslant P(\lbrace c-\theta_{1} < F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} < c \rbrace) \\
+&= P(c - F_{2}(y) < \theta_{1} < c) = c - (c - F_{2}(y)) = F_{2}(y), \nonumber
+\end{split}
+\end{gather}
+\begin{gather}
+\begin{split}
+P_{2} &= P(\lbrace \psi_{2}(\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace)  \leqslant P(\lbrace \theta_{1} \leqslant F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace) = 0, \nonumber
+\end{split}
+\end{gather}
+
+\noindent skąd otrzymujemy $P_{1} + P_{2} = F_{2}(y)$.\\
+\noindent Niech $F_{2}(y) > c$. Wówczas w podobny sposób korzystając z zależności ($\star_{1}$) otrzymujemy:
+\begin{gather}
+\begin{split}
+P_{1} &= P(\lbrace \psi_{2}(c-\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} < c \rbrace)  \leqslant P(\lbrace c-\theta_{1} \leqslant F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} < c \rbrace) \\
+&= P(c - F_{2}(y) \leqslant \theta_{1} < c) = P(\theta_{1} < c) = c, \nonumber
+\end{split}
+\end{gather}
+\begin{gather}
+\begin{split}
+P_{1} &= P(\lbrace \psi_{2}(c-\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} < c \rbrace)  \geqslant P(\lbrace c-\theta_{1} < F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} < c \rbrace) \\
+&= P(c - F_{2}(y) < \theta_{1} < c) = P(\theta_{1} < c) = c, \nonumber
+\end{split}
+\end{gather}
+\begin{gather}
+\begin{split}
+P_{2} &= P(\lbrace \psi_{2}(\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace)  \geqslant P(\lbrace \theta_{1} < F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace) \\
+&= P(c \leqslant \theta_{1} \leqslant F_{2}(y)) = F_{2}(y) - c, \nonumber
+\end{split}
+\end{gather}
+\begin{gather}
+\begin{split}
+P_{2} &= P(\lbrace \psi_{2}(\theta_{1}) \leqslant y \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace)  \leqslant P(\lbrace \theta_{1} \leqslant F_{2}(y) \rbrace  \wedge \lbrace \theta_{1} \geqslant c \rbrace) \\
+&= P(c \leqslant \theta_{1} \leqslant F_{2}(y)) = F_{2}(y) - c, \nonumber
+\end{split}
+\end{gather}
+\noindent skąd ponownie otrzymujemy $P_{1} + P_{2} = F_{2}(y)$. Finalnie oznacza to, że $P(\psi_{2}(\theta_{2}) \leqslant y) = F_{2}(y)$ dla dowolnego $y \in \mathbb{R}$, zatem $\psi_{2}(\theta_{2}) \sim F_{2}$. Z twierdzenia 5 wiemy również, że $\psi_{1}(\theta_{1}) \sim F_{1}$.   \\
+\noindent Niech zatem $c < \bar c$. Mamy 
+\begin{gather}
+\begin{split}
+P(X_{1} + X_{2} \leqslant t) &= P(\psi_{1}(\theta_{1}) + \psi_{2}(\theta_{2}) \leqslant t) \\ \nonumber
+								  &= P(\lbrace \psi_{1}(\theta_{1}) + \psi_{2}(\theta_{2}) \leqslant t \rbrace \wedge \lbrace \theta_{1} < c \rbrace) \\ \nonumber
+								  & ~~~ + P(\lbrace \psi_{1}(\theta_{1}) + \psi_{2}(\theta_{2}) \leqslant t \rbrace \wedge \lbrace \theta_{1} \geqslant c \rbrace) = c + \tilde{P}_{2} \geqslant c,  \nonumber		     
+\end{split}
+\end{gather}
+co wobec dowolności $c < \bar c$ daje
+\begin{gather}
+M_{2}(t) \geqslant \bar c.
+\end{gather}
+\noindent \textbf{\RomanNumeralCaps{2}.} Pokażemy, że $M_{2}(t) \leqslant \bar c$.
+
+\noindent Niech $n \in \mathbb{N}$ będzie dostatecznie dużą liczbą naturalną. Wprowadźmy oznaczenia:
+\begin{center}
+$x_{i} = \psi_{1}\left( \dfrac{i}{n} \right) ; \hspace{3mm} y_{i} = \psi_{2}\left( \dfrac{i}{n} \right), \hspace{3mm}  i = 0,1,...,n$
+\end{center}
+Ponadto, niech
+\begin{center}
+$k_{0} = \textnormal{max}\lbrace 1 \leqslant k \leqslant n: \textnormal{max} \left( x_{i} + y_{k-i+1} \right) \leqslant t \rbrace$
+\end{center}
+Pokażemy dwie nierówności:
+\begin{center}
+$M_{2}(t) \leqslant \dfrac{k_{0}+2}{n}$ oraz $\dfrac{k_{0}}{n} \leqslant \bar c + \dfrac{3}{n}$
+\end{center}
+\noindent \textbf{\RomanNumeralCaps{2}a.} $M_{2}(t) \leqslant \dfrac{k_{0}+2}{n}$.\\
+\noindent Nierówność jest oczywista dla $k_{0} \geqslant n-2$. Niech więc $k_{0} \leqslant n-3$ oraz wprowadźmy zbiory:
+\begin{center}
+$A_{k} = \left\lbrace \dfrac{k-1}{n} \leqslant \theta_{1} < \dfrac{k}{n} \right\rbrace$ i $B_{k} = \left\lbrace \dfrac{k-1}{n} \leqslant \theta_{2} < \dfrac{k}{n} \right\rbrace$, \hspace{3mm} $k=1,..,n.$
+\end{center}
+\noindent Z definicji $k_{0}$ wynika, że istnieje taki indeks $i_{0}$, $1 \leqslant i_{0} \leqslant k_{0}$, że $x_{i_{0}} + y_{k_{0}-i_{0}+2} > t$.\
+\noindent Rozważmy $r \geqslant i_{0} + 1$ oraz $s \geqslant k_{0} - i_{0} +3$. Wówczas widać, że na zbiorze $A_{r}$ zachodzi $\theta_{1} \geqslant \dfrac{i_{0}}{n}$, czyli $\psi_{1}(\theta_{1}) \geqslant x_{i_{0}}$, natomiast na zbiorze $B_{s}$ zachodzi $\theta_{2} \geqslant \dfrac{k_{0} - i_{0} +2}{n}$,  co implikuje $\psi_{2}(\theta_{2}) \geqslant y_{k_{0} - i_{0} + 2}$. Stąd i z możemy wnioskować, że na $A_{r} \cap B_{s}$ zachodzi $X_{1} + X_{2} = \psi_{1}(\theta_{1}) + \psi_{2}(\theta_{2}) \geqslant x_{i_{0}} + y_{k_{0} - i_{0} +2} > t$. Wówczas korzystając z dopełnień zbiorów
+\begin{center}
+$\left\lbrace  X_{1} + X_{2} \leqslant t \right\rbrace \subseteq \left( A_{r} \cap B_{s} \right)' = A_{r}' \cup B_{s}' = \bigcup\limits_{i = 1}^{i_{0}} A_{i} \cup \bigcup\limits_{i = 1}^{k_{0} - i_{0} + 2} B_{i} \vspace{2mm} = \left\lbrace \theta_{1} < \dfrac{i_{0}}{n} \right\rbrace \cup \left\lbrace \theta_{2} < \dfrac{k_{0} - i_{0} + 2}{n} \right\rbrace = C$.
+\end{center}
+\noindent Korzystając z własności prawdopodobieństwa otrzymujemy wniosek
+\begin{center}
+$P(X_{1} + X_{2} \leqslant t) \leqslant P(C) = \dfrac{i_{0}}{n} + \dfrac{k_{0} - i_{0} + 2}{n} = \dfrac{k_{0} +2}{n}$.
+\end{center}
+Bezpośrednio stąd otrzymujemy  $M_{2}(t) \leqslant \dfrac{k_{0}+2}{n}$.\\
+\noindent \textbf{\RomanNumeralCaps{2}b.} $\dfrac{k_{0}}{n} \leqslant \bar c + \dfrac{3}{n}$.\\
+\noindent Niech $j_{0} \in \mathbb{N}$ będzie takie, że $\dfrac{j_{0} -1}{n} \leqslant \bar c < \dfrac{j_{0}}{n}$. Pokażemy wówczas, że $\dfrac{k_{0}}{n} \leqslant \dfrac{j_{0} -1}{n} + \dfrac{3}{n}$ czyli 
+\begin{equation}
+k_{0} \leqslant j_{0} +2 \tag{$\star$}.
+\end{equation}
+Zauważmy, że dla $j_{0} \geqslant n-2$ nierówność w \textbf{\RomanNumeralCaps{2}b} jest oczywista. Niech więc $1 \leqslant j_{0} \leqslant n-3$.\\
+\noindent Istnieje taka $\delta > 0$, że $c_{2} = \bar c + \delta < \dfrac{j_{0}}{n}$. Rozważmy dowolny indeks $0 \leqslant i < j_{0}$ oraz $p \in \left[ \dfrac{i}{n}; \dfrac{i+1}{n} \right]$. Mamy $c_{2} - p \leqslant  \dfrac{j_{0}}{n} - \dfrac{i+1}{n} = \dfrac{j_{0} -i -1}{n}$, zatem z monotoniczności funkcji $\psi$
+\begin{center}
+$\psi_{1}(p) + \psi_{2}(c_{2} - p) \leqslant \psi_{1}\left( \dfrac{i+1}{n} \right)  + \psi_{2}\left( \dfrac{j_{0} -i +1}{n} \right)$
+\end{center}
+\noindent Z dowolności $i$ mamy wówczas
+\begin{equation}
+\underset{0 < p < c_{2}}{\textnormal{sup}}\left\lbrace (\psi_{1}(p) + \psi_{2}(c_{2} - p) \right\rbrace \leqslant \underset{1 \leqslant i \leqslant j_{0}}{\textnormal{max}}(x_{i} + y_{j_{0} - i + 2}) \tag{$\star_{1}$}.
+\end{equation}
+Jednocześnie z definicji $\bar c$
+\begin{equation}
+\underset{0 < p < c_{2}}{\textnormal{sup}}\left\lbrace (\psi_{1}(p) + \psi_{2}(c_{2} - p) \right\rbrace > t \tag{$\star_{2}$}
+\end{equation}
+oraz z definicji $k_{0}$
+\begin{equation}
+\underset{1 \leqslant i \leqslant k_{0}}{\textnormal{max}}(x_{i} + y_{k_{0} - i + 1}) \leqslant t\tag{$\star_{3}$}.
+\end{equation}
+Łącząc nierówności $\star_{1}$, $\star_{2}$ i $\star_{3}$ dostajemy
+\begin{equation}
+\underset{1 \leqslant i \leqslant k_{0}}{\textnormal{max}}(x_{i} + y_{k_{0} - i + 1}) < \underset{1 \leqslant i \leqslant j_{0}}{\textnormal{max}}(x_{i} + y_{j_{0} - i + 2}) = x_{l_{0}} + y_{j_{0} - l_{0} + 2} \tag{$\star_{4}$}.
+\end{equation}
+dla pewnego $1 \leqslant l_{0} \leqslant j_{0}$.\\
+\noindent Jeśli $k_{0} \leqslant j_{0}$ to $k_{0} \leqslant j_{0} + 2$ co dowodzi $\star$.\\
+\noindent Jeśli $k_{0} \geqslant j_{0} + 1$ to zauważmy, że z $\star_{4}$
+\begin{equation}
+x_{l_{0}} + y_{k_{0} - l_{0} + 1} < x_{l_{0}} + y_{j_{0} - l_{0} + 2} \Rightarrow k_{0} < j_{0} + 1 \nonumber
+\end{equation}
+co przeczy założeniu, że $k_{0} \geqslant j_{0} + 1$. Zatem zachodzi $\star$ i bezpośrednio stąd mamy prawdziwość \textbf{\RomanNumeralCaps{2}b}.\\
+\noindent Z \textbf{\RomanNumeralCaps{2}a} oraz \textbf{\RomanNumeralCaps{2}b} dostajemy
+\begin{equation}
+M_{2}(t) \leqslant \dfrac{k_{0}}{n} + \dfrac{2}{n} \leqslant \bar c + \dfrac{3}{n}+ \dfrac{2}{n} = \bar c + \dfrac{5}{n}
+\end{equation}
+co z dowolności $n \in \mathbb{N}$ daje ostatecznie \textbf{\RomanNumeralCaps{2}}. Z \textbf{\RomanNumeralCaps{1}} i \textbf{\RomanNumeralCaps{2}} otrzymujemy tezę twierdzenia.
+ \phantom{1} \hfill \QEDB
+
+\section{Postać maksymalnego i minimalnego VaR}
+
+Z twierdzenia udowodnionego w poprzednim rozdziale możemy wywnioskować postać $VaR$ dla sumy dwóch zmiennych losowych. Wprowadźmy analogiczne oznaczenia do tych z rozdziału 2. Niech $p \in (0,1)$ i $S_{n} = X_{1} + ... + X_{n}$. Oznaczmy
+\begin{equation}
+\overline{VaR}_{p}(S_{n}) := \text{sup} \left\lbrace  VaR_{p}\left(S_{n}\right): X_{i} \sim F_{i}, 1 \leqslant i \leqslant n \right\rbrace,
+\end{equation}
+\begin{equation}
+\underline{VaR}_{p}(S_{n}) := \text{inf} \left\lbrace  VaR_{p}\left(S_{n}\right): X_{i} \sim F_{i}, 1 \leqslant i \leqslant n \right\rbrace,
+\end{equation}
+
+Wówczas prawdziwy jest poniższy wniosek
+
+\begin{wn*}\textnormal{z twierdzeń 5 i 6}  \textnormal{([8], str. 14)}\\*\
+Dla dowolnego $p \in (0,1)$ zachodzą zależności\\
+\begin{gather}
+\overline{VaR}_{p}(X_{1}+X_{2}) = \underset{x \in [0,1-p]}{\textnormal{inf}}\{F^{-1}_{1}(p+x) + F^{-1}_{2}(1-x)\}
+\end{gather}
+oraz 
+\begin{gather}
+\underline{VaR}_{p}(X_{1}+X_{2}) = \underset{x \in [0,p]}{\textnormal{sup}}\{F^{-1}_{1}(x) + F^{-1}_{2}(p-x)\}.
+\end{gather}
+\end{wn*}
+
+Obserwacją z powyższego wniosku jest fakt, że gdy współczynnik korelacji pomiędzy zmiennymi $X_{1}$ i $X_{2}$ wynosi $\rho = 1$ (pełna komonotoniczność pomiędzy zmiennymi), to $VaR$ niekoniecznie jest maksymalizowany. Prezentacją tej zależności może być przykład dotyczący dwóch zmiennych o rozkładzie normalnym. Zauważmy wpierw, że zachodzi twierdzenie
+
+\begin{tw}\textnormal{([9], str. 52)}\*\\
+Niech $X$ będzie zmienną losową o rozkładzie normalnym ze średnią $\mu$ oraz wariancją $\sigma^{2}$ o gęstości
+\begin{equation}
+f(x) = \dfrac{1}{\sqrt{2\pi}\sigma}\textnormal{exp}\left[ -\dfrac{1}{2} \left(\dfrac{x-\mu}{\sigma} \right)^{2} \right]. \nonumber
+\end{equation}
+Wówczas dla dowolnego $p \in (0,1)$ zachodzi
+\begin{equation}
+VaR_{p}(X) = \mu + \sigma \Phi^{-1}(p). \nonumber
+\end{equation}
+\end{tw}
+
+\noindent \textit{Dowód}.\\
+\noindent Korzystając bezpośrednio z definicji $VaR$ oraz standaryzacji zmiennej losowej otrzymujemy ciąg zależności
+\begin{gather}
+\begin{split}
+VaR_{p}(X) &= \textnormal{inf} \left\lbrace x \in \mathbb{R}: P(X \leqslant x) \geqslant p \right\rbrace \nonumber \\
+					  &= \textnormal{inf} \left\lbrace x \in \mathbb{R}: P\left(\dfrac{X-\mu}{\sigma} \leqslant \dfrac{x-\mu}{\sigma}\right) \geqslant p \right\rbrace \nonumber \\
+					  &= \textnormal{inf} \left\lbrace x \in \mathbb{R}: \Phi\left(\dfrac{x-\mu}{\sigma}\right) \geqslant p \right\rbrace \nonumber \\
+					   &= \textnormal{inf} \left\lbrace x \in \mathbb{R}: \dfrac{x-\mu}{\sigma} \geqslant \Phi^{-1}(p) \right\rbrace \nonumber \\
+					      &= \textnormal{inf} \left\lbrace x \in \mathbb{R}: x \geqslant \mu + \sigma \Phi^{1}(p) \right\rbrace = \mu + \sigma \Phi^{1}(p) \nonumber
+\end{split}
+\end{gather}
+
+\noindent \textbf{Przykład 1.}\\
+Niech zmienne losowe $X_{1}, X_{2}$ mają rozkład normalny z wartością oczekiwaną $0$ oraz wariancją równą $1$. Oznaczmy dystrybuanty tych zmiennych losowych jako $F_{1}, F_{2}$.  Niech $p = 0,95$. \\
+Bazując na wzorze (2.2), wprowadźmy funkcję $g$ określoną wzorem: \
+\begin{center}
+$g(x) = F^{-1}_{1}(0,95+x) + F^{-1}_{2}(1-x)$. 
+\end{center}
+Interesuje nas minimum tej funkcji w przypadku, gdy $x \in [0;0,05]$.\\
+\noindent Widzimy, że minimum tej funkcji jest osiągane dla $x= 0,025$ i wynosi:
+\begin{center}
+$g(0.025) = F^{-1}_{1}(0,975) + F^{-1}_{2}(0,975) = 2 \cdot F^{-1}_{1}(0,975) = 2 \cdot 1,959964 = 3,919928$.
+\end{center}
+Zatem $\overline{VaR}_{0,95}(X_{1}+X_{2}) = 3,919928$.\\
+Z drugiej strony, suma $X_{1} +X_{2}$ ma rozkład $N(\mu_{1} + \mu_{2},\sigma_{1}^{2} + \sigma_{2}^{2} + 2\rho\sigma_{1}\sigma_{2})$ dla $X_{1} \sim N(\mu_{1},\sigma_{1}^{2})$ i $X_{2} \sim N(\mu_{2},\sigma_{2}^{2})$ oraz korelacji $\rho$ pomiędzy nimi. Wobec tego dla $X_{1}, X_{2} \sim N(0,1)$ i $\rho = 1$ z poprzedniego twierdzenia dostajemy
+\begin{equation}
+VaR_{0,95}(X_{1}+X_{2}) = \sqrt{4} \cdot \Phi^{-1}(0,95) = 2 \cdot 1,6449 = 3,2898. \nonumber
+\end{equation}
+Co za tym idzie, pełna komonotoniczność liniowa nie jest przypadkiem, w którym otrzymujemy maksymalny $VaR$ sumy.
+
+
+\begin{thebibliography}{a,b,c}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibitem[1]{}  Gajek L, Kałuszka M.: {\it Wnioskowanie statystyczne}, WNT, Warszawa 1996.
+\bibitem[2]{}  Jakubowski J.: {\it Modelowanie rynków finansowych}, Script, Warszawa 2006.
+\bibitem[3]{}  Jakubowski J., Sztencel R.: {\it Rachunek prawdopodobieństwa dla (prawie) każdego}, Script, Warszawa 2002.
+\bibitem[4]{}  Artzner P., Eber J., Delbaen F., Heath D.: {\it Coherent Measures of Risk}, Mathematical Finance 9(3):203-228, 1999.
+\bibitem[5]{}  Makarov G.D: {\it Estimates for the distribution function of a sum of two random variables when the marginal distribution are fixed}, Theory of Probability \& Its Applications: Vol. 26, No. 4,1982.
+\bibitem[5]{}  Ruschendorf L., {\it Mathematical Risk Analysis}, Springer, Berlin 2013.
+\bibitem[6]{}  McNeil J. A., Frey R., Embrechts P., {\it Quantitative Risk Management: Concepts, Techniques and Tools}, Princeton University Press, 2005.
+\bibitem[7]{}  Shorack R. Galen, {\it Probability for Statisticians}, Springer-Verlag New York, 2000.
+\bibitem[8]{}  Embrechts P, {\it Risk Aggregation under Dependence Uncertainty - Challenges in Theory and Practice}, Selected talk presentation, 2014.
+\bibitem[9]{}  Panjer H.H., {\it Operational Risk: Modeling Analytics}, John Wiley and Sons, 2006.
+
+\end{thebibliography}
+
+
+\end{document}
