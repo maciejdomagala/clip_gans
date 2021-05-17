@@ -3,31 +3,6 @@ from latent import DeepMindBigGANLatentSpace, StyleGAN2LatentSpace
 from utils import biggan_norm, biggan_denorm
 
 configs = dict(
-    # GPT2=dict(
-    #     task="img2txt",
-    #     dim_z=20,
-    #     max_tokens_len=30,
-    #     max_text_len=50,
-    #     encoder_size=50257,
-    #     latent=GPT2LatentSpace,
-    #     model=GPT2,
-    #     use_discriminator=False,
-    #     init_text="the picture of",
-    #     weights="./gpt2/weights/gpt2-pytorch_model.bin",
-    #     encoder="./gpt2/weights/encoder.json",
-    #     vocab="./gpt2/weights/vocab.bpe",
-    #     stochastic=False,
-    #     algorithm="ga",
-    #     pop_size=100,
-    #     batch_size=25,
-    #     problem_args=dict(
-    #         n_var=20,
-    #         n_obj=1,
-    #         n_constr=20,
-    #         xl=0,
-    #         xu=50256
-    #     )
-    # ),
     DeepMindBigGAN256=dict(
         task="txt2img",
         dim_z=128,
@@ -37,6 +12,28 @@ configs = dict(
         weights="biggan-deep-256",
         use_discriminator=False,
         algorithm="ga",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        truncation=1.0,
+        pop_size=64,
+        batch_size=32,
+        problem_args=dict(
+            n_var=128 + 1000,
+            n_obj=1,
+            n_constr=128,
+            xl=-2,
+            xu=2
+        )
+    ),
+    DeepMindBigGAN256_de=dict(
+        task="txt2img",
+        dim_z=128,
+        num_classes=1000,
+        latent=DeepMindBigGANLatentSpace,
+        model=DeepMindBigGAN,
+        weights="biggan-deep-256",
+        use_discriminator=False,
+        algorithm="de",
         norm=biggan_norm,
         denorm=biggan_denorm,
         truncation=1.0,

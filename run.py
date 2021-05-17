@@ -49,8 +49,7 @@ def save_callback(algorithm):
         with torch.no_grad():
             generated = algorithm.problem.generator.generate(
                 ls, minibatch=config.batch_size)
-            name = "genetic-it-%d.jpg" % (
-                iteration) if iteration < config.generations else "genetic-it-final.jpg"
+            name = f"genetic-it-{iteration}.jpg" if iteration < config.generations else "genetic-it-final.jpg"
             algorithm.problem.generator.save(
                 generated, os.path.join(config.tmp_folder, name))
 
