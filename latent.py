@@ -41,19 +41,21 @@ class StyleGAN2LatentSpace(torch.nn.Module):
         return (self.z, )
 
 
-class GPT2LatentSpace(torch.nn.Module):
-    def __init__(self, config):
-        super(GPT2LatentSpace, self).__init__()
-        self.config = config
+# NOT USED IN OUR SOLUTION, TO REMOVE
 
-        self.z = torch.randint(0, self.config.encoder_size, size=(self.config.batch_size, self.config.dim_z)).to(self.config.device)
-        #self.z = torch.zeros(self.config.batch_size, self.config.dim_z)
+# class GPT2LatentSpace(torch.nn.Module):
+#     def __init__(self, config):
+#         super(GPT2LatentSpace, self).__init__()
+#         self.config = config
+
+#         self.z = torch.randint(0, self.config.encoder_size, size=(self.config.batch_size, self.config.dim_z)).to(self.config.device)
+#         #self.z = torch.zeros(self.config.batch_size, self.config.dim_z)
     
-    def set_values(self, z):
-        self.z.data = z
+#     def set_values(self, z):
+#         self.z.data = z
 
-    def set_from_population(self, x):
-        self.z.data = torch.tensor(x.astype(int)).long().to(self.config.device)
+#     def set_from_population(self, x):
+#         self.z.data = torch.tensor(x.astype(int)).long().to(self.config.device)
 
-    def forward(self):
-        return (self.z, )
+#     def forward(self):
+#         return (self.z, )

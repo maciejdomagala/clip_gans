@@ -3,16 +3,21 @@ import os
 import torch
 import numpy as np
 import pickle
+
+# pymoo stuff, stays here
 from pymoo.optimize import minimize
 from pymoo.factory import get_algorithm, get_decision_making, get_decomposition
 from pymoo.visualization.scatter import Scatter
 
+
+# these ones to change
 from config import get_config
 from problem import GenerationProblem
 from operators import get_operators
 
-parser = argparse.ArgumentParser()
 
+# THIS MIGHT NOT BE NEEDED FOR COLlAB EXECUTION
+parser = argparse.ArgumentParser()
 parser.add_argument("--device", type=str, default="cuda")
 parser.add_argument("--config", type=str, default="DeepMindBigGAN512")
 parser.add_argument("--generations", type=int, default=500)
@@ -34,11 +39,9 @@ def save_callback(algorithm):
 
     iteration += 1
     if iteration % config.save_each == 0 or iteration == config.generations:
-        if config.problem_args["n_obj"] == 1:
-            sortedpop = sorted(algorithm.pop, key=lambda p: p.F)
-            X = np.stack([p.X for p in sortedpop])
-        else:
-            X = algorithm.pop.get("X")
+
+        sortedpop = sorted(algorithm.pop, key=lambda p: p.F)
+        X = np.stack([p.X for p in sortedpop])
 
         ls = config.latent(config)
         ls.set_from_population(X)
@@ -48,8 +51,6 @@ def save_callback(algorithm):
                 ls, minibatch=config.batch_size)
             if config.task == "txt2img":
                 ext = "jpg"
-            elif config.task == "img2txt":
-                ext = "txt"
             name = "genetic-it-%d.%s" % (
                 iteration, ext) if iteration < config.generations else "genetic-it-final.%s" % (ext, )
             algorithm.problem.generator.save(
