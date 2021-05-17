@@ -11,8 +11,9 @@ from config import get_config
 from problem import GenerationProblem
 from operators import get_operators
 
-parser = argparse.ArgumentParser()
 
+# THIS MIGHT NOT BE NEEDED FOR COLlAB EXECUTION
+parser = argparse.ArgumentParser()
 parser.add_argument("--device", type=str, default="cuda")
 parser.add_argument("--config", type=str, default="DeepMindBigGAN512")
 parser.add_argument("--generations", type=int, default=500)

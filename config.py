@@ -3,31 +3,31 @@ from latent import DeepMindBigGANLatentSpace, StyleGAN2LatentSpace, GPT2LatentSp
 from utils import biggan_norm, biggan_denorm
 
 configs = dict(
-    GPT2=dict(
-        task="img2txt",
-        dim_z=20,
-        max_tokens_len=30,
-        max_text_len=50,
-        encoder_size=50257,
-        latent=GPT2LatentSpace,
-        model=GPT2,
-        use_discriminator=False,
-        init_text="the picture of",
-        weights="./gpt2/weights/gpt2-pytorch_model.bin",
-        encoder="./gpt2/weights/encoder.json",
-        vocab="./gpt2/weights/vocab.bpe",
-        stochastic=False,
-        algorithm="ga",
-        pop_size=100,
-        batch_size=25,
-        problem_args=dict(
-            n_var=20,
-            n_obj=1,
-            n_constr=20,
-            xl=0,
-            xu=50256
-        )
-    ),
+    # GPT2=dict(
+    #     task="img2txt",
+    #     dim_z=20,
+    #     max_tokens_len=30,
+    #     max_text_len=50,
+    #     encoder_size=50257,
+    #     latent=GPT2LatentSpace,
+    #     model=GPT2,
+    #     use_discriminator=False,
+    #     init_text="the picture of",
+    #     weights="./gpt2/weights/gpt2-pytorch_model.bin",
+    #     encoder="./gpt2/weights/encoder.json",
+    #     vocab="./gpt2/weights/vocab.bpe",
+    #     stochastic=False,
+    #     algorithm="ga",
+    #     pop_size=100,
+    #     batch_size=25,
+    #     problem_args=dict(
+    #         n_var=20,
+    #         n_obj=1,
+    #         n_constr=20,
+    #         xl=0,
+    #         xu=50256
+    #     )
+    # ),
     DeepMindBigGAN256=dict(
         task="txt2img",
         dim_z=128,
