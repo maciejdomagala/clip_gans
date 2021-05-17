@@ -21,7 +21,10 @@ class GenerationProblem(Problem):
                 ls, minibatch=self.config.batch_size)
             sim = self.generator.clip_similarity(generated).cpu().numpy()
 
+            # this is the function to optimize
             out["F"] = -sim
+
+            # these are the constraint functions (constraint is 0 vector in our case)
             out["G"] = np.zeros((x.shape[0]))
 
     # original
