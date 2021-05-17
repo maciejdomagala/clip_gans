@@ -149,6 +149,26 @@ configs = dict(
             xu=10
         )
     ),
+    StyleGAN2_ffhq_nod_de=dict(
+        task="txt2img",
+        dim_z=512,
+        latent=StyleGAN2LatentSpace,
+        model=StyleGAN2,
+        use_discriminator=False,
+        weights="./stylegan2/weights/ffhq-config-f",
+        algorithm="de",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        pop_size=16,
+        batch_size=4,
+        problem_args=dict(
+            n_var=512,
+            n_obj=1,
+            n_constr=512,
+            xl=-10,
+            xu=10
+        )
+    ),
     StyleGAN2_car_nod=dict(
         task="txt2img",
         dim_z=512,
