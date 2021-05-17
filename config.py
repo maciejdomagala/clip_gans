@@ -1,5 +1,5 @@
-from models import DeepMindBigGAN, StyleGAN2, GPT2
-from latent import DeepMindBigGANLatentSpace, StyleGAN2LatentSpace, GPT2LatentSpace
+from models import DeepMindBigGAN, StyleGAN2
+from latent import DeepMindBigGANLatentSpace, StyleGAN2LatentSpace
 from utils import biggan_norm, biggan_denorm
 
 configs = dict(
