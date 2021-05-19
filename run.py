@@ -16,15 +16,21 @@ from problem import GenerationProblem
 from operators import get_operators
 
 
+global iteration
+
+
 def runner(config):
+
+    # global iteration
+    # global config
 
     print('start')
 
     iteration = 0
 
     def save_callback(algorithm):
-        global iteration
-        global config
+        # global iteration
+        # global config
 
         iteration += 1
         if iteration % config.save_each == 0 or iteration == config.generations:
