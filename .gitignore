@@ -6,3 +6,4 @@ __pycache__/
 /gpt2/weights/gpt2-pytorch_model.bin
 
 /.vscode
+/.idea
