@@ -16,7 +16,7 @@ from problem import GenerationProblem
 from operators import get_operators
 
 
-def run():
+def runner():
 
     # THIS MIGHT NOT BE NEEDED FOR COLlAB EXECUTION
     parser = argparse.ArgumentParser()
@@ -103,7 +103,3 @@ def run():
 
     problem.generator.save(generated, os.path.join(
         config.tmp_folder, "output.jpg"))
-
-
-if __name__ == '__main__':
-    run()
