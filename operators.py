@@ -98,8 +98,8 @@ class AlgoSetup():
         self.kwargs = kwargs
 
 
-def hello():
-    return AlgoSetup
+def algo_wrapper(model_name, algo_name):
+    return AlgoSetup(model_name, algo_name)
 
 
 def get_operators2(config):
