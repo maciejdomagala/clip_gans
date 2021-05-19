@@ -28,7 +28,7 @@ def runner(config):
 
     iteration = 0
 
-    def save_callback(algorithm):
+    def save_callback(algorithm, iteration):
         # global iteration
         # global config
 
