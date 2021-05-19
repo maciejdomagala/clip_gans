@@ -16,90 +16,93 @@ from problem import GenerationProblem
 from operators import get_operators
 
 
-def runner():
+def runner(config):
 
-    # THIS MIGHT NOT BE NEEDED FOR COLlAB EXECUTION
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--config", type=str, default="DeepMindBigGAN512")
-    parser.add_argument("--generations", type=int, default=500)
-    parser.add_argument("--save-each", type=int, default=50)
-    parser.add_argument("--tmp-folder", type=str, default="./tmp")
-    parser.add_argument("--target", type=str,
-                        default="a wolf at night with the moon in the background")
+    print('start')
 
-    config = parser.parse_args()
-    vars(config).update(get_config(config.config))
+      # # THIS MIGHT NOT BE NEEDED FOR COLlAB EXECUTION
+      # parser = argparse.ArgumentParser()
+      # parser.add_argument("--device", type=str, default="cuda")
+      # parser.add_argument("--config", type=str, default="DeepMindBigGAN512")
+      # parser.add_argument("--generations", type=int, default=500)
+      # parser.add_argument("--save-each", type=int, default=50)
+      # parser.add_argument("--tmp-folder", type=str, default="./tmp")
+      # parser.add_argument("--target", type=str,
+      #                     default="a wolf at night with the moon in the background")
 
-    iteration = 0
+      # config = parser.parse_args()
+      # vars(config).update(get_config(config.config))
 
-    def save_callback(algorithm):
-        global iteration
-        global config
+      iteration = 0
 
-        iteration += 1
-        if iteration % config.save_each == 0 or iteration == config.generations:
+       def save_callback(algorithm):
+            global iteration
+            global config
 
-            sortedpop = sorted(algorithm.pop, key=lambda p: p.F)
-            X = np.stack([p.X for p in sortedpop])
+            iteration += 1
+            if iteration % config.save_each == 0 or iteration == config.generations:
 
-            ls = config.latent(config)
-            ls.set_from_population(X)
+                sortedpop = sorted(algorithm.pop, key=lambda p: p.F)
+                X = np.stack([p.X for p in sortedpop])
 
-            with torch.no_grad():
-                generated = algorithm.problem.generator.generate(
-                    ls, minibatch=config.batch_size)
-                name = f"genetic-it-{iteration}.jpg" if iteration < config.generations else "genetic-it-final.jpg"
-                algorithm.problem.generator.save(
-                    generated, os.path.join(config.tmp_folder, name))
+                ls = config.latent(config)
+                ls.set_from_population(X)
 
-    problem = GenerationProblem(config)
-    operators = get_operators(config)
+                with torch.no_grad():
+                    generated = algorithm.problem.generator.generate(
+                        ls, minibatch=config.batch_size)
+                    name = f"genetic-it-{iteration}.jpg" if iteration < config.generations else "genetic-it-final.jpg"
+                    algorithm.problem.generator.save(
+                        generated, os.path.join(config.tmp_folder, name))
 
-    if not os.path.exists(config.tmp_folder):
-        os.mkdir(config.tmp_folder)
+        problem = GenerationProblem(config)
+        operators = get_operators(config)
 
-    algorithm = get_algorithm(
-        config.algorithm,
-        pop_size=config.pop_size,
-        sampling=operators["sampling"],
-        crossover=operators["crossover"],
-        mutation=operators["mutation"],
-        eliminate_duplicates=True,
-        callback=save_callback,
-        **(config.algorithm_args[config.algorithm] if "algorithm_args" in config and config.algorithm in config.algorithm_args else dict())
-    )
+        if not os.path.exists(config.tmp_folder):
+            os.mkdir(config.tmp_folder)
 
-    res = minimize(
-        problem,
-        algorithm,
-        ("n_gen", config.generations),
-        save_history=False,
-        verbose=True,
-    )
+        algorithm = get_algorithm(
+            config.algorithm,
+            pop_size=config.pop_size,
+            sampling=operators["sampling"],
+            crossover=operators["crossover"],
+            mutation=operators["mutation"],
+            eliminate_duplicates=True,
+            callback=save_callback,
+            **(config.algorithm_args[config.algorithm] if "algorithm_args" in config and config.algorithm in config.algorithm_args else dict())
+        )
 
-    pickle.dump(dict(
-        X=res.X,
-        F=res.F,
-        G=res.G,
-        CV=res.CV,
-    ), open(os.path.join(config.tmp_folder, "genetic_result"), "wb"))
+        res = minimize(
+            problem,
+            algorithm,
+            ("n_gen", config.generations),
+            save_history=False,
+            verbose=True,
+        )
 
-    # again
-    sortedpop = sorted(res.pop, key=lambda p: p.F)
-    X = np.stack([p.X for p in sortedpop])
+        pickle.dump(dict(
+            X=res.X,
+            F=res.F,
+            G=res.G,
+            CV=res.CV,
+        ), open(os.path.join(config.tmp_folder, "genetic_result"), "wb"))
 
-    ls = config.latent(config)
-    ls.set_from_population(X)
+        # again
+        sortedpop = sorted(res.pop, key=lambda p: p.F)
+        X = np.stack([p.X for p in sortedpop])
 
-    torch.save(ls.state_dict(), os.path.join(config.tmp_folder, "ls_result"))
+        ls = config.latent(config)
+        ls.set_from_population(X)
 
-    X = np.atleast_2d(res.X)
+        torch.save(ls.state_dict(), os.path.join(
+            config.tmp_folder, "ls_result"))
 
-    ls.set_from_population(X)
+        X = np.atleast_2d(res.X)
 
-    with torch.no_grad():
-        generated = problem.generator.generate(ls)
+        ls.set_from_population(X)
 
-    problem.generator.save(generated, os.path.join(
-        config.tmp_folder, "output.jpg"))
+        with torch.no_grad():
+            generated = problem.generator.generate(ls)
+
+        problem.generator.save(generated, os.path.join(
+            config.tmp_folder, "output.jpg"))
