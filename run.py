@@ -19,14 +19,12 @@ from operators import get_operators
 global iteration
 
 
-def runner(config):
+def runner(config, iteration):
 
     # global iteration
     # global config
 
     print('start')
-
-    iteration = 0
 
     def save_callback(algorithm, iteration):
         # global iteration
