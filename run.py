@@ -16,7 +16,7 @@ from problem import GenerationProblem
 from operators import get_operators
 
 
-global iteration
+# global iteration
 
 
 def runner(config, iteration):
