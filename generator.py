@@ -42,8 +42,6 @@ class Generator:
 
         print(input.shape)
         image = kornia.resize(input, (224, 224))
-
-        print(image)
         print(image.shape)
 
         image_features = self.CLIP.encode_image(image)
