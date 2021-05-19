@@ -5,7 +5,6 @@ import kornia
 from PIL import Image
 from torchvision.utils import save_image
 
-
 from utils import save_grid, freeze_model
 
 
@@ -24,10 +23,6 @@ class Generator:
         self.tokens = clip.tokenize(
             [self.config.target]).to(self.config.device)
         self.text_features = self.CLIP.encode_text(self.tokens).detach()
-        # if config.task == "img2txt":
-        #     image = clip_preprocess(Image.open(self.config.target)).unsqueeze(
-        #         0).to(self.config.device)
-        #     self.image_features = self.CLIP.encode_image(image)
 
     def generate(self, ls, minibatch=None):
         z = ls()
@@ -44,9 +39,12 @@ class Generator:
         return self.model.has_discriminator()
 
     def clip_similarity(self, input):
+
+        print(input.shape)
         image = kornia.resize(input, (224, 224))
-        if self.augmentation is not None:
-            image = self.augmentation(image)
+
+        print(image)
+        print(imgae.shape)
 
         image_features = self.CLIP.encode_image(image)
 
