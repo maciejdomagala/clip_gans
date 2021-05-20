@@ -241,7 +241,7 @@ The Genetic Algorithm is one of the first methods used and defined as evolutiona
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.22]{figs/gen-algo.eps}
-     \caption{Genetic algorithm optimization loop.}\label{Fig:PROGAN}
+     \caption{Genetic algorithm optimization loop.}\label{Fig:genalgo1}
  \end{figure}
 
 
@@ -285,7 +285,7 @@ The algorithm terminates based on several common criteria, most often when a sol
 
 \subsection{Differential Evolution}
 
-Differential evolution algorithm is a very efficient method most commonly used for optimization of function in continuous search space. It was first proposed by Storn and Price in 1995?. 
+Differential evolution algorithm is a very efficient method most commonly used for optimization of function in continuous search space. It was proposed by Storn and Price in \cite{de}.
 
 The main advantages over general genetic algorithm is more efficient memory usage, lower complexity and faster convergence.
 
@@ -450,7 +450,7 @@ The algorithm terminates on similar basis as genetic algorithm discussed previou
 \chapter{Notable architectures}
 \section{StyleGAN}
 
-StyleGAN is an architecture proposed in late 2018 by NVIDIA team. It is considered to be one of the most important publications regarding image generation and it introduces several novelties comparing to models used so far. It used several mechanisms (such as adaptive instance normalization and merging regularization) to generate highly realistic images with great resolution. It is greatly inspired by direct predecessor - Progressive Growing GAN architecture (called ProGAN), also published by NVIDIA.
+StyleGAN is an architecture proposed by NVIDIA team in \cite{stylegan}. It is considered to be one of the most important publications regarding image generation and it introduces several novelties comparing to models used so far. It used several mechanisms (such as adaptive instance normalization and merging regularization) to generate highly realistic images with great resolution. It is greatly inspired by direct predecessor - Progressive Growing GAN architecture (called ProGAN), also published by NVIDIA.
 
 \begin{figure}[ht!]
     \centering
@@ -781,6 +781,9 @@ OPISAĆ ZASTOSOWANE TECHNOLOGIE I PACZKI, python pytorch hydra etc.
 
 \bibitem[4]{fid} M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, S. Hochreiter. {\it GANs trained by a two time-scale update rule converge to a local Nash equilibrium.} In NIPS, 2017.
 
+\bibitem[5]{de} R. Storn, K. Price. {\it Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.} Springer, 1997.
+
+\bibitem[6]{stylegan} T. Karras, S. Laine, T. Aila. {\it A style-based generator architecture for generative adversarial networks.} In CVPR, 2019.
 \end{thebibliography}
 
 
