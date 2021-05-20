@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.16)  17 MAY 2021 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.16)  20 MAY 2021 08:05
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -393,33 +393,6 @@ LaTeX Warning: Label `Fig:STYLEGAN' multiply defined.
 
 LaTeX Warning: Label `Fig:STYLEGAN' multiply defined.
 
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
 )
 \openout1 = `praca.aux'.
 
@@ -530,6 +503,9 @@ Chapter 1.
 [5
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
 Package epstopdf Info: Source file: <figs/gen-algo.eps>
 (epstopdf)                    date: 2021-05-16 18:47:46
 (epstopdf)                    size: 1863536 bytes
@@ -538,19 +514,22 @@ Package epstopdf Info: Source file: <figs/gen-algo.eps>
 (epstopdf)                    size: 91459 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/gen-algo-eps-converted
 -to.pdf figs/gen-algo.eps>
-(epstopdf)             \includegraphics on input line 170.
+(epstopdf)             \includegraphics on input line 223.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-eps-converted-to.pdf, id=28, 1588.93625pt x 577.15625pt>
+<figs/gen-algo-eps-converted-to.pdf, id=40, 1588.93625pt x 577.15625pt>
 File: figs/gen-algo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-eps-converted-to.pdf  used on input line
- 170.
+ 223.
 (pdftex.def)             Requested size: 349.56706pt x 126.97476pt.
-[6 <./figs/gen-algo-eps-converted-to.pdf>]
+
+Underfull \vbox (badness 5036) has occurred while \output is active []
+
+ [7]
 Package epstopdf Info: Source file: <figs/gen-algo-2.eps>
 (epstopdf)                    date: 2021-05-16 18:47:48
 (epstopdf)                    size: 25424009 bytes
@@ -559,17 +538,17 @@ Package epstopdf Info: Source file: <figs/gen-algo-2.eps>
 (epstopdf)                    size: 765047 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/gen-algo-2-eps-convert
 ed-to.pdf figs/gen-algo-2.eps>
-(epstopdf)             \includegraphics on input line 197.
+(epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-2-eps-converted-to.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-2-eps-converted-to.pdf, id=36, 2478.25874pt x 1699.34875pt>
+<figs/gen-algo-2-eps-converted-to.pdf, id=45, 2478.25874pt x 1699.34875pt>
 File: figs/gen-algo-2-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-2-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-2-eps-converted-to.pdf  used on input li
-ne 197.
+ne 250.
 (pdftex.def)             Requested size: 421.29842pt x 288.88547pt.
 Package epstopdf Info: Source file: <figs/gen-algo-pseudo.eps>
 (epstopdf)                    date: 2021-05-16 19:57:39
@@ -580,22 +559,22 @@ Package epstopdf Info: Source file: <figs/gen-algo-pseudo.eps>
 (epstopdf)                    size: 102318 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/gen-algo-pseudo-eps-co
 nverted-to.pdf figs/gen-algo-pseudo.eps>
-(epstopdf)             \includegraphics on input line 205.
+(epstopdf)             \includegraphics on input line 258.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-pseudo-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-pseudo-eps-converted-to.pdf, id=37, 687.56876pt x 398.48875pt>
+<figs/gen-algo-pseudo-eps-converted-to.pdf, id=46, 687.56876pt x 398.48875pt>
 File: figs/gen-algo-pseudo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-pseudo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-pseudo-eps-converted-to.pdf  used on inp
-ut line 205.
+ut line 258.
 (pdftex.def)             Requested size: 275.02263pt x 159.39267pt.
 
-Underfull \vbox (badness 6252) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./figs/gen-algo-2-eps-converted-to.pdf>]
+ [8 <./figs/gen-algo-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/diff-evo.eps>
 (epstopdf)                    date: 2021-05-16 22:20:28
 (epstopdf)                    size: 2965534 bytes
@@ -604,30 +583,31 @@ Package epstopdf Info: Source file: <figs/diff-evo.eps>
 (epstopdf)                    size: 149412 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/diff-evo-eps-converted
 -to.pdf figs/diff-evo.eps>
-(epstopdf)             \includegraphics on input line 221.
+(epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/diff-evo-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/diff-evo-eps-converted-to.pdf, id=45, 687.56876pt x 713.66624pt>
+<figs/diff-evo-eps-converted-to.pdf, id=53, 687.56876pt x 713.66624pt>
 File: figs/diff-evo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diff-evo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diff-evo-eps-converted-to.pdf  used on input line
- 221.
+ 274.
 (pdftex.def)             Requested size: 343.78354pt x 356.83224pt.
+[9 <./figs/gen-algo-2-eps-converted-to.pdf> <./figs/gen-algo-pseudo-eps-convert
+ed-to.pdf>]
+Underfull \vbox (badness 2469) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./figs/gen-algo-pseudo-eps-converted-to.pdf>]
-Overfull \hbox (17.22466pt too wide) in paragraph at lines 253--255
+ [10 <./figs/diff-evo-eps-converted-to.pdf>]
+Overfull \hbox (17.22466pt too wide) in paragraph at lines 306--308
 []\T1/cmr/m/n/12 In bi-no-mial crossover, the trial vec-tor $\OT1/cmr/bx/n/12 u
 [] \OT1/cmr/m/n/12 = []$ \T1/cmr/m/n/12 for $\OML/cmm/m/it/12 i \OMS/cmsy/m/n/1
 2 2 f\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; ::
 :; N[]\OMS/cmsy/m/n/12 g$
  []
 
-[9 <./figs/diff-evo-eps-converted-to.pdf>] [10] [11]
+[11] [12]
 Chapter 2.
 Package epstopdf Info: Source file: <figs/progan-scheme.eps>
 (epstopdf)                    date: 2021-05-15 18:07:52
@@ -637,19 +617,19 @@ Package epstopdf Info: Source file: <figs/progan-scheme.eps>
 (epstopdf)                    size: 107172 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/progan-scheme-eps-conv
 erted-to.pdf figs/progan-scheme.eps>
-(epstopdf)             \includegraphics on input line 384.
+(epstopdf)             \includegraphics on input line 437.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/progan-scheme-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/progan-scheme-eps-converted-to.pdf, id=76, 387.4475pt x 163.61125pt>
+<figs/progan-scheme-eps-converted-to.pdf, id=80, 387.4475pt x 163.61125pt>
 File: figs/progan-scheme-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/progan-scheme-eps-converted-to.pdf>
 Package pdftex.def Info: figs/progan-scheme-eps-converted-to.pdf  used on input
- line 384.
+ line 437.
 (pdftex.def)             Requested size: 387.44655pt x 163.61084pt.
-[12
+[13
 
  <./figs/progan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/stylegan-scheme.eps>
@@ -661,19 +641,19 @@ Package epstopdf Info: Source file: <figs/stylegan-scheme.eps>
 (epstopdf)                    size: 121704 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/stylegan-scheme-eps-co
 nverted-to.pdf figs/stylegan-scheme.eps>
-(epstopdf)             \includegraphics on input line 394.
+(epstopdf)             \includegraphics on input line 447.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/stylegan-scheme-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/stylegan-scheme-eps-converted-to.pdf, id=83, 256.96pt x 221.82875pt>
+<figs/stylegan-scheme-eps-converted-to.pdf, id=88, 256.96pt x 221.82875pt>
 File: figs/stylegan-scheme-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/stylegan-scheme-eps-converted-to.pdf>
 Package pdftex.def Info: figs/stylegan-scheme-eps-converted-to.pdf  used on inp
-ut line 394.
+ut line 447.
 (pdftex.def)             Requested size: 385.43904pt x 332.74228pt.
-[13 <./figs/stylegan-scheme-eps-converted-to.pdf>]
+[14 <./figs/stylegan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/mapping-network.eps>
 (epstopdf)                    date: 2021-05-15 18:57:38
 (epstopdf)                    size: 2100301 bytes
@@ -683,17 +663,17 @@ Package epstopdf Info: Source file: <figs/mapping-network.eps>
 (epstopdf)                    size: 57830 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/mapping-network-eps-co
 nverted-to.pdf figs/mapping-network.eps>
-(epstopdf)             \includegraphics on input line 412.
+(epstopdf)             \includegraphics on input line 465.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/mapping-network-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/mapping-network-eps-converted-to.pdf, id=92, 854.19125pt x 406.51875pt>
+<figs/mapping-network-eps-converted-to.pdf, id=95, 854.19125pt x 406.51875pt>
 File: figs/mapping-network-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/mapping-network-eps-converted-to.pdf>
 Package pdftex.def Info: figs/mapping-network-eps-converted-to.pdf  used on inp
-ut line 412.
+ut line 465.
 (pdftex.def)             Requested size: 256.25935pt x 121.95656pt.
 Package epstopdf Info: Source file: <figs/adain.eps>
 (epstopdf)                    date: 2021-05-15 20:24:05
@@ -703,19 +683,19 @@ Package epstopdf Info: Source file: <figs/adain.eps>
 (epstopdf)                    size: 11331 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/adain-eps-converted-to
 .pdf figs/adain.eps>
-(epstopdf)             \includegraphics on input line 431.
+(epstopdf)             \includegraphics on input line 484.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/adain-eps-converted-to.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/adain-eps-converted-to.pdf, id=93, 198.7425pt x 38.1425pt>
+<figs/adain-eps-converted-to.pdf, id=96, 198.7425pt x 38.1425pt>
 File: figs/adain-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/adain-eps-converted-to.pdf>
-Package pdftex.def Info: figs/adain-eps-converted-to.pdf  used on input line 43
-1.
+Package pdftex.def Info: figs/adain-eps-converted-to.pdf  used on input line 48
+4.
 (pdftex.def)             Requested size: 238.48979pt x 45.77075pt.
-[14 <./figs/mapping-network-eps-converted-to.pdf> <./figs/adain-eps-converted-t
+[15 <./figs/mapping-network-eps-converted-to.pdf> <./figs/adain-eps-converted-t
 o.pdf>]
 Package epstopdf Info: Source file: <figs/adaptive-instance-norm.eps>
 (epstopdf)                    date: 2021-05-15 20:24:06
@@ -726,18 +706,18 @@ to.pdf>
 (epstopdf)                    size: 253031 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/adaptive-instance-norm
 -eps-converted-to.pdf figs/adaptive-instance-norm.eps>
-(epstopdf)             \includegraphics on input line 439.
+(epstopdf)             \includegraphics on input line 492.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/adaptive-instance-norm-eps-converted-to.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/adaptive-instance-norm-eps-converted-to.pdf, id=103, 256.96pt x 270.00874
+<figs/adaptive-instance-norm-eps-converted-to.pdf, id=106, 256.96pt x 270.00874
 pt>
 File: figs/adaptive-instance-norm-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/adaptive-instance-norm-eps-converted-to.pdf>
 Package pdftex.def Info: figs/adaptive-instance-norm-eps-converted-to.pdf  used
- on input line 439.
+ on input line 492.
 (pdftex.def)             Requested size: 256.95937pt x 270.00807pt.
 Package epstopdf Info: Source file: <figs/frechet-distance.eps>
 (epstopdf)                    date: 2021-05-15 20:23:38
@@ -748,22 +728,22 @@ Package epstopdf Info: Source file: <figs/frechet-distance.eps>
 (epstopdf)                    size: 55546 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/frechet-distance-eps-c
 onverted-to.pdf figs/frechet-distance.eps>
-(epstopdf)             \includegraphics on input line 447.
+(epstopdf)             \includegraphics on input line 500.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/frechet-distance-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/frechet-distance-eps-converted-to.pdf, id=104, 295.1025pt x 94.3525pt>
+<figs/frechet-distance-eps-converted-to.pdf, id=107, 295.1025pt x 94.3525pt>
 File: figs/frechet-distance-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/frechet-distance-eps-converted-to.pdf>
 Package pdftex.def Info: figs/frechet-distance-eps-converted-to.pdf  used on in
-put line 447.
+put line 500.
 (pdftex.def)             Requested size: 354.1212pt x 113.2224pt.
 
 Underfull \vbox (badness 4181) has occurred while \output is active []
 
- [15 <./figs/adaptive-instance-norm-eps-converted-to.pdf> <./figs/frechet-dista
+ [16 <./figs/adaptive-instance-norm-eps-converted-to.pdf> <./figs/frechet-dista
 nce-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/noise.eps>
 (epstopdf)                    date: 2021-05-16 08:57:01
@@ -773,17 +753,17 @@ Package epstopdf Info: Source file: <figs/noise.eps>
 (epstopdf)                    size: 57036 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/noise-eps-converted-to
 .pdf figs/noise.eps>
-(epstopdf)             \includegraphics on input line 497.
+(epstopdf)             \includegraphics on input line 550.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/noise-eps-converted-to.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/noise-eps-converted-to.pdf, id=114, 724.7075pt x 374.39874pt>
+<figs/noise-eps-converted-to.pdf, id=117, 724.7075pt x 374.39874pt>
 File: figs/noise-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/noise-eps-converted-to.pdf>
-Package pdftex.def Info: figs/noise-eps-converted-to.pdf  used on input line 49
-7.
+Package pdftex.def Info: figs/noise-eps-converted-to.pdf  used on input line 55
+0.
 (pdftex.def)             Requested size: 362.35286pt x 187.19891pt.
 Package epstopdf Info: Source file: <figs/stochastic-variation.eps>
 (epstopdf)                    date: 2021-05-16 08:57:01
@@ -794,20 +774,20 @@ Package epstopdf Info: Source file: <figs/stochastic-variation.eps>
 (epstopdf)                    size: 103927 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/stochastic-variation-e
 ps-converted-to.pdf figs/stochastic-variation.eps>
-(epstopdf)             \includegraphics on input line 505.
+(epstopdf)             \includegraphics on input line 558.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/stochastic-variation-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/stochastic-variation-eps-converted-to.pdf, id=115, 242.9075pt x 173.64874
+<figs/stochastic-variation-eps-converted-to.pdf, id=118, 242.9075pt x 173.64874
 pt>
 File: figs/stochastic-variation-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/stochastic-variation-eps-converted-to.pdf>
 Package pdftex.def Info: figs/stochastic-variation-eps-converted-to.pdf  used o
-n input line 505.
+n input line 558.
 (pdftex.def)             Requested size: 340.06816pt x 243.10657pt.
-[16 <./figs/noise-eps-converted-to.pdf>]
+[17 <./figs/noise-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/water-droplets.eps>
 (epstopdf)                    date: 2021-05-16 10:49:10
 (epstopdf)                    size: 1319334 bytes
@@ -816,17 +796,17 @@ Package epstopdf Info: Source file: <figs/water-droplets.eps>
 (epstopdf)                    size: 66258 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/water-droplets-eps-con
 verted-to.pdf figs/water-droplets.eps>
-(epstopdf)             \includegraphics on input line 537.
+(epstopdf)             \includegraphics on input line 590.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/water-droplets-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/water-droplets-eps-converted-to.pdf, id=122, 422.57875pt x 80.3pt>
+<figs/water-droplets-eps-converted-to.pdf, id=125, 422.57875pt x 80.3pt>
 File: figs/water-droplets-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/water-droplets-eps-converted-to.pdf>
 Package pdftex.def Info: figs/water-droplets-eps-converted-to.pdf  used on inpu
-t line 537.
+t line 590.
 (pdftex.def)             Requested size: 422.57771pt x 80.29979pt.
 Package epstopdf Info: Source file: <figs/phase.eps>
 (epstopdf)                    date: 2021-05-16 10:50:07
@@ -836,17 +816,17 @@ Package epstopdf Info: Source file: <figs/phase.eps>
 (epstopdf)                    size: 82407 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/phase-eps-converted-to
 .pdf figs/phase.eps>
-(epstopdf)             \includegraphics on input line 545.
+(epstopdf)             \includegraphics on input line 598.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/phase-eps-converted-to.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/phase-eps-converted-to.pdf, id=123, 249.93375pt x 124.465pt>
+<figs/phase-eps-converted-to.pdf, id=126, 249.93375pt x 124.465pt>
 File: figs/phase-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/phase-eps-converted-to.pdf>
-Package pdftex.def Info: figs/phase-eps-converted-to.pdf  used on input line 54
-5.
+Package pdftex.def Info: figs/phase-eps-converted-to.pdf  used on input line 59
+8.
 (pdftex.def)             Requested size: 299.91899pt x 149.35724pt.
 Package epstopdf Info: Source file: <figs/stylegan2-scheme2.eps>
 (epstopdf)                    date: 2021-05-16 10:58:05
@@ -857,26 +837,26 @@ f>
 (epstopdf)                    size: 191899 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/stylegan2-scheme2-eps-
 converted-to.pdf figs/stylegan2-scheme2.eps>
-(epstopdf)             \includegraphics on input line 553.
+(epstopdf)             \includegraphics on input line 606.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/stylegan2-scheme2-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/stylegan2-scheme2-eps-converted-to.pdf, id=124, 392.46625pt x 218.8175pt>
+<figs/stylegan2-scheme2-eps-converted-to.pdf, id=127, 392.46625pt x 218.8175pt>
 
 File: figs/stylegan2-scheme2-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/stylegan2-scheme2-eps-converted-to.pdf>
 Package pdftex.def Info: figs/stylegan2-scheme2-eps-converted-to.pdf  used on i
-nput line 553.
+nput line 606.
 (pdftex.def)             Requested size: 392.46527pt x 218.81696pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17 <./figs/stochastic-variation-eps-converted-to.pdf>]
+ [18 <./figs/stochastic-variation-eps-converted-to.pdf>]
 Underfull \vbox (badness 2205) has occurred while \output is active []
 
- [18 <./figs/water-droplets-eps-converted-to.pdf> <./figs/phase-eps-converted-t
+ [19 <./figs/water-droplets-eps-converted-to.pdf> <./figs/phase-eps-converted-t
 o.pdf> <./figs/stylegan2-scheme2-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/changed-normalization.eps>
 (epstopdf)                    date: 2021-05-16 11:11:58
@@ -887,20 +867,20 @@ o.pdf>
 (epstopdf)                    size: 83132 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/changed-normalization-
 eps-converted-to.pdf figs/changed-normalization.eps>
-(epstopdf)             \includegraphics on input line 566.
+(epstopdf)             \includegraphics on input line 619.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/changed-normalization-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/changed-normalization-eps-converted-to.pdf, id=143, 257.96375pt x 213.798
+<figs/changed-normalization-eps-converted-to.pdf, id=147, 257.96375pt x 213.798
 75pt>
 File: figs/changed-normalization-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/changed-normalization-eps-converted-to.pdf>
 Package pdftex.def Info: figs/changed-normalization-eps-converted-to.pdf  used 
-on input line 566.
+on input line 619.
 (pdftex.def)             Requested size: 335.35281pt x 277.93832pt.
-[19 <./figs/changed-normalization-eps-converted-to.pdf>]
+[20 <./figs/changed-normalization-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/weight-demodulation.eps>
 (epstopdf)                    date: 2021-05-16 11:11:58
 (epstopdf)                    size: 2137510 bytes
@@ -910,54 +890,48 @@ pdf>
 (epstopdf)                    size: 110711 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/weight-demodulation-ep
 s-converted-to.pdf figs/weight-demodulation.eps>
-(epstopdf)             \includegraphics on input line 582.
+(epstopdf)             \includegraphics on input line 635.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/weight-demodulation-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/weight-demodulation-eps-converted-to.pdf, id=151, 257.96375pt x 212.795pt
+<figs/weight-demodulation-eps-converted-to.pdf, id=154, 257.96375pt x 212.795pt
 >
 File: figs/weight-demodulation-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/weight-demodulation-eps-converted-to.pdf>
 Package pdftex.def Info: figs/weight-demodulation-eps-converted-to.pdf  used on
- input line 582.
+ input line 635.
 (pdftex.def)             Requested size: 335.35281pt x 276.63344pt.
 
 Underfull \vbox (badness 1365) has occurred while \output is active []
 
- [20 <./figs/weight-demodulation-eps-converted-to.pdf>] [21]
+ [21 <./figs/weight-demodulation-eps-converted-to.pdf>] [22]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22
+ [23
 
 ]
-[23]
+[24]
 Chapter 4.
-[24
-
-]
-Chapter 5.
 [25
 
 ]
-Chapter 6.
+Chapter 5.
 [26
 
 ]
-Underfull \hbox (badness 1205) in paragraph at lines 1407--1408
-[]\T1/cmr/m/n/12 Jakubowski J., Sz-ten-cel R.: \T1/cmr/m/it/12 Rachunek praw-do
-podobie«stwa dla (prawie)
- []
-
+Chapter 6.
 [27
+
+] [28
 
 ] (praca.aux)
 
@@ -965,10 +939,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6568 strings out of 479334
- 97214 string characters out of 2857084
- 410523 words of memory out of 3000000
- 23874 multiletter control sequences out of 15000+200000
+ 6569 strings out of 479334
+ 97237 string characters out of 2857084
+ 408526 words of memory out of 3000000
+ 23875 multiletter control sequences out of 15000+200000
  423367 words of font info for 68 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,9n,78p,1461b,238s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1000,9 +974,9 @@ sers/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on praca.pdf (27 pages, 2660629 bytes).
+Output written on praca.pdf (28 pages, 2663116 bytes).
 PDF statistics:
- 622 PDF objects out of 1000 (max. 8388607)
+ 611 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

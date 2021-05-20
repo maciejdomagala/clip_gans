@@ -1,0 +1,11 @@
+\babel@toc {polish}{}
+\contentsline {chapter}{Wstęp}{3}{}%
+\contentsline {chapter}{\numberline {1}Podstawowe definicje i oznaczenia}{4}{}%
+\contentsline {section}{\numberline {1.1}Podstawowe definicje}{4}{}%
+\contentsline {section}{\numberline {1.2}Miara ryzyka}{5}{}%
+\contentsline {subsection}{\numberline {1.2.1}Definicja z punktu widzenia inwestora}{8}{}%
+\contentsline {chapter}{\numberline {2}Ograniczenia dystrybuanty rozkładu sumy zmiennych losowych}{9}{}%
+\contentsline {chapter}{\numberline {3}Maksymalny i minimalny VaR dla sumy dwóch zmiennych losowych}{13}{}%
+\contentsline {section}{\numberline {3.1}Ograniczenia dystrybuanty sumy dwóch zmiennych losowych}{13}{}%
+\contentsline {section}{\numberline {3.2}Postać maksymalnego i minimalnego VaR}{19}{}%
+\contentsline {chapter}{Bibliografia}{22}{}%
