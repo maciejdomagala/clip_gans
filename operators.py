@@ -142,13 +142,23 @@ def get_operators2(config):
 
 def get_algo(config):
 
-  operators = get_operators(config)
+    operators = get_operators(config)
 
-  if config.algorithm == 'ga':
-    kwargs = dict(pop_size=config.pop_size,
-      sampling=operators["sampling"],
-      crossover=operators["crossover"],
-      mutation=operators["mutation"],
-      eliminate_duplicates=True)
+    if config.algorithm == 'ga':
+        kwargs = dict(pop_size=config.pop_size,
+                      sampling=operators["sampling"],
+                      crossover=operators["crossover"],
+                      mutation=operators["mutation"],
+                      eliminate_duplicates=True)
+    elif config.algorithm == 'de':
+        kwargs = dict(pop_size=config.pop_size,
+                      sampling=LatinHypercubeSampling(
+                          iterations=100, criterion="maxmin"),
+                      variant="DE/rand/1/bin",
+                      CR=0.5,
+                      F=0.3,
+                      dither="vector",
+                      jitter=False,
+                      eliminate_duplicates=True)
 
-  return kwargs
+    return kwargs
