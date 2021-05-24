@@ -48,7 +48,7 @@ configs = dict(
         )
     ),
 
-    StyleGAN2_ffhq_nod_ga=dict(
+    StyleGAN2_ffhq_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -68,7 +68,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_ffhq_nod_de=dict(
+    StyleGAN2_ffhq_de=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -88,7 +88,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_car_nod_ga=dict(
+    StyleGAN2_car_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -108,7 +108,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_car_nod_de=dict(
+    StyleGAN2_car_de=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -128,7 +128,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_church_nod_ga=dict(
+    StyleGAN2_church_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -148,7 +148,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_church_nod_de=dict(
+    StyleGAN2_church_de=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -168,7 +168,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_cat_nod=dict(
+    StyleGAN2_cat_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -188,7 +188,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_cat_nod_de=dict(
+    StyleGAN2_cat_de=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
