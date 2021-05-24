@@ -40,9 +40,7 @@ class Generator:
 
     def clip_similarity(self, input):
 
-        print(input.shape)
         image = kornia.resize(input, (224, 224))
-        print(image.shape)
 
         image_features = self.CLIP.encode_image(image)
 
