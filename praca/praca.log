@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.16)  20 MAY 2021 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.16)  24 MAY 2021 15:19
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -358,9 +358,6 @@ LaTeX Warning: Label `Fig:PROGAN' multiply defined.
 LaTeX Warning: Label `Fig:PROGAN' multiply defined.
 
 
-LaTeX Warning: Label `Fig:PROGAN' multiply defined.
-
-
 LaTeX Warning: Label `Fig:STYLEGAN' multiply defined.
 
 
@@ -500,14 +497,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-[5
 
-] [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5
+
+]
+[6]
 Package epstopdf Info: Source file: <figs/fid.eps>
-(epstopdf)                    date: 2021-05-20 08:45:24
-(epstopdf)                    size: 1196176 bytes
+(epstopdf)                    date: 2021-05-24 10:57:02
+(epstopdf)                    size: 1211522 bytes
 (epstopdf)             Output file: <figs/fid-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-20 09:00:07
+(epstopdf)                    date: 2021-05-24 10:57:02
 (epstopdf)                    size: 51766 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/fid-eps-converted-to.p
 df figs/fid.eps>
@@ -524,9 +525,6 @@ Package pdftex.def Info: figs/fid-eps-converted-to.pdf  used on input line 208.
 
 (pdftex.def)             Requested size: 379.0165pt x 207.17424pt.
 [7 <./figs/fid-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
 Package epstopdf Info: Source file: <figs/gen-algo.eps>
 (epstopdf)                    date: 2021-05-16 18:47:46
 (epstopdf)                    size: 1863536 bytes
@@ -541,12 +539,16 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-eps-converted-to.pdf, id=53, 1588.93625pt x 577.15625pt>
+<figs/gen-algo-eps-converted-to.pdf, id=50, 1588.93625pt x 577.15625pt>
 File: figs/gen-algo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-eps-converted-to.pdf  used on input line
  243.
 (pdftex.def)             Requested size: 349.56706pt x 126.97476pt.
+
+Underfull \vbox (badness 3612) has occurred while \output is active []
+
+ [8]
 Package epstopdf Info: Source file: <figs/gen-algo-2.eps>
 (epstopdf)                    date: 2021-05-16 18:47:48
 (epstopdf)                    size: 25424009 bytes
@@ -567,7 +569,6 @@ File: figs/gen-algo-2-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/gen-algo-2-eps-converted-to.pdf  used on input li
 ne 270.
 (pdftex.def)             Requested size: 421.29842pt x 288.88547pt.
-[9 <./figs/gen-algo-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/gen-algo-pseudo.eps>
 (epstopdf)                    date: 2021-05-16 19:57:39
 (epstopdf)                    size: 1658448 bytes
@@ -583,20 +584,12 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-pseudo-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-pseudo-eps-converted-to.pdf, id=61, 687.56876pt x 398.48875pt>
+<figs/gen-algo-pseudo-eps-converted-to.pdf, id=55, 687.56876pt x 398.48875pt>
 File: figs/gen-algo-pseudo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-pseudo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-pseudo-eps-converted-to.pdf  used on inp
 ut line 278.
 (pdftex.def)             Requested size: 275.02263pt x 159.39267pt.
-
-LaTeX Warning: Citation `de' on page 10 undefined on input line 288.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 <./figs/gen-algo-2-eps-converted-to.pdf> <./figs/gen-algo-pseudo-eps-conve
-rted-to.pdf>]
 Package epstopdf Info: Source file: <figs/diff-evo.eps>
 (epstopdf)                    date: 2021-05-16 22:20:28
 (epstopdf)                    size: 2965534 bytes
@@ -611,13 +604,17 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/diff-evo-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/diff-evo-eps-converted-to.pdf, id=71, 687.56876pt x 713.66624pt>
+<figs/diff-evo-eps-converted-to.pdf, id=56, 687.56876pt x 713.66624pt>
 File: figs/diff-evo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diff-evo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diff-evo-eps-converted-to.pdf  used on input line
  294.
 (pdftex.def)             Requested size: 343.78354pt x 356.83224pt.
-[11 <./figs/diff-evo-eps-converted-to.pdf>]
+[9 <./figs/gen-algo-eps-converted-to.pdf>]
+Underfull \vbox (badness 2735) has occurred while \output is active []
+
+ [10 <./figs/gen-algo-2-eps-converted-to.pdf> <./figs/gen-algo-pseudo-eps-conve
+rted-to.pdf>] [11 <./figs/diff-evo-eps-converted-to.pdf>]
 Overfull \hbox (17.22466pt too wide) in paragraph at lines 326--328
 []\T1/cmr/m/n/12 In bi-no-mial crossover, the trial vec-tor $\OT1/cmr/bx/n/12 u
 [] \OT1/cmr/m/n/12 = []$ \T1/cmr/m/n/12 for $\OML/cmm/m/it/12 i \OMS/cmsy/m/n/1
@@ -627,9 +624,6 @@ Overfull \hbox (17.22466pt too wide) in paragraph at lines 326--328
 
 [12] [13]
 Chapter 2.
-
-LaTeX Warning: Citation `stylegan' on page 14 undefined on input line 453.
-
 Package epstopdf Info: Source file: <figs/progan-scheme.eps>
 (epstopdf)                    date: 2021-05-15 18:07:52
 (epstopdf)                    size: 2473915 bytes
@@ -956,16 +950,13 @@ Chapter 6.
 
 ] (praca.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  6581 strings out of 479334
  97467 string characters out of 2857084
- 408542 words of memory out of 3000000
+ 409558 words of memory out of 3000000
  23886 multiletter control sequences out of 15000+200000
  423367 words of font info for 68 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -998,9 +989,9 @@ sers/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on praca.pdf (29 pages, 2723576 bytes).
+Output written on praca.pdf (29 pages, 2717813 bytes).
 PDF statistics:
- 629 PDF objects out of 1000 (max. 8388607)
+ 616 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
