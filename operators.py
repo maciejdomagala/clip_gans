@@ -138,3 +138,17 @@ def get_operators2(config):
 
     else:
         raise Exception("Unknown config")
+
+
+def get_algo(config):
+
+  operators = get_operators(config)
+
+  if config.algorithm == 'ga':
+    kwargs = dict(pop_size=config.pop_size,
+      sampling=operators["sampling"],
+      crossover=operators["crossover"],
+      mutation=operators["mutation"],
+      eliminate_duplicates=True)
+
+  return kwargs
