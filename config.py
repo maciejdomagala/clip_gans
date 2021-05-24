@@ -3,7 +3,7 @@ from latent import DeepMindBigGANLatentSpace, StyleGAN2LatentSpace
 from utils import biggan_norm, biggan_denorm
 
 configs = dict(
-    DeepMindBigGAN256=dict(
+    DeepMindBigGAN256_ga=dict(
         task="txt2img",
         dim_z=128,
         num_classes=1000,
@@ -48,7 +48,7 @@ configs = dict(
         )
     ),
 
-    StyleGAN2_ffhq_nod=dict(
+    StyleGAN2_ffhq_nod_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -88,7 +88,7 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_car_nod=dict(
+    StyleGAN2_car_nod_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -108,7 +108,27 @@ configs = dict(
             xu=10
         )
     ),
-    StyleGAN2_church_nod=dict(
+    StyleGAN2_car_nod_de=dict(
+        task="txt2img",
+        dim_z=512,
+        latent=StyleGAN2LatentSpace,
+        model=StyleGAN2,
+        use_discriminator=False,
+        weights="./stylegan2/weights/car-config-f",
+        algorithm="de",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        pop_size=16,
+        batch_size=4,
+        problem_args=dict(
+            n_var=512,
+            n_obj=1,
+            n_constr=512,
+            xl=-10,
+            xu=10
+        )
+    ),
+    StyleGAN2_church_nod_ga=dict(
         task="txt2img",
         dim_z=512,
         latent=StyleGAN2LatentSpace,
@@ -116,6 +136,26 @@ configs = dict(
         use_discriminator=False,
         weights="./stylegan2/weights/church-config-f",
         algorithm="ga",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        pop_size=16,
+        batch_size=4,
+        problem_args=dict(
+            n_var=512,
+            n_obj=1,
+            n_constr=512,
+            xl=-10,
+            xu=10
+        )
+    ),
+    StyleGAN2_church_nod_de=dict(
+        task="txt2img",
+        dim_z=512,
+        latent=StyleGAN2LatentSpace,
+        model=StyleGAN2,
+        use_discriminator=False,
+        weights="./stylegan2/weights/church-config-f",
+        algorithm="de",
         norm=biggan_norm,
         denorm=biggan_denorm,
         pop_size=16,
@@ -136,6 +176,26 @@ configs = dict(
         use_discriminator=False,
         weights="./stylegan2/weights/cat-config-f",
         algorithm="ga",
+        norm=biggan_norm,
+        denorm=biggan_denorm,
+        pop_size=16,
+        batch_size=4,
+        problem_args=dict(
+            n_var=512,
+            n_obj=1,
+            n_constr=512,
+            xl=-10,
+            xu=10
+        )
+    ),
+    StyleGAN2_cat_nod_de=dict(
+        task="txt2img",
+        dim_z=512,
+        latent=StyleGAN2LatentSpace,
+        model=StyleGAN2,
+        use_discriminator=False,
+        weights="./stylegan2/weights/cat-config-f",
+        algorithm="de",
         norm=biggan_norm,
         denorm=biggan_denorm,
         pop_size=16,
