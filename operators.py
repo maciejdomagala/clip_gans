@@ -145,12 +145,15 @@ def get_algo(config):
     operators = get_operators(config)
 
     if config.algorithm == 'ga':
+
         kwargs = dict(pop_size=config.pop_size,
                       sampling=operators["sampling"],
                       crossover=operators["crossover"],
                       mutation=operators["mutation"],
                       eliminate_duplicates=True)
+
     elif config.algorithm == 'de':
+
         kwargs = dict(pop_size=config.pop_size,
                       sampling=LatinHypercubeSampling(
                           iterations=100, criterion="maxmin"),

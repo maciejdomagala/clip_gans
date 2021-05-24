@@ -11,7 +11,8 @@ from stylegan2 import utils
 
 pretrained_model_urls = {
     'car-config-e':                    'http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-car-config-e.pkl',
-    'car-config-f':                    'http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-car-config-f.pkl',
+    # 'car-config-f':                    'http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-car-config-f.pkl',
+    'car-config-f':                    'https://nvlabs-fi-cdn.nvidia.com/stylegan2/networks/stylegan2-car-config-f.pkl',
     'cat-config-f':                    'http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-cat-config-f.pkl',
     'church-config-f':                 'http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-church-config-f.pkl',
     'ffhq-config-e':                   'http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-ffhq-config-e.pkl',
@@ -69,7 +70,10 @@ def convert_kwargs(static_kwargs, kwargs_mapping):
     return kwargs
 
 
-_PERMITTED_MODELS = ['G_main', 'G_mapping', 'G_synthesis_stylegan2', 'D_stylegan2', 'D_main', 'G_synthesis']
+_PERMITTED_MODELS = ['G_main', 'G_mapping',
+                     'G_synthesis_stylegan2', 'D_stylegan2', 'D_main', 'G_synthesis']
+
+
 def convert_from_tf(tf_state):
     tf_state = utils.AttributeDict.convert_dict_recursive(tf_state)
     model_type = tf_state.build_func_name
@@ -126,12 +130,14 @@ def convert_from_tf(tf_state):
         G_mapping = stylegan2.models.GeneratorMapping(**kwargs)
         for var_name, var in tf_state.variables:
             if re.match('Dense[0-9]+/[a-zA-Z]*', var_name):
-                layer_idx = int(re.search('Dense(\d+)/[a-zA-Z]*', var_name).groups()[0])
+                layer_idx = int(
+                    re.search('Dense(\d+)/[a-zA-Z]*', var_name).groups()[0])
                 if var_name.endswith('weight'):
                     G_mapping.main[layer_idx].layer.weight.data.copy_(
                         torch.from_numpy(var.T).contiguous())
                 elif var_name.endswith('bias'):
-                    G_mapping.main[layer_idx].bias.data.copy_(torch.from_numpy(var))
+                    G_mapping.main[layer_idx].bias.data.copy_(
+                        torch.from_numpy(var))
             if var_name == 'LabelConcat/weight':
                 G_mapping.embedding.weight.data.copy_(torch.from_numpy(var))
         return G_mapping
@@ -145,12 +151,14 @@ def convert_from_tf(tf_state):
             if var_name.startswith('noise'):
                 noise_tensors.append(torch.from_numpy(var))
             else:
-                layer_size = int(re.search('(\d+)x[0-9]+/*', var_name).groups()[0])
+                layer_size = int(
+                    re.search('(\d+)x[0-9]+/*', var_name).groups()[0])
                 if layer_size not in conv_vars:
                     conv_vars[layer_size] = {}
-                var_name = var_name.replace('{}x{}/'.format(layer_size, layer_size), '')
+                var_name = var_name.replace(
+                    '{}x{}/'.format(layer_size, layer_size), '')
                 conv_vars[layer_size][var_name] = var
-        noise_tensors = sorted(noise_tensors, key=lambda x:x.size(-1))
+        noise_tensors = sorted(noise_tensors, key=lambda x: x.size(-1))
         kwargs = convert_kwargs(
             static_kwargs=tf_state.static_kwargs,
             kwargs_mapping={
@@ -173,16 +181,20 @@ def convert_from_tf(tf_state):
             if 'ToRGB/bias' in conv_vars[size]:
                 kwargs.data_channels = conv_vars[size]['ToRGB/bias'].shape[0]
         G_synthesis = stylegan2.models.GeneratorSynthesis(**kwargs)
-        G_synthesis.const.data.copy_(torch.from_numpy(conv_vars[4]['Const/const']).squeeze(0))
+        G_synthesis.const.data.copy_(torch.from_numpy(
+            conv_vars[4]['Const/const']).squeeze(0))
+
         def assign_weights(layer, weight, bias, mod_weight, mod_bias, noise_strength, transposed=False):
             layer.bias.data.copy_(torch.from_numpy(bias))
             layer.layer.weight.data.copy_(torch.tensor(noise_strength))
             layer.layer.layer.dense.layer.weight.data.copy_(
                 torch.from_numpy(mod_weight.T).contiguous())
-            layer.layer.layer.dense.bias.data.copy_(torch.from_numpy(mod_bias + 1))
-            weight = torch.from_numpy(weight).permute((3, 2, 0, 1)).contiguous()
+            layer.layer.layer.dense.bias.data.copy_(
+                torch.from_numpy(mod_bias + 1))
+            weight = torch.from_numpy(weight).permute(
+                (3, 2, 0, 1)).contiguous()
             if transposed:
-                weight = weight.flip(dims=[2,3])
+                weight = weight.flip(dims=[2, 3])
             layer.layer.layer.weight.data.copy_(weight)
         conv_blocks = G_synthesis.conv_blocks
         for i, size in enumerate(sorted(conv_vars.keys())):
@@ -219,7 +231,8 @@ def convert_from_tf(tf_state):
                         conv_vars[size]['Skip/weight']).permute((3, 2, 0, 1)).contiguous())
             to_RGB = G_synthesis.to_data_layers[i]
             if to_RGB is not None:
-                to_RGB.bias.data.copy_(torch.from_numpy(conv_vars[size]['ToRGB/bias']))
+                to_RGB.bias.data.copy_(torch.from_numpy(
+                    conv_vars[size]['ToRGB/bias']))
                 to_RGB.layer.weight.data.copy_(torch.from_numpy(
                     conv_vars[size]['ToRGB/weight']).permute((3, 2, 0, 1)).contiguous())
                 to_RGB.layer.dense.bias.data.copy_(
@@ -237,10 +250,12 @@ def convert_from_tf(tf_state):
             if var_name.startswith('Output'):
                 output_vars[var_name.replace('Output/', '')] = var
             else:
-                layer_size = int(re.search('(\d+)x[0-9]+/*', var_name).groups()[0])
+                layer_size = int(
+                    re.search('(\d+)x[0-9]+/*', var_name).groups()[0])
                 if layer_size not in conv_vars:
                     conv_vars[layer_size] = {}
-                var_name = var_name.replace('{}x{}/'.format(layer_size, layer_size), '')
+                var_name = var_name.replace(
+                    '{}x{}/'.format(layer_size, layer_size), '')
                 conv_vars[layer_size][var_name] = var
         kwargs = convert_kwargs(
             static_kwargs=tf_state.static_kwargs,
@@ -268,6 +283,7 @@ def convert_from_tf(tf_state):
         if output_size > 1:
             kwargs.label_size = output_size
         D = stylegan2.models.Discriminator(**kwargs)
+
         def assign_weights(layer, weight, bias):
             layer.bias.data.copy_(torch.from_numpy(bias))
             layer.layer.weight.data.copy_(
@@ -297,7 +313,8 @@ def convert_from_tf(tf_state):
                         conv_vars[size]['Skip/weight']).permute((3, 2, 0, 1)).contiguous())
             from_RGB = D.from_data_layers[-i - 1]
             if from_RGB is not None:
-                from_RGB.bias.data.copy_(torch.from_numpy(conv_vars[size]['FromRGB/bias']))
+                from_RGB.bias.data.copy_(torch.from_numpy(
+                    conv_vars[size]['FromRGB/bias']))
                 from_RGB.layer.weight.data.copy_(torch.from_numpy(
                     conv_vars[size]['FromRGB/weight']).permute((3, 2, 0, 1)).contiguous())
         return D
@@ -329,8 +346,8 @@ def get_arg_parser():
     parser.add_argument(
         '-o',
         '--output',
-        help='One or more output file paths. Alternatively a directory path ' + \
-            'where all models will be saved. Default: current directory',
+        help='One or more output file paths. Alternatively a directory path ' +
+        'where all models will be saved. Default: current directory',
         type=str,
         nargs='*',
         default=['.'],
@@ -350,7 +367,8 @@ def main():
         unpickled = load_tf_models_file(args.input)
     else:
         assert args.download in pretrained_model_urls.keys(), \
-            'Unknown model {}. Use --help for list of models.'.format(args.download)
+            'Unknown model {}. Use --help for list of models.'.format(
+                args.download)
         unpickled = load_tf_models_url(pretrained_model_urls[args.download])
     if not isinstance(unpickled, (tuple, list)):
         unpickled = [unpickled]
@@ -360,10 +378,12 @@ def main():
         if not os.path.exists(args.output[0]):
             os.makedirs(args.output[0])
         for tf_state, torch_model in zip(unpickled, converted):
-            torch_model.save(os.path.join(args.output[0], tf_state['name'] + '.pth'))
+            torch_model.save(os.path.join(
+                args.output[0], tf_state['name'] + '.pth'))
     else:
         assert len(args.output) == len(converted), 'Found {} models '.format(len(converted)) + \
-            'in pickled file but only {} output paths were given.'.format(len(args.output))
+            'in pickled file but only {} output paths were given.'.format(
+                len(args.output))
         for out_path, torch_model in zip(args.output, converted):
             torch_model.save(out_path)
     print('Done!')
