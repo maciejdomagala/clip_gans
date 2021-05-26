@@ -23,5 +23,7 @@
 \contentsline {section}{\numberline {3.1}Overview}{24}{}%
 \contentsline {chapter}{\numberline {4}Datasets and evaluation}{26}{}%
 \contentsline {chapter}{\numberline {5}Experiments}{27}{}%
-\contentsline {chapter}{\numberline {6}Summary}{28}{}%
-\contentsline {chapter}{Citation}{29}{}%
+\contentsline {section}{\numberline {5.1}Examples and observations}{27}{}%
+\contentsline {section}{\numberline {5.2}Genetic Algorithm and Differential Evolution}{27}{}%
+\contentsline {chapter}{\numberline {6}Summary}{33}{}%
+\contentsline {chapter}{Citation}{34}{}%

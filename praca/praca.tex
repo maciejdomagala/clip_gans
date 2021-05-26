@@ -13,13 +13,14 @@
 \usepackage{paralist}
 \usepackage{comment}
 \usepackage{bigints}
-
+%\usepackage{subfig}
 \usepackage{accents}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{float}
 \restylefloat{table}
+\usepackage{subcaption}
 
 \usepackage{pdfpages}
 
@@ -653,7 +654,7 @@ All of these steps were also necessary to introduce the main idea for handling w
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.3]{figs/weight-demodulation.eps}
-    \caption{(b) shows the original StyleGAN architecture. The AdaIN fucntion is shown as combination of normalization and modulation operations. (c) shows the revised model with changes in the network.}\label{Fig:STYLEGAN}
+    \caption{(b) shows the original StyleGAN architecture. The AdaIN function is shown as combination of normalization and modulation operations. (c) shows the revised model with changes in the network.}\label{Fig:STYLEGAN}
 \end{figure}
 
 HERE WEIGHT DEMODULATION
@@ -767,7 +768,119 @@ OPISAĆ ZASTOSOWANE TECHNOLOGIE I PACZKI, python pytorch hydra etc.
 
 \chapter{Datasets and evaluation}
 \chapter{Experiments}
+
+\section{Examples and observations}
+
+\section{Genetic Algorithm and Differential Evolution}
+
+Both of the algorithms presented in this work are population based and work applying similar techniques and concepts. Even though, by testing different scenarios we noticed that several patterns emerged for the generating process using both of these algorithms. 
+Differential evolution algorithm starts converging slower than genetic algorithm. It is especially visible in the first generations of the algorithms e.g. 10th generation. Images produced by generator after steering with genetic algorithm tend to be visually (and according to the metric) closer to the target text. First figure below shows this occurrence.\\
+The input phrase used to generate was '\textit{\textbf{a yellow car in the city}}'. Dedicated model trained on car images was used - StyleGAN2-car. Population obtained from genetic algorithm after 10 generations already has some acceptable units based on the input phrase. Cars are yellow (some of them deformed but the color is correct) and some of them are in the urban space. That means that genetic algorithm already steered the latent vector into the embedding of information about yellow color, car and the city.\\
+On the other hand, differential evolution did not process the information about color yet - produced cars are random in that subject.
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{GA_yellowcar_10.PNG}
+   \caption{genetic algorithm}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{DE_yellowcar_10.PNG}
+   \caption{differential evolution}
+   \label{fig:Ng2}
+\end{subfigure}
+
+\caption[Two numerical solutions]{10th generation of evolutionary algorithms traversing the latent space.}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{GA_yellowcar_100.PNG}
+   \caption{genetic algorithm}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{DE_yellowcar_100.PNG}
+   \caption{differential evolution}
+   \label{fig:Ng2}
+\end{subfigure}
+
+\caption[Two numerical solutions]{100th generation of evolutionary algorithms traversing the latent space.}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{GA_yellowcar_200.PNG}
+   \caption{genetic algorithm}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{DE_yellowcar_200.PNG}
+   \caption{differential evolution}
+   \label{fig:Ng2}
+\end{subfigure}
+
+\caption[Two numerical solutions]{200th generation of evolutionary algorithms traversing the latent space.}
+\end{figure}
+
+Interestingly, we can notice that model is not comprehending the input phrase with the human-like ability - one of the examples would be 'leaking' of the context in the phrase. For instance, images from the final generation (from both algorithms) of the phrase 'a yellow car in the city' are visibly containing a lot of yellow color beside the color of the car. From human perspective, background and surroundings of the yellow car should remain arbitrary in terms of color, since only the car is supposed to be yellow according to the phrase. Generator is feeling more confident about the produced image when yellow color is cascaded on the buildings and objects around the car. Moreover, this type of model behaviour is amplified when bright colors are used in the input phrase (such as yellow, light green).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{figs/avg_both_yellowcar.jpg}
+    \caption{Plot of reversed cosine similarity values for generations from 0 to 200. Orange line presents differential algorithm while blue line shows genetic algorithm.}\label{Fig:STYLEGAN}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[\centering genetic algorithm]{{\includegraphics[width=7cm]{GA_yellowcar_final.PNG} }}%
+    \qquad
+    \subfloat[\centering differential evolution]{{\includegraphics[width=7cm]{DE_yellowcar_final.PNG} }}%
+    \caption{Final images (with best score) produced by algorithms.}%
+    \label{fig:example}%
+\end{figure}
+
+One of the benefits and features of using a population based algorithm for image generating is the fact that many 'similar' in terms of quality pictures are produced. The final images taken from the model have certain visible flaws - the city seems to be rendered in acceptable manner but the cars are somewhat deformed. The good part of using whole population as the output of the model is that a human can objectively choose the best image from the last produced generation. It is vital given the fact, that last images are usually close to each other in terms of scoring (which means that choosing the single final image is not based on strong decision making) but present vastly different scenarios for the input phrase.
+
+Another example was produced by using the StyleGAN2-ffhg model. It is a model that was trained on face images and it is dedicated for that usage. The phrase used to generate below images was '\textit{\textbf{a blond girl with a smile}}'.
+
+
+
+%DOUBLE WITH DOUBLE CAPTION
+%\begin{figure}[!tbp]
+%  \centering
+%  \begin{minipage}[b]{0.4\textwidth}
+%    \includegraphics[width=\textwidth]{GA_yellowcar_final.PNG}
+%    \caption{Flower one.}
+%  \end{minipage}
+%  \hfill
+%  \begin{minipage}[b]{0.4\textwidth}
+%    \includegraphics[width=\textwidth]{DE_yellowcar_final.PNG}
+%    \caption{Flower two.}
+%  \end{minipage}
+%\end{figure}
+
+\section{Complicated phrases}
+
+
 \chapter{Summary}
+
+%Additional models, additional algorithms.
+%Different settings for algorithms.
+
+
 
 
 
