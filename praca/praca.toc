@@ -25,5 +25,6 @@
 \contentsline {chapter}{\numberline {5}Experiments}{27}{}%
 \contentsline {section}{\numberline {5.1}Examples and observations}{27}{}%
 \contentsline {section}{\numberline {5.2}Genetic Algorithm and Differential Evolution}{27}{}%
+\contentsline {section}{\numberline {5.3}Complicated phrases}{32}{}%
 \contentsline {chapter}{\numberline {6}Summary}{33}{}%
 \contentsline {chapter}{Citation}{34}{}%
