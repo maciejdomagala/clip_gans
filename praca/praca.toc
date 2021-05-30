@@ -1,30 +1,35 @@
-\contentsline {chapter}{Introduction}{4}{}%
-\contentsline {chapter}{\numberline {1}Theory}{5}{}%
-\contentsline {section}{\numberline {1.1}Generative Adversarial Networks}{5}{}%
-\contentsline {subsection}{\numberline {1.1.1}Metrics}{5}{}%
-\contentsline {section}{\numberline {1.2}CLIP model}{8}{}%
-\contentsline {section}{\numberline {1.3}Evolutionary Algorithms}{8}{}%
-\contentsline {subsection}{\numberline {1.3.1}Genetic Algorithm}{8}{}%
-\contentsline {subsection}{\numberline {1.3.2}Differential Evolution}{9}{}%
-\contentsline {chapter}{\numberline {2}Notable architectures}{14}{}%
-\contentsline {section}{\numberline {2.1}StyleGAN}{14}{}%
-\contentsline {subsection}{\numberline {2.1.1}Architecture overview}{15}{}%
-\contentsline {subsection}{\numberline {2.1.2}Mapping network}{15}{}%
-\contentsline {subsection}{\numberline {2.1.3}Adaptive Instance Normalization}{16}{}%
-\contentsline {subsection}{\numberline {2.1.4}Style mixing regularization}{18}{}%
-\contentsline {subsection}{\numberline {2.1.5}Additional noise inputs}{18}{}%
-\contentsline {section}{\numberline {2.2}StyleGAN2}{19}{}%
-\contentsline {subsection}{\numberline {2.2.1}Architecture overview}{20}{}%
-\contentsline {subsection}{\numberline {2.2.2}Revisiting Instance Normalization}{21}{}%
-\contentsline {subsection}{\numberline {2.2.3}Removing Progressive Growing}{22}{}%
-\contentsline {subsection}{\numberline {2.2.4}Other improvements}{23}{}%
-\contentsline {section}{\numberline {2.3}BigGAN}{23}{}%
-\contentsline {chapter}{\numberline {3}Framework description}{24}{}%
-\contentsline {section}{\numberline {3.1}Overview}{24}{}%
-\contentsline {chapter}{\numberline {4}Datasets and evaluation}{26}{}%
-\contentsline {chapter}{\numberline {5}Experiments}{27}{}%
-\contentsline {section}{\numberline {5.1}Examples and observations}{27}{}%
-\contentsline {section}{\numberline {5.2}Genetic Algorithm and Differential Evolution}{27}{}%
-\contentsline {section}{\numberline {5.3}Complicated phrases}{32}{}%
-\contentsline {chapter}{\numberline {6}Summary}{33}{}%
-\contentsline {chapter}{Citation}{34}{}%
+\contentsline {chapter}{Introduction}{4}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Theory}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Generative Adversarial Networks}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Overview}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Architecture}{6}{subsection.1.1.2}%
+\contentsline {subsubsection}{Training}{7}{subsubsection*.3}%
+\contentsline {section}{\numberline {1.2}CLIP model}{9}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Overview}{9}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Evolutionary Algorithms}{14}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Genetic Algorithm}{14}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Differential Evolution}{16}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Notable architectures}{20}{chapter.2}%
+\contentsline {section}{\numberline {2.1}StyleGAN}{20}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Architecture overview}{21}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Mapping network}{21}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Adaptive Instance Normalization}{22}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Style mixing regularization}{23}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Additional noise inputs}{24}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}StyleGAN2}{24}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Architecture overview}{25}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Revisiting Instance Normalization}{26}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Removing Progressive Growing}{28}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Other improvements}{28}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}BigGAN}{28}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Framework description}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview}{29}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Datasets and evaluation}{31}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Experiments}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluation}{34}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}CIFAR10}{34}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}ImageNet}{38}{subsection.5.1.2}%
+\contentsline {chapter}{\numberline {6}Summary}{43}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Appendix 1}{44}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Appendix 2}{48}{chapter.8}%
+\contentsline {chapter}{Citation}{52}{chapter*.4}%
