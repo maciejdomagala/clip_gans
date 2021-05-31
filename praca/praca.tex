@@ -818,6 +818,17 @@ StyleGAN2 uses different resolution feature maps that are produced in the base n
 
 \chapter{Framework description}
 
+\section{Current developments}
+
+\noindent Our work is greatly inspired by current surge of different frameworks and solutions incorporating CLIP model as a mechanism allowing to address several text-to-image problems. As of now, there are several solutions that combine CLIP with generative networks that allow users to retrieve image from the input phrase. Work of Vadim Epstein that can be viewed in \cite{aphantasia} shows high resolution results for abstract image generation using SIREN \cite{siren} and VQGAN \cite{vqgan} neural networks.\
+
+\noindent Approach to latent space searching was explained and researched in \cite{coimbra}. In this paper, authors used genetic algorithm, MAP Elites and random sampling approaches for optimization of fitness function. The results shown there are quite detailed and extensive but presented only for simple GANs trained on MNIST and Fashion MNIST datasets. Authors shown that genetic algorithm was the best performing one from all tested approaches and we decided to capitalize on that result by placing genetic algorithm against differential evolution, which could be a better performing algorithm.\
+
+\noindent It is worth noticing that many of the current developments related to CLIP models were inspired by Ryan Murdock and Phil Wang and their work on BigGAN latent space exploration, which is titled \textit{Big Sleep}. \cite{bigsleep} Many followers, including us, use similar settings and parameters that allow for extensive image generating based on the BigGAN generator.\
+
+\noindent As of now, we can describe the developments and current state of the matter in the CLIP related modeling as highly experimental and creative. Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We try to address this issue by performing evaluation on different classifiers and datasets. We also show that it is possible to use the latent space search methods research previously and combine them with CLIP model. 
+
+
 \section{Overview}
 
 The architecture of solution that we are exploring in this work consists of four main components:
@@ -830,6 +841,11 @@ The architecture of solution that we are exploring in this work consists of four
 Graph below shows the flow of data and describes the overall framework architecture:\\
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{figs/flow.jpg}
+    \caption{workflow.}\label{Fig:flow}
+\end{figure}
 
 \noindent Description of the flowchart:
 \begin{enumerate}
@@ -847,18 +863,17 @@ After completing this process, post-processing part takes place:
 \item [4.] Output images are passed for an evaluation using classification network and similarity metric.
 \end{enumerate}
 
-We consider StyleGAN2 architecture as the main choice for a generative model in this solution. Main advantages of that choice are:
+We consider StyleGAN2 and BigGAN architectures as the main choice for a generative models in this solution. Main advantages of that choice are:
 \begin{itemize}
-\item It is widely available as a pre-trained structure; it is public and open-sourced for both generative and discriminative parts of the architecture.
-\item It consists of several class-based dedicated models (such as StyleGAN2-car or StyleGAN2-horse). It allows for experimentations with different types of images.
-\item It is still considered a state-of-the-art model regarding the quality of produced images and was trained using huge datasets of images.
+\item These are widely available as a pre-trained structures; StyleGAN2 is public and open-sourced for both generative and discriminative parts of the architecture, BigGAN is public as a generative part of the model. 
+\item StyleGAN2 consists of several class-based dedicated models (such as StyleGAN2-car or StyleGAN2-ffhq). It allows for experimentations with different types of images and checking the experiments results between both type of GANs.
+\item Both of these models are still considered to be state-of-the-art regarding the quality of produced images and were trained using huge datasets of images. This leads to much more interesting and explorable results.
 \end{itemize}
 
-As of optimization algorithm, we used two algorithms described in previous chapters - \textit{genetic algorithm} and \textit{differential evolution}.
+\noindent We decided to use two algorithms described in previous chapters - \textit{genetic algorithm} and \textit{differential evolution}. First one was already tested to some extend in previous works (\cite{coimbra}). Latter one is considered to be an upgraded version and is regarded to converge quicker and provide more stable results. We decided to test how well these two can perform against each other when providing same hyperparameters.
 
-% Methodology of a solution:
-% In regular 
-% Core of this solution consists of using evolutionary algorithm to navigate in the latent space. Thanks to that approach, 
+\noindent Implementation wise, we decided to use the boilerplates for these algorithms provided by the \textit{pymoo} library. We performed some changes in the source code in order to fully match our needs for experiments. We also made sure that the experiments coded in the library and used as API were correctly implemented and matching with definitions we provided in the theory section of this work. Using some high-level functions from this library allowed us to generate results much quicker than it would have been when defining functions by hand from the scratch.
+
 
 
 
@@ -1264,17 +1279,20 @@ Of course, examples of images for other classes can be found in Appendix 2.
 
 \bibitem[11]{imagenet_data} https://www.image-net.org/
 
-
 \bibitem[12]{clip} A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark et al. {\it Learning transferable visual models
 from natural language supervision.} In CVPR, 2019.
-%
-%https://openai.com/blog/clip/
-%
-%Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G.,
-%Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark,
-%J., et al. (2021). Learning transferable visual models
-%from natural language supervision.
 
+\bibitem[13]{aphantasia} https://github.com/eps696/aphantasia
+
+\bibitem[14]{siren} V. Sitzmann, J. Martel, A. Bergman, D. Lindell, G. Wetzstein {\it Implicit Neural Representations with Periodic Activation Functions.} arXiv preprint arXiv: 2006.09661, 2020.
+
+\bibitem[15]{vqgan} P. Esser, R. Rombach, B. Ommer {\it Taming Transformers for High-Resolution Image Synthesis.} arXiv preprint arXiv: 2012.09841, 2021.
+
+\bibitem[16]{coimbra} P. Fernandes, J. Correia, P. Machado {\it Evolutionary Latent Space Exploration of Generative Adversarial Networks.} CISUC, Department of Informatics Engineering University of Coimbra, 2020.
+
+\bibitem[17]{bigsleep} https://github.com/lucidrains/big-sleep
+
+\bibitem[18]{pymoo} https://github.com/msu-coinlab/pymoo
 
 \end{thebibliography}
 

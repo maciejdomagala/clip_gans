@@ -22,14 +22,15 @@
 \contentsline {subsection}{\numberline {2.2.3}Removing Progressive Growing}{28}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}BigGAN}{28}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Framework description}{30}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Overview}{30}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Experiments}{32}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Examples and observations}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Genetic Algorithm and Differential Evolution}{32}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Evaluation}{38}{chapter.5}%
-\contentsline {section}{\numberline {5.1}CIFAR10}{40}{section.5.1}%
-\contentsline {section}{\numberline {5.2}ImageNet}{44}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Summary}{49}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Appendix 1}{50}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Appendix 2}{54}{chapter.8}%
-\contentsline {chapter}{Citation}{58}{chapter*.62}%
+\contentsline {section}{\numberline {3.1}Current developments}{30}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Overview}{31}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Experiments}{34}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Examples and observations}{34}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Genetic Algorithm and Differential Evolution}{34}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Evaluation}{40}{chapter.5}%
+\contentsline {section}{\numberline {5.1}CIFAR10}{42}{section.5.1}%
+\contentsline {section}{\numberline {5.2}ImageNet}{46}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Summary}{50}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Appendix 1}{51}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Appendix 2}{55}{chapter.8}%
+\contentsline {chapter}{Citation}{59}{chapter*.63}%
