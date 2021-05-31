@@ -23,6 +23,13 @@
 \usepackage{bm}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{pdfpages}
+%\usepackage{subfig}
+\usepackage{subcaption}
+\usepackage{lipsum}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Large}
+
 
 \usepackage{xpatch}
 \makeatletter
@@ -856,39 +863,40 @@ As of optimization algorithm, we used two algorithms described in previous chapt
 
 
 
-\chapter{Datasets and evaluation}
-%https://www.cs.toronto.edu/~kriz/cifar.html
+%\chapter{Datasets and evaluation}
+%%https://www.cs.toronto.edu/~kriz/cifar.html
+%
+%\noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to "fool" the classifiers learned on popular datasets.
+%We took the following datasets as our benchmarks:\\
+%\noindent \textbf{CIFAR10} \\
+%The CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
+%Here are the classes in the dataset, as well as 10 random images from each:
+%\begin{figure}[ht!]
+%    \centering
+%    \includegraphics[scale=0.3]{figs/cifar10_dataset.png}
+%    \caption{Examples from CIFAR10 dataset.}
+%\end{figure}
+%The classes are completely mutually exclusive. There is no overlap between automobiles and trucks. "Automobile" includes sedans, SUVs, things of that sort. "Truck" includes only big trucks. Neither includes pickup trucks.  Dataset can be downloaded from \cite{cifar10_data}. \\
+%\noindent \textbf{ImageNet} \\ 
+%\noindent The ImageNet dataset contains 14 197 122 hand-annotated images. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories with a typical category, such as "balloon" or "strawberry" and more detailed like dogs' breeds names "Rottweiler", "Old English sheepdog". 
+%\begin{figure}[ht!]
+%    \centering
+%    \includegraphics[scale=0.3]{figs/imagenet.png}
+%    \caption{Examples from ImageNet dataset.}
+%\end{figure}
+%\noindent Dataset can be downloaded from \cite{imagenet_data}.
+%Having selected datasets, we chose classifiers trained on them with the highest possible accuracy. These are: \\
+%\noindent $\cdot$ CIFAR-10 CNN Classifier \textbf{\href{https://github.com/vrakesh/CIFAR-10-Classifier}{link}} with the $ \sim 85\% $ accuracy. \\
+%\noindent $\cdot$ ImageNet - ResNet-50 Classifier - \textbf{\href{https://pytorch.org/hub/pytorch_vision_resnet}{link}} with the $ \sim 76\% $ accuracy. \\
+%\newline
+%\noindent To evaluate the model, we will generate a fixed number of images for the selected classes from both datasets (based on the class names), and then see what accuracy they achieved when passed to the corresponding classifiers. \\
+%\noindent For the CIFAR10 dataset we will generate images for each of the 10 available classes: \\
+%\noindent \textbf{[airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck]}.\\
+%For the ImageNet dataset, we chose 10 classes - trying to have them come from different domains. The list looks as follows: \\
+%\noindent \textbf{[llama,  cash machine,  hammer,  miniskirt,  pirate,  shopping cart,  wall clock,  ice cream,  banana,  West Highland white terrier]} 
+%\newline
+%The parameters of the model we will use during the evaluation will be described in the experiments section.
 
-\noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to "fool" the classifiers learned on popular datasets.
-We took the following datasets as our benchmarks:\\
-\noindent \textbf{CIFAR10} \\
-The CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
-Here are the classes in the dataset, as well as 10 random images from each:
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.3]{figs/cifar10_dataset.png}
-    \caption{Examples from CIFAR10 dataset.}
-\end{figure}
-The classes are completely mutually exclusive. There is no overlap between automobiles and trucks. "Automobile" includes sedans, SUVs, things of that sort. "Truck" includes only big trucks. Neither includes pickup trucks.  Dataset can be downloaded from \cite{cifar10_data}. \\
-\noindent \textbf{ImageNet} \\ 
-\noindent The ImageNet dataset contains 14 197 122 hand-annotated images. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories with a typical category, such as "balloon" or "strawberry" and more detailed like dogs' breeds names "Rottweiler", "Old English sheepdog". 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.3]{figs/imagenet.png}
-    \caption{Examples from ImageNet dataset.}
-\end{figure}
-\noindent Dataset can be downloaded from \cite{imagenet_data}.
-Having selected datasets, we chose classifiers trained on them with the highest possible accuracy. These are: \\
-\noindent $\cdot$ CIFAR-10 CNN Classifier \textbf{\href{https://github.com/vrakesh/CIFAR-10-Classifier}{link}} with the $ \sim 85\% $ accuracy. \\
-\noindent $\cdot$ ImageNet - ResNet-50 Classifier - \textbf{\href{https://pytorch.org/hub/pytorch_vision_resnet}{link}} with the $ \sim 76\% $ accuracy. \\
-\newline
-\noindent To evaluate the model, we will generate a fixed number of images for the selected classes from both datasets (based on the class names), and then see what accuracy they achieved when passed to the corresponding classifiers. \\
-\noindent For the CIFAR10 dataset we will generate images for each of the 10 available classes: \\
-\noindent \textbf{[airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck]}.\\
-For the ImageNet dataset, we chose 10 classes - trying to have them come from different domains. The list looks as follows: \\
-\noindent \textbf{[llama,  cash machine,  hammer,  miniskirt,  pirate,  shopping cart,  wall clock,  ice cream,  banana,  West Highland white terrier]} 
-\newline
-The parameters of the model we will use during the evaluation will be described in the experiments section.
 \chapter{Experiments}
 
 \section{Examples and observations}
@@ -978,11 +986,45 @@ One of the benefits and features of using a population based algorithm for image
 
 Another example was produced by using the StyleGAN2-ffhg model. It is a model that was trained on face images and it is dedicated for that usage. The phrase used to generate below images was '\textit{\textbf{a blond girl with a smile}}'.
 
-\section{Evaluation}
+\chapter{Evaluation}
 
-\subsection{CIFAR10}
-\noindent As an evaluation of our solution, we performed the experiment described in the Datasets and Evaluation section.
-Let us start by listing the most important parameters of the evaluation process for CIFAR10 dataset:
+%https://www.cs.toronto.edu/~kriz/cifar.html
+
+\noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to \textit{fool} the classifiers learned on popular datasets.
+We took two famous and widely used datasets as our benchmarks.
+%\noindent \textbf{CIFAR10} \\
+\subsection*{CIFAR10}
+\noindent CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. The classes are mutually exclusive. Below are the classes in the dataset, as well as 10 random images from each:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figs/cifar10_dataset.png}
+    \caption{Examples from CIFAR10 dataset. SOURCE}
+\end{figure}
+
+WHERE CAN IT BE DOWNLOADED
+
+\subsection*{ImageNet} 
+\noindent ImageNet dataset contains 14 197 122 hand-annotated images. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories. This dataset is especially useful in many evaluation cases because it contains general groups of objects (such as \textit{balloon} or \textit{strawberry}) as well as detailed categories e.g. dogs' breeds names like \textit{rottweiler} or \textit{Old English sheepdog}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{figs/imagenet.png}
+    \caption{Examples from ImageNet dataset. SOURCE}
+\end{figure}
+\noindent Dataset can be downloaded from \cite{imagenet_data}.
+Having selected datasets, we chose classifiers trained on them with high accuracy scores:\\
+MAYBE IT WOULD BE BETTER TO INCLUDE LINKS AT THE END IN CITATION FOR CONSISTENCY.
+\begin{itemize}
+\item CIFAR-10 CNN Classifier \textbf{\href{https://github.com/vrakesh/CIFAR-10-Classifier}{link}} with $ \sim 85\% $ accuracy.
+\item ImageNet - ResNet-50 Classifier - \textbf{\href{https://pytorch.org/hub/pytorch_vision_resnet}{link}} with $ \sim 76\% $ accuracy. 
+\end{itemize}
+
+\noindent For evaluation purposes, we generated fixed number of images for selected classes from both datasets (based on the class names), and then reported what accuracy they achieved when passed through the corresponding classifiers. \\
+\noindent For the CIFAR10 dataset we will generate images for each of the 10 available classes: \\
+\noindent \textbf{[airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck]}.\\
+For the ImageNet dataset, we chose 10 classes each of them coming from different domain for variety purposes:
+\noindent \textbf{[llama,  cash machine,  hammer,  miniskirt,  pirate,  shopping cart,  wall clock,  ice cream,  banana,  West Highland white terrier]} 
+\newline
+Both evaluations were performed using intentionally selected model, algorithm and parameters settings:
 \begin{itemize}
 \item GAN model used - \textbf{DeepMindBigGAN256}
 \item Evolutionary model used - \textbf{GA}
@@ -990,6 +1032,18 @@ Let us start by listing the most important parameters of the evaluation process 
 \item Number of model repetitions - $\bm{8}$
 \item Number of images generated per class - $\bm{512} = 512 = 64$
 \end{itemize}
+
+
+\section{CIFAR10}
+%\noindent As an evaluation of our solution, we performed the experiment described in the Datasets and Evaluation section.
+%Let us start by listing the most important parameters of the evaluation process for CIFAR10 dataset:
+%\begin{itemize}
+%\item GAN model used - \textbf{DeepMindBigGAN256}
+%\item Evolutionary model used - \textbf{GA}
+%\item Population size - $\bm{64}$
+%\item Number of model repetitions - $\bm{8}$
+%\item Number of images generated per class - $\bm{512} = 512 = 64$
+%\end{itemize}
 We present results of our evaluation in the form of the following table. \\
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
@@ -1013,8 +1067,9 @@ TRUCK                                & 97                & 415               & 1
 \end{tabular}
 \end{table}
 \newline
-\noindent In the table above, the positive column tells us the number of images generated by our model that were classified correctly, and negative tells us the number of incorrectly classified images.  Starting from the end - we were able to fool the classifier learned on the CIFAR10 dataset in about $25\%$ of the cases. This is not a very high result, but let's take into account that the classifier itself has an accuracy of$ 85\%$ and is therefore not equivalent to human, empirical experiences.  \\
-\noindent Moving on to the details - it's easy to see that for the most part accuracy is low - especially for classes like DEER, BIRD and FROG. The exception is the AIRPLANE class. Let's take a look at sample images from selected classes. \\
+\noindent The \textit{positive} column informs about the number of images generated by the model that were classified correctly, and \textit{negative} column yields the number of incorrectly classified images. From the summary of the experiment we notice that almost $25\%$ of images generated by the model were classified correctly across all 10 classes. For this type of dataset, it is more informative to look at the results on the class basis.
+\noindent For most of the classes the accuracy is way below $50\%$. Model had most difficulties with classes like DEER, BIRD and FROG. On the other side, AIRPLANE class had a very large score $90\%$. Let's take a look at sample images from selected classes.\\
+
 \noindent \textbf{Airplane}
 \begin{figure}[ht!]
     \centering
@@ -1049,17 +1104,8 @@ Of course, in order to fully "fool" the classifier with our generated images - w
 \item The matrix shows a clear concentration of darker color at the intersection of CAT, DEER, DOG and HORSE classes. This is probably due to the fact that, as we noted earlier - the ImageNet dataset that is the "template" for the BigGAN network we are using contains many images of DOGS and CATS, and therefore biases the results towards them.
 \end{enumerate}
 
-\subsection{ImageNet}
-Let's move on to describe evaluation using the ImageNet dataset. Before conducting the experiment, we intuitively predicted that the results should be, at least, slightly better than the results from the evaluation of the CIFAR10 dataset,  because ImageNet is the basis of the BigGAN network that we use in the evaluation.  Therefore, let us start by presenting the parameters of the described experiment.
-\begin{itemize}
-\item GAN model used - \textbf{DeepMindBigGAN256}
-\item Evolutionary model used - \textbf{GA}
-\item Population size - $\bm{64}$
-\item Number of model repetitions - $\bm{8}$
-\item Number of images generated per class - $\bm{512} = 512 = 64$
-\end{itemize}
-As we can see, they do not differ in any way from the experiment setup in the previous section. \\
-The results of our evaluation are as follows.
+\section{ImageNet}
+Before conducting the experiment, we intuitively predicted that the results should be at least slightly better than the results from the evaluation on the CIFAR10 dataset. This is mostly an effect of the fact that ImageNet is the basis of the BigGAN network that we use in the evaluation. The results of our evaluation are as follows.
 \begin{table}[h!]
 \begin{tabular}{|l|c|c|c|}
 \hline
@@ -1219,13 +1265,13 @@ Of course, examples of images for other classes can be found in Appendix 2.
 
 \bibitem[12]{clip} A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark et al. {\it Learning transferable visual models
 from natural language supervision.} In CVPR, 2019.
-
-https://openai.com/blog/clip/
-
-Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G.,
-Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark,
-J., et al. (2021). Learning transferable visual models
-from natural language supervision.
+%
+%https://openai.com/blog/clip/
+%
+%Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G.,
+%Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark,
+%J., et al. (2021). Learning transferable visual models
+%from natural language supervision.
 
 
 \end{thebibliography}
