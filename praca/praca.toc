@@ -26,10 +26,11 @@
 \contentsline {chapter}{\numberline {4}Experiments}{32}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Examples and observations}{32}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Genetic Algorithm and Differential Evolution}{32}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Evaluation}{38}{chapter.5}%
-\contentsline {section}{\numberline {5.1}CIFAR10}{40}{section.5.1}%
-\contentsline {section}{\numberline {5.2}ImageNet}{44}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Summary}{49}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Appendix 1}{50}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Appendix 2}{54}{chapter.8}%
-\contentsline {chapter}{Citation}{58}{chapter*.62}%
+\contentsline {section}{\numberline {4.3}Cosine-Similarity analysis}{38}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Evaluation}{42}{chapter.5}%
+\contentsline {section}{\numberline {5.1}CIFAR10}{44}{section.5.1}%
+\contentsline {section}{\numberline {5.2}ImageNet}{48}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Summary}{52}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Appendix 1}{53}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Appendix 2}{57}{chapter.8}%
+\contentsline {chapter}{Citation}{61}{chapter*.65}%
