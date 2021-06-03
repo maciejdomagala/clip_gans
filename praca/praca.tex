@@ -127,6 +127,8 @@ Adam Komorowski i Maciej Domagała}
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
+\noindent As of now, we can describe the developments and current state of the matter in the CLIP related modeling as highly experimental and creative. Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We try to address this issue by performing evaluation on different classifiers and datasets. We also show that it is possible to use the latent space search methods research previously and combine them with CLIP model. 
+
 \chapter{Theory}
 
 \section{Generative Adversarial Networks}
@@ -822,11 +824,19 @@ StyleGAN2 uses different resolution feature maps that are produced in the base n
 
 \noindent Our work is greatly inspired by current surge of different frameworks and solutions incorporating CLIP model as a mechanism allowing to address several text-to-image problems. As of now, there are several solutions that combine CLIP with generative networks that allow users to retrieve image from the input phrase. Work of Vadim Epstein that can be viewed in \cite{aphantasia} shows high resolution results for abstract image generation using SIREN \cite{siren} and VQGAN \cite{vqgan} neural networks.\
 
+HERE APHANTASIA IMAGE
+
 \noindent Approach to latent space searching was explained and researched in \cite{coimbra}. In this paper, authors used genetic algorithm, MAP Elites and random sampling approaches for optimization of fitness function. The results shown there are quite detailed and extensive but presented only for simple GANs trained on MNIST and Fashion MNIST datasets. Authors shown that genetic algorithm was the best performing one from all tested approaches and we decided to capitalize on that result by placing genetic algorithm against differential evolution, which could be a better performing algorithm.\
+
+HERE COIMBRA IMAGE
 
 \noindent It is worth noticing that many of the current developments related to CLIP models were inspired by Ryan Murdock and Phil Wang and their work on BigGAN latent space exploration, which is titled \textit{Big Sleep}. \cite{bigsleep} Many followers, including us, use similar settings and parameters that allow for extensive image generating based on the BigGAN generator.\
 
-\noindent As of now, we can describe the developments and current state of the matter in the CLIP related modeling as highly experimental and creative. Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We try to address this issue by performing evaluation on different classifiers and datasets. We also show that it is possible to use the latent space search methods research previously and combine them with CLIP model. 
+HERE BIGSLEEP IMAGE
+
+\noindent ABOUT GPT-3 HERE.
+
+\noindent There are several APIs similar to the one provided by us
 
 
 \section{Overview}
@@ -993,7 +1003,7 @@ Interestingly, we can notice that model is not comprehending the input phrase wi
     \subfloat[\centering genetic algorithm]{{\includegraphics[width=7cm]{GA_yellowcar_final.PNG} }}%
     \qquad
     \subfloat[\centering differential evolution]{{\includegraphics[width=7cm]{DE_yellowcar_final.PNG} }}%
-    \caption{Final images (with best score) produced by algorithms.}%
+    \caption{Final images produced by algorithms.}%
     \label{fig:example}%
 \end{figure}
 
