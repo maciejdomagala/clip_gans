@@ -67,7 +67,7 @@ def runner(config, iteration):
         problem,
         algorithm,
         ("n_gen", config.generations),
-        save_history=False,
+        save_history=True,
         verbose=True,
     )
 

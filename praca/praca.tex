@@ -431,47 +431,47 @@ In the \textbf{mutation} step donor vector $v_{i, g}$ is produced. It is calcula
 
 \noindent where $r_{1}, r_{2},r_{3} \in \{1, 2, ..., N_{p}\}$ are randomly selected indices and $F$ is the aforementioned scaling factor.
 
-The other choice is the \textit{DE/best/1} version, which chooses two random vectors to calculate the scaled value which is used to change the \textbf{best} vector $\mathbf{x}_{best, g}$ in current population, which results in more greedy version of the method
-
-\begin{equation}
-\mathbf{v}_{i, g}=\mathbf{x}_{best, g}+F\left(\mathbf{x}_{r_{2}, g}-x_{\mathbf{r}_{3}, g}\right).
-\end{equation}
-
-After the mutation algorithm performs \textbf{crossover} step. There are two most popular crossover schemes: binomial and exponential. Crossover step is performed using rate parameter $C_{r} \in \left(0, 1\right)$, which determines size of perturbation of the target vector. This influences the population diversity.\\
-\indent In binomial crossover, the trial vector $\mathbf{u}_{i, g}=\left(u_{i, 1, g}, u_{i, 2, g}, \ldots, u_{i, D, g}\right)$ for $i \in \{1, 2, ..., N_{p}\}$ and $j \in \{1, 2, ..., D\}$ is created using formula
-
-\begin{equation}
-u_{i, j, g}=\left\{\begin{array}{ll}
-v_{i, j, g} & \text{if } rand_{j} \leqslant C_{r} \text { or } j=j_{\mathrm{rd}}, \\
-x_{i, j, g} & \text { otherwise,}
-\end{array}\right.
-\end{equation}
-
-\noindent where $rand_{j}$ is a random number from $(0,1)$ which determines the probability that the $j$-th parameter will crossover and $\mathbf{v}_{i, g}$ is the donor vector calculated in the mutation step. Also, $j_{\mathrm{rd}}$ is a randomly chosen integer in the range $[1, D]$, which ensures that at least one parameter will be chosen for crossover. That ensures that the new population will be always different from previous one.\
-
-For exponential crossover scheme, let us define the indices $a$ and $b$ to be chosen independently and at random from $[1, D]$. These parameters are chosen for each trial vector separately. Let's denote $\left(\right)_{MOD_{D}}$ as modulo function with modulus $D$. Using these we can define a set of indices
-\begin{equation}
-I = \left\lbrace a, \left(a+1\right)_{MOD_{D}}, \ldots, \left(a+b-1\right)_{MOD_{D}}\right\rbrace.
-\end{equation}
-The trial vector $\mathbf{u}_{i, g}=\left(u_{i, 1, g}, u_{i, 2, g}, \ldots, u_{i, D, g}\right)$ for $i \in \{1, 2, ..., N_{p}\}$ and $j \in \{1, 2, ..., D\}$ is created as
-\begin{equation}
-u_{i, j, g}=\left\{\begin{array}{cc}
-v_{i, j, g} & \text {if } j \in I \text { and } rand_{j} \leqslant C_{r}, \\
-x_{i, j, g} & \text { otherwise. }
-\end{array}\right.
-\end{equation}
-
-\noindent Essentially, above formula is focusing on the crossover between neighbouring vector features instead of fully randomizing the choice.\\
-Having produced a trial vector we can proceed to the selection step. In this phase, algorithm is greedily choosing new members of the population using the \textit{fitness function} $f$.
-
-\begin{equation}
-\mathbf{x}_{i+1, g}=\left\{\begin{array}{ll}
-\mathbf{u}_{i, g} & \text {if } f\left(\mathbf{u}_{i, g}\right)<f\left(\mathbf{x}_{i, g}\right), \\
-\mathbf{x}_{i, g} & \text { otherwise }
-\end{array}\right.
-\end{equation}
-
-The algorithm terminates on similar basis as genetic algorithm discussed previously, when a optimal solution below certain treshold is found or when algorithm reaches some defined number of generations.
+%The other choice is the \textit{DE/best/1} version, which chooses two random vectors to calculate the scaled value which is used to change the \textbf{best} vector $\mathbf{x}_{best, g}$ in current population, which results in more greedy version of the method
+%
+%\begin{equation}
+%\mathbf{v}_{i, g}=\mathbf{x}_{best, g}+F\left(\mathbf{x}_{r_{2}, g}-x_{\mathbf{r}_{3}, g}\right).
+%\end{equation}
+%
+%After the mutation algorithm performs \textbf{crossover} step. There are two most popular crossover schemes: binomial and exponential. Crossover step is performed using rate parameter $C_{r} \in \left(0, 1\right)$, which determines size of perturbation of the target vector. This influences the population diversity.\\
+%\indent In binomial crossover, the trial vector $\mathbf{u}_{i, g}=\left(u_{i, 1, g}, u_{i, 2, g}, \ldots, u_{i, D, g}\right)$ for $i \in \{1, 2, ..., N_{p}\}$ and $j \in \{1, 2, ..., D\}$ is created using formula
+%
+%\begin{equation}
+%u_{i, j, g}=\left\{\begin{array}{ll}
+%v_{i, j, g} & \text{if } rand_{j} \leqslant C_{r} \text { or } j=j_{\mathrm{rd}}, \\
+%x_{i, j, g} & \text { otherwise,}
+%\end{array}\right.
+%\end{equation}
+%
+%\noindent where $rand_{j}$ is a random number from $(0,1)$ which determines the probability that the $j$-th parameter will crossover and $\mathbf{v}_{i, g}$ is the donor vector calculated in the mutation step. Also, $j_{\mathrm{rd}}$ is a randomly chosen integer in the range $[1, D]$, which ensures that at least one parameter will be chosen for crossover. That ensures that the new population will be always different from previous one.\
+%
+%For exponential crossover scheme, let us define the indices $a$ and $b$ to be chosen independently and at random from $[1, D]$. These parameters are chosen for each trial vector separately. Let's denote $\left(\right)_{MOD_{D}}$ as modulo function with modulus $D$. Using these we can define a set of indices
+%\begin{equation}
+%I = \left\lbrace a, \left(a+1\right)_{MOD_{D}}, \ldots, \left(a+b-1\right)_{MOD_{D}}\right\rbrace.
+%\end{equation}
+%The trial vector $\mathbf{u}_{i, g}=\left(u_{i, 1, g}, u_{i, 2, g}, \ldots, u_{i, D, g}\right)$ for $i \in \{1, 2, ..., N_{p}\}$ and $j \in \{1, 2, ..., D\}$ is created as
+%\begin{equation}
+%u_{i, j, g}=\left\{\begin{array}{cc}
+%v_{i, j, g} & \text {if } j \in I \text { and } rand_{j} \leqslant C_{r}, \\
+%x_{i, j, g} & \text { otherwise. }
+%\end{array}\right.
+%\end{equation}
+%
+%\noindent Essentially, above formula is focusing on the crossover between neighbouring vector features instead of fully randomizing the choice.\\
+%Having produced a trial vector we can proceed to the selection step. In this phase, algorithm is greedily choosing new members of the population using the \textit{fitness function} $f$.
+%
+%\begin{equation}
+%\mathbf{x}_{i+1, g}=\left\{\begin{array}{ll}
+%\mathbf{u}_{i, g} & \text {if } f\left(\mathbf{u}_{i, g}\right)<f\left(\mathbf{x}_{i, g}\right), \\
+%\mathbf{x}_{i, g} & \text { otherwise }
+%\end{array}\right.
+%\end{equation}
+%
+%The algorithm terminates on similar basis as genetic algorithm discussed previously, when a optimal solution below certain treshold is found or when algorithm reaches some defined number of generations.
 
 
 %
@@ -824,20 +824,45 @@ StyleGAN2 uses different resolution feature maps that are produced in the base n
 
 \noindent Our work is greatly inspired by current surge of different frameworks and solutions incorporating CLIP model as a mechanism allowing to address several text-to-image problems. As of now, there are several solutions that combine CLIP with generative networks that allow users to retrieve image from the input phrase. Work of Vadim Epstein that can be viewed in \cite{aphantasia} shows high resolution results for abstract image generation using SIREN \cite{siren} and VQGAN \cite{vqgan} neural networks.\
 
-HERE APHANTASIA IMAGE
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.0]{figs/deepdaze.png}
+    \caption{Image generated using SIREN \cite{siren} model from "a man painting a completely red image" phrase.}\label{Fig:deepdaze}
+\end{figure}
 
-\noindent Approach to latent space searching was explained and researched in \cite{coimbra}. In this paper, authors used genetic algorithm, MAP Elites and random sampling approaches for optimization of fitness function. The results shown there are quite detailed and extensive but presented only for simple GANs trained on MNIST and Fashion MNIST datasets. Authors shown that genetic algorithm was the best performing one from all tested approaches and we decided to capitalize on that result by placing genetic algorithm against differential evolution, which could be a better performing algorithm.\
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figs/aphantasia.png}
+    \caption{Image generated using \textit{Aphantasia} \cite{aphantasia} framework.}\label{Fig:Aphantasia}
+\end{figure}
 
-HERE COIMBRA IMAGE
+\noindent Approach to latent space searching was explained and researched in \cite{coimbra}. In this paper, authors used genetic algorithm, MAP Elites and random sampling approaches for optimization of fitness function. The results shown there are quite detailed and extensive but presented only for simple GANs trained on MNIST and Fashion MNIST datasets. Authors shown that genetic algorithm was the best performing one from all tested approaches and we decided to capitalize on that result by placing genetic algorithm against differential evolution, which could be a better performing algorithm.
 
-\noindent It is worth noticing that many of the current developments related to CLIP models were inspired by Ryan Murdock and Phil Wang and their work on BigGAN latent space exploration, which is titled \textit{Big Sleep}. \cite{bigsleep} Many followers, including us, use similar settings and parameters that allow for extensive image generating based on the BigGAN generator.\
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.0]{figs/coimbra.png}
+    \caption{Random images generated using approach from Fernandes et al. work \cite{coimbra}.}\label{Fig:coimbra}
+\end{figure}
 
-HERE BIGSLEEP IMAGE
+\noindent It is worth noticing that many of the current developments related to CLIP models were inspired by Ryan Murdock and Phil Wang and their work on BigGAN latent space exploration, which is titled \textit{Big Sleep} \cite{bigsleep}. Many followers, including us, use similar settings and parameters that allow for extensive image generating based on the BigGAN generator.
 
-\noindent ABOUT GPT-3 HERE.
+%\vspace*{-10mm}
 
-\noindent There are several APIs similar to the one provided by us
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.0]{figs/bigsleep.png}
+    \caption{Image generated using \textit{Big Sleep} \cite{bigsleep} framework from "the death of the lonesome astronomer" phrase.}\label{Fig:BigSleep}
+\end{figure}
 
+%\vspace*{-10mm}
+
+\noindent There are several APIs dedicated for text-to-image generation that can be found, but all of them show very low generative capabilities, which accurately reflects current state of matter in this domain.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figs/deepai.png}
+    \caption{Image generated using \textit{DeepAI} \cite{deepai} text-to-image API from "a clown on a bike" phrase.}\label{Fig:deepai}
+\end{figure}
 
 \section{Overview}
 
@@ -853,8 +878,8 @@ Graph below shows the flow of data and describes the overall framework architect
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{figs/flow.jpg}
-    \caption{workflow.}\label{Fig:flow}
+    \includegraphics[scale=0.6]{figs/flow.png}
+    \caption{Flowchart presenting the entire process of generating an image from text.}\label{Fig:flow}
 \end{figure}
 
 \noindent Description of the flowchart:
@@ -884,49 +909,86 @@ We consider StyleGAN2 and BigGAN architectures as the main choice for a generati
 
 \noindent Implementation wise, we decided to use the boilerplates for these algorithms provided by the \textit{pymoo} library. We performed some changes in the source code in order to fully match our needs for experiments. We also made sure that the experiments coded in the library and used as API were correctly implemented and matching with definitions we provided in the theory section of this work. Using some high-level functions from this library allowed us to generate results much quicker than it would have been when defining functions by hand from the scratch.
 
+\noindent Finally, we managed to migrate the code from the general repository to the Google Colab based environment. It allows any user to generate own images in the scope of models and algorithms that are implemented. User can choose several generation options, such as the number of generations, how often outputs should be viewed etc.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{figs/collab.png}
+    \caption{Google Colab cell presenting possible settings for image generation.}\label{Fig:collab}
+\end{figure}
 
-
-
-%\chapter{Datasets and evaluation}
-%%https://www.cs.toronto.edu/~kriz/cifar.html
-%
-%\noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to "fool" the classifiers learned on popular datasets.
-%We took the following datasets as our benchmarks:\\
-%\noindent \textbf{CIFAR10} \\
-%The CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
-%Here are the classes in the dataset, as well as 10 random images from each:
-%\begin{figure}[ht!]
-%    \centering
-%    \includegraphics[scale=0.3]{figs/cifar10_dataset.png}
-%    \caption{Examples from CIFAR10 dataset.}
-%\end{figure}
-%The classes are completely mutually exclusive. There is no overlap between automobiles and trucks. "Automobile" includes sedans, SUVs, things of that sort. "Truck" includes only big trucks. Neither includes pickup trucks.  Dataset can be downloaded from \cite{cifar10_data}. \\
-%\noindent \textbf{ImageNet} \\ 
-%\noindent The ImageNet dataset contains 14 197 122 hand-annotated images. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories with a typical category, such as "balloon" or "strawberry" and more detailed like dogs' breeds names "Rottweiler", "Old English sheepdog". 
-%\begin{figure}[ht!]
-%    \centering
-%    \includegraphics[scale=0.3]{figs/imagenet.png}
-%    \caption{Examples from ImageNet dataset.}
-%\end{figure}
-%\noindent Dataset can be downloaded from \cite{imagenet_data}.
-%Having selected datasets, we chose classifiers trained on them with the highest possible accuracy. These are: \\
-%\noindent $\cdot$ CIFAR-10 CNN Classifier \textbf{\href{https://github.com/vrakesh/CIFAR-10-Classifier}{link}} with the $ \sim 85\% $ accuracy. \\
-%\noindent $\cdot$ ImageNet - ResNet-50 Classifier - \textbf{\href{https://pytorch.org/hub/pytorch_vision_resnet}{link}} with the $ \sim 76\% $ accuracy. \\
-%\newline
-%\noindent To evaluate the model, we will generate a fixed number of images for the selected classes from both datasets (based on the class names), and then see what accuracy they achieved when passed to the corresponding classifiers. \\
-%\noindent For the CIFAR10 dataset we will generate images for each of the 10 available classes: \\
-%\noindent \textbf{[airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck]}.\\
-%For the ImageNet dataset, we chose 10 classes - trying to have them come from different domains. The list looks as follows: \\
-%\noindent \textbf{[llama,  cash machine,  hammer,  miniskirt,  pirate,  shopping cart,  wall clock,  ice cream,  banana,  West Highland white terrier]} 
-%\newline
-%The parameters of the model we will use during the evaluation will be described in the experiments section.
 
 \chapter{Experiments}
 
 \section{Examples and observations}
 
-\section{Genetic Algorithm and Differential Evolution}
+\noindent By using the framework we were able to obtain objectively good quality images for different phrases. Given enough time (large enough number of generations) the algorithm is able to guide generator into the correct region of latent space. Using dedicated StyleGAN2 models by providing the text description from the area of training showed some well adjusted results.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figs/blondgirl.png}
+    \caption{Images generated with GA and StyleGAN2-ffhq model with the "a blond girl with a smile" phrase.}\label{Fig:blondgirl}
+\end{figure}
+
+\noindent Using BigGAN model also proved successful, especially in terms of general usage and for the phrases that were not manageable by the dedicated StyleGAN2 models.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{figs/doginthefog.png}
+    \caption{Images generated with GA and BigGAN model with the "a dog in the fog" phrase.}\label{Fig:doginthefog}
+\end{figure}
+
+\noindent Differences between two models will be discussed later in the work.\newline
+\noindent The general rules of evolutionary algorithms, mainly the fact that they are based on population calibration, are visible in many results of conducted experiments. On of the main observations is that when launched for long enough, all of the images in the last populations are looking very similar. That could be perceived as equivalent of \textit{overtraining} the neural network - by prolonging the process we lose the variety of generated images and are left with very alike pictures.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figs/bluecar.png}
+    \caption{Images generated with GA and StyleGAN2-car model with the "a blue car near the water in sun" phrase.}\label{Fig:bluecar}
+\end{figure}
+
+\subsection*{Cosine similarity analysis}
+\noindent One of the aspects we decided to analyze is the behavior of cosine similarity values in the context of our model. This function is used mainly in two aspects of the work:
+\begin{itemize}
+\item  as a loss function in CLIP model,
+\item as a fitness function for evolutionary algorithms.
+\end{itemize}
+\noindent The most important application of cosine similarity seems to be the ability to determine how similar according to the model the input phrase and the generated image are.  We performed several experiments in order to verify the range of values that the model is producing.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1\textwidth}
+\centering
+   \includegraphics[width=0.5\linewidth]{figs/a car_cossim.png}
+\end{subfigure}
+
+\begin{subfigure}[b]{1\textwidth}
+\centering
+   \includegraphics[width=0.5\linewidth]{a yellow forrest_cossim.png}
+\end{subfigure}
+
+\begin{subfigure}[b]{1\textwidth}
+\centering
+   \includegraphics[width=0.5\linewidth]{clock_cossim.png}
+\end{subfigure}
+
+\end{figure}
+
+\noindent Based on the above examples (as well as other tests performed during the research), we noticed that the values in our solution usually oscillate in the range of $0.2 - 0.4$. We see that even in obvious cases, such as the phrase "a car", after long enough generation the value reaches plateau of $0.331$.  \\
+\noindent We observed similar behavior during our research on CLIP model - many users before us noticed such regularity in their tests.
+Although it seems that cosine similarity, which we determine for a pair of image-query in our solution, cannot be interpreted for a single image, we noticed from our work on evolutionary algorithms that it may be used as a metric comparing different images generated for the same query. Let us look at the following examples:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{figs/batch_loop_7.jpg}
+\end{figure}
+\noindent The generation from the genetic algorithm for \textit{llama} input phrase,  sorted by \textit{cos-sim} from the top left corner - we can see that the further away the photo deviates slightly more from the given phrase. \\
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.08]{figs/bigreddog.png}
+\end{figure}
+\noindent Five images generated as results of the genetic algorithm we have implemented. We can see that values differ only on decimal places, but images with higher value are slightly better reflecting given phrase.\\
+
+\section{Genetic Algorithm vs Differential Evolution}
 
 Both of the algorithms presented in this work are population based and work applying similar techniques and concepts. Even though, by testing different scenarios we noticed that several patterns emerged for the generating process using both of these algorithms. 
 Differential evolution algorithm starts converging slower than genetic algorithm. It is especially visible in the first generations of the algorithms e.g. 10th generation. Images produced by generator after steering with genetic algorithm tend to be visually (and according to the metric) closer to the target text. First figure below shows this occurrence.\\
@@ -994,8 +1056,8 @@ Interestingly, we can notice that model is not comprehending the input phrase wi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.45]{figs/avg_both_yellowcar.jpg}
-    \caption{Plot of reversed cosine similarity values for generations from 0 to 200. Orange line presents differential algorithm while blue line shows genetic algorithm.}\label{Fig:STYLEGAN}
+    \includegraphics[scale=0.45]{figs/avg_mean.jpg}
+    \caption{Plot of the mean reversed cosine similarity values for generations from 0 to 200 for 50 consecutive runs. Orange line presents differential algorithm while blue line shows genetic algorithm.}\label{Fig:STYLEGAN}
 \end{figure}
 
 \begin{figure}[H]
@@ -1007,9 +1069,89 @@ Interestingly, we can notice that model is not comprehending the input phrase wi
     \label{fig:example}%
 \end{figure}
 
-One of the benefits and features of using a population based algorithm for image generating is the fact that many 'similar' in terms of quality pictures are produced. The final images taken from the model have certain visible flaws - the city seems to be rendered in acceptable manner but the cars are somewhat deformed. The good part of using whole population as the output of the model is that a human can objectively choose the best image from the last produced generation. It is vital given the fact, that last images are usually close to each other in terms of scoring (which means that choosing the single final image is not based on strong decision making) but present vastly different scenarios for the input phrase.
+\noindent One of the benefits and features of using a population based algorithm for image generating is the fact that many 'similar' in terms of quality pictures are produced. The final images taken from the model have certain visible flaws - the city seems to be rendered in acceptable manner but the cars are somewhat deformed. The good part of using whole population as the output of the model is that a human can objectively choose the best image from the last produced generation. It is vital given the fact, that last images are usually close to each other in terms of scoring (which means that choosing the single final image is not based on strong decision making) but present vastly different scenarios for the input phrase.\\
 
-Another example was produced by using the StyleGAN2-ffhg model. It is a model that was trained on face images and it is dedicated for that usage. The phrase used to generate below images was '\textit{\textbf{a blond girl with a smile}}'.
+\noindent Below is one more plot, showing the dynamics of change in the lowest fitness values for both algorithms in every algorithm population.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{figs/best_both.jpg}
+    \caption{Plot of the best sample values for each population for the "a yellow car in the city" phrase and both algorithms.}\label{Fig:STYLEGAN}
+\end{figure}
+
+\section{StyleGAN2 vs BigGAN}
+
+\noindent It is apparent that the underlying dataset is crucial in determining the generative power of the model. Throughout the experiments, we noticed that there are two separate use cases for both StyleGAN2 and BigGAN models. 
+
+\noindent First, we observed that StyleGAN2 is outperforming BigGAN model significantly when user provides a phrase that is related to the dataset that the model was trained on. Even though this conclusion might seem obvious, we still found the results from both models interesting.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{redgothic_stylegan.PNG}
+   \caption{StyleGAN2-church}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{redgothic_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+\caption[pics]{Comparison of StyleGAN2-church and BigGAN models for a "red gothic church" phrase.}
+\end{figure}
+
+\noindent As we can see on above example, the BigGAN model has the idea about the color, but the general church object is not properly embedded in latent space, hence the model tries to generate some structures that it identifies as 'gothic'. Similar inaccuracies are visible in the next example also.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{gingerboy_stylegan.PNG}
+   \caption{StyleGAN2-ffhq}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{gingerboy_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+\caption[pics]{Comparison of StyleGAN2-ffhq and BigGAN models for "a ginger boy" phrase.}
+\end{figure}
+
+\noindent Again, we can see clear outputs produced by the StyleGAN2 model, while images produces by BigGAN are fairly deformed and not representative. On the other hand, we can see that again BigGAN tried to transfer information about color to the picture - hence every \textit{person} on an image has red shirt.\\
+
+\noindent On the other hand, in every other aspect, BigGAN is able to generalize better and find more appropriate representation of input text than StyleGAN. Once again, it is a direct implication of the dataset that both models were trained with. 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{clown_stylegancat2.PNG}
+   \caption{StyleGAN2-cat}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+   \includegraphics[width=1\linewidth]{clown_stylegancar.PNG}
+   \caption{StyleGAN2-car}
+   \label{fig:Ng2}
+\end{subfigure}
+
+\caption[pics]{Comparison of StyleGAN2-cat and StyleGAN2-car for "a clown cyclist on the moon" phrase.}
+\end{figure}
+
+
+\noindent StyleGAN2 models output can be described as close to randomize - model is trying to generate a meaningful image while having no idea about \textit{the moon}, \textit{clown} and \textit{cyclist}. This results in a random walk through the latent space and provides images which are not making much sense. With this example, we can clearly see the advantage of the BigGAN model - images from the last population clearly show the moon-like surface, elements of clown's hat and circus stadium as well as machines that resemble a bike.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{figs/clown_biggan.PNG}
+    \caption{BigGAN model ouput for "a clown cyclist on the moon" phrase.}\label{Fig:clownbiggan}
+\end{figure}
+
+\noindent Provided examples show the power of data and datasets used for training. Having enough data there could be a possibility of creating a model combining the best of two worlds from StyleGAN2 and BigGAN - a model that is producing crips images with high quality (like dedicated StyleGAN2) and also has a wide variety of generative possibilities (like BigGAN).
+
+\newpage
 
 \chapter{Evaluation}
 
@@ -1017,37 +1159,33 @@ Another example was produced by using the StyleGAN2-ffhg model. It is a model th
 
 \noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to \textit{fool} the classifiers learned on popular datasets.
 We took two famous and widely used datasets as our benchmarks.
-%\noindent \textbf{CIFAR10} \\
 \subsection*{CIFAR10}
 \noindent CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. The classes are mutually exclusive. Below are the classes in the dataset, as well as 10 random images from each:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{figs/cifar10_dataset.png}
-    \caption{Examples from CIFAR10 dataset. SOURCE}
+    \caption{Examples from CIFAR10 dataset. \cite{cifar10_data}.}
 \end{figure}
-
-WHERE CAN IT BE DOWNLOADED
-
+\noindent CIFAR10 dataset can be downloaded from \cite{cifar10_data}.
 \subsection*{ImageNet} 
 \noindent ImageNet dataset contains 14 197 122 hand-annotated images. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories. This dataset is especially useful in many evaluation cases because it contains general groups of objects (such as \textit{balloon} or \textit{strawberry}) as well as detailed categories e.g. dogs' breeds names like \textit{rottweiler} or \textit{Old English sheepdog}.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{figs/imagenet.png}
-    \caption{Examples from ImageNet dataset. SOURCE}
+    \caption{Examples from ImageNet dataset \cite{imagenet_example}.}
 \end{figure}
-\noindent Dataset can be downloaded from \cite{imagenet_data}.
-Having selected datasets, we chose classifiers trained on them with high accuracy scores:\\
-MAYBE IT WOULD BE BETTER TO INCLUDE LINKS AT THE END IN CITATION FOR CONSISTENCY.
+\noindent Dataset can be downloaded from \cite{imagenet_data}. \\
+\noindent Having selected datasets, we chose classifiers trained on them with high accuracy scores:\\
 \begin{itemize}
-\item CIFAR-10 CNN Classifier \textbf{\href{https://github.com/vrakesh/CIFAR-10-Classifier}{link}} with $ \sim 85\% $ accuracy.
-\item ImageNet - ResNet-50 Classifier - \textbf{\href{https://pytorch.org/hub/pytorch_vision_resnet}{link}} with $ \sim 76\% $ accuracy. 
+\item CIFAR-10 CNN Classifier \cite{cifar10_classifier} - with $ \sim 85\% $ accuracy.
+\item ImageNet - ResNet-50 Classifier \cite{resnet} -  with $ \sim 76\% $ accuracy. 
 \end{itemize}
 
 \noindent For evaluation purposes, we generated fixed number of images for selected classes from both datasets (based on the class names), and then reported what accuracy they achieved when passed through the corresponding classifiers. \\
 \noindent For the CIFAR10 dataset we will generate images for each of the 10 available classes: \\
 \noindent \textbf{[airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck]}.\\
-For the ImageNet dataset, we chose 10 classes each of them coming from different domain for variety purposes:
-\noindent \textbf{[llama,  cash machine,  hammer,  miniskirt,  pirate,  shopping cart,  wall clock,  ice cream,  banana,  West Highland white terrier]} 
+For the ImageNet dataset, we chose 10 classes each of them coming from different domain for variety purposes: \\
+\noindent \textbf{[llama,  cash machine,  hammer,  miniskirt,  pirate,  shopping cart,  wall clock,  ice cream,  banana, Kerry blue terrier]} 
 \newline
 Both evaluations were performed using intentionally selected model, algorithm and parameters settings:
 \begin{itemize}
@@ -1058,21 +1196,8 @@ Both evaluations were performed using intentionally selected model, algorithm an
 \item Number of images generated per class - $\bm{512} = 512 = 64$
 \end{itemize}
 
-
 \section{CIFAR10}
-%\noindent As an evaluation of our solution, we performed the experiment described in the Datasets and Evaluation section.
-%Let us start by listing the most important parameters of the evaluation process for CIFAR10 dataset:
-%\begin{itemize}
-%\item GAN model used - \textbf{DeepMindBigGAN256}
-%\item Evolutionary model used - \textbf{GA}
-%\item Population size - $\bm{64}$
-%\item Number of model repetitions - $\bm{8}$
-%\item Number of images generated per class - $\bm{512} = 512 = 64$
-%\end{itemize}
-We present results of our evaluation in the form of the following table. \\
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\noindent We present results of our evaluation in the form of the following table. \\
 \begin{table}[h!]
 \centering
 \begin{tabular}{|l|c|c|c|}
@@ -1093,7 +1218,7 @@ TRUCK                                & 97                & 415               & 1
 \end{table}
 \newline
 \noindent The \textit{positive} column informs about the number of images generated by the model that were classified correctly, and \textit{negative} column yields the number of incorrectly classified images. From the summary of the experiment we notice that almost $25\%$ of images generated by the model were classified correctly across all 10 classes. For this type of dataset, it is more informative to look at the results on the class basis.
-\noindent For most of the classes the accuracy is way below $50\%$. Model had most difficulties with classes like DEER, BIRD and FROG. On the other side, AIRPLANE class had a very large score $90\%$.\\
+\noindent For most of the classes the accuracy is way below $50\%$. Model had most difficulties with classes like \textit{deer}, \textit{bird} and \textit{frog}. On the other side, \textit{airplane} class had a very large score $90\%$.\\
 
 \noindent \textbf{Airplane}
 \begin{figure}[ht!]
@@ -1101,16 +1226,14 @@ TRUCK                                & 97                & 415               & 1
     \includegraphics[scale=0.45]{figs/cifar10_examples/airplane.png}
 \end{figure} 
 \newline
-\noindent We see that the generated images of the AIRPLANE mostly show its wing against the sky. We can surmise that the classifier was wrong so often on the AIRPLANE images we generated, because they included the blue sky.
-TUTAJ CHYBA ZE BYL OFTEN RIGHT BO BLUE SKY
+\noindent We see that the generated images of the \textit{airplane} mostly show its wing against the sky. We can surmise that the classifier was right so often on the \textit{airplane} images we generated, because they included the blue sky.
 \newpage
 \noindent \textbf{Dog} \\
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.45]{figs/cifar10_examples/dog.png}
 \end{figure}
-\newline It's hard to see a feature that distinguishes correctly and incorrectly classified images in the DOG class. Instead, it can be seen that the DOG images generated by the model are quite readable. Later in the chapter we will look at what other classes this class was confused with.
-MOZE COS WIECEJ PITU PITU TUTAJ
+\newline It's hard to see a feature that distinguishes correctly and incorrectly classified images in the \textit{dog} class. Instead, it can be seen that the \textit{dog} images generated by the model are quite readable. Later in the chapter we will look at what other classes this class was confused with.
 \newline
 \newline
 \noindent \textbf{Deer} \\
@@ -1119,20 +1242,20 @@ MOZE COS WIECEJ PITU PITU TUTAJ
     \includegraphics[scale=0.45]{figs/cifar10_examples/deer.png}
 \end{figure}
 \newline 
-\noindent DEER class was not even once classified correctly. We can see that the generated DEERS resemble DOGS with some element that may represent antlers. We suspect that the model failed this task because the GAN network we used was trained on the Imagenet dataset, which does not contain images containing deers.
+\noindent \textit{Deer} class was not even once classified correctly. We can see that the generated \textit{deers} resemble \textit{dogs} with some element that may represent antlers. We suspect that the model failed this task because the GAN network we used was trained on the Imagenet dataset, which does not contain images containing deers.
 Examples from other classes are presented in Appendix 1 of this paper. \\
 \noindent Let us now analyze which classes the images we generated were confused with. To do this let's look at the following confusion matrix.
 \begin{figure}[ht!]
-    \includegraphics[scale=0.5]{figs/cifar10_examples/confusion_matrix.png}
+    \includegraphics[scale=0.4]{figs/cifar10_examples/confusion_matrix.png}
 \end{figure}
-Of course, in order to fully "fool" the classifier with our generated images - we would expect only zero values in the above matrix except for the diagonal starting at the upper left corner.   Let's present what we noticed in the matrix.
+Of course, in order to fully \textit{fool} the classifier with our generated images - we would expect only zero values in the above matrix except for the diagonal starting at the upper left corner.   Let's present what we noticed in the matrix.
 \begin{enumerate}
-\item Many classes were mistaken for the AIRPLANE class - including AUTOMOBILE, TRUCK, and BIRD. The mistakes in the classes AUTOMOBILE and TRUCK can be explained by the fact that all 3 classes depict some kind of machine, while the problem with the class BIRD is in our opinion due to the fact that the pictures of this class also often contain a generated sky (blue background).
-\item The matrix shows a clear concentration of darker color at the intersection of CAT, DEER, DOG and HORSE classes. This is probably due to the fact that, as we noted earlier - the ImageNet dataset that is the "template" for the BigGAN network we are using contains many images of DOGS and CATS, and therefore biases the results towards them.
+\item Many classes were mistaken for the \textit{airplane} class - including \textit{automobile}, \textit{truck}, and \textit{bird}. The mistakes in the classes \textit{automobile} and \textit{truck} can be explained by the fact that all 3 classes depict some kind of machine, while the problem with the class \textit{bird} is in our opinion due to the fact that the pictures of this class also often contain a generated sky (blue background).
+\item The matrix shows a clear concentration of darker color at the intersection of \textit{cat}, \textit{deer}, \textit{dog} and \textit{horse} classes. This is probably due to the fact that, as we noted earlier - the ImageNet dataset that is the "template" for the BigGAN network we are using contains many images of \textit{dogs} and \textit{cats}, and therefore biases the results towards them.
 \end{enumerate}
 
 \section{ImageNet}
-Before conducting the experiment, we intuitively predicted that the results should be at least slightly better than the results from the evaluation on the CIFAR10 dataset. This is mostly an effect of the fact that ImageNet is the basis of the BigGAN network that we use in the evaluation. The results of our evaluation are as follows.
+\noindent Before conducting the experiment, we intuitively predicted that the results should be at least slightly better than the results from the evaluation on the CIFAR10 dataset. This is mostly an effect of the fact that ImageNet is the basis of the BigGAN network that we use in the evaluation. The results of our evaluation are as follows.
 \begin{table}[h!]
 \begin{tabular}{|l|c|c|c|}
 \hline
@@ -1168,7 +1291,7 @@ Of course, examples of images for other classes can be found in Appendix 2.
     \includegraphics[scale=0.3]{figs/imagenet_examples/Kerry blue terrier_imagenet_dist.png}
 \end{figure}
 \newline
-\noindent At first glance, it is clear that the images in both groups represent dogs - it is hard to judge empirically why the images in the bottom row were misclassified. However, we can make another observation - there is a noticeable problem with the context of the input query in this case - class name - KERRY BLUE TERRIER, which is encoded by the CLIP model. Specifically, the word "BLUE" is part of the dog's breed name, but when we embed the query in the model, we lose this information and experience a "leakage" of the color blue throughout the images creating, in this case, a blue dog.  Analyzing the barplot provided, we can see that in most cases our images generated for the query "Kerry Blue Terrier" were confused with other dog breeds including often other terriers. Therefore, we can conclude that if we had evaluated our model on groups of classes-for example - dogs - the accuracy of the model could have been much higher.
+\noindent At first glance, it is clear that the images in both groups represent dogs - it is hard to judge empirically why the images in the bottom row were misclassified. However, we can make another observation - there is a noticeable problem with the context of the input query in this case - class name - \textit{Kerry blue terrier}, which is encoded by the CLIP model. Specifically, the word \textit{blue} is part of the dog's breed name, but when we embed the query in the model, we lose this information and experience a "leakage" of the color blue throughout the images creating, in this case, a blue dog.  Analyzing the barplot provided, we can see that in most cases our images generated for the query "Kerry Blue Terrier" were confused with other dog breeds including often other terriers. Therefore, we can conclude that if we had evaluated our model on groups of classes-for example - dogs - the accuracy of the model could have been much higher.
 \newline
 \noindent \textbf{Llama} \\
 \begin{figure}[ht!]
@@ -1180,7 +1303,8 @@ Of course, examples of images for other classes can be found in Appendix 2.
     \includegraphics[scale=0.3]{figs/imagenet_examples/llama_imagenet_dist.png}
 \end{figure}
 \newline
-\noindent The LLAMA class has a very low accuracy - $7\%$ - in our evaluation. Here we can see a noticeable difference between correct and incorrect images - while the top row resembles the shape of a LLAMA, in the bottom row we see, similarly to the section on CIFAR10 evaluations - a bias resulting probably from too many dog images in the BigGAN model training set.
+\noindent The \textit{llama} class has a very low accuracy - $7\%$ - in our evaluation. Here we can see a noticeable difference between correct and incorrect images - while the top row resembles the shape of a \textit{llama}, in the bottom row we see, similarly to the section on CIFAR10 evaluations - a bias resulting probably from too many dog images in the BigGAN model training set.
+
 \chapter{Summary}
 \chapter{Appendix 1}
 \begin{figure}[h!]
@@ -1304,7 +1428,47 @@ from natural language supervision.} In CVPR, 2019.
 
 \bibitem[18]{pymoo} https://github.com/msu-coinlab/pymoo
 
+\bibitem[19]{deepai} https://deepai.org/machine-learning-model/text2img
+
 \end{thebibliography}
 
 
 \end{document}
+
+%\bibitem[1]{improvedgans} T. Salimans, I. Goodfellow, W. Zaremba, V. Cheung, A. Radford, and X. Chen. {\it Improved techniques for training gans.} In NIPS, 2016.
+%
+%\bibitem[2]{inception} C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, Z. Wojna. {\it Rethinking the inception architecture for computer vision.} arXiv preprint arXiv: 1512.00567, 2015.
+%
+%\bibitem[3]{noteonis} S. Barratt, R. Sharma. {\it A note on the Inception Score.} arXiv preprint arXiv: 1801.01973, 2018.
+%
+%\bibitem[4]{fid} M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, S. Hochreiter. {\it GANs trained by a two time-scale update rule converge to a local Nash equilibrium.} In NIPS, 2017.
+%
+%\bibitem[5]{de} R. Storn, K. Price. {\it Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.} Springer, 1997.
+%
+%\bibitem[6]{stylegan} T. Karras, S. Laine, T. Aila. {\it A style-based generator architecture for generative adversarial networks.} In CVPR, 2019.
+%
+%\bibitem[7]{gan} I. Goodfellow et al.  {\it Generative Adversarial Nets} 2014.  \url{https://arxiv.org/pdf/1406.2661.pdf}
+%
+%\bibitem[8]{ganprogress} M. Brundage, S. Avin, J. Clark et al. {\it The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation.} arXiv preprint arXiv: 1802.07228, 2018.
+%
+%\bibitem[9]{clip} OpenAI CLIP https://arxiv.org/pdf/2103.00020.pdf
+%
+%\bibitem[10]{cifar10_data} https://www.cs.toronto.edu/~kriz/cifar.html
+%
+%\bibitem[11]{imagenet_data} https://www.image-net.org/
+%
+%\bibitem[12]{clip} A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark et al. {\it Learning transferable visual models
+%from natural language supervision.} In CVPR, 2019.
+%
+%\bibitem[13]{clip_blog} https://openai.com/blog/clip/
+%
+%\bibitem[14]{clip_source} https://habr.com/en/post/537334/
+%
+%\bibitem[15]{cifar10_classifier} \url{https://github.com/vrakesh/CIFAR-10-Classifier}
+%
+%\bibitem[16]{resnet} \url{https://pytorch.org/hub/pytorch_vision_resnet}
+%
+%\bibitem[17]{imagenet_example} \url{https://devopedia.org/imagenet}
+%
+%\bibitem[18]{gan_arch} \url{https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/}
+%%
