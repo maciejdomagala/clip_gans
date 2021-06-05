@@ -666,8 +666,6 @@ Adding this method of including latent vector at every step of network computati
 
 % Baseline Progressive Growing GANs: Style GAN uses baseline progressive GAN structure, which means the volume of the generated picture increases progressively from a shallow resolution (4×4) to high resolution (1024 x1024) by adding a new section to both the models to maintain the larger resolution after applying the model on a more modest resolution to make it further stable.
 
-\subsection{Style mixing regularization}
-
 As additional technique of regularization and method to differentiate the generated images further, a \textbf{style mixing} approach was introduced by the authors. The main idea is to use not one but two (or more) latent vectors $w_{1}, w_{2}$ (obtained from mapping of $z_{1}, z_{2}$) to generate the final image. The way in which mixing is introduced is fairly simple; up to certain point in the architecture vector $w_{1}$ is used for style control and from crossover point vector $w_{2}$ is used.
 Depending on the place of crossover, final image obtains different characteristics from each image. 
 %
@@ -817,6 +815,25 @@ StyleGAN2 uses different resolution feature maps that are produced in the base n
 
 
 \section{BigGAN}
+
+the BigGAN is a type of conditional GAN utilizing the power of large datasets and huge computational potential. It was proposed by Andrew Brock et al. in 2018 in \cite{biggan}. This architecture is a scaled up version of previous apporaches published by DeepMind team, this time providing larger network and larger batch size. As explained by the authors, this model was trained with two to four times as many parameters as previous networks and with batch size eight times bigger. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{figs/biggan_sample.png}
+    \caption{BigGAN examples.}\label{Fig:biggan_sample}
+\end{figure}
+
+The largest BigGAN model has over 355 million parameters. The only way of training such huge architecture was to provide ability to train on even 512 Google TPU cores. Final models improved over the previous best IS of 52.52 and FID of 18.65, by achieving IS of 166.3 and FID of 9.6. Additionally, BigGAN also outperformed previous state-of-the-art models at 256x256 and 512x512 resolutions, proving to be a very versatile model.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.7]{figs/biggan_table.png}
+    \caption{BigGAN architecture types with results measured with IS and FID scores.}\label{Fig:biggan_table}
+\end{figure}
+
+
+%The latent vector has a 1-dimensional shape and is usually sampled from a certain probability distribution, where nearby vectors represent similar generated images. BiGans latent vectors are sampled from a truncated normal distribution. The truncated normal distribution is a normal distribution where the values outside the truncation value are resampled to lie again the region inside the truncation region. Here is a simple graph showing truncated normal distribution in the region :
 
 \chapter{Framework description}
 
@@ -1429,6 +1446,9 @@ from natural language supervision.} In CVPR, 2019.
 \bibitem[18]{pymoo} https://github.com/msu-coinlab/pymoo
 
 \bibitem[19]{deepai} https://deepai.org/machine-learning-model/text2img
+
+\bibitem[20]{biggan} A. Brock, J. Donahue, K. Simonyan {\it Large Scale GAN Training for High Fidelity Natural Image Synthesis.} arXiv preprint arXiv: 1809.11096, 2019.
+
 
 \end{thebibliography}
 
