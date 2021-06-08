@@ -127,7 +127,7 @@ Adam Komorowski i Maciej Domagała}
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-\noindent Current developments and state of the matter in the CLIP related modeling can be described as highly experimental. Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We address this issue by performing evaluation on different classifiers and datasets. We also show that it is possible to use the latent space search methods research previously and combine them with CLIP model. 
+\noindent Current developments and state of the matter in the text-to-image related modeling can be described as highly experimental. Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We address this issue by performing evaluation on different datasets with use of several classifiers. We also show that it is possible to navigate the latent space with evolutionary algorithms to obtain a good quality image representation from text.
 
 \chapter{Theory}
 
@@ -143,7 +143,7 @@ Adam Komorowski i Maciej Domagała}
 \subsection{Overview}
 
 \noindent Generative Adversarial Networks (GANs) is a family of neural networks used in generative modelling. They were proposed in 2014 by Ian Goodfellow et al. in \cite{gan}.\\
-\noindent They have various different applications across deep learning fields e.g. generative models can be used as a tool for data augmentation of small datasets. For instance, one can feed some text written in a particular handwriting as input to a generative model to generate more text in the same handwriting. The following are results of the first facial images generation experiments with GANs. Another use case is generation of super-resolution images, which allows to produce more detailed and high quality version of input images. 
+\noindent GANs have various different applications across deep learning fields e.g. generative models can be used as a tool for data augmentation of small datasets. For instance, one can feed some text written in a particular handwriting as input to a generative model to generate more text in the same handwriting. Another use case is generation of super-resolution images, which allows to produce more detailed and high quality version of input images. The following are results of the first facial images generation experiments with GANs.
 
  \begin{figure}[ht!]
      \centering
@@ -164,7 +164,7 @@ Adam Komorowski i Maciej Domagała}
 \subsection{Architecture}
 \noindent Generative adversarial networks are composed of two neural networks, one called the \textbf{generator} (denoted as G in this work) and the other called the \textbf{discriminator} (denoted as D). \\
 \noindent The role of the generator is to estimate the probability distribution of the real samples in order to provide generated samples resembling real data. The discriminator is trained to estimate the probability that a given sample came from the real data rather than being provided by the generator.
-\noindent These structures are called generative adversarial networks because the generator and discriminator are trained to compete with each other: the generator tries to get better at fooling the discriminator, while the discriminator tries to get better at identifying generated samples.  GAN architecture can be described using schema below.
+\noindent These structures are called generative adversarial networks because the generator and discriminator are trained to compete with each other: the generator tries to get better at \textit{fooling} the discriminator, while the discriminator tries to get better at identifying generated samples.  GAN architecture can be described using schema below.
  \begin{figure}[H]
      \centering
      \includegraphics[scale=0.3]{figs/gan_architecture.png}
@@ -173,19 +173,19 @@ Adam Komorowski i Maciej Domagała}
 
 \subsubsection{Training}
 \noindent The GAN training process consists of a two-player minimax game. Although the dataset containing the real data isn’t labeled, the training processes for discriminator and generator are performed in a supervised way.  \\
-\noindent For discriminator training, at each iteration we pass some real samples taken from the training data labeled as $1$ and some generated samples provided by generator labeled as $0$. New images are generated based on noise input derived from e.g. Gaussian distribution. This way, we can use more conventional supervised training frameworks to update the parameters of discriminator. The discriminator outputs a value $D(x)$ indicating the chance that x is a real image. Model objective is to maximize the chance of recognizing real images and generated images as separate classes. To measure the performance the \textbf{cross-entropy loss} is used and therefore the objective function can be written as follows:
+\noindent For discriminator training, at each iteration we pass some real samples taken from the training data labeled as $1$ and some generated samples provided by generator labeled as $0$. New images are generated based on noise input derived from e.g. Gaussian distribution. This way, we can use more conventional supervised training frameworks to update the parameters of discriminator. The discriminator outputs a value $D(x)$ indicating the chance that x is a real image. Model objective is to maximize the chance of recognizing real images and generated images as separate classes. To measure the performance the \textbf{cross-entropy loss} is used and therefore the objective function can be written as follows
 
 \begin{equation}
 max_{D} V(D) = \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\log D(\textbf{x})] + \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textbf{z})))].
 \end{equation}
 
-\noindent For each batch of training data containing labeled real and generated samples, model updates the parameters of discriminator to optimize the loss function. After the parameters are updated, generator is trained to produce better samples (in terms of quality and variety). The output of generator is connected to discriminator, whose parameters are kept frozen at the time of generator training. On the generator side, it's objective is to generate images with the highest possible value of $D(x)$ to \textit{fool} the discriminator. This condition can be written as:
+\noindent For each batch of training data containing labeled real and generated samples, model updates the parameters of discriminator to optimize the loss function. After the parameters are updated, generator is trained to produce better samples (in terms of quality and variety). The output of generator is connected to discriminator, whose parameters are kept frozen at the time of generator training. On the generator side, it's objective is to generate images with the highest possible value of $D(x)$ to \textit{fool} the discriminator. This condition can be written as
 
 \begin{equation}
 min_{G} V(G) = \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textbf{z})))].
 \end{equation}
 
-\noindent Combining these two aspects, we can define GAN as a minimax game during which generator wants to minimize V function, while discriminator wants to maximize it:
+\noindent Combining these two aspects, we can define GAN as a minimax game during which generator wants to minimize V function, while discriminator wants to maximize it, which we can formally write as
 
 \begin{equation}
 min_{G} max_{D} V(D, G) =  \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\log D(\textbf{x})] + \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textbf{z})))].
@@ -311,8 +311,8 @@ D_{K L}(p \| q)=\sum_{i=1}^{N} p\left(x_{i}\right) \cdot\left(\log p\left(x_{i}\
 \end{equation}
 
 \noindent where \textbf{A} and \textbf{B} are two vectors representing image and text embeddings respectively. \\
-\noindent Model objective is to maximize cosine similarities for successive training (image, text) pairs and minimizing it for "negative" pairs - which means not training pairs. \\
-One detail that is worth mentioning is that CLIP is sensitive to words used for image descriptions. Texts “a photo of a bird”, “a photo of a bird siting near bird feeder”, or “an image of a bird” all produce different probability paired with the same image:
+\noindent Model objective is to maximize cosine similarities for successive training (image, text) pairs and minimizing it for \textit{not} training pairs. \\
+One detail that is worth mentioning is that CLIP is sensitive to words used for image descriptions. Texts: "\textit{a photo of a bird}", “\textit{a photo of a bird siting near bird feeder}” or “\textit{an image of a bird}” all produce different probability when paired with the same image:
 
  \begin{figure}[ht!]
      \centering
@@ -322,9 +322,9 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
  \newpage
  \subsection*{Current results and limitations}
  
-\noindent CLIP authors are open about its limitations. CLIP struggles on more abstract or systematic tasks such as counting the number of objects and on a more complex tasks such as estimating relative distances between objects. On such datasets, CLIP is only slightly better than random guessing. CLIP also struggles with very fine-grained classification, such as telling the difference between car models, variants of aircraft, or flower species.\\
-\noindent What's more,  CLIP model itself is data hungry and expensive to train. If pre-trained model doesn’t work well for you, it may be not feasible to train your own version.\\
-\noindent While zero-shot CLIP tries to reformulate classification task, the principles are still the same. And although CLIP generalizes well to many image distributions, it still generalizes poorly to data that is truly out-of-distribution. One example of this was CLIP’s performance on MNIST dataset where CLIP zero-shot accuracy was $88 \%.$ Logistic regression on raw pixels outperforms CLIP.\\
+\noindent CLIP authors are open about its limitations. The model struggles with more abstract or systematic tasks such as counting the number of objects. It also has difficulties when solving more complex tasks such as estimating relative distances between objects. In such circumstances, CLIP is only slightly better than random guessing. It also lacks accuracy when performing very fine-grained classification, such as telling the difference between car models, variants of aircraft or flower species.\\
+\noindent Moreover, CLIP model itself is data hungry and expensive to train. If pretrained model does not work well, it may be not feasible to train a custom version of the model.\\
+\noindent While zero-shot CLIP tries to reformulate classification task, the principles are still the same. Although CLIP generalizes well to many image distributions, it still works poorly on data that is truly out-of-distribution. One example of this was CLIP’s performance on MNIST dataset where CLIP zero-shot accuracy was $88 \%.$ Logistic regression on raw pixels outperforms CLIP.\\
 \noindent Ability to adapt to new datasets and classes is related to text encoder. It is thus limited to choosing from only those concepts known to the encoder. CLIP model trained with English texts will be of little help if used with texts in other languages. \\
 \noindent Finally, CLIP’s classifiers can be sensitive to wording in label descriptions and may require trial and error to perform well.
 \newpage
@@ -705,7 +705,6 @@ Significant improvements of the StyleGAN architecture were proposed in late 2019
 \end{figure}
 
 
-
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.2]{figs/phase.eps}
@@ -720,6 +719,7 @@ Significant improvements of the StyleGAN architecture were proposed in late 2019
     \caption{Visual inspection of where the gaussian noise tends to be the most active.}\label{Fig:STYLEGAN}
 \end{figure}
 
+\noindent StyleGAN2 uses different resolution feature maps that are produced in the base network and uses the ResNet like skip connections to incorporate lower resolutions maps to the final output. This change can be viewed as quite drastic - the whole concept of base network was changed, but it proved to be a necessary step in order to mitigate the \textit{phase artifact} effect.
 
 \subsection{Revisiting Instance Normalization}
 
@@ -740,29 +740,11 @@ As seen on the image above, several things changed in the network:
 \item Noise addition was removed from the style block and instead applied inbetween the blocks. This was mainly done to prepare the network for weight modulation,
 \item Input vector $c$ is fed to the network directly, without normalization and applying noise.
 \end{itemize}
-
-All of these steps were also necessary to introduce the main idea for handling water-droplets artifact problem - \textbf{weight demodulation}.
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=1.3]{figs/weight-demodulation.eps}
-    \caption{(b) shows the original StyleGAN architecture. The AdaIN fucntion is shown as combination of normalization and modulation operations. (c) shows the revised model with changes in the network.}\label{Fig:STYLEGAN}
-\end{figure}
-
-
-
-
-% First, have constant input(c) directly as model input rather than modified input C with noise and bias.
-% Second, the noise and bias are removed from style block and moved outside.
-% At last, we only modify standard deviation per feature map rather than both mean and std.
-
-% The authors of StyleGAN2 explain that this kind of normalization discards information in feature maps encoded in the relative magnitudes of activations. The generator overcomes this restriction by sneaking information past these layers which result in these water-droplet artifacts. The authors share the same confusion as the reader as to why the discriminator is unable to distinguish images from this droplet effect.
-
-% StyleGAN2 like StyleGAN uses a normalization technique to infiltrate styles from W vector using learned transform A into the source imagebut now the droplet artifacts are being taken care of. They introduced Weight Demodulation for this purpose. Let us investigate changes made –
-
-\subsection{Removing Progressive Growing}
-
-StyleGAN2 uses different resolution feature maps that are produced in the base network and uses the ResNet like skip connections to incorporate lower resolutions maps to the final output. This change can be viewed as quite drastic - the whole concept of base network was changed, but it proved to be a necessary step in order to mitigate the \textit{phase artifact} effect.
+%
+%
+%\subsection{Removing Progressive Growing}
+%
+%StyleGAN2 uses different resolution feature maps that are produced in the base network and uses the ResNet like skip connections to incorporate lower resolutions maps to the final output. This change can be viewed as quite drastic - the whole concept of base network was changed, but it proved to be a necessary step in order to mitigate the \textit{phase artifact} effect.
 
 
 
@@ -1243,11 +1225,11 @@ TRUCK                                & 97                & 415               & 1
 \newline 
 \noindent \textit{Deer} class was not even once classified correctly. We can see that the generated \textit{deers} resemble \textit{dogs} with some element that may represent antlers. We suspect that the model failed this task because the GAN network we used was trained on the Imagenet dataset, which does not contain images containing deers.
 Examples from other classes are presented in Appendix 1 of this paper. \\
-\noindent Let us now analyze which classes the images we generated were confused with. To do this let's look at the following confusion matrix.
+\noindent Following confusion matrix shows which classes were predicted in which cases.
 \begin{figure}[ht!]
     \includegraphics[scale=0.4]{figs/cifar10_examples/confusion_matrix.png}
 \end{figure}
-Of course, in order to fully \textit{fool} the classifier with our generated images - we would expect only zero values in the above matrix except for the diagonal starting at the upper left corner.   Let's present what we noticed in the matrix.
+In order to fully \textit{fool} the classifier with our generated images - one would expect only zero values in the above matrix except for the diagonal starting at the upper left corner. Below are the observations made by analyzing the matrix.
 \begin{enumerate}
 \item Many classes were mistaken for the \textit{airplane} class - including \textit{automobile}, \textit{truck}, and \textit{bird}. The mistakes in the classes \textit{automobile} and \textit{truck} can be explained by the fact that all 3 classes depict some kind of machine, while the problem with the class \textit{bird} is in our opinion due to the fact that the pictures of this class also often contain a generated sky (blue background).
 \item The matrix shows a clear concentration of darker color at the intersection of \textit{cat}, \textit{deer}, \textit{dog} and \textit{horse} classes. This is probably due to the fact that, as we noted earlier - the ImageNet dataset that is the "template" for the BigGAN network we are using contains many images of \textit{dogs} and \textit{cats}, and therefore biases the results towards them.
@@ -1272,12 +1254,12 @@ KERRY BLUE TERRIER                   & 253               & 259               & {
 \textbf{TOTAL}                       & \textbf{1164}     & \textbf{3956}     & \textbf{22.73}               \\ \hline
 \end{tabular}
 \end{table}
-We can see that we were able to fool the ResNet50 classifier nearly $23\%$ of the time, which is lower than for the CIFAR10 dataset. However, two observations should be taken into account:
+We can see that we were able to \textit{fool} the ResNet50 classifier nearly $23\%$ of the time, which is lower than for the CIFAR10 dataset. However, two major factors should be taken into account:
 \begin{enumerate}
-\item Imagenet dataset is significantly larger (more than 20,000 categories compared to 10 in CIFAR10)
+\item ImageNet dataset is significantly larger (more than 20,000 categories compared to 10 in CIFAR10)
 \item ResNet50 classifier on the ImageNet dataset has an accuracy of $76\%$.
 \end{enumerate}
-Let us now analyze the selected classes. For each of them we will present examples of correctly and incorrectly classified generated images, as well as a graph showing with which classes the given class was most often confused.  
+\noindent For each analyzed class we will present examples of correctly and incorrectly classified generated images, as well as a graph showing with which classes the given class was most often confused.  
 Of course, examples of images for other classes can be found in Appendix 2.
 \newpage
 \noindent \textbf{Kerry Blue Terrier} \\
@@ -1290,7 +1272,7 @@ Of course, examples of images for other classes can be found in Appendix 2.
     \includegraphics[scale=0.3]{figs/imagenet_examples/Kerry blue terrier_imagenet_dist.png}
 \end{figure}
 \newline
-\noindent At first glance, it is clear that the images in both groups represent dogs - it is hard to judge empirically why the images in the bottom row were misclassified. However, we can make another observation - there is a noticeable problem with the context of the input query in this case - class name - \textit{Kerry blue terrier}, which is encoded by the CLIP model. Specifically, the word \textit{blue} is part of the dog's breed name, but when we embed the query in the model, we lose this information and experience a "leakage" of the color blue throughout the images creating, in this case, a blue dog.  Analyzing the barplot provided, we can see that in most cases our images generated for the query "Kerry Blue Terrier" were confused with other dog breeds including often other terriers. Therefore, we can conclude that if we had evaluated our model on groups of classes-for example - dogs - the accuracy of the model could have been much higher.
+\noindent It is clear that the images in both groups represent dogs - it is hard to judge empirically why the images in the bottom row were misclassified. However, we can make another observation - there is a noticeable problem with the context of the input query in this case - class name - \textit{Kerry blue terrier}, which is encoded by the CLIP model. Specifically, the word \textit{blue} is part of the dog's breed name, but when we embed the query in the model, we lose this information and experience a "leakage" of the color blue throughout the images creating, in this case, a blue dog.  Analyzing the barplot provided, we can see that in most cases our images generated for the query "Kerry Blue Terrier" were confused with other dog breeds including often other terriers. Therefore, we can conclude that if the model had been evaluated on groups of classes e.g. \textit{dogs}, the accuracy of the model could have been much higher.
 \newline
 \noindent \textbf{Llama} \\
 \begin{figure}[ht!]
@@ -1303,10 +1285,7 @@ Of course, examples of images for other classes can be found in Appendix 2.
 \end{figure}
 \newline
 \noindent The \textit{llama} class has a very low accuracy - $7\%$ - in our evaluation. Here we can see a noticeable difference between correct and incorrect images - while the top row resembles the shape of a \textit{llama}, in the bottom row we see, similarly to the section on CIFAR10 evaluations - a bias resulting probably from too many dog images in the BigGAN model training set.
-<<<<<<< HEAD
 
-=======
->>>>>>> cossim
 \chapter{Summary}
 \chapter{Appendix 1}
 \begin{figure}[h!]
@@ -1450,41 +1429,3 @@ from natural language supervision.} In CVPR, 2019.
 
 
 \end{document}
-
-%\bibitem[1]{improvedgans} T. Salimans, I. Goodfellow, W. Zaremba, V. Cheung, A. Radford, and X. Chen. {\it Improved techniques for training gans.} In NIPS, 2016.
-%
-%\bibitem[2]{inception} C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, Z. Wojna. {\it Rethinking the inception architecture for computer vision.} arXiv preprint arXiv: 1512.00567, 2015.
-%
-%\bibitem[3]{noteonis} S. Barratt, R. Sharma. {\it A note on the Inception Score.} arXiv preprint arXiv: 1801.01973, 2018.
-%
-%\bibitem[4]{fid} M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, S. Hochreiter. {\it GANs trained by a two time-scale update rule converge to a local Nash equilibrium.} In NIPS, 2017.
-%
-%\bibitem[5]{de} R. Storn, K. Price. {\it Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.} Springer, 1997.
-%
-%\bibitem[6]{stylegan} T. Karras, S. Laine, T. Aila. {\it A style-based generator architecture for generative adversarial networks.} In CVPR, 2019.
-%
-%\bibitem[7]{gan} I. Goodfellow et al.  {\it Generative Adversarial Nets} 2014.  \url{https://arxiv.org/pdf/1406.2661.pdf}
-%
-%\bibitem[8]{ganprogress} M. Brundage, S. Avin, J. Clark et al. {\it The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation.} arXiv preprint arXiv: 1802.07228, 2018.
-%
-%\bibitem[9]{clip} OpenAI CLIP https://arxiv.org/pdf/2103.00020.pdf
-%
-%\bibitem[10]{cifar10_data} https://www.cs.toronto.edu/~kriz/cifar.html
-%
-%\bibitem[11]{imagenet_data} https://www.image-net.org/
-%
-%\bibitem[12]{clip} A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark et al. {\it Learning transferable visual models
-%from natural language supervision.} In CVPR, 2019.
-%
-%\bibitem[13]{clip_blog} https://openai.com/blog/clip/
-%
-%\bibitem[14]{clip_source} https://habr.com/en/post/537334/
-%
-%\bibitem[15]{cifar10_classifier} \url{https://github.com/vrakesh/CIFAR-10-Classifier}
-%
-%\bibitem[16]{resnet} \url{https://pytorch.org/hub/pytorch_vision_resnet}
-%
-%\bibitem[17]{imagenet_example} \url{https://devopedia.org/imagenet}
-%
-%\bibitem[18]{gan_arch} \url{https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/}
-%%

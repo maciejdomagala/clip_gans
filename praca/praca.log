@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.16)  7 JUN 2021 22:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.16)  8 JUN 2021 10:15
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -569,9 +569,6 @@ LaTeX Warning: Label `Fig:STYLEGAN' multiply defined.
 LaTeX Warning: Label `Fig:STYLEGAN' multiply defined.
 
 
-LaTeX Warning: Label `Fig:STYLEGAN' multiply defined.
-
-
 LaTeX Warning: Label `fig:Ng1' multiply defined.
 
 
@@ -774,7 +771,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-<figs/faces.png, id=206, 507.8975pt x 349.305pt>
+<figs/faces.png, id=196, 507.8975pt x 349.305pt>
 File: figs/faces.png Graphic file (type png)
 <use figs/faces.png>
 Package pdftex.def Info: figs/faces.png  used on input line 150.
@@ -782,18 +779,18 @@ Package pdftex.def Info: figs/faces.png  used on input line 150.
 [5
 
  <./figs/faces.png (PNG copy)>]
-<figs/gan_progression.png, id=217, 642.4pt x 186.6975pt>
+<figs/gan_progression.png, id=207, 642.4pt x 186.6975pt>
 File: figs/gan_progression.png Graphic file (type png)
 <use figs/gan_progression.png>
 Package pdftex.def Info: figs/gan_progression.png  used on input line 159.
 (pdftex.def)             Requested size: 321.19922pt x 93.34851pt.
-<figs/gan_architecture.png, id=220, 446.66875pt x 528.97626pt>
+<figs/gan_architecture.png, id=210, 446.66875pt x 528.97626pt>
 File: figs/gan_architecture.png Graphic file (type png)
 <use figs/gan_architecture.png>
 Package pdftex.def Info: figs/gan_architecture.png  used on input line 170.
 (pdftex.def)             Requested size: 134.00165pt x 158.69409pt.
  [6 <./figs/gan_progression.png> <./figs/gan_architecture.png>] [7]
-<figs/gan_algo.png, id=252, 628.3475pt x 404.51125pt>
+<figs/gan_algo.png, id=242, 628.3475pt x 404.51125pt>
 File: figs/gan_algo.png Graphic file (type png)
 <use figs/gan_algo.png>
 Package pdftex.def Info: figs/gan_algo.png  used on input line 198.
@@ -813,33 +810,33 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/fid-eps-converted-to.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<figs/fid-eps-converted-to.pdf, id=277, 236.885pt x 129.48375pt>
+<figs/fid-eps-converted-to.pdf, id=267, 236.885pt x 129.48375pt>
 File: figs/fid-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/fid-eps-converted-to.pdf>
 Package pdftex.def Info: figs/fid-eps-converted-to.pdf  used on input line 264.
 
 (pdftex.def)             Requested size: 379.0165pt x 207.17424pt.
-<figs/clip_example.png, id=280, 471.7625pt x 273.02pt>
+<figs/clip_example.png, id=270, 471.7625pt x 273.02pt>
 File: figs/clip_example.png Graphic file (type png)
 <use figs/clip_example.png>
 Package pdftex.def Info: figs/clip_example.png  used on input line 286.
 (pdftex.def)             Requested size: 283.05968pt x 163.81326pt.
-<figs/clip_summary.png, id=283, 697.60625pt x 698.61pt>
+<figs/clip_summary.png, id=273, 697.60625pt x 698.61pt>
 File: figs/clip_summary.png Graphic file (type png)
 <use figs/clip_summary.png>
 Package pdftex.def Info: figs/clip_summary.png  used on input line 293.
 (pdftex.def)             Requested size: 348.80226pt x 349.30414pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4328) has occurred while \output is active []
 
  [10 <./figs/fid-eps-converted-to.pdf>] [11 <./figs/clip_example.png>] [12 <./f
 igs/clip_summary.png>]
-<figs/clip_model_1.jpeg, id=309, 712.52113pt x 505.89pt>
+<figs/clip_model_1.jpeg, id=299, 712.52113pt x 505.89pt>
 File: figs/clip_model_1.jpeg Graphic file (type jpg)
 <use figs/clip_model_1.jpeg>
 Package pdftex.def Info: figs/clip_model_1.jpeg  used on input line 303.
 (pdftex.def)             Requested size: 285.0034pt x 202.3524pt.
-<figs/clip_model_3.png, id=312, 794.97pt x 501.875pt>
+<figs/clip_model_3.png, id=302, 794.97pt x 501.875pt>
 File: figs/clip_model_3.png Graphic file (type png)
 <use figs/clip_model_3.png>
 Package pdftex.def Info: figs/clip_model_3.png  used on input line 319.
@@ -862,7 +859,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-eps-converted-to.pdf, id=333, 1588.93625pt x 577.15625pt>
+<figs/gen-algo-eps-converted-to.pdf, id=323, 1588.93625pt x 577.15625pt>
 File: figs/gen-algo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-eps-converted-to.pdf  used on input line
@@ -883,7 +880,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-2-eps-converted-to.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-2-eps-converted-to.pdf, id=343, 2478.25874pt x 1699.34875pt>
+<figs/gen-algo-2-eps-converted-to.pdf, id=333, 2478.25874pt x 1699.34875pt>
 File: figs/gen-algo-2-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-2-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-2-eps-converted-to.pdf  used on input li
@@ -904,7 +901,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/gen-algo-pseudo-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/gen-algo-pseudo-eps-converted-to.pdf, id=344, 687.56876pt x 398.48875pt>
+<figs/gen-algo-pseudo-eps-converted-to.pdf, id=334, 687.56876pt x 398.48875pt>
 File: figs/gen-algo-pseudo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/gen-algo-pseudo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/gen-algo-pseudo-eps-converted-to.pdf  used on inp
@@ -928,7 +925,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/diff-evo-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/diff-evo-eps-converted-to.pdf, id=357, 687.56876pt x 713.66624pt>
+<figs/diff-evo-eps-converted-to.pdf, id=347, 687.56876pt x 713.66624pt>
 File: figs/diff-evo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diff-evo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diff-evo-eps-converted-to.pdf  used on input line
@@ -954,15 +951,12 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figs/progan-scheme-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/progan-scheme-eps-converted-to.pdf, id=380, 387.4475pt x 163.61125pt>
+<figs/progan-scheme-eps-converted-to.pdf, id=370, 387.4475pt x 163.61125pt>
 File: figs/progan-scheme-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/progan-scheme-eps-converted-to.pdf>
 Package pdftex.def Info: figs/progan-scheme-eps-converted-to.pdf  used on input
  line 558.
 (pdftex.def)             Requested size: 387.44655pt x 163.61084pt.
-[20
-
- <./figs/progan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/stylegan-scheme.eps>
 (epstopdf)                    date: 2021-05-15 18:16:01
 (epstopdf)                    size: 2218412 bytes
@@ -972,18 +966,21 @@ Package epstopdf Info: Source file: <figs/stylegan-scheme.eps>
 (epstopdf)                    size: 121704 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/stylegan-scheme-eps-co
 nverted-to.pdf figs/stylegan-scheme.eps>
-(epstopdf)             \includegraphics on input line 568.
+(epstopdf)             \includegraphics on input line 566.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/stylegan-scheme-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/stylegan-scheme-eps-converted-to.pdf, id=390, 256.96pt x 221.82875pt>
+<figs/stylegan-scheme-eps-converted-to.pdf, id=371, 256.96pt x 221.82875pt>
 File: figs/stylegan-scheme-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/stylegan-scheme-eps-converted-to.pdf>
 Package pdftex.def Info: figs/stylegan-scheme-eps-converted-to.pdf  used on inp
-ut line 568.
+ut line 566.
 (pdftex.def)             Requested size: 385.43904pt x 332.74228pt.
+[20
+
+ <./figs/progan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/mapping-network.eps>
 (epstopdf)                    date: 2021-05-15 18:57:38
 (epstopdf)                    size: 2100301 bytes
@@ -993,17 +990,17 @@ Package epstopdf Info: Source file: <figs/mapping-network.eps>
 (epstopdf)                    size: 57830 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/mapping-network-eps-co
 nverted-to.pdf figs/mapping-network.eps>
-(epstopdf)             \includegraphics on input line 580.
+(epstopdf)             \includegraphics on input line 577.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/mapping-network-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/mapping-network-eps-converted-to.pdf, id=391, 854.19125pt x 406.51875pt>
+<figs/mapping-network-eps-converted-to.pdf, id=381, 854.19125pt x 406.51875pt>
 File: figs/mapping-network-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/mapping-network-eps-converted-to.pdf>
 Package pdftex.def Info: figs/mapping-network-eps-converted-to.pdf  used on inp
-ut line 580.
+ut line 577.
 (pdftex.def)             Requested size: 256.25935pt x 121.95656pt.
 [21 <./figs/stylegan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/adaptive-instance-norm.eps>
@@ -1015,18 +1012,18 @@ to.pdf>
 (epstopdf)                    size: 253031 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/adaptive-instance-norm
 -eps-converted-to.pdf figs/adaptive-instance-norm.eps>
-(epstopdf)             \includegraphics on input line 611.
+(epstopdf)             \includegraphics on input line 608.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/adaptive-instance-norm-eps-converted-to.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/adaptive-instance-norm-eps-converted-to.pdf, id=400, 256.96pt x 270.00874
+<figs/adaptive-instance-norm-eps-converted-to.pdf, id=390, 256.96pt x 270.00874
 pt>
 File: figs/adaptive-instance-norm-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/adaptive-instance-norm-eps-converted-to.pdf>
 Package pdftex.def Info: figs/adaptive-instance-norm-eps-converted-to.pdf  used
- on input line 611.
+ on input line 608.
 (pdftex.def)             Requested size: 256.95937pt x 270.00807pt.
 Package epstopdf Info: Source file: <figs/frechet-distance.eps>
 (epstopdf)                    date: 2021-05-15 20:23:38
@@ -1037,17 +1034,17 @@ Package epstopdf Info: Source file: <figs/frechet-distance.eps>
 (epstopdf)                    size: 55546 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/frechet-distance-eps-c
 onverted-to.pdf figs/frechet-distance.eps>
-(epstopdf)             \includegraphics on input line 619.
+(epstopdf)             \includegraphics on input line 616.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/frechet-distance-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/frechet-distance-eps-converted-to.pdf, id=401, 295.1025pt x 94.3525pt>
+<figs/frechet-distance-eps-converted-to.pdf, id=391, 295.1025pt x 94.3525pt>
 File: figs/frechet-distance-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/frechet-distance-eps-converted-to.pdf>
 Package pdftex.def Info: figs/frechet-distance-eps-converted-to.pdf  used on in
-put line 619.
+put line 616.
 (pdftex.def)             Requested size: 354.1212pt x 113.2224pt.
 [22 <./figs/mapping-network-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1062,17 +1059,17 @@ Package epstopdf Info: Source file: <figs/water-droplets.eps>
 (epstopdf)                    size: 66258 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/water-droplets-eps-con
 verted-to.pdf figs/water-droplets.eps>
-(epstopdf)             \includegraphics on input line 706.
+(epstopdf)             \includegraphics on input line 703.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/water-droplets-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/water-droplets-eps-converted-to.pdf, id=423, 422.57875pt x 80.3pt>
+<figs/water-droplets-eps-converted-to.pdf, id=413, 422.57875pt x 80.3pt>
 File: figs/water-droplets-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/water-droplets-eps-converted-to.pdf>
 Package pdftex.def Info: figs/water-droplets-eps-converted-to.pdf  used on inpu
-t line 706.
+t line 703.
 (pdftex.def)             Requested size: 422.57771pt x 80.29979pt.
 Package epstopdf Info: Source file: <figs/phase.eps>
 (epstopdf)                    date: 2021-05-16 10:50:07
@@ -1082,17 +1079,17 @@ Package epstopdf Info: Source file: <figs/phase.eps>
 (epstopdf)                    size: 82407 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/phase-eps-converted-to
 .pdf figs/phase.eps>
-(epstopdf)             \includegraphics on input line 714.
+(epstopdf)             \includegraphics on input line 710.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/phase-eps-converted-to.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/phase-eps-converted-to.pdf, id=424, 249.93375pt x 124.465pt>
+<figs/phase-eps-converted-to.pdf, id=414, 249.93375pt x 124.465pt>
 File: figs/phase-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/phase-eps-converted-to.pdf>
 Package pdftex.def Info: figs/phase-eps-converted-to.pdf  used on input line 71
-4.
+0.
 (pdftex.def)             Requested size: 299.91899pt x 149.35724pt.
 Package epstopdf Info: Source file: <figs/stylegan2-scheme2.eps>
 (epstopdf)                    date: 2021-05-16 10:58:05
@@ -1103,19 +1100,20 @@ f>
 (epstopdf)                    size: 191899 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/stylegan2-scheme2-eps-
 converted-to.pdf figs/stylegan2-scheme2.eps>
-(epstopdf)             \includegraphics on input line 722.
+(epstopdf)             \includegraphics on input line 718.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/stylegan2-scheme2-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/stylegan2-scheme2-eps-converted-to.pdf, id=425, 392.46625pt x 218.8175pt>
+<figs/stylegan2-scheme2-eps-converted-to.pdf, id=415, 392.46625pt x 218.8175pt>
 
 File: figs/stylegan2-scheme2-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/stylegan2-scheme2-eps-converted-to.pdf>
 Package pdftex.def Info: figs/stylegan2-scheme2-eps-converted-to.pdf  used on i
-nput line 722.
+nput line 718.
 (pdftex.def)             Requested size: 392.46527pt x 218.81696pt.
+[24 <./figs/water-droplets-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/changed-normalization.eps>
 (epstopdf)                    date: 2021-05-16 11:11:58
 (epstopdf)                    size: 2149397 bytes
@@ -1125,667 +1123,653 @@ o.pdf>
 (epstopdf)                    size: 83132 bytes
 (epstopdf)             Command: <epstopdf --outfile=figs/changed-normalization-
 eps-converted-to.pdf figs/changed-normalization.eps>
-(epstopdf)             \includegraphics on input line 735.
+(epstopdf)             \includegraphics on input line 732.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figs/changed-normalization-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/changed-normalization-eps-converted-to.pdf, id=426, 257.96375pt x 213.798
+<figs/changed-normalization-eps-converted-to.pdf, id=424, 257.96375pt x 213.798
 75pt>
 File: figs/changed-normalization-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/changed-normalization-eps-converted-to.pdf>
 Package pdftex.def Info: figs/changed-normalization-eps-converted-to.pdf  used 
-on input line 735.
+on input line 732.
 (pdftex.def)             Requested size: 335.35281pt x 277.93832pt.
-[24 <./figs/water-droplets-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Underfull \vbox (badness 2809) has occurred while \output is active []
 
  [25 <./figs/phase-eps-converted-to.pdf> <./figs/stylegan2-scheme2-eps-converte
 d-to.pdf>]
-Package epstopdf Info: Source file: <figs/weight-demodulation.eps>
-(epstopdf)                    date: 2021-05-16 11:11:58
-(epstopdf)                    size: 2137510 bytes
-(epstopdf)             Output file: <figs/weight-demodulation-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2021-05-16 19:53:59
-(epstopdf)                    size: 110711 bytes
-(epstopdf)             Command: <epstopdf --outfile=figs/weight-demodulation-ep
-s-converted-to.pdf figs/weight-demodulation.eps>
-(epstopdf)             \includegraphics on input line 751.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex (file ./figs/weight-demodulation-eps-converted-to.pdf)
-: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figs/weight-demodulation-eps-converted-to.pdf, id=448, 257.96375pt x 212.795pt
->
-File: figs/weight-demodulation-eps-converted-to.pdf Graphic file (type pdf)
-<use figs/weight-demodulation-eps-converted-to.pdf>
-Package pdftex.def Info: figs/weight-demodulation-eps-converted-to.pdf  used on
- input line 751.
-(pdftex.def)             Requested size: 335.35281pt x 276.63344pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26 <./figs/changed-normalization-eps-converted-to.pdf>]
-<figs/biggan_sample.png, id=458, 578.16pt x 288.3272pt>
+<figs/biggan_sample.png, id=439, 578.16pt x 288.3272pt>
 File: figs/biggan_sample.png Graphic file (type png)
 <use figs/biggan_sample.png>
-Package pdftex.def Info: figs/biggan_sample.png  used on input line 810.
+Package pdftex.def Info: figs/biggan_sample.png  used on input line 787.
 (pdftex.def)             Requested size: 404.70924pt x 201.82765pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27 <./figs/weight-demodulation-eps-converted-to.pdf>]
-<figs/biggan_table.png, id=468, 604.50844pt x 89.58469pt>
+ [26 <./figs/changed-normalization-eps-converted-to.pdf>]
+<figs/biggan_table.png, id=449, 604.50844pt x 89.58469pt>
 File: figs/biggan_table.png Graphic file (type png)
 <use figs/biggan_table.png>
-Package pdftex.def Info: figs/biggan_table.png  used on input line 818.
+Package pdftex.def Info: figs/biggan_table.png  used on input line 795.
 (pdftex.def)             Requested size: 423.15302pt x 62.70883pt.
- [28 <./figs/biggan_sample.png> <./figs/biggan_table.png>]
+ [27 <./figs/biggan_sample.png> <./figs/biggan_table.png>]
 Chapter 3.
-<figs/deepdaze.png, id=480, 239.39438pt x 240.9pt>
+<figs/deepdaze.png, id=461, 239.39438pt x 240.9pt>
 File: figs/deepdaze.png Graphic file (type png)
 <use figs/deepdaze.png>
-Package pdftex.def Info: figs/deepdaze.png  used on input line 833.
+Package pdftex.def Info: figs/deepdaze.png  used on input line 810.
 (pdftex.def)             Requested size: 239.39378pt x 240.8994pt.
-<figs/aphantasia.png, id=483, 785.93625pt x 441.90094pt>
+<figs/aphantasia.png, id=464, 785.93625pt x 441.90094pt>
 File: figs/aphantasia.png Graphic file (type png)
 <use figs/aphantasia.png>
-Package pdftex.def Info: figs/aphantasia.png  used on input line 839.
+Package pdftex.def Info: figs/aphantasia.png  used on input line 816.
 (pdftex.def)             Requested size: 471.56538pt x 265.14261pt.
 
-Overfull \hbox (30.54765pt too wide) in paragraph at lines 839--840
+Overfull \hbox (30.54765pt too wide) in paragraph at lines 816--817
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29
+ [28
 
  <./figs/deepdaze.png>]
-<figs/coimbra.png, id=496, 147.55125pt x 143.03438pt>
+<figs/coimbra.png, id=477, 147.55125pt x 143.03438pt>
 File: figs/coimbra.png Graphic file (type png)
 <use figs/coimbra.png>
-Package pdftex.def Info: figs/coimbra.png  used on input line 847.
+Package pdftex.def Info: figs/coimbra.png  used on input line 824.
 (pdftex.def)             Requested size: 147.55087pt x 143.03401pt.
- [30 <./figs/aphantasia.png> <./figs/coimbra.png>]
-<figs/bigsleep.png, id=509, 232.61906pt x 230.36063pt>
+ [29 <./figs/aphantasia.png> <./figs/coimbra.png>]
+<figs/bigsleep.png, id=490, 232.61906pt x 230.36063pt>
 File: figs/bigsleep.png Graphic file (type png)
 <use figs/bigsleep.png>
-Package pdftex.def Info: figs/bigsleep.png  used on input line 857.
+Package pdftex.def Info: figs/bigsleep.png  used on input line 834.
 (pdftex.def)             Requested size: 232.61848pt x 230.36005pt.
-<figs/deepai.png, id=512, 676.02562pt x 395.22656pt>
+<figs/deepai.png, id=493, 676.02562pt x 395.22656pt>
 File: figs/deepai.png Graphic file (type png)
 <use figs/deepai.png>
-Package pdftex.def Info: figs/deepai.png  used on input line 867.
+Package pdftex.def Info: figs/deepai.png  used on input line 844.
 (pdftex.def)             Requested size: 405.6185pt x 237.13776pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31 <./figs/bigsleep.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 880--881
+ [30 <./figs/bigsleep.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 857--858
 
  []
 
-<figs/flow.png, id=523, 770.12718pt x 438.8897pt>
+<figs/flow.png, id=503, 770.12718pt x 438.8897pt>
 File: figs/flow.png Graphic file (type png)
 <use figs/flow.png>
-Package pdftex.def Info: figs/flow.png  used on input line 885.
+Package pdftex.def Info: figs/flow.png  used on input line 862.
 (pdftex.def)             Requested size: 462.07986pt x 263.33585pt.
 
-Overfull \hbox (21.06213pt too wide) in paragraph at lines 885--886
+Overfull \hbox (21.06213pt too wide) in paragraph at lines 862--863
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32 <./figs/deepai.png>]
+ [31 <./figs/deepai.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33 <./figs/flow.png>]
-<figs/collab.png, id=542, 540.51938pt x 210.7875pt>
+ [32 <./figs/flow.png>]
+<figs/collab.png, id=523, 540.51938pt x 210.7875pt>
 File: figs/collab.png Graphic file (type png)
 <use figs/collab.png>
-Package pdftex.def Info: figs/collab.png  used on input line 920.
+Package pdftex.def Info: figs/collab.png  used on input line 897.
 (pdftex.def)             Requested size: 432.41608pt x 168.63022pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34]
-[35 <./figs/collab.png>]
+ [33]
+[34 <./figs/collab.png>]
 Chapter 4.
-<figs/blondgirl.png, id=553, 711.4078pt x 356.83313pt>
+<figs/blondgirl.png, id=534, 711.4078pt x 356.83313pt>
 File: figs/blondgirl.png Graphic file (type png)
 <use figs/blondgirl.png>
-Package pdftex.def Info: figs/blondgirl.png  used on input line 933.
+Package pdftex.def Info: figs/blondgirl.png  used on input line 910.
 (pdftex.def)             Requested size: 426.84798pt x 214.10152pt.
-<figs/doginthefog.png, id=554, 806.26219pt x 402.75468pt>
+<figs/doginthefog.png, id=535, 806.26219pt x 402.75468pt>
 File: figs/doginthefog.png Graphic file (type png)
 <use figs/doginthefog.png>
-Package pdftex.def Info: figs/doginthefog.png  used on input line 941.
+Package pdftex.def Info: figs/doginthefog.png  used on input line 918.
 (pdftex.def)             Requested size: 443.44557pt x 221.51575pt.
 
-Overfull \hbox (2.42784pt too wide) in paragraph at lines 941--942
+Overfull \hbox (2.42784pt too wide) in paragraph at lines 918--919
  [][] 
  []
 
-[36
+[35
 
  <./figs/blondgirl.png>]
-<figs/bluecar.png, id=561, 706.89093pt x 351.56343pt>
+<figs/bluecar.png, id=542, 706.89093pt x 351.56343pt>
 File: figs/bluecar.png Graphic file (type png)
 <use figs/bluecar.png>
-Package pdftex.def Info: figs/bluecar.png  used on input line 950.
+Package pdftex.def Info: figs/bluecar.png  used on input line 927.
 (pdftex.def)             Requested size: 424.13783pt x 210.93968pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37 <./figs/doginthefog.png>]
-<figs/a car_cossim.png, id=569, 722.7pt x 722.7pt>
+ [36 <./figs/doginthefog.png>]
+<figs/a car_cossim.png, id=549, 722.7pt x 722.7pt>
 File: figs/a car_cossim.png Graphic file (type png)
 <use figs/a car_cossim.png>
-Package pdftex.def Info: figs/a car_cossim.png  used on input line 966.
+Package pdftex.def Info: figs/a car_cossim.png  used on input line 943.
 (pdftex.def)             Requested size: 220.50887pt x 220.50587pt.
-<figs//a yellow forrest_cossim.png, id=570, 722.7pt x 722.7pt>
+<figs//a yellow forrest_cossim.png, id=550, 722.7pt x 722.7pt>
 File: figs//a yellow forrest_cossim.png Graphic file (type png)
 <use figs//a yellow forrest_cossim.png>
 Package pdftex.def Info: figs//a yellow forrest_cossim.png  used on input line 
-971.
+948.
 (pdftex.def)             Requested size: 220.50887pt x 220.50587pt.
-<figs//clock_cossim.png, id=571, 722.7pt x 722.7pt>
+<figs//clock_cossim.png, id=551, 722.7pt x 722.7pt>
 File: figs//clock_cossim.png Graphic file (type png)
 <use figs//clock_cossim.png>
-Package pdftex.def Info: figs//clock_cossim.png  used on input line 976.
+Package pdftex.def Info: figs//clock_cossim.png  used on input line 953.
 (pdftex.def)             Requested size: 220.50887pt x 220.50587pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [38 <./figs/bluecar.png>]
-<figs/batch_loop_7.jpg, id=578, 2073.7475pt x 2073.7475pt>
+ [37 <./figs/bluecar.png>]
+<figs/batch_loop_7.jpg, id=559, 2073.7475pt x 2073.7475pt>
 File: figs/batch_loop_7.jpg Graphic file (type jpg)
 <use figs/batch_loop_7.jpg>
-Package pdftex.def Info: figs/batch_loop_7.jpg  used on input line 986.
+Package pdftex.def Info: figs/batch_loop_7.jpg  used on input line 963.
 (pdftex.def)             Requested size: 414.74216pt x 414.74216pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39 <./figs/a car_cossim.png> <./figs//a yellow forrest_cossim.png> <./figs//c
+ [38 <./figs/a car_cossim.png> <./figs//a yellow forrest_cossim.png> <./figs//c
 lock_cossim.png>]
-<figs/bigreddog.png, id=587, 5614.9775pt x 1877.0125pt>
+<figs/bigreddog.png, id=568, 5614.9775pt x 1877.0125pt>
 File: figs/bigreddog.png Graphic file (type png)
 <use figs/bigreddog.png>
-Package pdftex.def Info: figs/bigreddog.png  used on input line 991.
+Package pdftex.def Info: figs/bigreddog.png  used on input line 968.
 (pdftex.def)             Requested size: 449.20738pt x 150.16406pt.
 
-Overfull \hbox (8.18965pt too wide) in paragraph at lines 991--992
+Overfull \hbox (8.18965pt too wide) in paragraph at lines 968--969
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 988--992
+Underfull \hbox (badness 10000) in paragraph at lines 965--969
 
  []
 
-[40 <./figs/batch_loop_7.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 993--994
+[39 <./figs/batch_loop_7.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 970--971
 
  []
 
-[41 <./figs/bigreddog.png>] [42]
-<figs//GA_yellowcar_10.PNG, id=604, 711.4078pt x 356.83313pt>
+[40 <./figs/bigreddog.png>] [41]
+<figs//GA_yellowcar_10.PNG, id=585, 711.4078pt x 356.83313pt>
 File: figs//GA_yellowcar_10.PNG Graphic file (type png)
 <use figs//GA_yellowcar_10.PNG>
-Package pdftex.def Info: figs//GA_yellowcar_10.PNG  used on input line 1007.
+Package pdftex.def Info: figs//GA_yellowcar_10.PNG  used on input line 984.
 (pdftex.def)             Requested size: 441.01773pt x 221.21791pt.
-<figs//DE_yellowcar_10.PNG, id=605, 712.91344pt x 357.58594pt>
+<figs//DE_yellowcar_10.PNG, id=586, 712.91344pt x 357.58594pt>
 File: figs//DE_yellowcar_10.PNG Graphic file (type png)
 <use figs//DE_yellowcar_10.PNG>
-Package pdftex.def Info: figs//DE_yellowcar_10.PNG  used on input line 1013.
+Package pdftex.def Info: figs//DE_yellowcar_10.PNG  used on input line 990.
 (pdftex.def)             Requested size: 441.01773pt x 221.20445pt.
- [43 <./figs//GA_yellowcar_10.PNG> <./figs//DE_yellowcar_10.PNG>]
-<figs//GA_yellowcar_100.PNG, id=615, 712.91344pt x 356.83313pt>
+ [42 <./figs//GA_yellowcar_10.PNG> <./figs//DE_yellowcar_10.PNG>]
+<figs//GA_yellowcar_100.PNG, id=595, 712.91344pt x 356.83313pt>
 File: figs//GA_yellowcar_100.PNG Graphic file (type png)
 <use figs//GA_yellowcar_100.PNG>
-Package pdftex.def Info: figs//GA_yellowcar_100.PNG  used on input line 1026.
+Package pdftex.def Info: figs//GA_yellowcar_100.PNG  used on input line 1003.
 (pdftex.def)             Requested size: 441.01773pt x 220.73877pt.
-<figs//DE_yellowcar_100.PNG, id=616, 714.41907pt x 356.83313pt>
+<figs//DE_yellowcar_100.PNG, id=596, 714.41907pt x 356.83313pt>
 File: figs//DE_yellowcar_100.PNG Graphic file (type png)
 <use figs//DE_yellowcar_100.PNG>
-Package pdftex.def Info: figs//DE_yellowcar_100.PNG  used on input line 1032.
+Package pdftex.def Info: figs//DE_yellowcar_100.PNG  used on input line 1009.
 (pdftex.def)             Requested size: 441.01773pt x 220.27596pt.
- [44 <./figs//GA_yellowcar_100.PNG> <./figs//DE_yellowcar_100.PNG>]
-<figs//GA_yellowcar_200.PNG, id=624, 713.66624pt x 356.0803pt>
+ [43 <./figs//GA_yellowcar_100.PNG> <./figs//DE_yellowcar_100.PNG>]
+<figs//GA_yellowcar_200.PNG, id=605, 713.66624pt x 356.0803pt>
 File: figs//GA_yellowcar_200.PNG Graphic file (type png)
 <use figs//GA_yellowcar_200.PNG>
-Package pdftex.def Info: figs//GA_yellowcar_200.PNG  used on input line 1045.
+Package pdftex.def Info: figs//GA_yellowcar_200.PNG  used on input line 1022.
 (pdftex.def)             Requested size: 441.01773pt x 220.04488pt.
-<figs//DE_yellowcar_200.PNG, id=625, 712.91344pt x 354.57469pt>
+<figs//DE_yellowcar_200.PNG, id=606, 712.91344pt x 354.57469pt>
 File: figs//DE_yellowcar_200.PNG Graphic file (type png)
 <use figs//DE_yellowcar_200.PNG>
-Package pdftex.def Info: figs//DE_yellowcar_200.PNG  used on input line 1051.
+Package pdftex.def Info: figs//DE_yellowcar_200.PNG  used on input line 1028.
 (pdftex.def)             Requested size: 441.01773pt x 219.34169pt.
 
 Underfull \vbox (badness 4792) has occurred while \output is active []
 
- [45 <./figs//GA_yellowcar_200.PNG> <./figs//DE_yellowcar_200.PNG>]
-<figs/avg_mean.jpg, id=633, 1011.78pt x 722.7pt>
+ [44 <./figs//GA_yellowcar_200.PNG> <./figs//DE_yellowcar_200.PNG>]
+<figs/avg_mean.jpg, id=614, 1011.78pt x 722.7pt>
 File: figs/avg_mean.jpg Graphic file (type jpg)
 <use figs/avg_mean.jpg>
-Package pdftex.def Info: figs/avg_mean.jpg  used on input line 1063.
+Package pdftex.def Info: figs/avg_mean.jpg  used on input line 1040.
 (pdftex.def)             Requested size: 455.2968pt x 325.21199pt.
 
-Overfull \hbox (14.27907pt too wide) in paragraph at lines 1063--1064
+Overfull \hbox (14.27907pt too wide) in paragraph at lines 1040--1041
  [][] 
  []
 
-<figs//GA_yellowcar_final.PNG, id=634, 382.42876pt x 383.93437pt>
+<figs//GA_yellowcar_final.PNG, id=615, 382.42876pt x 383.93437pt>
 File: figs//GA_yellowcar_final.PNG Graphic file (type png)
 <use figs//GA_yellowcar_final.PNG>
-Package pdftex.def Info: figs//GA_yellowcar_final.PNG  used on input line 1069.
+Package pdftex.def Info: figs//GA_yellowcar_final.PNG  used on input line 1046.
 
 (pdftex.def)             Requested size: 199.16928pt x 199.95164pt.
-<figs//DE_yellowcar_final.PNG, id=635, 383.18156pt x 381.67593pt>
+<figs//DE_yellowcar_final.PNG, id=616, 383.18156pt x 381.67593pt>
 File: figs//DE_yellowcar_final.PNG Graphic file (type png)
 <use figs//DE_yellowcar_final.PNG>
-Package pdftex.def Info: figs//DE_yellowcar_final.PNG  used on input line 1071.
+Package pdftex.def Info: figs//DE_yellowcar_final.PNG  used on input line 1048.
 
 (pdftex.def)             Requested size: 199.16928pt x 198.39108pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46 <./figs/avg_mean.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
+ [45 <./figs/avg_mean.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1053--1054
 
  []
 
-<figs/best_both.jpg, id=641, 1011.78pt x 722.7pt>
+<figs/best_both.jpg, id=622, 1011.78pt x 722.7pt>
 File: figs/best_both.jpg Graphic file (type jpg)
 <use figs/best_both.jpg>
-Package pdftex.def Info: figs/best_both.jpg  used on input line 1082.
+Package pdftex.def Info: figs/best_both.jpg  used on input line 1059.
 (pdftex.def)             Requested size: 455.2968pt x 325.21199pt.
 
-Overfull \hbox (14.27907pt too wide) in paragraph at lines 1082--1083
+Overfull \hbox (14.27907pt too wide) in paragraph at lines 1059--1060
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47 <./figs//GA_yellowcar_final.PNG> <./figs//DE_yellowcar_final.PNG>]
-<figs//redgothic_stylegan.PNG, id=649, 557.08125pt x 279.29344pt>
+ [46 <./figs//GA_yellowcar_final.PNG> <./figs//DE_yellowcar_final.PNG>]
+<figs//redgothic_stylegan.PNG, id=630, 557.08125pt x 279.29344pt>
 File: figs//redgothic_stylegan.PNG Graphic file (type png)
 <use figs//redgothic_stylegan.PNG>
-Package pdftex.def Info: figs//redgothic_stylegan.PNG  used on input line 1095.
+Package pdftex.def Info: figs//redgothic_stylegan.PNG  used on input line 1072.
 
 (pdftex.def)             Requested size: 441.01773pt x 221.10818pt.
-<figs//redgothic_biggan.PNG, id=650, 832.61063pt x 416.30531pt>
+<figs//redgothic_biggan.PNG, id=631, 832.61063pt x 416.30531pt>
 File: figs//redgothic_biggan.PNG Graphic file (type png)
 <use figs//redgothic_biggan.PNG>
-Package pdftex.def Info: figs//redgothic_biggan.PNG  used on input line 1101.
+Package pdftex.def Info: figs//redgothic_biggan.PNG  used on input line 1078.
 (pdftex.def)             Requested size: 441.01773pt x 220.50735pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48 <./figs/best_both.jpg>]
-<figs//gingerboy_stylegan.PNG, id=656, 706.89093pt x 353.82187pt>
+ [47 <./figs/best_both.jpg>]
+<figs//gingerboy_stylegan.PNG, id=637, 706.89093pt x 353.82187pt>
 File: figs//gingerboy_stylegan.PNG Graphic file (type png)
 <use figs//gingerboy_stylegan.PNG>
-Package pdftex.def Info: figs//gingerboy_stylegan.PNG  used on input line 1113.
+Package pdftex.def Info: figs//gingerboy_stylegan.PNG  used on input line 1090.
 
 (pdftex.def)             Requested size: 441.01773pt x 220.744pt.
-<figs//gingerboy_biggan.PNG, id=657, 642.90187pt x 319.94531pt>
+<figs//gingerboy_biggan.PNG, id=638, 642.90187pt x 319.94531pt>
 File: figs//gingerboy_biggan.PNG Graphic file (type png)
 <use figs//gingerboy_biggan.PNG>
-Package pdftex.def Info: figs//gingerboy_biggan.PNG  used on input line 1119.
+Package pdftex.def Info: figs//gingerboy_biggan.PNG  used on input line 1096.
 (pdftex.def)             Requested size: 441.01773pt x 219.48341pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49 <./figs//redgothic_stylegan.PNG> <./figs//redgothic_biggan.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 1126--1127
+ [48 <./figs//redgothic_stylegan.PNG> <./figs//redgothic_biggan.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 1103--1104
 
  []
 
-[50 <./figs//gingerboy_stylegan.PNG> <./figs//gingerboy_biggan.PNG>]
-<figs//clown_stylegancat2.PNG, id=673, 554.82281pt x 277.78781pt>
+[49 <./figs//gingerboy_stylegan.PNG> <./figs//gingerboy_biggan.PNG>]
+<figs//clown_stylegancat2.PNG, id=654, 554.82281pt x 277.78781pt>
 File: figs//clown_stylegancat2.PNG Graphic file (type png)
 <use figs//clown_stylegancat2.PNG>
-Package pdftex.def Info: figs//clown_stylegancat2.PNG  used on input line 1133.
+Package pdftex.def Info: figs//clown_stylegancat2.PNG  used on input line 1110.
 
 (pdftex.def)             Requested size: 441.01773pt x 220.81056pt.
-<figs//clown_stylegancar.PNG, id=674, 556.32843pt x 278.54062pt>
+<figs//clown_stylegancar.PNG, id=655, 556.32843pt x 278.54062pt>
 File: figs//clown_stylegancar.PNG Graphic file (type png)
 <use figs//clown_stylegancar.PNG>
-Package pdftex.def Info: figs//clown_stylegancar.PNG  used on input line 1139.
+Package pdftex.def Info: figs//clown_stylegancar.PNG  used on input line 1116.
 (pdftex.def)             Requested size: 441.01773pt x 220.80971pt.
- [51 <./figs//clown_stylegancat2.PNG> <./figs//clown_stylegancar.PNG>]
-<figs/clown_biggan.PNG, id=682, 772.38562pt x 386.94562pt>
+ [50 <./figs//clown_stylegancat2.PNG> <./figs//clown_stylegancar.PNG>]
+<figs/clown_biggan.PNG, id=663, 772.38562pt x 386.94562pt>
 File: figs/clown_biggan.PNG Graphic file (type png)
 <use figs/clown_biggan.PNG>
-Package pdftex.def Info: figs/clown_biggan.PNG  used on input line 1152.
+Package pdftex.def Info: figs/clown_biggan.PNG  used on input line 1129.
 (pdftex.def)             Requested size: 424.8134pt x 212.82074pt.
- [52 <./figs/clown_biggan.PNG>]
+ [51 <./figs/clown_biggan.PNG>]
 Chapter 5.
-<figs/cifar10_dataset.png, id=689, 472.76625pt x 366.36874pt>
+<figs/cifar10_dataset.png, id=670, 472.76625pt x 366.36874pt>
 File: figs/cifar10_dataset.png Graphic file (type png)
 <use figs/cifar10_dataset.png>
-Package pdftex.def Info: figs/cifar10_dataset.png  used on input line 1170.
+Package pdftex.def Info: figs/cifar10_dataset.png  used on input line 1147.
 (pdftex.def)             Requested size: 283.66193pt x 219.82294pt.
-<figs/imagenet.png, id=693, 853.1875pt x 384.43625pt>
+<figs/imagenet.png, id=674, 853.1875pt x 384.43625pt>
 File: figs/imagenet.png Graphic file (type png)
 <use figs/imagenet.png>
-Package pdftex.def Info: figs/imagenet.png  used on input line 1178.
+Package pdftex.def Info: figs/imagenet.png  used on input line 1155.
 (pdftex.def)             Requested size: 426.59271pt x 192.21765pt.
-[53
+[52
 
  <./figs/cifar10_dataset.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1184
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1161
 
  []
 
-[54 <./figs/imagenet.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1204--1226
+[53 <./figs/imagenet.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1203
 
  []
 
-[55]
-<figs/cifar10_examples/airplane.png, id=721, 1084.05pt x 505.89pt>
+[54]
+<figs/cifar10_examples/airplane.png, id=701, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/airplane.png Graphic file (type png)
 <use figs/cifar10_examples/airplane.png>
 Package pdftex.def Info: figs/cifar10_examples/airplane.png  used on input line
- 1230.
+ 1207.
 (pdftex.def)             Requested size: 487.818pt x 227.64839pt.
 
-Overfull \hbox (46.80026pt too wide) in paragraph at lines 1230--1231
+Overfull \hbox (46.80026pt too wide) in paragraph at lines 1207--1208
  [][] 
  []
 
-[56 <./figs/cifar10_examples/airplane.png>]
-<figs/cifar10_examples/dog.png, id=728, 1084.05pt x 505.89pt>
+[55 <./figs/cifar10_examples/airplane.png>]
+<figs/cifar10_examples/dog.png, id=709, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/dog.png Graphic file (type png)
 <use figs/cifar10_examples/dog.png>
-Package pdftex.def Info: figs/cifar10_examples/dog.png  used on input line 1238
+Package pdftex.def Info: figs/cifar10_examples/dog.png  used on input line 1215
 .
 (pdftex.def)             Requested size: 487.818pt x 227.64839pt.
 
-Overfull \hbox (46.80026pt too wide) in paragraph at lines 1238--1239
+Overfull \hbox (46.80026pt too wide) in paragraph at lines 1215--1216
  [][] 
  []
 
-<figs/cifar10_examples/deer.png, id=729, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/deer.png, id=710, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/deer.png Graphic file (type png)
 <use figs/cifar10_examples/deer.png>
-Package pdftex.def Info: figs/cifar10_examples/deer.png  used on input line 124
-6.
+Package pdftex.def Info: figs/cifar10_examples/deer.png  used on input line 122
+3.
 (pdftex.def)             Requested size: 487.818pt x 227.64839pt.
 
-Overfull \hbox (46.80026pt too wide) in paragraph at lines 1246--1247
+Overfull \hbox (46.80026pt too wide) in paragraph at lines 1223--1224
  [][] 
  []
 
-<figs/cifar10_examples/confusion_matrix.png, id=730, 1156.32pt x 578.16pt>
+<figs/cifar10_examples/confusion_matrix.png, id=711, 1156.32pt x 578.16pt>
 File: figs/cifar10_examples/confusion_matrix.png Graphic file (type png)
 <use figs/cifar10_examples/confusion_matrix.png>
 Package pdftex.def Info: figs/cifar10_examples/confusion_matrix.png  used on in
-put line 1253.
+put line 1230.
 (pdftex.def)             Requested size: 462.5198pt x 231.2599pt.
 
-Overfull \hbox (21.50208pt too wide) in paragraph at lines 1253--1254
+Overfull \hbox (21.50208pt too wide) in paragraph at lines 1230--1231
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1235--1257
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1234
 
  []
 
-[57 <./figs/cifar10_examples/dog.png> <./figs/cifar10_examples/deer.png>]
+[56 <./figs/cifar10_examples/dog.png> <./figs/cifar10_examples/deer.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58 <./figs/cifar10_examples/confusion_matrix.png>] [59]
-<figs/imagenet_examples/Kerry blue terrier.png, id=753, 1084.05pt x 505.89pt>
+ [57 <./figs/cifar10_examples/confusion_matrix.png>] [58]
+<figs/imagenet_examples/Kerry blue terrier.png, id=734, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/Kerry blue terrier.png Graphic file (type png)
 <use figs/imagenet_examples/Kerry blue terrier.png>
 Package pdftex.def Info: figs/imagenet_examples/Kerry blue terrier.png  used on
- input line 1291.
+ input line 1268.
 (pdftex.def)             Requested size: 325.21751pt x 151.76816pt.
-<figs/imagenet_examples/Kerry blue terrier_imagenet_dist.png, id=754, 1445.4pt 
+<figs/imagenet_examples/Kerry blue terrier_imagenet_dist.png, id=735, 1445.4pt 
 x 1084.05pt>
 File: figs/imagenet_examples/Kerry blue terrier_imagenet_dist.png Graphic file 
 (type png)
 <use figs/imagenet_examples/Kerry blue terrier_imagenet_dist.png>
 Package pdftex.def Info: figs/imagenet_examples/Kerry blue terrier_imagenet_dis
-t.png  used on input line 1295.
+t.png  used on input line 1272.
 (pdftex.def)             Requested size: 433.62335pt x 325.21751pt.
-<figs/imagenet_examples/llama.png, id=755, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/llama.png, id=736, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/llama.png Graphic file (type png)
 <use figs/imagenet_examples/llama.png>
 Package pdftex.def Info: figs/imagenet_examples/llama.png  used on input line 1
-303.
+280.
 (pdftex.def)             Requested size: 325.21751pt x 151.76816pt.
-<figs/imagenet_examples/llama_imagenet_dist.png, id=756, 1445.4pt x 1084.05pt>
+<figs/imagenet_examples/llama_imagenet_dist.png, id=737, 1445.4pt x 1084.05pt>
 File: figs/imagenet_examples/llama_imagenet_dist.png Graphic file (type png)
 <use figs/imagenet_examples/llama_imagenet_dist.png>
 Package pdftex.def Info: figs/imagenet_examples/llama_imagenet_dist.png  used o
-n input line 1307.
+n input line 1284.
 (pdftex.def)             Requested size: 433.62335pt x 325.21751pt.
- [60 <./figs/imagenet_examples/Kerry blue terrier.png> <./figs/imagenet_example
-s/Kerry blue terrier_imagenet_dist.png>] [61 <./figs/imagenet_examples/llama.pn
-g> <./figs/imagenet_examples/llama_imagenet_dist.png>] [62]
+ [59 <./figs/imagenet_examples/Kerry blue terrier.png> <./figs/imagenet_example
+s/Kerry blue terrier_imagenet_dist.png>] [60 <./figs/imagenet_examples/llama.pn
+g> <./figs/imagenet_examples/llama_imagenet_dist.png>] [61]
 Chapter 6.
-[63
+[62
 
 ]
 Chapter 7.
 File: figs/cifar10_examples/airplane.png Graphic file (type png)
 <use figs/cifar10_examples/airplane.png>
 Package pdftex.def Info: figs/cifar10_examples/airplane.png  used on input line
- 1319.
+ 1296.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/cifar10_examples/automobile.png, id=782, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/automobile.png, id=763, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/automobile.png Graphic file (type png)
 <use figs/cifar10_examples/automobile.png>
 Package pdftex.def Info: figs/cifar10_examples/automobile.png  used on input li
-ne 1323.
+ne 1300.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/cifar10_examples/cat.png, id=783, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/cat.png, id=764, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/cat.png Graphic file (type png)
 <use figs/cifar10_examples/cat.png>
-Package pdftex.def Info: figs/cifar10_examples/cat.png  used on input line 1327
+Package pdftex.def Info: figs/cifar10_examples/cat.png  used on input line 1304
 .
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/cifar10_examples/bird.png, id=784, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/bird.png, id=765, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/bird.png Graphic file (type png)
 <use figs/cifar10_examples/bird.png>
-Package pdftex.def Info: figs/cifar10_examples/bird.png  used on input line 133
-1.
+Package pdftex.def Info: figs/cifar10_examples/bird.png  used on input line 130
+8.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
 File: figs/cifar10_examples/deer.png Graphic file (type png)
 <use figs/cifar10_examples/deer.png>
-Package pdftex.def Info: figs/cifar10_examples/deer.png  used on input line 133
-5.
+Package pdftex.def Info: figs/cifar10_examples/deer.png  used on input line 131
+2.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
 File: figs/cifar10_examples/dog.png Graphic file (type png)
 <use figs/cifar10_examples/dog.png>
-Package pdftex.def Info: figs/cifar10_examples/dog.png  used on input line 1339
+Package pdftex.def Info: figs/cifar10_examples/dog.png  used on input line 1316
 .
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/cifar10_examples/frog.png, id=785, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/frog.png, id=766, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/frog.png Graphic file (type png)
 <use figs/cifar10_examples/frog.png>
-Package pdftex.def Info: figs/cifar10_examples/frog.png  used on input line 134
-3.
+Package pdftex.def Info: figs/cifar10_examples/frog.png  used on input line 132
+0.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/cifar10_examples/horse.png, id=786, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/horse.png, id=767, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/horse.png Graphic file (type png)
 <use figs/cifar10_examples/horse.png>
 Package pdftex.def Info: figs/cifar10_examples/horse.png  used on input line 13
-47.
+24.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/cifar10_examples/ship.png, id=787, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/ship.png, id=768, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/ship.png Graphic file (type png)
 <use figs/cifar10_examples/ship.png>
-Package pdftex.def Info: figs/cifar10_examples/ship.png  used on input line 135
-1.
+Package pdftex.def Info: figs/cifar10_examples/ship.png  used on input line 132
+8.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/cifar10_examples/truck.png, id=788, 1084.05pt x 505.89pt>
+<figs/cifar10_examples/truck.png, id=769, 1084.05pt x 505.89pt>
 File: figs/cifar10_examples/truck.png Graphic file (type png)
 <use figs/cifar10_examples/truck.png>
 Package pdftex.def Info: figs/cifar10_examples/truck.png  used on input line 13
-55.
+32.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-[64
+[63
 
- <./figs/cifar10_examples/automobile.png>] [65 <./figs/cifar10_examples/cat.png
-> <./figs/cifar10_examples/bird.png>] [66 <./figs/cifar10_examples/frog.png> <.
-/figs/cifar10_examples/horse.png>] [67 <./figs/cifar10_examples/ship.png> <./fi
+ <./figs/cifar10_examples/automobile.png>] [64 <./figs/cifar10_examples/cat.png
+> <./figs/cifar10_examples/bird.png>] [65 <./figs/cifar10_examples/frog.png> <.
+/figs/cifar10_examples/horse.png>] [66 <./figs/cifar10_examples/ship.png> <./fi
 gs/cifar10_examples/truck.png>]
 Chapter 8.
 File: figs/imagenet_examples/Kerry blue terrier.png Graphic file (type png)
 <use figs/imagenet_examples/Kerry blue terrier.png>
 Package pdftex.def Info: figs/imagenet_examples/Kerry blue terrier.png  used on
- input line 1361.
+ input line 1338.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/banana.png, id=823, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/banana.png, id=803, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/banana.png Graphic file (type png)
 <use figs/imagenet_examples/banana.png>
 Package pdftex.def Info: figs/imagenet_examples/banana.png  used on input line 
-1365.
+1342.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/cash machine.png, id=824, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/cash machine.png, id=804, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/cash machine.png Graphic file (type png)
 <use figs/imagenet_examples/cash machine.png>
 Package pdftex.def Info: figs/imagenet_examples/cash machine.png  used on input
- line 1369.
+ line 1346.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/imagenet_examples/hammer.png, id=825, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/hammer.png, id=805, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/hammer.png Graphic file (type png)
 <use figs/imagenet_examples/hammer.png>
 Package pdftex.def Info: figs/imagenet_examples/hammer.png  used on input line 
-1373.
+1350.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/ice cream.png, id=826, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/ice cream.png, id=806, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/ice cream.png Graphic file (type png)
 <use figs/imagenet_examples/ice cream.png>
 Package pdftex.def Info: figs/imagenet_examples/ice cream.png  used on input li
-ne 1377.
+ne 1354.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
 File: figs/imagenet_examples/llama.png Graphic file (type png)
 <use figs/imagenet_examples/llama.png>
 Package pdftex.def Info: figs/imagenet_examples/llama.png  used on input line 1
-381.
+358.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/miniskirt.png, id=827, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/miniskirt.png, id=807, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/miniskirt.png Graphic file (type png)
 <use figs/imagenet_examples/miniskirt.png>
 Package pdftex.def Info: figs/imagenet_examples/miniskirt.png  used on input li
-ne 1385.
+ne 1362.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/pirate.png, id=828, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/pirate.png, id=808, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/pirate.png Graphic file (type png)
 <use figs/imagenet_examples/pirate.png>
 Package pdftex.def Info: figs/imagenet_examples/pirate.png  used on input line 
-1389.
+1366.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/shopping cart.png, id=829, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/shopping cart.png, id=809, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/shopping cart.png Graphic file (type png)
 <use figs/imagenet_examples/shopping cart.png>
 Package pdftex.def Info: figs/imagenet_examples/shopping cart.png  used on inpu
-t line 1393.
+t line 1370.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-<figs/imagenet_examples/wall clock.png, id=830, 1084.05pt x 505.89pt>
+<figs/imagenet_examples/wall clock.png, id=810, 1084.05pt x 505.89pt>
 File: figs/imagenet_examples/wall clock.png Graphic file (type png)
 <use figs/imagenet_examples/wall clock.png>
 Package pdftex.def Info: figs/imagenet_examples/wall clock.png  used on input l
-ine 1397.
+ine 1374.
 (pdftex.def)             Requested size: 433.61232pt x 202.3524pt.
-[68
+[67
 
- <./figs/imagenet_examples/banana.png>] [69 <./figs/imagenet_examples/cash mach
+ <./figs/imagenet_examples/banana.png>] [68 <./figs/imagenet_examples/cash mach
 ine.png> <./figs/imagenet_examples/hammer.png> <./figs/imagenet_examples/ice cr
-eam.png>] [70 <./figs/imagenet_examples/miniskirt.png> <./figs/imagenet_example
-s/pirate.png>] [71 <./figs/imagenet_examples/shopping cart.png> <./figs/imagene
+eam.png>] [69 <./figs/imagenet_examples/miniskirt.png> <./figs/imagenet_example
+s/pirate.png>] [70 <./figs/imagenet_examples/shopping cart.png> <./figs/imagene
 t_examples/wall clock.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-413.
+390.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-[72
+[71
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.clip}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1428 \bibitem[14]{siren}
+l.1405 \bibitem[14]{siren}
                            V. Sitzmann, J. Martel, A. Bergman, D. Lindell, G...
 ]
-Overfull \hbox (98.08308pt too wide) in paragraph at lines 1452--1453
+Overfull \hbox (98.08308pt too wide) in paragraph at lines 1429--1430
 [][]$\T1/cmtt/m/n/12 https : / / machinelearningmastery . com / what-[]are-[]ge
 nerative-[]adversarial-[]networks-[]gans/$[] 
  []
 
-[73] (praca.aux)
+[72] (praca.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `praca.out' has not changed.
-(rerunfilecheck)             Checksum: AA0E12B5103411B9DACAEF76903BDF7D;4777.
+
+Package rerunfilecheck Warning: File `praca.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `praca.out':
+(rerunfilecheck)             Before: 19F2E50F0106B5E9C10136C8CBD69C4C;4437
+(rerunfilecheck)             After:  39EC3E84E3427FF0463A73CBD7EB6915;3996.
  ) 
 Here is how much of TeX's memory you used:
- 15309 strings out of 479334
- 240290 string characters out of 2857084
+ 15297 strings out of 479334
+ 239924 string characters out of 2857084
  690003 words of memory out of 3000000
- 32166 multiletter control sequences out of 15000+200000
+ 32159 multiletter control sequences out of 15000+200000
  426989 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,10n,77p,1461b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
-1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecrm1095.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbi1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\tcrm1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx0800.pk> <C:\Users\admin\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\admin\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\admin\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\admin\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\admin\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\
-admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\
-Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk
-> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1
-440.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecrm1728.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\eccc1728.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
-en/ec/dpi600\eccc2488.pk><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmbx12.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/admin/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/admin/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/admin/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/a
-dmin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:
-/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr6.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr8.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/admin/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on praca.pdf (73 pages, 33012538 bytes).
+pdfTeX warning (dest): name{subsection.2.2.2} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.2.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+ <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt12
+00.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ecrm1095.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecbi1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
+n/ec/dpi600\tcrm1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecbx0800.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\admin\AppData\Local\MiKTeX
+\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\admin\AppData\Local\
+MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\admin\AppData\
+Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\admin\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\ad
+min\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Us
+ers\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> 
+<C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc144
+0.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
+crm1728.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\eccc1728.pk> <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\eccc2488.pk><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/admin/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/admin/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/admin/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/adm
+in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/U
+sers/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr6.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr8.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on praca.pdf (72 pages, 32900555 bytes).
 PDF statistics:
- 1496 PDF objects out of 1728 (max. 8388607)
- 236 named destinations out of 1000 (max. 500000)
- 691 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1473 PDF objects out of 1728 (max. 8388607)
+ 232 named destinations out of 1000 (max. 500000)
+ 670 words of extra memory for PDF output out of 10000 (max. 10000000)
 
