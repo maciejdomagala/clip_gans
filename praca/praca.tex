@@ -75,52 +75,7 @@
     {\MakeUppercase{\romannumeral #1}}
 
 \begin{document}
-
-\begin{titlepage}
-\begin{flushleft}
-\end{flushleft}
-\begin{center}
-\textsc{{\huge Politechnika Warszawska}}
-\end{center}
-\bigskip
-\bigskip
-\begin{center}
-\textsc{{\Large Wydział ...}}
-\end{center}
-\bigskip
-\bigskip
-\begin{center}
-\begin{Large}
-Kierunek: ...
-\end{Large}
-\end{center}
-\bigskip
-\bigskip
-\noindent\hrulefill
-\begin{center}
-\textsc{\textbf{{\large ...
-\\}}}
-\bigskip
-\bigskip
-
-{\large 
-Adam Komorowski i Maciej Domagała}
-
-\end{center}
-\noindent\hrulefill
-\bigskip
-\bigskip
-\begin{center}
-\end{center}
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\begin{center}
-{\textsc{\large Warszawa, czerwiec 2021
-}}
-\end{center}
-\end{titlepage}
+\includepdf[pages={1}]{titlepage.pdf}
 
 \tableofcontents
 
@@ -159,8 +114,6 @@ Adam Komorowski i Maciej Domagała}
      \includegraphics[scale=0.5]{figs/gan_progression.png}
      \caption{Example of progression in the capabilities of GANs \cite{ganprogress}. }
  \end{figure}
- 
-%In our work, we will describe the architectures of two state of the art GAN models, StyleGAN and BigGAN.
 \subsection{Architecture}
 \noindent Generative adversarial networks are composed of two neural networks, one called the \textbf{generator} (denoted as G in this work) and the other called the \textbf{discriminator} (denoted as D). \\
 \noindent The role of the generator is to estimate the probability distribution of the real samples in order to provide generated samples resembling real data. The discriminator is trained to estimate the probability that a given sample came from the real data rather than being provided by the generator.
@@ -280,7 +233,7 @@ D_{K L}(p \| q)=\sum_{i=1}^{N} p\left(x_{i}\right) \cdot\left(\log p\left(x_{i}\
 %https://www.kdnuggets.com/2021/03/beginners-guide-clip-model.html
 %https://openai.com/blog/clip/
 \subsection{Overview}
-\noindent In January 2021 OpenAI released new multi-modal model called \textbf{CLIP - Contrastive Language-Image Pre-Training}.  It is a neural network trained on $400 \;000 \;000$ image-text pairs - each pair is an image and its caption scrapped by OpenAI from the Internet. Main usage of the model is obtaining the most relevant text snippet for given image by using natural language embeddings and without directly optimizing for the task.
+\noindent In January 2021 OpenAI released new multi-modal model called \textbf{CLIP - Contrastive Language-Image Pre-Training} \cite{clip}.  It is a neural network trained on $400 \;000 \;000$ image-text pairs - each pair is an image and its caption scrapped by OpenAI from the Internet. Main usage of the model is obtaining the most relevant text snippet for given image by using natural language embeddings and without directly optimizing for the task.
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.6]{figs/clip_example.png}
@@ -808,12 +761,12 @@ The largest BigGAN model has over 355 million parameters. The only way of traini
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.0]{figs/deepdaze.png}
-    \caption{Image generated using SIREN \cite{siren} model from "a man painting a completely red image" phrase.}\label{Fig:deepdaze}
+    \caption{Image generated using SIREN \cite{siren} model from "a man painting a \\ completely red image" phrase.}\label{Fig:deepdaze}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{figs/aphantasia.png}
+    \includegraphics[scale=0.5]{figs/aphantasia.png}
     \caption{Image generated using \textit{Aphantasia} \cite{aphantasia} framework.}\label{Fig:Aphantasia}
 \end{figure}
 
@@ -821,7 +774,7 @@ The largest BigGAN model has over 355 million parameters. The only way of traini
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1.0]{figs/coimbra.png}
+    \includegraphics[scale=1.5]{figs/coimbra.png}
     \caption{Random images generated using approach from Fernandes et al. work \cite{coimbra}.}\label{Fig:coimbra}
 \end{figure}
 
@@ -831,7 +784,7 @@ The largest BigGAN model has over 355 million parameters. The only way of traini
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1.0]{figs/bigsleep.png}
+    \includegraphics[scale=0.6]{figs/bigsleep.png}
     \caption{Image generated using \textit{Big Sleep} \cite{bigsleep} framework from "the death of the lonesome astronomer" phrase.}\label{Fig:BigSleep}
 \end{figure}
 
@@ -888,7 +841,7 @@ We consider StyleGAN2 and BigGAN architectures as the main choice for a generati
 
 \noindent We decided to use two algorithms described in previous chapters - \textit{genetic algorithm} and \textit{differential evolution}. First one was already tested to some extend in previous works (\cite{coimbra}). Latter one is considered to be an upgraded version and is regarded to converge quicker and provide more stable results. We decided to test how well these two can perform against each other when providing same hyperparameters.
 
-\noindent Implementation wise, we decided to use the boilerplates for these algorithms provided by the \textit{pymoo} library. We performed some changes in the source code in order to fully match our needs for experiments. We also made sure that the experiments coded in the library and used as API were correctly implemented and matching with definitions we provided in the theory section of this work. Using some high-level functions from this library allowed us to generate results much quicker than it would have been when defining functions by hand from the scratch.
+\noindent Implementation wise, we decided to use the boilerplates for these algorithms provided by the \textit{pymoo} \cite{pymoo} library. We performed some changes in the source code in order to fully match our needs for experiments. We also made sure that the experiments coded in the library and used as API were correctly implemented and matching with definitions we provided in the theory section of this work. Using some high-level functions from this library allowed us to generate results much quicker than it would have been when defining functions by hand from the scratch.
 
 \noindent Finally, we managed to migrate the code from the general repository to the Google Colab based environment. It allows any user to generate own images in the scope of models and algorithms that are implemented. User can choose several generation options, such as the number of generations, how often outputs should be viewed etc.
 
@@ -910,16 +863,16 @@ We consider StyleGAN2 and BigGAN architectures as the main choice for a generati
     \includegraphics[scale=0.6]{figs/blondgirl.png}
     \caption{Images generated with GA and StyleGAN2-ffhq model with the "a blond girl with a smile" phrase.}\label{Fig:blondgirl}
 \end{figure}
-
+\newpage
 \noindent Using BigGAN model also proved successful, especially in terms of general usage and for the phrases that were not manageable by the dedicated StyleGAN2 models.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{figs/doginthefog.png}
+    \includegraphics[scale=0.3]{figs/doginthefog.png}
     \caption{Images generated with GA and BigGAN model with the "a dog in the fog" phrase.}\label{Fig:doginthefog}
 \end{figure}
-
 \noindent Differences between two models will be discussed later in the work.\newline
+\newline
 \noindent The general rules of evolutionary algorithms, mainly the fact that they are based on population calibration, are visible in many results of conducted experiments. On of the main observations is that when launched for long enough, all of the images in the last populations are looking very similar. That could be perceived as equivalent of \textit{overtraining} the neural network - by prolonging the process we lose the variety of generated images and are left with very alike pictures.
 
 \begin{figure}[H]
@@ -935,24 +888,18 @@ We consider StyleGAN2 and BigGAN architectures as the main choice for a generati
 \item as a fitness function for evolutionary algorithms.
 \end{itemize}
 \noindent The most important application of cosine similarity seems to be the ability to determine how similar according to the model the input phrase and the generated image are.  We performed several experiments in order to verify the range of values that the model is producing.
+\newline
 
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{1\textwidth}
-\centering
-   \includegraphics[width=0.5\linewidth]{figs/a car_cossim.png}
-\end{subfigure}
-
-\begin{subfigure}[b]{1\textwidth}
-\centering
-   \includegraphics[width=0.5\linewidth]{a yellow forrest_cossim.png}
-\end{subfigure}
-
-\begin{subfigure}[b]{1\textwidth}
-\centering
-   \includegraphics[width=0.5\linewidth]{clock_cossim.png}
-\end{subfigure}
-
+\begin{figure}[!htb]
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{figs/a car_cossim.png}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{a yellow forrest_cossim.png}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{figs/clock_cossim.png}
+\endminipage
 \end{figure}
 
 \noindent Based on the above examples (as well as other tests performed during the research), we noticed that the values in our solution usually oscillate in the range of $0.2 - 0.4$. We see that even in obvious cases, such as the phrase "a car", after long enough generation the value reaches plateau of $0.331$.  \\
@@ -1034,14 +981,12 @@ On the other hand, differential evolution did not process the information about 
 \end{figure}
 
 \noindent Interestingly, we can notice that model is not comprehending the input phrase with the human-like ability - one of the examples would be 'leaking' of the context in the phrase. For instance, images from the final generation (from both algorithms) of the phrase 'a yellow car in the city' are visibly containing a lot of yellow color beside the color of the car. From human perspective, background and surroundings of the yellow car should remain arbitrary in terms of color, since only the car is supposed to be yellow according to the phrase. Generator is feeling more confident about the produced image when yellow color is cascaded on the buildings and objects around the car. Moreover, this type of model behaviour is amplified when bright colors are used in the input phrase (such as yellow, light green).
-
-\begin{figure}[H]
-    \centering
+\begin{figure}[h]
     \includegraphics[scale=0.45]{figs/avg_mean.jpg}
     \caption{Plot of the mean reversed cosine similarity values for generations from 0 to 200 for 50 consecutive runs. Orange line presents differential algorithm while blue line shows genetic algorithm.}\label{Fig:STYLEGAN}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \subfloat[\centering genetic algorithm]{{\includegraphics[width=7cm]{GA_yellowcar_final.PNG} }}%
     \qquad
@@ -1049,14 +994,12 @@ On the other hand, differential evolution did not process the information about 
     \caption{Final images produced by algorithms.}%
     \label{fig:example}%
 \end{figure}
-
 \noindent One of the benefits and features of using a population based algorithm for image generating is the fact that many 'similar' in terms of quality pictures are produced. The final images taken from the model have certain visible flaws - the city seems to be rendered in acceptable manner but the cars are somewhat deformed. The good part of using whole population as the output of the model is that a human can objectively choose the best image from the last produced generation. It is vital given the fact, that last images are usually close to each other in terms of scoring (which means that choosing the single final image is not based on strong decision making) but present vastly different scenarios for the input phrase.\\
 
 \noindent Below is one more plot, showing the dynamics of change in the lowest fitness values for both algorithms in every algorithm population.
-
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.45]{figs/best_both.jpg}
+	\centering
+    \includegraphics[scale=0.4]{figs/best_both.jpg}
     \caption{Plot of the best sample values for each population for the "a yellow car in the city" phrase and both algorithms.}\label{Fig:STYLEGAN}
 \end{figure}
 
@@ -1068,14 +1011,14 @@ On the other hand, differential evolution did not process the information about 
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}[b]{1.0\textwidth}
-   \includegraphics[width=1\linewidth]{redgothic_stylegan.PNG}
+\begin{subfigure}[b]{0.8\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.2]{redgothic_stylegan.PNG}
    \caption{StyleGAN2-church}
    \label{fig:Ng1} 
 \end{subfigure}
 
-\begin{subfigure}[b]{1.0\textwidth}
-   \includegraphics[width=1\linewidth]{redgothic_biggan.PNG}
+\begin{subfigure}[b]{0.8\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.2]{redgothic_biggan.PNG}
    \caption{BigGAN}
    \label{fig:Ng2}
 \end{subfigure}
@@ -1102,7 +1045,7 @@ On the other hand, differential evolution did not process the information about 
 
 \noindent Again, we can see clear outputs produced by the StyleGAN2 model, while images produces by BigGAN are fairly deformed and not representative. On the other hand, we can see that again BigGAN tried to transfer information about color to the picture - hence every \textit{person} on an image has red shirt.\\
 
-\noindent On the other hand, in every other aspect, BigGAN is able to generalize better and find more appropriate representation of input text than StyleGAN. Once again, it is a direct implication of the dataset that both models were trained with. 
+\noindent On the other hand, in every other aspect, BigGAN is able to generalize better and find more appropriate representation of input text than StyleGAN. Once again, it is \\a direct implication of the dataset that both models were trained with. 
 
 \begin{figure}[H]
 \centering
@@ -1136,8 +1079,6 @@ On the other hand, differential evolution did not process the information about 
 
 \chapter{Evaluation}
 
-%https://www.cs.toronto.edu/~kriz/cifar.html
-
 \noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to \textit{fool} the classifiers learned on popular datasets.
 We took two famous and widely used datasets as our benchmarks.
 \subsection*{CIFAR10}
@@ -1145,7 +1086,7 @@ We took two famous and widely used datasets as our benchmarks.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{figs/cifar10_dataset.png}
-    \caption{Examples from CIFAR10 dataset. \cite{cifar10_data}.}
+    \caption{Examples from CIFAR10 dataset \cite{cifar10_data}.}
 \end{figure}
 \noindent CIFAR10 dataset can be downloaded from \cite{cifar10_data}.
 \subsection*{ImageNet} 
@@ -1156,6 +1097,7 @@ We took two famous and widely used datasets as our benchmarks.
     \caption{Examples from ImageNet dataset \cite{imagenet_example}.}
 \end{figure}
 \noindent Dataset can be downloaded from \cite{imagenet_data}. \\
+\newline
 \noindent Having selected datasets, we chose classifiers trained on them with high accuracy scores:\\
 \begin{itemize}
 \item CIFAR-10 CNN Classifier \cite{cifar10_classifier} - with $ \sim 85\% $ accuracy.
@@ -1199,36 +1141,36 @@ TRUCK                                & 97                & 415               & 1
 \end{table}
 \newline
 \noindent The \textit{positive} column informs about the number of images generated by the model that were classified correctly, and \textit{negative} column yields the number of incorrectly classified images. From the summary of the experiment we notice that almost $25\%$ of images generated by the model were classified correctly across all 10 classes. For this type of dataset, it is more informative to look at the results on the class basis.
-\noindent For most of the classes the accuracy is way below $50\%$. Model had most difficulties with classes like \textit{deer}, \textit{bird} and \textit{frog}. On the other side, \textit{airplane} class had a very large score $90\%$.\\
-
+\noindent For most of the classes the accuracy is way below $50\%$. Model had most difficulties with classes like \textit{deer}, \textit{bird} and \textit{frog}. On the other side, \textit{airplane} class had a very large score $90\%$.
+\newline
 \noindent \textbf{Airplane}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.45]{figs/cifar10_examples/airplane.png}
+    \includegraphics[scale=0.40]{figs/cifar10_examples/airplane.png}
 \end{figure} 
 \newline
-\noindent We see that the generated images of the \textit{airplane} mostly show its wing against the sky. We can surmise that the classifier was right so often on the \textit{airplane} images we generated, because they included the blue sky.
-\newpage
+\noindent We see that the generated images of the \textit{airplane} mostly show its wing against the sky. We can surmise that the classifier was right so often on the \textit{airplane} images we generated, because they included the blue sky. \\
+\newline
 \noindent \textbf{Dog} \\
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.45]{figs/cifar10_examples/dog.png}
+    \includegraphics[scale=0.40]{figs/cifar10_examples/dog.png}
 \end{figure}
 \newline It's hard to see a feature that distinguishes correctly and incorrectly classified images in the \textit{dog} class. Instead, it can be seen that the \textit{dog} images generated by the model are quite readable. Later in the chapter we will look at what other classes this class was confused with.
-\newline
 \newline
 \noindent \textbf{Deer} \\
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.45]{figs/cifar10_examples/deer.png}
+    \includegraphics[scale=0.40]{figs/cifar10_examples/deer.png}
 \end{figure}
-\newline 
+\newline
 \noindent \textit{Deer} class was not even once classified correctly. We can see that the generated \textit{deers} resemble \textit{dogs} with some element that may represent antlers. We suspect that the model failed this task because the GAN network we used was trained on the Imagenet dataset, which does not contain images containing deers.
 Examples from other classes are presented in Appendix 1 of this paper. \\
 \noindent Following confusion matrix shows which classes were predicted in which cases.
 \begin{figure}[ht!]
-    \includegraphics[scale=0.4]{figs/cifar10_examples/confusion_matrix.png}
+    \includegraphics[scale=0.45]{figs/cifar10_examples/confusion_matrix.png}
 \end{figure}
+\newline
 In order to fully \textit{fool} the classifier with our generated images - one would expect only zero values in the above matrix except for the diagonal starting at the upper left corner. Below are the observations made by analyzing the matrix.
 \begin{enumerate}
 \item Many classes were mistaken for the \textit{airplane} class - including \textit{automobile}, \textit{truck}, and \textit{bird}. The mistakes in the classes \textit{automobile} and \textit{truck} can be explained by the fact that all 3 classes depict some kind of machine, while the problem with the class \textit{bird} is in our opinion due to the fact that the pictures of this class also often contain a generated sky (blue background).
@@ -1238,6 +1180,7 @@ In order to fully \textit{fool} the classifier with our generated images - one w
 \section{ImageNet}
 \noindent Before conducting the experiment, we intuitively predicted that the results should be at least slightly better than the results from the evaluation on the CIFAR10 dataset. This is mostly an effect of the fact that ImageNet is the basis of the BigGAN network that we use in the evaluation. The results of our evaluation are as follows.
 \begin{table}[h!]
+\centering
 \begin{tabular}{|l|c|c|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Class}} & \textbf{Positive} & \textbf{Negative} & \textbf{Accuracy (\%)}       \\ \hline
@@ -1265,7 +1208,7 @@ Of course, examples of images for other classes can be found in Appendix 2.
 \noindent \textbf{Kerry Blue Terrier} \\
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.3]{figs/imagenet_examples/Kerry blue terrier.png}
+    \includegraphics[scale=0.4]{figs/imagenet_examples/Kerry blue terrier.png}
 \end{figure}
 \begin{figure}[ht!]
     \centering
@@ -1277,7 +1220,7 @@ Of course, examples of images for other classes can be found in Appendix 2.
 \noindent \textbf{Llama} \\
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.3]{figs/imagenet_examples/llama.png}
+    \includegraphics[scale=0.4]{figs/imagenet_examples/llama.png}
 \end{figure}
 \begin{figure}[ht!]
     \centering
@@ -1288,116 +1231,154 @@ Of course, examples of images for other classes can be found in Appendix 2.
 
 \chapter{Summary}
 \chapter{Appendix 1}
+\noindent AIRPLANE
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/airplane.png}
 \end{figure}
+\newline
+AUTOMOBILE
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/automobile.png}
 \end{figure}
+\newpage
+\noindent CAT
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/cat.png}
 \end{figure}
+\newline
+BIRD
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/bird.png}
 \end{figure}
+\newpage
+\noindent DEER
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/deer.png}
 \end{figure}
+\newline
+DOG
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/dog.png}
 \end{figure}
+\newpage
+\noindent FROG
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/frog.png}
 \end{figure}
+\newline
+HORSE
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/horse.png}
 \end{figure}
+\newpage
+\noindent SHIP
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/ship.png}
 \end{figure}
+\newline
+TRUCK
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/cifar10_examples/truck.png}
 \end{figure}
 
 \chapter{Appendix 2}
+\noindent KERRY BLUE TERRIER
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/Kerry blue terrier.png}
 \end{figure}
+\newline
+BANANA
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/banana.png}
 \end{figure}
+\newpage
+\noindent CASH MACHINE
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/cash machine.png}
 \end{figure}
+\newline
+HAMMER
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/hammer.png}
 \end{figure}
+\newpage
+\noindent ICE CREAM
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/ice cream.png}
 \end{figure}
+\newline
+LLAMA
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/llama.png}
 \end{figure}
+\newpage
+\noindent MINISKIRT
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/miniskirt.png}
 \end{figure}
+\newline
+PIRATE
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/pirate.png}
 \end{figure}
+\newpage
+\noindent SHOPPING CART
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/shopping cart.png}
 \end{figure}
+\newline
+WALL CLOCK
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.4]{figs/imagenet_examples/wall clock.png}
 \end{figure}
 \begin{thebibliography}{a,b,c}
 \addcontentsline{toc}{chapter}{Citation}
-\bibitem[1]{improvedgans} T. Salimans, I. Goodfellow, W. Zaremba, V. Cheung, A. Radford, and X. Chen. {\it Improved techniques for training gans.} In NIPS, 2016.
 
-\bibitem[2]{inception} C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, Z. Wojna. {\it Rethinking the inception architecture for computer vision.} arXiv preprint arXiv: 1512.00567, 2015.
+\bibitem[1]{gan} I. Goodfellow et al.  {\it Generative Adversarial Nets} 2014.  \url{https://arxiv.org/pdf/1406.2661.pdf}
 
-\bibitem[3]{noteonis} S. Barratt, R. Sharma. {\it A note on the Inception Score.} arXiv preprint arXiv: 1801.01973, 2018.
+\bibitem[2]{ganprogress} M. Brundage, S. Avin, J. Clark et al. {\it The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation.} arXiv preprint arXiv: 1802.07228, 2018.
 
-\bibitem[4]{fid} M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, S. Hochreiter. {\it GANs trained by a two time-scale update rule converge to a local Nash equilibrium.} In NIPS, 2017.
+\bibitem[3]{gan_arch} \url{https://machinelearningmastery.com/what-are-generative-\\adversarial-networks-gans/}
 
-\bibitem[5]{de} R. Storn, K. Price. {\it Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.} Springer, 1997.
+\bibitem[4]{improvedgans} T. Salimans, I. Goodfellow, W. Zaremba, V. Cheung, A. Radford, and X. Chen. {\it Improved techniques for training gans.} In NIPS, 2016.
 
-\bibitem[6]{stylegan} T. Karras, S. Laine, T. Aila. {\it A style-based generator architecture for generative adversarial networks.} In CVPR, 2019.
+\bibitem[5]{inception} C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, Z. Wojna. {\it Rethinking the inception architecture for computer vision.} arXiv preprint arXiv: 1512.00567, 2015.
 
-\bibitem[7]{gan} I. Goodfellow et al.  {\it Generative Adversarial Nets} 2014.  \url{https://arxiv.org/pdf/1406.2661.pdf}
+\bibitem[6]{fid} M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, S. Hochreiter. {\it GANs trained by a two time-scale update rule converge to a local Nash equilibrium.} In NIPS, 2017.
 
-\bibitem[8]{ganprogress} M. Brundage, S. Avin, J. Clark et al. {\it The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation.} arXiv preprint arXiv: 1802.07228, 2018.
+\bibitem[7]{clip} OpenAI CLIP \url{https://arxiv.org/pdf/2103.00020.pdf}
 
-\bibitem[9]{clip} OpenAI CLIP https://arxiv.org/pdf/2103.00020.pdf
+\bibitem[8]{clip_blog} \url{https://openai.com/blog/clip/}
 
-\bibitem[10]{cifar10_data} https://www.cs.toronto.edu/~kriz/cifar.html
+\bibitem[9]{clip_source} \url{https://habr.com/en/post/537334/}
 
-\bibitem[11]{imagenet_data} https://www.image-net.org/
+\bibitem[10]{de} R. Storn, K. Price. {\it Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.} Springer, 1997.
 
-\bibitem[12]{clip} A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark et al. {\it Learning transferable visual models
-from natural language supervision.} In CVPR, 2019.
+\bibitem[11]{stylegan} T. Karras, S. Laine, T. Aila. {\it A style-based generator architecture for generative adversarial networks.} In CVPR, 2019.
 
-\bibitem[13]{aphantasia} https://github.com/eps696/aphantasia
+\bibitem[12]{biggan} A. Brock, J. Donahue, K. Simonyan {\it Large Scale GAN Training for High Fidelity Natural Image Synthesis.} arXiv preprint arXiv: 1809.11096, 2019.
+
+\bibitem[13]{aphantasia} \url{https://github.com/eps696/aphantasia}
 
 \bibitem[14]{siren} V. Sitzmann, J. Martel, A. Bergman, D. Lindell, G. Wetzstein {\it Implicit Neural Representations with Periodic Activation Functions.} arXiv preprint arXiv: 2006.09661, 2020.
 
@@ -1405,25 +1386,23 @@ from natural language supervision.} In CVPR, 2019.
 
 \bibitem[16]{coimbra} P. Fernandes, J. Correia, P. Machado {\it Evolutionary Latent Space Exploration of Generative Adversarial Networks.} CISUC, Department of Informatics Engineering University of Coimbra, 2020.
 
-\bibitem[17]{bigsleep} https://github.com/lucidrains/big-sleep
+\bibitem[17]{bigsleep} \url{https://github.com/lucidrains/big-sleep}
 
-\bibitem[18]{pymoo} https://github.com/msu-coinlab/pymoo
+\bibitem[18]{deepai} \url{https://deepai.org/machine-learning-model/text2img}
 
-\bibitem[19]{deepai} https://deepai.org/machine-learning-model/text2img
+\bibitem[19]{pymoo} \url{https://github.com/msu-coinlab/pymoo}
 
-\bibitem[20]{biggan} A. Brock, J. Donahue, K. Simonyan {\it Large Scale GAN Training for High Fidelity Natural Image Synthesis.} arXiv preprint arXiv: 1809.11096, 2019.
+\bibitem[20]{cifar10_data} \url{https://www.cs.toronto.edu/~kriz/cifar.html}
 
-\bibitem[21]{clip_blog} https://openai.com/blog/clip/
+\bibitem[21]{imagenet_example} \url{https://devopedia.org/imagenet}
 
-\bibitem[22]{clip_source} https://habr.com/en/post/537334/
+\bibitem[22]{imagenet_data} \url{https://www.image-net.org/}
 
 \bibitem[23]{cifar10_classifier} \url{https://github.com/vrakesh/CIFAR-10-Classifier}
 
 \bibitem[24]{resnet} \url{https://pytorch.org/hub/pytorch_vision_resnet}
 
-\bibitem[25]{imagenet_example} \url{https://devopedia.org/imagenet}
-
-\bibitem[26]{gan_arch} \url{https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/}
+%\bibitem[3]{noteonis} S. Barratt, R. Sharma. {\it A note on the Inception Score.} arXiv preprint arXiv: 1801.01973, 2018.
 
 \end{thebibliography}
 

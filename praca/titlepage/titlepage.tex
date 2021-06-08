@@ -1,0 +1,28 @@
+\documentclass[
+    left=2.5cm,         % Sadly, generic margin parameter
+    right=2.5cm,        % doesnt't work, as it is
+    top=2.5cm,          % superseded by more specific
+    bottom=3cm,         % left...bottom parameters.
+    bindingoffset=6mm,  % Optional binding offset.
+    nohyphenation=false % You may turn off hyphenation, if don't like.
+]{eiti/eiti-thesis}
+\langeng % Dla języka angielskiego mamy \langeng
+\graphicspath{{img/}}             % Katalog z obrazkami.
+\addbibresource{bibliografia.bib} % Plik .bib z bibliografią
+
+\begin{document}
+
+%--------------------------------------
+% Strona tytułowa
+%--------------------------------------
+\MasterThesis % Dla pracy inżynierskiej mamy \EngineerThesis
+\instytut{Radioelectronics and Multimedia Technology}
+\kierunek{Deep neural networks - Applications in digital media}
+\title{
+Text to Image generation using GANs, CLIP and evolutionary algorithms
+}
+\author{Maciej Domagała, Adam Komorowski}
+\promotor{Grzegorz Gwardys}
+\date{19.06.2021}
+\maketitle
+\end{document} 
