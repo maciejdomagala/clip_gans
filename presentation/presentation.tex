@@ -1,5 +1,7 @@
 \documentclass[t]{beamer}
-\usepackage{subfig}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{graphicx}
 \setbeamerfont{footline}{size=\fontsize{5}{11}\selectfont}
 
 \usetheme{Berkeley}
@@ -26,48 +28,55 @@
 
 \section{Theory}
 
-\begin{frame}[c]{GANs - Generic Adversarial Networks}
-\begin{columns}[t]
-  \begin{column}{0.5\linewidth}
+\begin{frame}[c]{GANs - BigGAN}
   \begin{block}{BigGAN}
-   
-   \end{block}
-  \end{column}
-   \begin{column}{0.5\linewidth}
-  \begin{block}{StyleGAN}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.2]{stylegan-scheme.PNG}
+    \includegraphics[scale=0.2]{biggan1.png}
 \end{figure} 
-   \end{block}
-  \end{column}
- \end{columns}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.25]{biggan2.png}
+\end{figure} 
+  \end{block}
+\end{frame}
+
+\begin{frame}[c]{GANs - StyleGAN}
+  \begin{block}{StyleGAN}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.42]{stylegan-scheme.PNG}
+\end{figure} 
+  \end{block}
 \end{frame}
 
 \begin{frame}{CLIP}
 \textbf{CLIP} - Contrastive Language-Image Pre-Training new multi-modal model released by OpenAI in January 2021.  \\
 Key features:
 \begin{itemize}
-\item it is a neural network trained on over $400 \; 000 ; 000$ (image, caption) pairs
+\item it is a neural network trained on over $400 \; 000 \; 000$ (image, caption) pairs
 \item main usage is to obtain the most relevant text snipper for given image
 \end{itemize}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.5]{clip_example.png}
+    \includegraphics[scale=0.3]{clip_example.png}
 \end{figure} 
 \end{frame}
-\begin{frame}{Evolutionary Algorithms}
-
+\begin{frame}[c]{Evolutionary Algorithms}
 \begin{block}{Genetic Algorithm}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.5]{gen-algo.jpg}
+    \includegraphics[scale=0.9]{gen-algo.jpg}
 \end{figure} 
 \end{block}
-
+\end{frame}
+\begin{frame}
 \begin{block}{Differential Evolution}
+ \begin{figure}[ht!]
+     \centering
+     \includegraphics[scale=0.2]{diff-evo.eps}
+ \end{figure}
 \end{block}
-
 \end{frame}
 
 \section{Framework}
@@ -79,13 +88,19 @@ Key features:
 \end{figure} 
 \end{frame}
 
-\section{Best Results}
+\section{Examples}
 
-\begin{frame}[c]{Best Results}
+\begin{frame}[c]{Examples}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.8]{best.png}
-\end{figure} 
+    \includegraphics[scale=0.2]{blondgirl.PNG}
+    \caption{GA, StyleGAN2-ffhq, "a blond girl with a smile"}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{bluecar.png}
+    \caption{CLIP, GA, StyleGAN2-car,  "a blue car near the water in sun"}
+\end{figure}
 \end{frame}
 
 \section{Experiments}
@@ -127,7 +142,7 @@ TRUCK                                & 97                & 415               & 1
 \end{frame}
 
 \begin{frame}[c]{Evaluation - ImageNet}
-\fontsize{10}{7.2}\selectfont
+\fontsize{9}{6}\selectfont
 \begin{table}[h!]
 \begin{tabular}{|l|c|c|c|}
 \hline
@@ -166,7 +181,58 @@ KERRY BLUE TERRIER                   & 253               & 259               & {
 \end{frame}
 
 \begin{frame}[c]{BigGAN vs StyleGAN}
-...
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.6\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.2]{redgothic_stylegan.PNG}
+   \caption{StyleGAN2-church}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{0.6\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.2]{redgothic_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+\caption[pics]{Comparison of StyleGAN2-church and BigGAN models for a "red gothic church" phrase.}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{BigGAN vs StyleGAN}
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.6\textwidth}
+   \includegraphics[width=1\linewidth]{gingerboy_stylegan.PNG}
+   \caption{StyleGAN2-ffhq}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{0.6\textwidth}
+   \includegraphics[width=1\linewidth]{gingerboy_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+\caption[pics]{Comparison of StyleGAN2-ffhq and BigGAN models for "a ginger boy" phrase.}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{BigGAN vs StyleGAN}
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.6\textwidth}
+   \includegraphics[width=1\linewidth]{clown_stylegancat2.PNG}
+   \caption{StyleGAN2-cat}
+   \label{fig:Ng1} 
+\end{subfigure}
+
+\begin{subfigure}[b]{0.6\textwidth}
+   \includegraphics[width=1\linewidth]{clown_stylegancar.PNG}
+   \caption{StyleGAN2-car}
+   \label{fig:Ng2}
+\end{subfigure}
+
+\caption[pics]{Comparison of StyleGAN2-cat and StyleGAN2-car for "a clown cyclist on the moon" phrase.}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Cosine-Similarity}
@@ -180,13 +246,15 @@ Observations:
 \end{figure} 
 \end{frame}
 
+
+
 \section{Conclusions}
 
 \begin{frame}[c]{Conclusions}
 \begin{itemize}
-\item A
-\item B
-\item C
+\item 
+\item 
+\item 
 \end{itemize}
 \end{frame}
 
