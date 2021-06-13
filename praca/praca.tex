@@ -82,7 +82,11 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-\noindent Current developments and state of the matter in the text-to-image related modeling can be described as highly experimental. Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We address this issue by performing evaluation on different datasets with use of several classifiers. We also show that it is possible to navigate the latent space with evolutionary algorithms to obtain a good quality image representation from text.
+\noindent One popular challenge in computer vision field is the text-to-image modelling problem, which can be currently described as highly experimental.  Recently, the OpenAI company released the results of their work on a new model to solve this problem called \textit{DALL-E} \cite{dalle}. According to the authors DALL-E is a 12-billion parameters model which "has a diverse set of capabilities, including creating anthropomorphized versions of animals and objects, combining unrelated concepts in plausible ways, rendering text, and applying transformations to existing images" \cite{dalle-blog}.  The appearance OpenAI's paper was our motivation to create the following diploma thesis. Second aspect that convinced us to bring up this topic was the fact that the text-to-image problem allows us to tackle different areas of ML - both NLP and Computer vision. \\
+The DALL-E model consists of two parts - the first part is responsible for generating images, while the second part, called \textit{CLIP} is responsible for answering the question how the generated image complies with the given description.  So far, OpenAI has made only CLIP model available online.  For this reason, in the project described below, we decided to find and test other models that could replace the generative part of the DALL-e model, while realizing that we would probably find much smaller models and our target solution would not be able to generalize the problem as well as DALL-E.  We decided to limit our selection to a group of popular generative models such as Generative Adversarial Models (GANs).  Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We address this issue by performing evaluation on different datasets with use of several popular image classifiers. We also show that it is possible to navigate the latent space with evolutionary algorithms to obtain a good quality image representation from text.
+
+\noindent This paper was written by the pair Maciej Domagała and Adam Komorowski.  We divided the work on this project as follows - Maciej was responsible for describing the evolutionary algorithms (1.3), the StyleGAN and BigGAN models (2.1, 2.2, 2.3), our framework (3.1, 3.2) and conducting and describing some of the experiments including the comparison of StyleGAN vs BigGAN models (4.2) and the comparison of results for different evolutionary algorithms (4.3).  Adam was responsible for preparing the notebooks to conduct the experiments in the project and for describing the GAN models (1.1), the CLIP model (1.2), the section on sample results and observations from the experiments (4.1) and model evaluations for the CIFAR10 and ImageNet datasets (5.1, 5.2).
+
 
 \chapter{Theory}
 
@@ -1446,6 +1450,9 @@ WALL CLOCK
 
 \bibitem[31]{clipresults} https://github.com/lucidrains/DALLE-pytorch/discussions/131
 
+\bibitem[32]{dalle-blog} https://openai.com/blog/dall-e/
+
+\bibitem[33]{dalle} https://arxiv.org/pdf/2102.12092.pdf
 \end{thebibliography}
 
 
