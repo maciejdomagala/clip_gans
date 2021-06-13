@@ -1,6 +1,5 @@
 \documentclass[12pt,a4paper,openany]{book}
 \usepackage{amssymb, amsmath}
-% \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[dvips]{graphicx}
@@ -23,9 +22,10 @@
 \usepackage{bm}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{pdfpages}
-%\usepackage{subfig}
 \usepackage{subcaption}
 \usepackage{lipsum}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Large}
@@ -98,8 +98,8 @@
 \subsection{Overview}
 
 \noindent Generative Adversarial Networks (GANs) is a family of neural networks used in generative modelling. They were proposed in 2014 by Ian Goodfellow et al. in \cite{gan}.\\
-\noindent GANs have various different applications across deep learning fields e.g. generative models can be used as a tool for data augmentation of small datasets. For instance, one can feed some text written in a particular handwriting as input to a generative model to generate more text in the same handwriting. Another use case is generation of super-resolution images, which allows to produce more detailed and high quality version of input images. The following are results of the first facial images generation experiments with GANs.
-
+\noindent GANs have various different applications across deep learning fields e.g. generative models can be used as a tool for data augmentation of small datasets. For instance, one can feed some text written in a particular handwriting as input to a generative model to generate more text in the same handwriting \cite{hand}. Another use case is generation of super-resolution images, which allows to produce more detailed and high quality version of input images \cite{superres}.  What is more, GANs can be used to blend two high-resolution images \cite{blend}. \\
+The following are results of the one of the first GAN applications - facial images generation.
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.4]{figs/faces.png}
@@ -126,7 +126,7 @@
 
 \subsubsection{Training}
 \noindent The GAN training process consists of a two-player minimax game. Although the dataset containing the real data isn’t labeled, the training processes for discriminator and generator are performed in a supervised way.  \\
-\noindent For discriminator training, at each iteration we pass some real samples taken from the training data labeled as $1$ and some generated samples provided by generator labeled as $0$. New images are generated based on noise input derived from e.g. Gaussian distribution. This way, we can use more conventional supervised training frameworks to update the parameters of discriminator. The discriminator outputs a value $D(x)$ indicating the chance that x is a real image. Model objective is to maximize the chance of recognizing real images and generated images as separate classes. To measure the performance the \textbf{cross-entropy loss} is used and therefore the objective function can be written as follows
+\noindent For discriminator training, at each iteration we pass some real samples taken from the training data labeled as $1$ and some generated samples provided by generator labeled as $0$. New images are generated based on noise input derived from e.g. Gaussian distribution. This way, we can use more conventional supervised training frameworks to update the parameters of discriminator. The discriminator outputs a value $D(x)$ indicating the chance that x is a real image. Model objective is to maximize the chance of recognizing real images and generated images as separate classes. To measure the performance the variation of \textit{cross-entropy loss} is used and therefore the objective function can be written as follows
 
 \begin{equation}
 max_{D} V(D) = \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\log D(\textbf{x})] + \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textbf{z})))].
@@ -144,14 +144,44 @@ min_{G} V(G) = \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textb
 min_{G} max_{D} V(D, G) =  \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\log D(\textbf{x})] + \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textbf{z})))].
 \end{equation}
 
-\noindent Once both objective functions are defined, they are learned jointly by the alternating gradient descent. We fix the generator model’s parameters and perform a single iteration of gradient descent on the discriminator using the real and the generated images. Then the roles are switching and the discriminator is fixed while the generator is trained for another single iteration. We train both networks in alternating steps until the generator produces good quality images. The training algorithm for GANs is well summarized in the figure below.
+\noindent Once both objective functions are defined, they are learned jointly by the alternating gradient descent. We fix the generator model’s parameters and perform a single iteration of gradient descent on the discriminator using the real and the generated images. Then the roles are switching and the discriminator is fixed while the generator is trained for another single iteration. We train both networks in alternating steps until the generator produces good quality images. The training algorithm for GANs is well summarized in the table below  \cite{gan}.
 
- \begin{figure}[ht!]
-     \centering
-     \includegraphics[scale=0.7]{figs/gan_algo.png}
-     \caption{GAN training algorithm pseudocode \cite{gan}.}
- \end{figure}
- 
+\begin{algorithm}[ht]
+\caption{\small Minibatch stochastic gradient descent training of generative adversarial nets.
+The number of steps to apply to the discriminator, $k$, is a hyperparameter. We used $k=1$, the
+least expensive option, in our experiments.
+}
+\begin{algorithmic}
+\label{alg:AGF}
+\FOR{number of training iterations}
+  \FOR{$k$ steps}
+    \STATE{$\bullet$ Sample minibatch of $m$ noise samples $\{ \bm{z}^{(1)}, \dots, \bm{z}^{(m)} \}$ from noise prior $p_g(\bm{z})$.}
+    \STATE{$\bullet$ Sample minibatch of $m$ examples $\{ \bm{x}^{(1)}, \dots, \bm{x}^{(m)} \}$ from data generating distribution $p_\text{data}(\bm{x})$.}
+    \STATE{$\bullet$ Update the discriminator by ascending its stochastic gradient:
+        \[
+            \nabla_{\theta_d} \frac{1}{m} \sum_{i=1}^m \left[
+            \log D\left(\bm{x}^{(i)}\right)
+            + \log \left(1-D\left(G\left(\bm{z}^{(i)}\right)\right)\right)
+            \right].
+        \]}
+    %parameters $\theta_d$ of discriminator $D$
+   %in the direction of the stochastic gradient of the binomial cross-entropy
+   %for $D$ predicting whether its argument comes from $p_\text{data}(\bm{x})$ (target = 1, input = $\bm{x}$) or
+   %$P_g$ (target = 0, input = $G(\bm{z})$), i.e., towards minimizing
+   % \mbox{$-\log D(\bm{x}) - \log(1 - D(G(\bm{z})))$}.}
+   \ENDFOR
+  \STATE{$\bullet$ Sample minibatch of $m$ noise samples $\{ \bm{z}^{(1)}, \dots, \bm{z}^{(m)} \}$ from noise prior $p_g(\bm{z})$.}
+    \STATE{$\bullet$ Update the generator by descending its stochastic gradient:
+        \[
+            \nabla_{\theta_g} \frac{1}{m} \sum_{i=1}^m
+            \log \left(1-D\left(G\left(\bm{z}^{(i)}\right)\right)\right)
+            .
+        \]}
+  \ENDFOR
+  \\The gradient-based updates can use any standard gradient-based learning rule. We used momentum in our experiments.
+\end{algorithmic}
+\end{algorithm}
+
 \noindent It is worth mentioning that a known problem of GAN networks is the fact that not always a smaller value of loss function leads to better results - in practice, a common solution is to empirically evaluate generated results every few iterations, rather than tracking loss. To cope with this problem metrics such as \textbf{Inception Score} or \textbf{Frechet Inception Distance} were presented. 
 %These will be described in detail in the following sections.
 
@@ -218,7 +248,7 @@ D_{K L}(p \| q)=\sum_{i=1}^{N} p\left(x_{i}\right) \cdot\left(\log p\left(x_{i}\
      \caption{Plot of how FID scoring changes when Gaussian noise is added to the image \cite{fid}.}\label{Fig:FID}
  \end{figure}
  
-\noindent Idea for the new metric is to use one of the last layers in the Inception model (pooling layer before classification output) to capture and encode specifics of an image. The output vector of this layer is of shape $(2048,)$ and is approximated by multivariate normal distribution. Set of these features is calculated for both real images and images generated by the model. We can denote the mean and covariance of embedded layer for generated images as, respectively, $\mu_{r}$ and  $\Sigma_{r}$. Same properties for real images are denoted as $\mu_{g}$ and $\Sigma_{g}$. Final score is calculated as a distance between the two data distributions, formally defined as
+\noindent Idea for the new metric is to use one of the last layers in the Inception model (pooling layer before classification output) to capture and encode specifics of an image. The dimensionality of the output vector is 2048 and vector is approximated by multivariate normal distribution. Set of these features is calculated for both real images and images generated by the model. We can denote the mean and covariance of embedded layer for generated images as, respectively, $\mu_{r}$ and  $\Sigma_{r}$. Same properties for real images are denoted as $\mu_{g}$ and $\Sigma_{g}$. Final score is calculated as a distance between the two data distributions, formally defined as
 
 \begin{equation}
 \operatorname{FID}(r, g)=\left\|\mu_{r}-\mu_{g}\right\|_{2}^{2}+\operatorname{tr}\left(\Sigma_{r}+\Sigma_{g}-2\left(\Sigma_{r} \Sigma_{g}\right)^{\frac{1}{2}}\right),
@@ -250,11 +280,11 @@ D_{K L}(p \| q)=\sum_{i=1}^{N} p\left(x_{i}\right) \cdot\left(\log p\left(x_{i}\
 \noindent It compares ResNet101 model - trained on the ImageNet dataset with CLIP accuracy on different datasets.  It can be seen that for the ImageNet dataset, the accuracy is identical, but for the other models CLIP clearly provides better results and hence can be viewed as better generalizing model.
 \newpage
 \subsection{Methodology}
-\noindent In order for images and text to be compared to one another, they must both be embedded.  Part of the CLIP model is responsible for embeddings -  it contains two encoders - ImageEncoder and TextEncoder.
+\noindent In order for images and text to be compared to one another, they must both be embedded.  Part of the CLIP model is responsible for embeddings -  it contains two encoders - ImageEncoder and TextEncoder and each embedding is of the length $N$.
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.4]{figs/clip_model_1.jpeg}
-     \caption{CLIP pre-trains an image encoder and a text encoder to predict which images were paired with which texts in the dataset \cite{clip_blog}.  }
+     \caption{CLIP pre-trains an image encoder and a text encoder to predict which images were paired with which texts in the dataset, where image and text embeddings are of the length $N$ \cite{clip_blog}.  }
  \end{figure}
  \newline
 \noindent Image and text embeddings are compared in the similarity matrix $I \times T$ using \textbf{cosine similarity}:
@@ -273,24 +303,27 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
      \caption{CLIP is producing different probabilities for different bird image descriptions \cite{clip_source}.}
  \end{figure}
  \newpage
- \subsection*{Current results and limitations}
- 
-\noindent CLIP authors are open about its limitations. The model struggles with more abstract or systematic tasks such as counting the number of objects. It also has difficulties when solving more complex tasks such as estimating relative distances between objects. In such circumstances, CLIP is only slightly better than random guessing. It also lacks accuracy when performing very fine-grained classification, such as telling the difference between car models, variants of aircraft or flower species.\\
-\noindent Moreover, CLIP model itself is data hungry and expensive to train. If pretrained model does not work well, it may be not feasible to train a custom version of the model.\\
-\noindent While zero-shot CLIP tries to reformulate classification task, the principles are still the same. Although CLIP generalizes well to many image distributions, it still works poorly on data that is truly out-of-distribution. One example of this was CLIP’s performance on MNIST dataset where CLIP zero-shot accuracy was $88 \%.$ Logistic regression on raw pixels outperforms CLIP.\\
-\noindent Ability to adapt to new datasets and classes is related to text encoder. It is thus limited to choosing from only those concepts known to the encoder. CLIP model trained with English texts will be of little help if used with texts in other languages. \\
-\noindent Finally, CLIP’s classifiers can be sensitive to wording in label descriptions and may require trial and error to perform well.
+ \subsection*{Current limitations}
+\noindent According to CLIP's authors \cite{clip_blog}- the model has several limitations. These include:
+\begin{itemize}
+\item model struggles with more abstract or systematic tasks such as counting the number of objects e.g "three dogs"
+\item model has difficulties when solving more complex tasks such as estimating relative distances between objects,
+\item  model lacks accuracy when performing very fine-grained classification, such as telling the difference between car models, variants of aircraft or flower species,
+\item CLIP model itself is data hungry and expensive to train - if pretrained model does not work well, it may be not feasible to train a custom version of the model,
+\item ability to adapt to new datasets and classes is related to text encoder. It is thus limited to choosing from only those concepts known to the encoder. CLIP model trained with English texts will be of little help if used with texts in other languages. \\
+\end{itemize}
+
 \newpage
 \section{Evolutionary Algorithms}
 
-\noindent Evolutionary algorithms are a population-based heuristic methods of optimization. Algorithms from this family use computational implementations of processes related to natural selection, such as crossover, mutation and reproduction. Main idea of the algorithm is the \textit{survival of the fittest} principle inspired by Darwinian evolution theory, where main objective is to generate more and more \textit{fit} members of the population, while reducing the number of \textit{weak} units. That \textit{fitness} level is measured and described by \textit{fitness function}, which determines the quality of each population sample.
+\noindent Evolutionary algorithms are a population-based heuristic methods of optimization \cite{ea}. Algorithms from this family use computational implementations of processes related to natural selection, such as crossover, mutation and reproduction. Main idea of the algorithm is the \textit{survival of the fittest} principle inspired by Darwinian evolution theory, where main objective is to generate more and more \textit{fit} members of the population, while reducing the number of \textit{weak} units. That \textit{fitness} level is measured and described by \textit{fitness function}, which determines the quality of each population sample.
 
 \noindent In the following sections we will describe main algorithms of our interest that we will apply for latent search problem. 
 \subsection{Genetic Algorithm}
 
 % pics from: https://www.sciencedirect.com/science/article/pii/S1364815218305905
 
-\noindent The Genetic Algorithm is one of the first methods used and defined as evolutionary algorithm. It is still used with success until today and the number of variations and different applications of the method still grows.
+\noindent The Genetic Algorithm is one of the first methods used and defined as evolutionary algorithm. It is still used with success until today and the number of variations and different applications of the method still grows \cite{ea}.
 
  \begin{figure}[ht!]
      \centering
@@ -346,7 +379,7 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.5]{figs/diff-evo.eps}
-     \caption{Differential evolution DE/rand/1 pseudocode.}\label{Fig:PROGAN}
+     \caption{Differential evolution algorithm pseudocode.}\label{Fig:PROGAN}
  \end{figure}
 
 \noindent Below we will present the mathematical formulation of the algorithm and discuss most popular versions.
@@ -504,7 +537,7 @@ Each member of every population is described as $D$-dimensional parameter vector
 \chapter{Notable architectures}
 \section{StyleGAN}
 
-StyleGAN is an architecture proposed by NVIDIA team in \cite{stylegan}. It is considered to be one of the most important publications regarding image generation and it introduces several novelties comparing to models used so far. It used several mechanisms (such as adaptive instance normalization and merging regularization) to generate highly realistic images with great resolution. It is greatly inspired by direct predecessor - Progressive Growing GAN architecture (called ProGAN), also published by NVIDIA.
+\noindent StyleGAN is an architecture proposed by NVIDIA team in \cite{stylegan}. It is considered to be one of the most important publications regarding image generation and it introduces several novelties comparing to models used so far. It used several mechanisms (such as adaptive instance normalization and merging regularization) to generate highly realistic images with great resolution. It is greatly inspired by direct predecessor - Progressive Growing GAN architecture (called ProGAN), also published by NVIDIA \cite{progan}.
 
 \begin{figure}[ht!]
     \centering
@@ -512,17 +545,17 @@ StyleGAN is an architecture proposed by NVIDIA team in \cite{stylegan}. It is co
     \caption{Progressive growing technique used in ProGAN.}\label{Fig:PROGAN}
 \end{figure}
 
-Most important idea presented in the ProGAN architecture, utilized also in StyleGAN, is the progressive structure of learning. Volume of generated by network images is growing from small resolution (starting at 4x4 pixels) to high resolution (up to 1024x1024 pixels) by upsampling. This training principle helps the network to solve simpler task before attending to generate a full-resolution image. It has been proven to help with stability of the training and reduce drastic abnormalities in final image.
+\noindent Most important idea presented in the ProGAN architecture, utilized also in StyleGAN, is the progressive structure of learning. Volume of generated by network images is growing from small resolution (starting at 4x4 pixels) to high resolution (up to 1024x1024 pixels) by upsampling. This training principle helps the network to solve simpler task before attending to generate a full-resolution image. It has been proven to help with stability of the training and reduce drastic abnormalities in final image.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.5]{figs/stylegan-scheme.eps}
-    \caption{ProGAN and StyleGAN networks comparison.}\label{Fig:STYLEGAN}
+    \caption{ProGAN and StyleGAN networks comparison \cite{proganvsstylegan}.}\label{Fig:STYLEGAN}
 \end{figure}
 
 \subsection{Mapping network}
 
-In the StyleGAN architecture authors introduced a intermediate layer between an input (latent vector $z \in \mathbb{Z}$) and the network called mapping layer (fig...). It works by applying 8 fully connected layers to the input and therefore encoding it as a new vector $w \in \mathbb{W}$. Main purpose of this procedure is to have better control over generative power of the model by separating elements of the vector that will be responsible for different image features.
+\noindent In the StyleGAN architecture authors introduced a intermediate layer between an input (latent vector $z \in \mathbb{Z}$) and the network called mapping layer (fig...). It works by applying 8 fully connected layers to the input and therefore encoding it as a new vector $w \in \mathbb{W}$. Main purpose of this procedure is to have better control over generative power of the model by separating elements of the vector that will be responsible for different image features.
 
 
 \begin{figure}[ht!]
@@ -532,7 +565,7 @@ In the StyleGAN architecture authors introduced a intermediate layer between an 
 \end{figure}
 
 
-A common problem for generative models is a phenomenon called \textbf{feature entanglement}. We can consider a scenario where training is done on a dataset of human faces. It is very likely that most of the women in the dataset will have long hair and most men - short hair. This would result in the entanglement of \textit{hair length} and \textit{gender} features. Therefore, when latent vector is manipulated in order to change the hair length - the model will also change the gender of a person on the image, as it is associating these two occurencies as bounded together. The mapping layer is separating these features, allowing to change different elements of new vector $w$ without losing the integrity of an image.
+\noindent A common problem for generative models is a phenomenon called \textbf{feature entanglement}. We can consider a scenario where training is done on a dataset of human faces. It is very likely that most of the women in the dataset will have long hair and most men - short hair. This would result in the entanglement of \textit{hair length} and \textit{gender} features. Therefore, when latent vector is manipulated in order to change the hair length - the model will also change the gender of a person on the image, as it is associating these two occurencies as bounded together. The mapping layer is separating these features, allowing to change different elements of new vector $w$ without losing the integrity of an image.
 
 \subsection{Adaptive Instance Normalization}
 
@@ -541,7 +574,7 @@ A common problem for generative models is a phenomenon called \textbf{feature en
 % https://www.coursera.org/lecture/build-better-generative-adversarial-networks-gans/adaptive-instance-normalization-adain-cr6bv - explained
 % https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-neural-style-transfer-ef88e46697ee - style transfer
 
-In the traditional generator, latent code is introduced to the network only in the first layer. The authors of StyleGAN are using the vector $w$ produced via mapping network to steer the style of an image at each convolutional layer by using \textbf{Adaptive Instance Normalization (AdaIN)} technique.
+\noindent In the traditional generator, latent code is introduced to the network only in the first layer. The authors of StyleGAN are using the vector $w$ produced via mapping network to steer the style of an image at each convolutional layer by using \textbf{Adaptive Instance Normalization (AdaIN)} technique.
 
 \begin{equation}
 \operatorname{AdaIN}\left(\mathbf{x}_{i}, \mathbf{y}\right)=\mathbf{y}_{s, i} \frac{\mathbf{x}_{i}-\mu\left(\mathbf{x}_{i}\right)}{\sigma\left(\mathbf{x}_{i}\right)}+\mathbf{y}_{b, i},
@@ -554,7 +587,7 @@ In the traditional generator, latent code is introduced to the network only in t
 %    \caption{Mapping network of StyleGAN.}\label{Fig:STYLEGAN}
 %\end{figure}
 
-The middle part of the equation is the \textbf{Instance Normalization (IN)}. Each channel of the convolution layer is normalized. Values $\textbf{y}_{s,i}$ and $\textbf{y}_{b,i}$ are calculated from the vector $v$ using fully-connected layer and correspond to \textit{A} on the figure-main one. These can be understood as scale and bias; these values are used to translate the information from vector $w$ to a feature map generated by convolution.
+\noindent The middle part of the equation is the \textbf{Instance Normalization (IN)}. Each channel of the convolution layer is normalized. Values $\textbf{y}_{s,i}$ and $\textbf{y}_{b,i}$ are calculated from the vector $v$ using fully-connected layer and correspond to \textit{A} on the figure-main one. These can be understood as scale and bias; these values are used to translate the information from vector $w$ to a feature map generated by convolution.
 
 \begin{figure}[ht!]
     \centering
@@ -562,7 +595,7 @@ The middle part of the equation is the \textbf{Instance Normalization (IN)}. Eac
     \caption{Example of AdaIN application for style transfer.}\label{Fig:STYLEGAN}
 \end{figure}
 
-Adding this method of including latent vector at every step of network computation resulted in drastic improvement of network's performance which can be see in the table below.
+\noindent Adding this method of including latent vector at every step of network computation resulted in drastic improvement of network's performance which can be see in the table below.
 
 \begin{figure}[ht!]
     \centering
@@ -603,7 +636,7 @@ Adding this method of including latent vector at every step of network computati
 
 % Baseline Progressive Growing GANs: Style GAN uses baseline progressive GAN structure, which means the volume of the generated picture increases progressively from a shallow resolution (4×4) to high resolution (1024 x1024) by adding a new section to both the models to maintain the larger resolution after applying the model on a more modest resolution to make it further stable.
 
-As additional technique of regularization and method to differentiate the generated images further, a \textbf{style mixing} approach was introduced by the authors. The main idea is to use not one but two (or more) latent vectors $w_{1}, w_{2}$ (obtained from mapping of $z_{1}, z_{2}$) to generate the final image. The way in which mixing is introduced is fairly simple; up to certain point in the architecture vector $w_{1}$ is used for style control and from crossover point vector $w_{2}$ is used.
+\noindent As additional technique of regularization and method to differentiate the generated images further, a \textbf{style mixing} approach was introduced by the authors. The main idea is to use not one but two (or more) latent vectors $w_{1}, w_{2}$ (obtained from mapping of $z_{1}, z_{2}$) to generate the final image. The way in which mixing is introduced is fairly simple; up to certain point in the architecture vector $w_{1}$ is used for style control and from crossover point vector $w_{2}$ is used.
 Depending on the place of crossover, final image obtains different characteristics from each image. 
 %
 %
@@ -643,7 +676,7 @@ Depending on the place of crossover, final image obtains different characteristi
 
 \section{StyleGAN2}
 
-Significant improvements of the StyleGAN architecture were proposed in late 2019. Publication revolved mainly around the problems which emerged during StyleGAN generator. It has been noticed that several parts of the network cause imperfections in the final images, which are called \textit{artifacts}. Two main types of artifacts were formulated in the paper:
+\noindent Significant improvements of the StyleGAN architecture were proposed in late 2019. Publication revolved mainly around the problems which emerged during StyleGAN generator. It has been noticed that several parts of the network cause imperfections in the final images, which are called \textit{artifacts}. Two main types of artifacts were formulated in the paper:
 
 \begin{itemize}
 \item \textbf{Water-droplet artifacts} - the blob-shaped characteristics that resemble water-droplets are visible in various places in the final images. It might not be obvious while looking at the image, but it is very visible in the intermediate feature maps produced by generator. This artifacts starts to appear around 64x64 pixels resolution and gets stronger with higher resolutions. 
@@ -676,9 +709,9 @@ Significant improvements of the StyleGAN architecture were proposed in late 2019
 
 \subsection{Revisiting Instance Normalization}
 
-The water-droplet effect was speculated to be a side effect of AdaIN method applied in the style blocks. Authors pointed out that this type of normalization affects each feature map separately (works independently for every channel) and potentially destroys meaningful information that is included in the differences between feature maps values.
+\noindent The water-droplet effect was speculated to be a side effect of AdaIN method applied in the style blocks. Authors pointed out that this type of normalization affects each feature map separately (works independently for every channel) and potentially destroys meaningful information that is included in the differences between feature maps values. \\
 
-To address this problem, significant changes to the architecture were proposed.
+\noindent To address this problem, significant changes to the architecture were proposed.
 
 \begin{figure}[ht!]
     \centering
@@ -686,11 +719,11 @@ To address this problem, significant changes to the architecture were proposed.
     \caption{(b) shows the original StyleGAN architecture. The AdaIN fucntion is shown as combination of normalization and modulation operations. (c) shows the revised model with changes in the network.}\label{Fig:STYLEGAN}
 \end{figure}
 
-As seen on the image above, several things changed in the network:
+\noindent As seen on the image above, several things changed in the network:
 
 \begin{itemize}
 \item Only standard deviation is modified for each feature map, modification of mean was deemed redundant as the effects of this operations were not meaningful for the network. Removing this part made the model simpler,
-\item Noise addition was removed from the style block and instead applied inbetween the blocks. This was mainly done to prepare the network for weight modulation,
+\item Noise addition was removed from the style block and instead applied in between the blocks. This was mainly done to prepare the network for weight modulation,
 \item Input vector $c$ is fed to the network directly, without normalization and applying noise.
 \end{itemize}
 %
@@ -733,7 +766,7 @@ As seen on the image above, several things changed in the network:
 
 \section{BigGAN}
 
-The BigGAN is a type of conditional GAN utilizing the power of large datasets and huge computational potential. It was proposed by Andrew Brock et al. in 2018 in \cite{biggan}. This architecture is a scaled up version of previous apporaches published by DeepMind team, this time providing larger network and larger batch size. As explained by the authors, this model was trained with two to four times as many parameters as previous networks and with batch size eight times bigger. 
+\noindent The BigGAN is a type of conditional GAN utilizing the power of large datasets and huge computational potential. It was proposed by Andrew Brock et al. in 2018 in \cite{biggan}. This architecture is a scaled up version of previous apporaches published by DeepMind team, this time providing larger network and larger batch size. As explained by the authors, this model was trained with two to four times as many parameters as previous networks and with batch size eight times bigger. 
 
 \begin{figure}[H]
     \centering
@@ -741,7 +774,7 @@ The BigGAN is a type of conditional GAN utilizing the power of large datasets an
     \caption{BigGAN examples.}\label{Fig:biggan_sample}
 \end{figure}
 
-The largest BigGAN model has over 355 million parameters. The only way of training such huge architecture was to provide ability to train on even 512 Google TPU cores. Final models improved over the previous best IS of 52.52 and FID of 18.65, by achieving IS of 166.3 and FID of 9.6. Additionally, BigGAN also outperformed previous state-of-the-art models at 256x256 and 512x512 resolutions, proving to be a very versatile model.
+\noindent The largest BigGAN model has over 355 million parameters. The only way of training such huge architecture was to provide ability to train on even 512 Google TPU cores. Final models improved over the previous best IS of 52.52 and FID of 18.65, by achieving IS of 166.3 and FID of 9.6. Additionally, BigGAN also outperformed previous state-of-the-art models at 256x256 and 512x512 resolutions, proving to be a very versatile model.
 
 \begin{figure}[ht!]
     \centering
@@ -825,7 +858,7 @@ Next steps can be considered as a 'optimization loop':
 \begin{enumerate}
 \item [3a.] Algorithm is performing optimization step,
 \item [3b.] Optimized population of samples (vectors)  is serving as an input for generator which produces images,
-\item [3c.] Generated images are evaluated by fitness function (in our case, similarity function).
+\item [3c.] Generated images are evaluated by fitness function (in our case, similarity function mentioned in \textit{CLIP model/Methodology} subsection).
 \end{enumerate}
 \noindent After completing this process, post-processing part takes place:
 \begin{enumerate}
@@ -841,7 +874,7 @@ We consider StyleGAN2 and BigGAN architectures as the main choice for a generati
 
 \noindent We decided to use two algorithms described in previous chapters - \textit{genetic algorithm} and \textit{differential evolution}. First one was already tested to some extend in previous works (\cite{coimbra}). Latter one is considered to be an upgraded version and is regarded to converge quicker and provide more stable results. We decided to test how well these two can perform against each other when providing same hyperparameters.
 
-\noindent Implementation wise, we decided to use the boilerplates for these algorithms provided by the \textit{pymoo} \cite{pymoo} library. We performed some changes in the source code in order to fully match our needs for experiments. We also made sure that the experiments coded in the library and used as API were correctly implemented and matching with definitions we provided in the theory section of this work. Using some high-level functions from this library allowed us to generate results much quicker than it would have been when defining functions by hand from the scratch.
+\noindent Implementation-wise, we decided to use the boilerplates for these algorithms provided by the \textit{pymoo} \cite{pymoo} library. We performed some changes in the source code in order to fully match our needs for experiments. We also made sure that the experiments coded in the library and used as API were correctly implemented and matching with definitions we provided in the theory section of this work. Using some high-level functions from this library allowed us to generate results much quicker than it would have been when defining functions by hand from the scratch.
 
 \noindent Finally, we managed to migrate the code from the general repository to the Google Colab based environment. It allows any user to generate own images in the scope of models and algorithms that are implemented. User can choose several generation options, such as the number of generations, how often outputs should be viewed etc.
 
@@ -903,18 +936,14 @@ We consider StyleGAN2 and BigGAN architectures as the main choice for a generati
 \end{figure}
 
 \noindent Based on the above examples (as well as other tests performed during the research), we noticed that the values in our solution usually oscillate in the range of $0.2 - 0.4$. We see that even in obvious cases, such as the phrase "a car", after long enough generation the value reaches plateau of $0.331$.  \\
-\noindent We observed similar behavior during our research on CLIP model - many users before us noticed such regularity in their tests.
+\noindent We observed similar behavior during our research on CLIP model - many users before us noticed such regularity in their tests \cite{clipresults}.
 Although it seems that cosine similarity, which we determine for a pair of image-query in our solution, cannot be interpreted for a single image, we noticed from our work on evolutionary algorithms that it may be used as a metric comparing different images generated for the same query. Let us look at the following examples:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.2]{figs/batch_loop_7.jpg}
+    \caption{Batch of images generated by our model from "llama" phrase.}
 \end{figure}
-\noindent The generation from the genetic algorithm for \textit{llama} input phrase,  sorted by \textit{cos-sim} from the top left corner - we can see that the further away the photo deviates slightly more from the given phrase. \\
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.08]{figs/bigreddog.png}
-\end{figure}
-\noindent Five images generated as results of the genetic algorithm we have implemented. We can see that values differ only on decimal places, but images with higher value are slightly better reflecting given phrase.\\
+\noindent The generation from the genetic algorithm for \textit{llama} input phrase,  sorted by \textit{cos-sim} from the top left corner - we can see that the further away the photo deviates slightly more from the given phrase. 
 
 \section{Genetic Algorithm vs Differential Evolution}
 
@@ -1007,8 +1036,7 @@ On the other hand, differential evolution did not process the information about 
 
 \noindent It is apparent that the underlying dataset is crucial in determining the generative power of the model. Throughout the experiments, we noticed that there are two separate use cases for both StyleGAN2 and BigGAN models. 
 
-\noindent First, we observed that StyleGAN2 is outperforming BigGAN model significantly when user provides a phrase that is related to the dataset that the model was trained on. Even though this conclusion might seem obvious, we still found the results from both models interesting.
-
+\noindent First, we observed that StyleGAN2 is outperforming BigGAN model significantly when user provides a phrase that is related to the dataset that the model was trained on. Even though this conclusion might seem obvious, we still found the results from both models interesting, because we can see how each model performed on the given task. In the case of the StyleGAN2 model, the church building is clearly visible, while BigGAN tried to generate a church, but only ended up with some attempt to recreate church-like windows. Also, StyleGAN applied the red color precisely to the church building, while BigGAN just generated a mostly red image.
 \begin{figure}[H]
 \centering
 \begin{subfigure}[b]{0.8\textwidth}
@@ -1050,29 +1078,29 @@ On the other hand, differential evolution did not process the information about 
 \begin{figure}[H]
 \centering
 \begin{subfigure}[b]{1.0\textwidth}
-   \includegraphics[width=1\linewidth]{clown_stylegancat2.PNG}
+\centering
+   \includegraphics[width=0.7\linewidth]{clown_stylegancat2.PNG}
    \caption{StyleGAN2-cat}
    \label{fig:Ng1} 
 \end{subfigure}
 
 \begin{subfigure}[b]{1.0\textwidth}
-   \includegraphics[width=1\linewidth]{clown_stylegancar.PNG}
+\centering
+   \includegraphics[width=0.7\linewidth]{clown_stylegancar.PNG}
    \caption{StyleGAN2-car}
    \label{fig:Ng2}
 \end{subfigure}
 
-\caption[pics]{Comparison of StyleGAN2-cat and StyleGAN2-car for "a clown cyclist on the moon" phrase.}
+\begin{subfigure}[b]{1.0\textwidth}
+\centering
+   \includegraphics[width=0.7\linewidth]{clown_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+
+\caption[pics]{Comparison of StyleGAN2-cat, StyleGAN2-ca and BigGAN for "a clown cyclist on the moon" phrase.}
 \end{figure}
-
-
 \noindent StyleGAN2 models output can be described as close to randomize - model is trying to generate a meaningful image while having no idea about \textit{the moon}, \textit{clown} and \textit{cyclist}. This results in a random walk through the latent space and provides images which are not making much sense. With this example, we can clearly see the advantage of the BigGAN model - images from the last population clearly show the moon-like surface, elements of clown's hat and circus stadium as well as machines that resemble a bike.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.55]{figs/clown_biggan.PNG}
-    \caption{BigGAN model ouput for "a clown cyclist on the moon" phrase.}\label{Fig:clownbiggan}
-\end{figure}
-
 \noindent Provided examples show the power of data and datasets used for training. Having enough data there could be a possibility of creating a model combining the best of two worlds from StyleGAN2 and BigGAN - a model that is producing crips images with high quality (like dedicated StyleGAN2) and also has a wide variety of generative possibilities (like BigGAN).
 
 \newpage
@@ -1082,7 +1110,7 @@ On the other hand, differential evolution did not process the information about 
 \noindent In order to evaluate the model we described, we decided to see if the images we generated would be able to \textit{fool} the classifiers learned on popular datasets.
 We took two famous and widely used datasets as our benchmarks.
 \subsection*{CIFAR10}
-\noindent CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. The classes are mutually exclusive. Below are the classes in the dataset, as well as 10 random images from each:
+\noindent CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images \cite{cifar10_data}. The classes are mutually exclusive. Below are the classes in the dataset, as well as 10 random images from each:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{figs/cifar10_dataset.png}
@@ -1090,7 +1118,7 @@ We took two famous and widely used datasets as our benchmarks.
 \end{figure}
 \noindent CIFAR10 dataset can be downloaded from \cite{cifar10_data}.
 \subsection*{ImageNet} 
-\noindent ImageNet dataset contains 14 197 122 hand-annotated images. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories. This dataset is especially useful in many evaluation cases because it contains general groups of objects (such as \textit{balloon} or \textit{strawberry}) as well as detailed categories e.g. dogs' breeds names like \textit{rottweiler} or \textit{Old English sheepdog}.
+\noindent ImageNet dataset contains 14 197 122 hand-annotated image \cite{imagenet_data}. Since 2010 the dataset is used in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), a benchmark in image classification and object detection.  ImageNet contains more than 20000 categories. This dataset is especially useful in many evaluation cases because it contains general groups of objects (such as \textit{balloon} or \textit{strawberry}) as well as detailed categories e.g. dogs' breeds names like \textit{rottweiler} or \textit{Old English sheepdog}.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{figs/imagenet.png}
@@ -1403,6 +1431,20 @@ WALL CLOCK
 \bibitem[24]{resnet} \url{https://pytorch.org/hub/pytorch_vision_resnet}
 
 %\bibitem[3]{noteonis} S. Barratt, R. Sharma. {\it A note on the Inception Score.} arXiv preprint arXiv: 1801.01973, 2018.
+
+\bibitem[25]{hand} https://arxiv.org/pdf/2009.00678.pdf
+
+\bibitem[26]{superres} https://arxiv.org/pdf/1609.04802.pdf
+
+\bibitem[27]{blend} https://arxiv.org/pdf/1703.07195.pdf
+
+\bibitem[28]{ea} https://arxiv.org/pdf/1906.08870.pdf
+
+\bibitem[29]{progan} https://arxiv.org/pdf/1710.10196.pdf
+
+\bibitem[30]{proganvsstylegan} https://medium.com/gradientcrescent/this-president-does-not-exist-generating-artistic-portraits-of-donald-trump-using-stylegan-a97a17902dd4
+
+\bibitem[31]{clipresults} https://github.com/lucidrains/DALLE-pytorch/discussions/131
 
 \end{thebibliography}
 
