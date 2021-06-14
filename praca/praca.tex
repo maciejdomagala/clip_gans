@@ -27,6 +27,8 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
+\raggedbottom
+
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Large}
 
@@ -82,10 +84,10 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-\noindent One popular challenge in computer vision field is the text-to-image modelling problem, which can be currently described as highly experimental.  Recently, the OpenAI company released the results of their work on a new model to solve this problem called \textit{DALL-E} \cite{dalle}. According to the authors DALL-E is a 12-billion parameters model which "has a diverse set of capabilities, including creating anthropomorphized versions of animals and objects, combining unrelated concepts in plausible ways, rendering text, and applying transformations to existing images" \cite{dalle-blog}.  The appearance OpenAI's paper was our motivation to create the following diploma thesis. Second aspect that convinced us to bring up this topic was the fact that the text-to-image problem allows us to tackle different areas of ML - both NLP and Computer vision. \\
-The DALL-E model consists of two parts - the first part is responsible for generating images, while the second part, called \textit{CLIP} is responsible for answering the question how the generated image complies with the given description.  So far, OpenAI has made only CLIP model available online.  For this reason, in the project described below, we decided to find and test other models that could replace the generative part of the DALL-e model, while realizing that we would probably find much smaller models and our target solution would not be able to generalize the problem as well as DALL-E.  We decided to limit our selection to a group of popular generative models such as Generative Adversarial Models (GANs).  Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We address this issue by performing evaluation on different datasets with use of several popular image classifiers. We also show that it is possible to navigate the latent space with evolutionary algorithms to obtain a good quality image representation from text.
-
-\noindent This paper was written by the pair Maciej Domagała and Adam Komorowski.  We divided the work on this project as follows - Maciej was responsible for describing the evolutionary algorithms (1.3), the StyleGAN and BigGAN models (2.1, 2.2, 2.3), our framework (3.1, 3.2) and conducting and describing some of the experiments including the comparison of StyleGAN vs BigGAN models (4.2) and the comparison of results for different evolutionary algorithms (4.3).  Adam was responsible for preparing the notebooks to conduct the experiments in the project and for describing the GAN models (1.1), the CLIP model (1.2), the section on sample results and observations from the experiments (4.1) and model evaluations for the CIFAR10 and ImageNet datasets (5.1, 5.2).
+\noindent Text-to-image modelling problem is one of the main areas of rapid development in the vast area of computer vision.  It is still considered to be highly experimental and new approaches to this problem are constantly developed. Recently, the OpenAI company released the results of their work on a new model called DALL-E \cite{dalle}.  According to the authors,  DALL-E is a 12-billion parameters model which "has a diverse set of capabilities, including creating anthropomorphized versions of animals and objects, combining unrelated concepts in plausible ways, rendering text, and applying transformations to existing images" \cite{dalle-blog}.  Appearance of the publication describing this model was our motivation to create the following diploma thesis. Second aspect that convinced us to write this work was the fact that text-to-image specification allows us to tackle various areas of machine learning,  including both natural language processing and computer vision. \\
+The DALL-E model consists of two parts - the first part is responsible for generating images, while the second part, called CLIP is responsible for describing how the generated image complies with the given description.  Given the fact that the CLIP model was publicly released with source code, we decided to find and test other models that could replace the generative part of the DALL-E model. In this project, we limited our selection to a group of popular generative models from the Generative Adversarial Models (GANs) family.  Given the subjective nature of GAN models, need for empirical validation of results and lack of all-round metrics for proper evaluation, there are currently no useful methods of comparing different approaches. We address this issue by performing evaluation on different datasets with use of several popular image classifiers. We also show that it is possible to navigate the latent space with evolutionary algorithms to obtain a good quality image representation from text.\\
+\noindent Apart from evaluation,  one of the main contributions in this field is testing how differential algorithm performs in comparison to genetic algorithm when it comes to navigating the latent space. Similar tests were performed previously on rather primitive datasets and models (e.g.  simple generative models on MNIST dataset). \\
+\noindent This paper was written by Maciej Domagała and Adam Komorowski.  We divided the work on this project as follows - Maciej was responsible for describing the evolutionary algorithms (1.3), the StyleGAN and BigGAN models (2.1, 2.2, 2.3),  our framework (3.1, 3.2) and conducting and describing some of the experiments including the comparison of StyleGAN vs BigGAN models (4.2),  as well as comparing the results for different evolutionary algorithms (4.3).  Adam was responsible for preparing the notebooks to conduct the experiments in the project and for describing the GAN models (1.1), the CLIP model (1.2), the section on sample results and observations from the experiments (4.1) and model evaluations for the CIFAR10 and ImageNet datasets (5.1, 5.2).
 
 
 \chapter{Theory}
@@ -115,9 +117,10 @@ The following are results of the one of the first GAN applications - facial imag
 
  \begin{figure}[ht!]
      \centering
-     \includegraphics[scale=0.5]{figs/gan_progression.png}
-     \caption{Example of progression in the capabilities of GANs \cite{ganprogress}. }
+     \includegraphics[scale=0.8]{figs/gans_progress_new.PNG}
+     \caption{Example of progression in the capabilities of GANs \cite{progress_gan}. }
  \end{figure}
+ 
 \subsection{Architecture}
 \noindent Generative adversarial networks are composed of two neural networks, one called the \textbf{generator} (denoted as G in this work) and the other called the \textbf{discriminator} (denoted as D). \\
 \noindent The role of the generator is to estimate the probability distribution of the real samples in order to provide generated samples resembling real data. The discriminator is trained to estimate the probability that a given sample came from the real data rather than being provided by the generator.
@@ -150,7 +153,7 @@ min_{G} max_{D} V(D, G) =  \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\l
 
 \noindent Once both objective functions are defined, they are learned jointly by the alternating gradient descent. We fix the generator model’s parameters and perform a single iteration of gradient descent on the discriminator using the real and the generated images. Then the roles are switching and the discriminator is fixed while the generator is trained for another single iteration. We train both networks in alternating steps until the generator produces good quality images. The training algorithm for GANs is well summarized in the table below  \cite{gan}.
 
-\begin{algorithm}[ht]
+\begin{algorithm}[H]
 \caption{\small Minibatch stochastic gradient descent training of generative adversarial nets.
 The number of steps to apply to the discriminator, $k$, is a hyperparameter. We used $k=1$, the
 least expensive option, in our experiments.
@@ -273,7 +276,7 @@ D_{K L}(p \| q)=\sum_{i=1}^{N} p\left(x_{i}\right) \cdot\left(\log p\left(x_{i}\
      \includegraphics[scale=0.6]{figs/clip_example.png}
      \caption{Example of CLIP prediction \cite{clip_blog}.}
  \end{figure}
-\noindent CLIP is an example of \textbf{zero-shot} model.  That is, compared to commonly used classifiers that require custom datasets that represent target classes and don't generalize very well, CLIP can identify an enormous range of objects it has never seen before. OpenAI proves such functionality in the following table
+\noindent CLIP is an example of \textbf{zero-shot} model.  That is, compared to commonly used classifiers that require custom datasets that represent target classes and don't generalize very well, CLIP can identify an enormous range of objects it has never seen before. OpenAI proves such functionality in the following table:
 \newline
  \begin{figure}[ht!]
      \centering
@@ -288,7 +291,7 @@ D_{K L}(p \| q)=\sum_{i=1}^{N} p\left(x_{i}\right) \cdot\left(\log p\left(x_{i}\
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.4]{figs/clip_model_1.jpeg}
-     \caption{CLIP pre-trains an image encoder and a text encoder to predict which images were paired with which texts in the dataset, where image and text embeddings are of the length $N$ \cite{clip_blog}.  }
+     \caption{CLIP pre-trains an image encoder and a text encoder to predict which images were paired with which texts in the dataset, where image and text embeddings are of the length $N$. \cite{clip_blog}}
  \end{figure}
  \newline
 \noindent Image and text embeddings are compared in the similarity matrix $I \times T$ using \textbf{cosine similarity}:
@@ -308,7 +311,7 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
  \end{figure}
  \newpage
  \subsection*{Current limitations}
-\noindent According to CLIP's authors \cite{clip_blog}- the model has several limitations. These include:
+\noindent According to CLIP's authors the model has several limitations \cite{clip_blog}. These include:
 \begin{itemize}
 \item model struggles with more abstract or systematic tasks such as counting the number of objects e.g "three dogs"
 \item model has difficulties when solving more complex tasks such as estimating relative distances between objects,
@@ -320,7 +323,7 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
 \newpage
 \section{Evolutionary Algorithms}
 
-\noindent Evolutionary algorithms are a population-based heuristic methods of optimization \cite{ea}. Algorithms from this family use computational implementations of processes related to natural selection, such as crossover, mutation and reproduction. Main idea of the algorithm is the \textit{survival of the fittest} principle inspired by Darwinian evolution theory, where main objective is to generate more and more \textit{fit} members of the population, while reducing the number of \textit{weak} units. That \textit{fitness} level is measured and described by \textit{fitness function}, which determines the quality of each population sample.
+\noindent Evolutionary algorithms are a population-based heuristic methods of optimization \cite{de}. Algorithms from this family use computational implementations of processes related to natural selection, such as crossover, mutation and reproduction. Main idea of the algorithm is the \textit{survival of the fittest} principle inspired by Darwinian evolution theory, where main objective is to generate more and more \textit{fit} members of the population, while reducing the number of \textit{weak} units. That \textit{fitness} level is measured and described by \textit{fitness function}, which determines the quality of each population sample.
 
 \noindent In the following sections we will describe main algorithms of our interest that we will apply for latent search problem. 
 \subsection{Genetic Algorithm}
@@ -359,15 +362,15 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
  \begin{figure}[ht!]
      \centering
      \includegraphics[scale=0.17]{figs/gen-algo-2.eps}
-     \caption{Example of crossover and mutation operations.}\label{Fig:PROGAN}
+     \caption{(a) shows graphically the idea of crossover operation - two parents are exchanging values between each other.  (b) shows mutation operation, where one of the values in vector is chosen at random. (c) and (d) are representing how potential new offspring can be guided in space. \cite{de}}\label{Fig:PROGAN}
  \end{figure}
  
 \noindent The algorithm terminates based on several common criteria, most often when a solution is found that satisfies minimum criteria or when fixed number of generations is reached. Below is the pseudocode for the base genetic algorithm. 
 
- \begin{figure}[ht!]
+ \begin{figure}[H]
      \centering
-     \includegraphics[scale=0.4]{figs/gen-algo-pseudo.eps}
-     \caption{Genetic algorithm pseudocode.}\label{Fig:PROGAN}
+     \includegraphics[scale=0.5]{figs/gen-algo-pseudo.eps}
+     \caption{Genetic algorithm pseudocode. \cite{coimbra}}\label{Fig:PROGAN}
  \end{figure}
 
 % \includepdf[scale=0.5]{figs/gen-algo.pdf}
@@ -380,16 +383,16 @@ One detail that is worth mentioning is that CLIP is sensitive to words used for 
 
 \noindent The main advantages over general genetic algorithm is more efficient memory usage, lower complexity and faster convergence.
 
- \begin{figure}[ht!]
+ \begin{figure}[H]
      \centering
      \includegraphics[scale=0.5]{figs/diff-evo.eps}
-     \caption{Differential evolution algorithm pseudocode.}\label{Fig:PROGAN}
+     \caption{Differential evolution algorithm pseudocode. \cite{de}}\label{Fig:PROGAN}
  \end{figure}
 
 \noindent Below we will present the mathematical formulation of the algorithm and discuss most popular versions.
 
-\noindent Differential evolution is primarily described by three parameters: $N_{p}$ - population size, $C_{r}$ - crossover control parameter and $F$ - scaling factor, also known as amplification parameter.\
-Each member of every population is described as $D$-dimensional parameter vector. Each population in the algorithm can be understood as vector $\textbf{x}_{i, g}$, where $i \in \{1, 2, ..., N_{p}\}$ and $g$ stands for generation number.
+\noindent Differential evolution is primarily described by three parameters: $N$ - population size, $C$ - crossover control parameter and $F$ - scaling factor, also known as amplification parameter.\
+Each member of every population is described as $D$-dimensional parameter vector. Each population in the algorithm can be understood as vector $\textbf{x}_{i, g}$, where $i \in \{1, 2, ..., N\}$ and $g$ stands for generation number.
 
 \noindent Method incorporates usage of three vectors, which we will name for simplicity:
 
@@ -406,7 +409,7 @@ Each member of every population is described as $D$-dimensional parameter vector
 \mathbf{v}_{i, g}=\mathbf{x}_{r_{1}, g}+F\left(\mathbf{x}_{r_{2}, g}-x_{\mathbf{r}_{3}, g}\right),
 \end{equation}
 
-\noindent where $r_{1}, r_{2},r_{3} \in \{1, 2, ..., N_{p}\}$ are randomly selected indices and $F$ is the aforementioned scaling factor.
+\noindent where $r_{1}, r_{2},r_{3} \in \{1, 2, ..., N\}$ are randomly selected indices and $F$ is the aforementioned scaling factor.
 
 %The other choice is the \textit{DE/best/1} version, which chooses two random vectors to calculate the scaled value which is used to change the \textbf{best} vector $\mathbf{x}_{best, g}$ in current population, which results in more greedy version of the method
 %
@@ -554,17 +557,17 @@ Each member of every population is described as $D$-dimensional parameter vector
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.5]{figs/stylegan-scheme.eps}
-    \caption{ProGAN and StyleGAN networks comparison \cite{proganvsstylegan}.}\label{Fig:STYLEGAN}
+    \caption{ProGAN and StyleGAN networks comparison \cite{stylegan}.}\label{Fig:proganistylegan}
 \end{figure}
 
 \subsection{Mapping network}
 
-\noindent In the StyleGAN architecture authors introduced a intermediate layer between an input (latent vector $z \in \mathbb{Z}$) and the network called mapping layer (fig...). It works by applying 8 fully connected layers to the input and therefore encoding it as a new vector $w \in \mathbb{W}$. Main purpose of this procedure is to have better control over generative power of the model by separating elements of the vector that will be responsible for different image features.
+\noindent In the StyleGAN architecture authors introduced a intermediate layer between an input (latent vector $z \in \mathbb{Z}$) and the network called mapping layer. It works by applying 8 fully connected layers to the input and therefore encoding it as a new vector $w \in \mathbb{W}$. Main purpose of this procedure is to have better control over generative power of the model by separating elements of the vector that will be responsible for different image features.
 
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.3]{figs/mapping-network.eps}
+    \includegraphics[scale=0.4]{figs/mapping-network.eps}
     \caption{Mapping network of StyleGAN.}\label{Fig:STYLEGAN}
 \end{figure}
 
@@ -591,12 +594,12 @@ Each member of every population is described as $D$-dimensional parameter vector
 %    \caption{Mapping network of StyleGAN.}\label{Fig:STYLEGAN}
 %\end{figure}
 
-\noindent The middle part of the equation is the \textbf{Instance Normalization (IN)}. Each channel of the convolution layer is normalized. Values $\textbf{y}_{s,i}$ and $\textbf{y}_{b,i}$ are calculated from the vector $v$ using fully-connected layer and correspond to \textit{A} on the figure-main one. These can be understood as scale and bias; these values are used to translate the information from vector $w$ to a feature map generated by convolution.
+\noindent The middle part of the equation is the \textbf{Instance Normalization (IN)}. Each channel of the convolution layer is normalized. Values $\textbf{y}_{s,i}$ and $\textbf{y}_{b,i}$ are calculated from the vector $v$ using fully-connected layer and correspond to \textit{A} on the figure \ref{Fig:proganistylegan}. These can be understood as scale and bias; these values are used to translate the information from vector $w$ to a feature map generated by convolution.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.0]{figs/adaptive-instance-norm.eps}
-    \caption{Example of AdaIN application for style transfer.}\label{Fig:STYLEGAN}
+    \caption{Example of AdaIN application for style transfer. \cite{adain}}\label{Fig:STYLEGAN}
 \end{figure}
 
 \noindent Adding this method of including latent vector at every step of network computation resulted in drastic improvement of network's performance which can be see in the table below.
@@ -604,7 +607,7 @@ Each member of every population is described as $D$-dimensional parameter vector
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.2]{figs/frechet-distance.eps}
-    \caption{Mapping network of StyleGAN.}\label{Fig:STYLEGAN}
+    \caption{Improvements introduced in StyleGAN architecture with respective FID values for each variation. \cite{stylegan}}\label{Fig:STYLEGAN}
 \end{figure}
 
 
@@ -680,7 +683,7 @@ Depending on the place of crossover, final image obtains different characteristi
 
 \section{StyleGAN2}
 
-\noindent Significant improvements of the StyleGAN architecture were proposed in late 2019. Publication revolved mainly around the problems which emerged during StyleGAN generator. It has been noticed that several parts of the network cause imperfections in the final images, which are called \textit{artifacts}. Two main types of artifacts were formulated in the paper:
+\noindent Significant improvements of the StyleGAN architecture were proposed in late 2019. \cite{stylegan2}. Publication revolved mainly around the problems which emerged during StyleGAN generator. It has been noticed that several parts of the network cause imperfections in the final images, which are called \textit{artifacts}. Two main types of artifacts were formulated in the paper:
 
 \begin{itemize}
 \item \textbf{Water-droplet artifacts} - the blob-shaped characteristics that resemble water-droplets are visible in various places in the final images. It might not be obvious while looking at the image, but it is very visible in the intermediate feature maps produced by generator. This artifacts starts to appear around 64x64 pixels resolution and gets stronger with higher resolutions. 
@@ -691,7 +694,7 @@ Depending on the place of crossover, final image obtains different characteristi
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.0]{figs/water-droplets.eps}
-    \caption{Water droplets artifact and its effect on feature maps.}\label{Fig:STYLEGAN}
+    \caption{Water droplets artifact and its effect on feature maps. \cite{stylegan2}}\label{Fig:STYLEGAN}
 \end{figure}
 
 
@@ -720,7 +723,7 @@ Depending on the place of crossover, final image obtains different characteristi
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1.3]{figs/changed-normalization.eps}
-    \caption{(b) shows the original StyleGAN architecture. The AdaIN fucntion is shown as combination of normalization and modulation operations. (c) shows the revised model with changes in the network.}\label{Fig:STYLEGAN}
+    \caption{(b) shows the original StyleGAN architecture. The AdaIN fucntion is shown as combination of normalization and modulation operations. (c) shows the revised model with changes in the network. \cite{stylegan2}}\label{Fig:STYLEGAN}
 \end{figure}
 
 \noindent As seen on the image above, several things changed in the network:
@@ -869,9 +872,9 @@ Next steps can be considered as a 'optimization loop':
 \item [4.] Output images are passed for an evaluation using classification network and similarity metric.
 \end{enumerate}
 
-We consider StyleGAN2 and BigGAN architectures as the main choice for a generative models in this solution. Main advantages of that choice are:
+We consider StyleGAN2 and BigGAN architectures as the main choice for a generative models in this solution. Another valid option would be to use SIREN and VQGAN models described earlier in the section about current developments. We decided not to do that, mainly due to the fact that these models were already tested and used for various experiments of this matter. Another reason is that these are known to generate more abstract images - we wanted to test out framework on relatively natural pictures.  Main advantages of that choice are:
 \begin{itemize}
-\item These are widely available as a pre-trained structures; StyleGAN2 is public and open-sourced for both generative and discriminative parts of the architecture, BigGAN is public as a generative part of the model. 
+\item StyleGAN2 is public and open-sourced for both generative and discriminative parts of the architecture, BigGAN is public as a generative part of the model. 
 \item StyleGAN2 consists of several class-based dedicated models (such as StyleGAN2-car or StyleGAN2-ffhq). It allows for experimentations with different types of images and checking the experiments results between both type of GANs.
 \item Both of these models are still considered to be state-of-the-art regarding the quality of produced images and were trained using huge datasets of images. This leads to much more interesting and explorable results.
 \end{itemize}
@@ -951,8 +954,7 @@ Although it seems that cosine similarity, which we determine for a pair of image
 
 \section{Genetic Algorithm vs Differential Evolution}
 
-\noindent Both of the algorithms presented in this work are population based and work applying similar techniques and concepts. Even though, by testing different scenarios we noticed that several patterns emerged for the generating process using both of these algorithms. 
-Differential evolution algorithm starts converging slower than genetic algorithm. It is especially visible in the first generations of the algorithms e.g. 10th generation. Images produced by generator after steering with genetic algorithm tend to be visually (and according to the metric) closer to the target text. First figure below shows this occurrence.\\
+\noindent Both of the algorithms presented in this work are population based and work applying similar techniques and concepts. Even though, by testing different scenarios we noticed that several patterns emerged for the generating process using both of these algorithms.  On contrary to previous hypothesis, differential evolution algorithm starts converging slower than genetic algorithm. It is especially visible in the first generations of the algorithms e.g. 10th generation. Images produced by generator after steering with genetic algorithm tend to be visually (and according to the metric) closer to the target text. First figure below shows this occurrence.\\
 The input phrase used to generate was '\textit{\textbf{a yellow car in the city}}'. Dedicated model trained on car images was used - StyleGAN2-car. Population obtained from genetic algorithm after 10 generations already has some acceptable units based on the input phrase. Cars are yellow (some of them deformed but the color is correct) and some of them are in the urban space. That means that genetic algorithm already steered the latent vector into the embedding of information about yellow color, car and the city.\\
 On the other hand, differential evolution did not process the information about color yet - produced cars are random in that subject.
 
@@ -1102,7 +1104,7 @@ On the other hand, differential evolution did not process the information about 
    \label{fig:Ng2}
 \end{subfigure}
 
-\caption[pics]{Comparison of StyleGAN2-cat, StyleGAN2-ca and BigGAN for "a clown cyclist on the moon" phrase.}
+\caption[pics]{Comparison of StyleGAN2-cat, StyleGAN2-car and BigGAN for "a clown cyclist on the moon" phrase.}
 \end{figure}
 \noindent StyleGAN2 models output can be described as close to randomize - model is trying to generate a meaningful image while having no idea about \textit{the moon}, \textit{clown} and \textit{cyclist}. This results in a random walk through the latent space and provides images which are not making much sense. With this example, we can clearly see the advantage of the BigGAN model - images from the last population clearly show the moon-like surface, elements of clown's hat and circus stadium as well as machines that resemble a bike.
 \noindent Provided examples show the power of data and datasets used for training. Having enough data there could be a possibility of creating a model combining the best of two worlds from StyleGAN2 and BigGAN - a model that is producing crips images with high quality (like dedicated StyleGAN2) and also has a wide variety of generative possibilities (like BigGAN).
@@ -1262,6 +1264,14 @@ Of course, examples of images for other classes can be found in Appendix 2.
 \noindent The \textit{llama} class has a very low accuracy - $7\%$ - in our evaluation. Here we can see a noticeable difference between correct and incorrect images - while the top row resembles the shape of a \textit{llama}, in the bottom row we see, similarly to the section on CIFAR10 evaluations - a bias resulting probably from too many dog images in the BigGAN model training set.
 
 \chapter{Summary}
+
+\noindent In this work, we tested how genetic algorithm and differential evolution can affect the speed and effectiveness of searching optimal solution for image generating. We performed tests with various models, phrases and environments. We proved that it is possible to use different variants of evolutionary algorithms to obtain accurate picture as model outcome.\\
+\noindent We also performed validation on two major image datasets, which directly addresses overall lack of good evaluation methods for these types of generative problems.  We showed that CLIP model and metrics provided by this framework are sufficient when used as latent space navigation method.\\
+\noindent As a continuation, more models (potentially with different architectures) could be tested to add more diverse results and test different generation techniques.  In this work, we tested one primary setting for differential evolution (\textit{de/rand/1}), but more of them are possible to test, yielding more insightful results.
+
+
+
+
 \chapter{Appendix 1}
 \noindent AIRPLANE
 \begin{figure}[h!]
@@ -1453,6 +1463,17 @@ WALL CLOCK
 \bibitem[32]{dalle-blog} https://openai.com/blog/dall-e/
 
 \bibitem[33]{dalle} https://arxiv.org/pdf/2102.12092.pdf
+
+\bibitem[34]{progress_gan} https://medium.com/mlearning-ai/generative-everything-the-technology-that-brought-you-deepfakes-soon-brings-you-3777a8bccee7
+
+\bibitem[35]{stylegan2} Analyzing and Improving the Image Quality of StyleGAN.  https://arxiv.org/pdf/1912.04958v2.pdf
+
+\textbf{\bibitem[36]{adain} ADAIN https://arxiv.org/pdf/1703.06868.pdf}
+
+
+%Analyzing and Improving the Image Quality of StyleGAN
+
+
 \end{thebibliography}
 
 
