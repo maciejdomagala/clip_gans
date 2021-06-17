@@ -61,20 +61,20 @@
 \begin{frame}[c]{Evolutionary Algorithms}
 \begin{block}{Genetic Algorithm}
 \begin{itemize}
-\item ...
-\item ...
+\item Is considered to be a basis of all evolutionary algorithms,
+\item It is using mutation,  crossover and selection operators to generate offsprings.
 \end{itemize}
 \end{block}
 \begin{block}{Differential Evolution}
 \begin{itemize}
-\item ...
-\item ...
+\item Uses 3 vectors from population to generate offspring,
+\item Is regarded to be converging faster than genetic algorithm.
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}[c]{Evolutionary Algorithms}
-\begin{block}{Genetic Algorithm}
+\begin{block}{Evolutionary Algorithm}
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.9]{gen-algo.jpg}
@@ -121,6 +121,7 @@
 \end{figure}
 \end{frame}
 
+
 \begin{frame}[c]{BigGAN vs StyleGAN}
 \centering
 \textbf{"Red gothic church"}
@@ -133,6 +134,24 @@
 \end{subfigure}
 \begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=1\linewidth, scale=0.15]{redgothic_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{BigGAN vs StyleGAN}
+\centering
+\textbf{"A clown cyclist on a moon"}
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.5\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.15]{clown_stylegancar.PNG}
+   \caption{StyleGAN2-car}
+   \label{fig:Ng1} 
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.15]{clown_biggan.PNG}
    \caption{BigGAN}
    \label{fig:Ng2}
 \end{subfigure}
@@ -179,9 +198,9 @@ KERRY BLUE TERRIER                   & 253               & 259               & {
 
 \begin{frame}[c]{Conclusions}
 \begin{itemize}
-\item  ...
-\item ...
-\item ...
+\item Natural continuation of this work would be to to test more algorithms and more generative models. 
+\item We would also like to perform a more comprehensive analysis of phrase semantics, how the meaning of more complicated phrase is intepreted by the model and translated to latent vector.
+\item Problem including new entities creation is still in the early stage of development, regarding both image and text generation, which makes it a perfect occasion to learn and develop.
 \end{itemize}
 \end{frame}
 

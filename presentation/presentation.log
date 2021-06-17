@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.28)  17 JUN 2021 14:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.14)  17 JUN 2021 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,7 +798,20 @@ y
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count326
 \l__pdf_internal_box=\box72
-) (./presentation.aux)
+) (./presentation.aux
+
+LaTeX Warning: Label `fig:Ng1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:Ng1' multiply defined.
+
+
+LaTeX Warning: Label `fig:Ng2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:Ng2' multiply defined.
+
+)
 \openout1 = `presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -1064,39 +1077,73 @@ Package pdftex.def Info: DE_yellowcar_final.PNG  used on input line 122.
 <redgothic_stylegan.PNG, id=327, 557.08125pt x 279.29344pt>
 File: redgothic_stylegan.PNG Graphic file (type png)
 <use redgothic_stylegan.PNG>
-Package pdftex.def Info: redgothic_stylegan.PNG  used on input line 140.
+Package pdftex.def Info: redgothic_stylegan.PNG  used on input line 141.
 (pdftex.def)             Requested size: 83.55858pt x 41.8922pt.
 <redgothic_biggan.PNG, id=328, 832.61063pt x 416.30531pt>
 File: redgothic_biggan.PNG Graphic file (type png)
 <use redgothic_biggan.PNG>
-Package pdftex.def Info: redgothic_biggan.PNG  used on input line 140.
+Package pdftex.def Info: redgothic_biggan.PNG  used on input line 141.
 (pdftex.def)             Requested size: 124.8862pt x 62.4431pt.
  [10
 
  <./redgothic_stylegan.PNG> <./redgothic_biggan.PNG>]
-<confusion_matrix.png, id=366, 1156.32pt x 578.16pt>
+<clown_stylegancar.PNG, id=366, 556.32843pt x 278.54062pt>
+File: clown_stylegancar.PNG Graphic file (type png)
+<use clown_stylegancar.PNG>
+Package pdftex.def Info: clown_stylegancar.PNG  used on input line 159.
+(pdftex.def)             Requested size: 83.44566pt x 41.77928pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:Ng1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.159 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{sub@fig:Ng1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.159 \end{frame}
+                 
+<clown_biggan.PNG, id=367, 772.38562pt x 386.94562pt>
+File: clown_biggan.PNG Graphic file (type png)
+<use clown_biggan.PNG>
+Package pdftex.def Info: clown_biggan.PNG  used on input line 159.
+(pdftex.def)             Requested size: 115.85284pt x 58.03934pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:Ng2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.159 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{sub@fig:Ng2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.159 \end{frame}
+                  [11
+
+ <./clown_stylegancar.PNG> <./clown_biggan.PNG>]
+<confusion_matrix.png, id=400, 1156.32pt x 578.16pt>
 File: confusion_matrix.png Graphic file (type png)
 <use confusion_matrix.png>
-Package pdftex.def Info: confusion_matrix.png  used on input line 147.
+Package pdftex.def Info: confusion_matrix.png  used on input line 166.
 (pdftex.def)             Requested size: 346.89868pt x 173.44933pt.
 
-Overfull \hbox (56.15605pt too wide) in paragraph at lines 147--147
+Overfull \hbox (56.15605pt too wide) in paragraph at lines 166--166
  [] 
  []
 
-[11
+[12
 
- <./confusion_matrix.png>] [12
+ <./confusion_matrix.png>] [13
 
 ]
-<llama.png, id=427, 1084.05pt x 505.89pt>
+<llama.png, id=462, 1084.05pt x 505.89pt>
 File: llama.png Graphic file (type png)
 <use llama.png>
-Package pdftex.def Info: llama.png  used on input line 176.
+Package pdftex.def Info: llama.png  used on input line 195.
 (pdftex.def)             Requested size: 271.01184pt x 126.47218pt.
- [13
+ [14
 
- <./llama.png>] [14
+ <./llama.png>] [15
 
 ]
 \tf@nav=\write6
@@ -1109,14 +1156,17 @@ Package pdftex.def Info: llama.png  used on input line 176.
 \openout8 = `presentation.snm'.
 
  (./presentation.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: AA10DC80528E16C4497223B1659B085A;387.
  ) 
 Here is how much of TeX's memory you used:
- 22054 strings out of 478994
- 412073 string characters out of 5858184
- 700721 words of memory out of 5000000
- 39016 multiletter control sequences out of 15000+600000
+ 22070 strings out of 478994
+ 412368 string characters out of 5858184
+ 700754 words of memory out of 5000000
+ 39028 multiletter control sequences out of 15000+600000
  414722 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  131i,16n,132p,439b,628s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1126,10 +1176,10 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
 sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
-Output written on presentation.pdf (14 pages, 7081018 bytes).
+Output written on presentation.pdf (15 pages, 8691232 bytes).
 PDF statistics:
- 522 PDF objects out of 1000 (max. 8388607)
- 467 compressed objects within 5 object streams
- 37 named destinations out of 1000 (max. 500000)
- 135 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 556 PDF objects out of 1000 (max. 8388607)
+ 496 compressed objects within 5 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
