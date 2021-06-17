@@ -26,42 +26,53 @@
 \end{figure} 
 \end{frame}
 
-\section{Theory}
+\section{Framework}
 
-\begin{frame}[c]{GANs - BigGAN}
-  \begin{block}{BigGAN}
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.2]{biggan1.png}
-\end{figure} 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.25]{biggan2.png}
-\end{figure} 
-  \end{block}
-\end{frame}
 
-\begin{frame}[c]{GANs - StyleGAN}
-  \begin{block}{StyleGAN}
-  \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.42]{stylegan-scheme.PNG}
-\end{figure} 
-  \end{block}
+\begin{frame}[c]{GANs}
+\begin{block}{BigGAN}
+\begin{itemize}
+\item trained on the ImageNet dataset
+\item proposed by DeepMind in 2018
+\item by design, it should generalize well
+\end{itemize}
+\end{block}
+\begin{block}{StyleGAN2}
+\begin{itemize}
+\item introduced by Nvidia in 2019
+\item trained in terms of generating various objects, e.g.cars, faces
+\end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}{CLIP}
-\textbf{CLIP} - Contrastive Language-Image Pre-Training new multi-modal model released by OpenAI in January 2021.  \\
-Key features:
+\textbf{CLIP} (Contrastive Language-Image Pre-Training):
 \begin{itemize}
-\item it is a neural network trained on over $400 \; 000 \; 000$ (image, caption) pairs
-\item main usage is to obtain the most relevant text snipper for given image
+\item released by OpenAI in January 2021,
+\item it is a neural network trained on over $400 \; 000 \; 000$ (image, caption) pairs,
+\item main usage is to obtain the most relevant text snippet for given image.
 \end{itemize}
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.3]{clip_example.png}
 \end{figure} 
 \end{frame}
+
+\begin{frame}[c]{Evolutionary Algorithms}
+\begin{block}{Genetic Algorithm}
+\begin{itemize}
+\item ...
+\item ...
+\end{itemize}
+\end{block}
+\begin{block}{Differential Evolution}
+\begin{itemize}
+\item ...
+\item ...
+\end{itemize}
+\end{block}
+\end{frame}
+
 \begin{frame}[c]{Evolutionary Algorithms}
 \begin{block}{Genetic Algorithm}
 \begin{figure}[ht!]
@@ -70,74 +81,68 @@ Key features:
 \end{figure} 
 \end{block}
 \end{frame}
-\begin{frame}
-\begin{block}{Differential Evolution}
- \begin{figure}[ht!]
-     \centering
-     \includegraphics[scale=0.2]{diff-evo.eps}
- \end{figure}
-\end{block}
-\end{frame}
 
-\section{Framework}
-
-\begin{frame}{Framework}
+\begin{frame}[c]{Framework}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.2]{framework.jpg}
+    \includegraphics[scale=0.3]{flow.png}
 \end{figure} 
 \end{frame}
 
-\section{Examples}
+\begin{frame}[c]{Framework - example}
 
-\begin{frame}[c]{Examples}
+\begin{enumerate}
+\item  Configuration: StyleGAN2-ffhq, GA algorithm, CLIP,  \\200 iterations
+\item Input text: \textbf{a blond girl with a smile}
+\item Batch after 100 iterations:
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.2]{blondgirl.PNG}
-    \caption{GA, StyleGAN2-ffhq, "a blond girl with a smile"}
+    \includegraphics[scale=0.15]{blondgirl.PNG}
 \end{figure}
-\begin{figure}[H]
+\item Final image:
+\begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.2]{bluecar.png}
-    \caption{CLIP, GA, StyleGAN2-car,  "a blue car near the water in sun"}
+    \includegraphics[scale=0.07]{result_blond.jpeg}
 \end{figure}
+\end{enumerate}
 \end{frame}
 
 \section{Experiments}
 
-\begin{frame}{Evaluation - CIFAR10}
-\begin{table}[h!]
+\begin{frame}{GA vs DE}
 \centering
-\begin{tabular}{|l|c|c|c|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Class}} & \textbf{Positive} & \textbf{Negative} & \textbf{Accuracy (\%)}       \\ \hline
-AIRPLANE                             & 476               & 36                & {\color[HTML]{32CB00} 92.97} \\ \hline
-AUTOMOBILE                           & 88                & 424               & 17.19                        \\ \hline
-BIRD                                 & 12                & 500               & 2.34                         \\ \hline
-CAT                                  & 177               & 335               & 34.57                        \\ \hline
-DEER                                 & 0                 & 512               & {\color[HTML]{FE0000} 0.0}   \\ \hline
-DOG                                  & 255               & 257               & 49.8                         \\ \hline
-FROG                                 & 39                & 473               & 7.62                         \\ \hline
-HORSE                                & 64                & 448               & 12.5                         \\ \hline
-SHIP                                 & 60                & 452               & 11.72                        \\ \hline
-TRUCK                                & 97                & 415               & 18.95                        \\ \hline
-\textbf{TOTAL}                       & \textbf{1268}     & \textbf{3852}     & \textbf{24.77}               \\ \hline
-\end{tabular}
-\end{table}
+\textbf{"A yellow car in the city"}
+\begin{figure}[h]
+    \centering
+    \subfloat[\centering genetic algorithm]{{\includegraphics[width=3cm]{GA_yellowcar_final.PNG} }}
+    \qquad
+    \subfloat[\centering differential evolution]{{\includegraphics[width=3cm]{DE_yellowcar_final.PNG} }}
+    \caption{Final images (with best score) produced by both algorithms.}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{BigGAN vs StyleGAN}
+\centering
+\textbf{"Red gothic church"}
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.5\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.15]{redgothic_stylegan.PNG}
+   \caption{StyleGAN2-church}
+   \label{fig:Ng1} 
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+   \includegraphics[width=1\linewidth, scale=0.15]{redgothic_biggan.PNG}
+   \caption{BigGAN}
+   \label{fig:Ng2}
+\end{subfigure}
+\end{figure}
 \end{frame}
 
 \begin{frame}[c]{Evaluation - CIFAR10}
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{confusion_matrix.png}
-\end{figure} 
-\end{frame}
-
-\begin{frame}[c]{Evaluation - CIFAR10 - Example}
-\textbf{Airplane}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.25]{airplane.png}
 \end{figure} 
 \end{frame}
 
@@ -170,138 +175,14 @@ KERRY BLUE TERRIER                   & 253               & 259               & {
 \end{figure} 
 \end{frame}
 
-\begin{frame}{GA vs DE}
-\begin{figure}[h]
-    \centering
-    \subfloat[\centering genetic algorithm]{{\includegraphics[width=3cm]{GA_yellowcar_final.PNG} }}
-    \qquad
-    \subfloat[\centering differential evolution]{{\includegraphics[width=3cm]{DE_yellowcar_final.PNG} }}
-    \caption{Final images (with best score) produced by algorithms.}
-\end{figure}
-\end{frame}
-
-%https://medium.com/analytics-vidhya/key-concepts-of-biggan-training-and-assessing-large-scale-image-generation-4c8303dcf73f
-\begin{frame}[c]{BigGAN vs StyleGAN}
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.6\textwidth}
-   \includegraphics[width=1\linewidth, scale=0.2]{redgothic_stylegan.PNG}
-   \caption{StyleGAN2-church}
-   \label{fig:Ng1} 
-\end{subfigure}
-
-\begin{subfigure}[b]{0.6\textwidth}
-   \includegraphics[width=1\linewidth, scale=0.2]{redgothic_biggan.PNG}
-   \caption{BigGAN}
-   \label{fig:Ng2}
-\end{subfigure}
-\caption[pics]{Comparison of StyleGAN2-church and BigGAN models for a "red gothic church" phrase.}
-\end{figure}
-\end{frame}
-
-\begin{frame}[c]{BigGAN vs StyleGAN}
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.6\textwidth}
-   \includegraphics[width=1\linewidth]{gingerboy_stylegan.PNG}
-   \caption{StyleGAN2-ffhq}
-   \label{fig:Ng1} 
-\end{subfigure}
-
-\begin{subfigure}[b]{0.6\textwidth}
-   \includegraphics[width=1\linewidth]{gingerboy_biggan.PNG}
-   \caption{BigGAN}
-   \label{fig:Ng2}
-\end{subfigure}
-\caption[pics]{Comparison of StyleGAN2-ffhq and BigGAN models for "a ginger boy" phrase.}
-\end{figure}
-\end{frame}
-
-\begin{frame}[c]{BigGAN vs StyleGAN}
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.6\textwidth}
-   \includegraphics[width=1\linewidth]{clown_stylegancat2.PNG}
-   \caption{StyleGAN2-cat}
-   \label{fig:Ng1} 
-\end{subfigure}
-
-\begin{subfigure}[b]{0.6\textwidth}
-   \includegraphics[width=1\linewidth]{clown_stylegancar.PNG}
-   \caption{StyleGAN2-car}
-   \label{fig:Ng2}
-\end{subfigure}
-
-\caption[pics]{Comparison of StyleGAN2-cat and StyleGAN2-car for "a clown cyclist on the moon" phrase.}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Cosine-Similarity}
-Observations:
-\begin{itemize}
-\item \textit{cos-sim} in our solution takes values only in the range $\sim [0.2, 0.4]$
-\end{itemize}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.05]{bigreddog.png}
-\end{figure} 
-\end{frame}
-
-
-
 \section{Conclusions}
 
 \begin{frame}[c]{Conclusions}
 \begin{itemize}
-\item  
-\item 
-\item 
+\item  ...
+\item ...
+\item ...
 \end{itemize}
 \end{frame}
 
-\section{Bibliography}
-
-\begin{frame}{Bibliography}
-\fontsize{2}{7.2}\selectfont
-\begin{thebibliography}{a,b,c}
-\addcontentsline{toc}{chapter}{Citation}
-\bibitem[1]{improvedgans} T. Salimans, I. Goodfellow, W. Zaremba, V. Cheung, A. Radford, and X. Chen. {\it Improved techniques for training gans.} In NIPS, 2016.
-
-\bibitem[2]{inception} C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, Z. Wojna. {\it Rethinking the inception architecture for computer vision.} arXiv preprint arXiv: 1512.00567, 2015.
-
-\bibitem[3]{noteonis} S. Barratt, R. Sharma. {\it A note on the Inception Score.} arXiv preprint arXiv: 1801.01973, 2018.
-
-\bibitem[4]{fid} M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, S. Hochreiter. {\it GANs trained by a two time-scale update rule converge to a local Nash equilibrium.} In NIPS, 2017.
-
-\bibitem[5]{de} R. Storn, K. Price. {\it Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.} Springer, 1997.
-
-\bibitem[6]{stylegan} T. Karras, S. Laine, T. Aila. {\it A style-based generator architecture for generative adversarial networks.} In CVPR, 2019.
-
-\bibitem[7]{gan} I. Goodfellow et al.  {\it Generative Adversarial Nets} 2014.  \url{https://arxiv.org/pdf/1406.2661.pdf}
-
-\bibitem[8]{ganprogress} M. Brundage, S. Avin, J. Clark et al. {\it The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation.} arXiv preprint arXiv: 1802.07228, 2018.
-
-\bibitem[9]{clip} OpenAI CLIP https://arxiv.org/pdf/2103.00020.pdf
-
-\bibitem[10]{cifar10_data} https://www.cs.toronto.edu/~kriz/cifar.html
-
-\bibitem[11]{imagenet_data} https://www.image-net.org/
-
-\bibitem[12]{clip} A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark et al. {\it Learning transferable visual models
-from natural language supervision.} In CVPR, 2019.
-
-\bibitem[13]{clip_blog} https://openai.com/blog/clip/
-
-\bibitem[14]{clip_source} https://habr.com/en/post/537334/
-
-\bibitem[15]{cifar10_classifier} \url{https://github.com/vrakesh/CIFAR-10-Classifier}
-
-\bibitem[16]{resnet} \url{https://pytorch.org/hub/pytorch_vision_resnet}
-
-\bibitem[17]{imagenet_example} \url{https://devopedia.org/imagenet}
-
-\bibitem[18]{gan_arch} \url{https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/}
-
-\end{thebibliography}
-\end{frame}
 \end{document}

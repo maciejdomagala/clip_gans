@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.28)  11 JUN 2021 16:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.28)  17 JUN 2021 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,32 +798,7 @@ y
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count326
 \l__pdf_internal_box=\box72
-) (./presentation.aux
-
-LaTeX Warning: Label `fig:Ng1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:Ng1' multiply defined.
-
-
-LaTeX Warning: Label `fig:Ng2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:Ng2' multiply defined.
-
-
-LaTeX Warning: Label `fig:Ng1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:Ng1' multiply defined.
-
-
-LaTeX Warning: Label `fig:Ng2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:Ng2' multiply defined.
-
-)
+) (./presentation.aux)
 \openout1 = `presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -1005,324 +980,125 @@ Package caption Info: End \AtBeginDocument code.
 map/pdftex.map}
 
 ]
-<dalle_avocado.png, id=85, 718.685pt x 716.6775pt>
+<dalle_avocado.png, id=67, 718.685pt x 716.6775pt>
 File: dalle_avocado.png Graphic file (type png)
 <use dalle_avocado.png>
 Package pdftex.def Info: dalle_avocado.png  used on input line 27.
 (pdftex.def)             Requested size: 143.73445pt x 143.33296pt.
  [2
 
- <./dalle_avocado.png>]
-<biggan1.png, id=121, 625.33624pt x 393.47pt>
-File: biggan1.png Graphic file (type png)
-<use biggan1.png>
-Package pdftex.def Info: biggan1.png  used on input line 42.
-(pdftex.def)             Requested size: 125.06503pt x 78.6926pt.
-<biggan2.png, id=122, 775.89874pt x 331.2375pt>
-File: biggan2.png Graphic file (type png)
-<use biggan2.png>
-Package pdftex.def Info: biggan2.png  used on input line 42.
-(pdftex.def)             Requested size: 193.97421pt x 82.80916pt.
+ <./dalle_avocado.png>] [3
 
-Overfull \vbox (5.2759pt too high) detected at line 42
- []
-
-[3
-
- <./biggan1.png (PNG copy)> <./biggan2.png (PNG copy)>]
-<stylegan-scheme.PNG, id=158, 488.57532pt x 422.32782pt>
-File: stylegan-scheme.PNG Graphic file (type png)
-<use stylegan-scheme.PNG>
-Package pdftex.def Info: stylegan-scheme.PNG  used on input line 51.
-(pdftex.def)             Requested size: 205.20023pt x 177.37646pt.
-
-Overfull \vbox (2.1506pt too high) detected at line 51
- []
-
-[4
-
- <./stylegan-scheme.PNG>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 64.
+ut line 59.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<clip_example.png, id=193, 471.7625pt x 273.02pt>
+<clip_example.png, id=131, 471.7625pt x 273.02pt>
 File: clip_example.png Graphic file (type png)
 <use clip_example.png>
-Package pdftex.def Info: clip_example.png  used on input line 64.
+Package pdftex.def Info: clip_example.png  used on input line 59.
 (pdftex.def)             Requested size: 141.52983pt x 81.90663pt.
- [5
+ [4
 
- <./clip_example.png>]
-<gen-algo.jpg, id=229, 228.80682pt x 83.1105pt>
+ <./clip_example.png>] [5
+
+]
+<gen-algo.jpg, id=195, 228.80682pt x 83.1105pt>
 File: gen-algo.jpg Graphic file (type jpg)
 <use gen-algo.jpg>
-Package pdftex.def Info: gen-algo.jpg  used on input line 72.
+Package pdftex.def Info: gen-algo.jpg  used on input line 83.
 (pdftex.def)             Requested size: 205.92422pt x 74.79874pt.
  [6
 
  <./gen-algo.jpg>]
-Package epstopdf Info: Source file: <diff-evo.eps>
-(epstopdf)                    date: 2021-05-17 22:32:38
-(epstopdf)                    size: 2965534 bytes
-(epstopdf)             Output file: <diff-evo-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-06-11 15:18:36
-(epstopdf)                    size: 149315 bytes
-(epstopdf)             Command: <repstopdf --outfile=diff-evo-eps-converted-to.
-pdf diff-evo.eps>
-(epstopdf)             \includegraphics on input line 80.
-Package epstopdf Info: Output file is already uptodate.
-<diff-evo-eps-converted-to.pdf, id=263, 687.56876pt x 713.66624pt>
-File: diff-evo-eps-converted-to.pdf Graphic file (type pdf)
-<use diff-evo-eps-converted-to.pdf>
-Package pdftex.def Info: diff-evo-eps-converted-to.pdf  used on input line 80.
-(pdftex.def)             Requested size: 137.5113pt x 142.73071pt.
+<flow.png, id=226, 770.12718pt x 438.8897pt>
+File: flow.png Graphic file (type png)
+<use flow.png>
+Package pdftex.def Info: flow.png  used on input line 90.
+(pdftex.def)             Requested size: 231.03993pt x 131.66792pt.
  [7
 
- <./diff-evo-eps-converted-to.pdf>]
-<framework.jpg, id=299, 1503.6175pt x 669.50125pt>
-File: framework.jpg Graphic file (type jpg)
-<use framework.jpg>
-Package pdftex.def Info: framework.jpg  used on input line 89.
-(pdftex.def)             Requested size: 300.71817pt x 133.89787pt.
-
-Overfull \hbox (9.97554pt too wide) in paragraph at lines 89--89
- [] 
- []
-
-[8
-
- <./framework.jpg>]
-<blondgirl.PNG, id=332, 711.4078pt x 356.83313pt>
+ <./flow.png>]
+<blondgirl.PNG, id=259, 711.4078pt x 356.83313pt>
 File: blondgirl.PNG Graphic file (type png)
 <use blondgirl.PNG>
-Package pdftex.def Info: blondgirl.PNG  used on input line 104.
-(pdftex.def)             Requested size: 142.27904pt x 71.36536pt.
-<bluecar.png, id=333, 706.89093pt x 351.56343pt>
-File: bluecar.png Graphic file (type png)
-<use bluecar.png>
-Package pdftex.def Info: bluecar.png  used on input line 104.
-(pdftex.def)             Requested size: 141.37567pt x 70.31143pt.
+Package pdftex.def Info: blondgirl.PNG  used on input line 108.
+(pdftex.def)             Requested size: 106.70656pt x 53.52264pt.
+<result_blond.jpeg, id=260, 1027.84pt x 1027.84pt>
+File: result_blond.jpeg Graphic file (type jpg)
+<use result_blond.jpeg>
+Package pdftex.def Info: result_blond.jpeg  used on input line 108.
+(pdftex.def)             Requested size: 71.95615pt x 71.95615pt.
+ [8
+
+ <./blondgirl.PNG> <./result_blond.jpeg>]
+<GA_yellowcar_final.PNG, id=291, 382.42876pt x 383.93437pt>
+File: GA_yellowcar_final.PNG Graphic file (type png)
+<use GA_yellowcar_final.PNG>
+Package pdftex.def Info: GA_yellowcar_final.PNG  used on input line 122.
+(pdftex.def)             Requested size: 85.35826pt x 85.69022pt.
+<DE_yellowcar_final.PNG, id=292, 383.18156pt x 381.67593pt>
+File: DE_yellowcar_final.PNG Graphic file (type png)
+<use DE_yellowcar_final.PNG>
+Package pdftex.def Info: DE_yellowcar_final.PNG  used on input line 122.
+(pdftex.def)             Requested size: 85.35826pt x 85.01726pt.
  [9
 
- <./blondgirl.PNG> <./bluecar.png>] [10
+ <./GA_yellowcar_final.PNG> <./DE_yellowcar_final.PNG>]
+<redgothic_stylegan.PNG, id=327, 557.08125pt x 279.29344pt>
+File: redgothic_stylegan.PNG Graphic file (type png)
+<use redgothic_stylegan.PNG>
+Package pdftex.def Info: redgothic_stylegan.PNG  used on input line 140.
+(pdftex.def)             Requested size: 83.55858pt x 41.8922pt.
+<redgothic_biggan.PNG, id=328, 832.61063pt x 416.30531pt>
+File: redgothic_biggan.PNG Graphic file (type png)
+<use redgothic_biggan.PNG>
+Package pdftex.def Info: redgothic_biggan.PNG  used on input line 140.
+(pdftex.def)             Requested size: 124.8862pt x 62.4431pt.
+ [10
 
-]
-<confusion_matrix.png, id=403, 1156.32pt x 578.16pt>
+ <./redgothic_stylegan.PNG> <./redgothic_biggan.PNG>]
+<confusion_matrix.png, id=366, 1156.32pt x 578.16pt>
 File: confusion_matrix.png Graphic file (type png)
 <use confusion_matrix.png>
-Package pdftex.def Info: confusion_matrix.png  used on input line 134.
+Package pdftex.def Info: confusion_matrix.png  used on input line 147.
 (pdftex.def)             Requested size: 346.89868pt x 173.44933pt.
 
-Overfull \hbox (56.15605pt too wide) in paragraph at lines 134--134
+Overfull \hbox (56.15605pt too wide) in paragraph at lines 147--147
  [] 
  []
 
 [11
 
- <./confusion_matrix.png>]
-<airplane.png, id=438, 1084.05pt x 505.89pt>
-File: airplane.png Graphic file (type png)
-<use airplane.png>
-Package pdftex.def Info: airplane.png  used on input line 142.
-(pdftex.def)             Requested size: 271.01184pt x 126.47218pt.
- [12
-
- <./airplane.png>] [13
+ <./confusion_matrix.png>] [12
 
 ]
-<llama.png, id=509, 1084.05pt x 505.89pt>
+<llama.png, id=427, 1084.05pt x 505.89pt>
 File: llama.png Graphic file (type png)
 <use llama.png>
-Package pdftex.def Info: llama.png  used on input line 171.
+Package pdftex.def Info: llama.png  used on input line 176.
 (pdftex.def)             Requested size: 271.01184pt x 126.47218pt.
- [14
+ [13
 
- <./llama.png>]
-<GA_yellowcar_final.PNG, id=544, 382.42876pt x 383.93437pt>
-File: GA_yellowcar_final.PNG Graphic file (type png)
-<use GA_yellowcar_final.PNG>
-Package pdftex.def Info: GA_yellowcar_final.PNG  used on input line 181.
-(pdftex.def)             Requested size: 85.35826pt x 85.69022pt.
-<DE_yellowcar_final.PNG, id=545, 383.18156pt x 381.67593pt>
-File: DE_yellowcar_final.PNG Graphic file (type png)
-<use DE_yellowcar_final.PNG>
-Package pdftex.def Info: DE_yellowcar_final.PNG  used on input line 181.
-(pdftex.def)             Requested size: 85.35826pt x 85.01726pt.
-
-[15
-
- <./GA_yellowcar_final.PNG> <./DE_yellowcar_final.PNG>]
-<redgothic_stylegan.PNG, id=582, 557.08125pt x 279.29344pt>
-File: redgothic_stylegan.PNG Graphic file (type png)
-<use redgothic_stylegan.PNG>
-Package pdftex.def Info: redgothic_stylegan.PNG  used on input line 199.
-(pdftex.def)             Requested size: 111.41428pt x 55.8577pt.
-<redgothic_biggan.PNG, id=583, 832.61063pt x 416.30531pt>
-File: redgothic_biggan.PNG Graphic file (type png)
-<use redgothic_biggan.PNG>
-Package pdftex.def Info: redgothic_biggan.PNG  used on input line 199.
-(pdftex.def)             Requested size: 166.51917pt x 83.25958pt.
-
-Overfull \vbox (49.28065pt too high) detected at line 199
- []
-
-[16
-
- <./redgothic_stylegan.PNG> <./redgothic_biggan.PNG>]
-<gingerboy_stylegan.PNG, id=623, 706.89093pt x 353.82187pt>
-File: gingerboy_stylegan.PNG Graphic file (type png)
-<use gingerboy_stylegan.PNG>
-Package pdftex.def Info: gingerboy_stylegan.PNG  used on input line 217.
-(pdftex.def)             Requested size: 174.44734pt x 87.31609pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Ng1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.217 \end{frame}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{sub@fig:Ng1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.217 \end{frame}
-                 
-<gingerboy_biggan.PNG, id=624, 642.90187pt x 319.94531pt>
-File: gingerboy_biggan.PNG Graphic file (type png)
-<use gingerboy_biggan.PNG>
-Package pdftex.def Info: gingerboy_biggan.PNG  used on input line 217.
-(pdftex.def)             Requested size: 174.44734pt x 86.816pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Ng2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.217 \end{frame}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{sub@fig:Ng2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.217 \end{frame}
-                 
-Overfull \vbox (48.72296pt too high) detected at line 217
- []
-
-[17
-
- <./gingerboy_stylegan.PNG> <./gingerboy_biggan.PNG>]
-<clown_stylegancat2.PNG, id=660, 554.82281pt x 277.78781pt>
-File: clown_stylegancat2.PNG Graphic file (type png)
-<use clown_stylegancat2.PNG>
-Package pdftex.def Info: clown_stylegancat2.PNG  used on input line 236.
-(pdftex.def)             Requested size: 174.44734pt x 87.34254pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Ng1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.236 \end{frame}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{sub@fig:Ng1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.236 \end{frame}
-                 
-<clown_stylegancar.PNG, id=661, 556.32843pt x 278.54062pt>
-File: clown_stylegancar.PNG Graphic file (type png)
-<use clown_stylegancar.PNG>
-Package pdftex.def Info: clown_stylegancar.PNG  used on input line 236.
-(pdftex.def)             Requested size: 174.44734pt x 87.34123pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:Ng2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.236 \end{frame}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{sub@fig:Ng2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.236 \end{frame}
-                 
-Overfull \vbox (49.27466pt too high) detected at line 236
- []
-
-[18
-
- <./clown_stylegancat2.PNG> <./clown_stylegancar.PNG>]
-<bigreddog.png, id=697, 5614.9775pt x 1877.0125pt>
-File: bigreddog.png Graphic file (type png)
-<use bigreddog.png>
-Package pdftex.def Info: bigreddog.png  used on input line 247.
-(pdftex.def)             Requested size: 280.76532pt x 93.85612pt.
- [19
-
- <./bigreddog.png>] [20
+ <./llama.png>] [14
 
 ]
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <2> not available
-(Font)              size <3> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <2> not available
-(Font)              size <3> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <2> not available
-(Font)              size <5> substituted on input line 305.
-
-LaTeX Font Info:    Calculating math sizes for size <2> on input line 305.
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <1.4> not available
-(Font)              size <3> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <1> not available
-(Font)              size <3> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2> not available
-(Font)              size <5> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <1.4> not available
-(Font)              size <5> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <1> not available
-(Font)              size <5> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2> not available
-(Font)              size <5> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <1.4> not available
-(Font)              size <5> substituted on input line 305.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <1> not available
-(Font)              size <5> substituted on input line 305.
-
-
-Overfull \vbox (54.28134pt too high) detected at line 305
- []
-
-[21
-
- </usr/local/texlive/2021/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
 \openout6 = `presentation.nav'.
 
@@ -1333,38 +1109,27 @@ Overfull \vbox (54.28134pt too high) detected at line 305
 \openout8 = `presentation.snm'.
 
  (./presentation.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.0pt have occurred.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: A7BB192A79CAB15A7B917E58E9C15AFA;646.
+(rerunfilecheck)             Checksum: AA10DC80528E16C4497223B1659B085A;387.
  ) 
 Here is how much of TeX's memory you used:
- 22237 strings out of 478994
- 415144 string characters out of 5858184
- 708381 words of memory out of 5000000
- 39153 multiletter control sequences out of 15000+600000
- 418661 words of font info for 82 fonts, out of 8000000 for 9000
+ 22054 strings out of 478994
+ 412073 string characters out of 5858184
+ 700721 words of memory out of 5000000
+ 39016 multiletter control sequences out of 15000+600000
+ 414722 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 131i,16n,132p,439b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
-/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></u
-sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr
-/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr
-/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on presentation.pdf (21 pages, 12171424 bytes).
+ 131i,16n,132p,439b,628s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
+></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
+usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></us
+r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
+sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+Output written on presentation.pdf (14 pages, 7081018 bytes).
 PDF statistics:
- 880 PDF objects out of 1000 (max. 8388607)
- 790 compressed objects within 8 object streams
- 71 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 522 PDF objects out of 1000 (max. 8388607)
+ 467 compressed objects within 5 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
