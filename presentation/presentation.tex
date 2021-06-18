@@ -6,7 +6,7 @@
 
 \usetheme{Berkeley}
 \title{Text to Image generation using GANs,  CLIP  \\ and evolutionary algorithms.}
-\subtitle{Techical University of Warsaw}
+\subtitle{Warsaw University of Technology}
 \author{Maciej Domagała, Adam Komorowski}
 \date{June 19, 2021}
 
@@ -24,6 +24,25 @@
     \centering
     \includegraphics[scale=0.2]{dalle_avocado.png}
 \end{figure} 
+\end{frame}
+
+\begin{frame}{Introduction}
+\textit{Observation}: \newline
+Current developments in text-to-image problem are often very unreliable and highly inaccurate.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.2]{deepai.PNG}
+    \caption{Image generated using \textit{DeepAI} text-to-image API from "a clown on a
+bike" phrase.}
+\end{figure} 
+\end{frame}
+
+\begin{frame}{Introduction}
+\textit{Work thesis}:
+\begin{enumerate}
+\item Replacing generative model from DALL-E framework by GANs will result in visibly better text-to-image generation results, \newline
+\item  Evolutionary algorithms can be used with success to navigate GANs latent space and generate good quality images.
+\end{enumerate}
 \end{frame}
 
 \section{Framework}
