@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.28)  15 JUN 2021 02:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.14)  18 JUN 2021 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -843,10 +843,10 @@ Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 160.
  [9] [10]
 Package epstopdf Info: Source file: <figs/fid.eps>
-(epstopdf)                    date: 2021-05-23 23:21:30
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 1196176 bytes
 (epstopdf)             Output file: <figs/fid-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-23 23:21:30
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 51766 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fid-eps-converted-to.
 pdf figs/fid.eps>
@@ -893,10 +893,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
 [16 <./figs/clip_model_3.png>]
 Package epstopdf Info: Source file: <figs/gen-algo.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 1863536 bytes
 (epstopdf)             Output file: <figs/gen-algo-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 91459 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/gen-algo-eps-converte
 d-to.pdf figs/gen-algo.eps>
@@ -915,10 +915,10 @@ Package pdftex.def Info: figs/gen-algo-eps-converted-to.pdf  used on input line
 (pdftex.def)             Requested size: 349.56706pt x 126.97476pt.
 [17 <./figs/gen-algo-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/gen-algo-2.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 25424009 bytes
 (epstopdf)             Output file: <figs/gen-algo-2-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 765047 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/gen-algo-2-eps-conver
 ted-to.pdf figs/gen-algo-2.eps>
@@ -936,11 +936,11 @@ Package pdftex.def Info: figs/gen-algo-2-eps-converted-to.pdf  used on input li
 ne 364.
 (pdftex.def)             Requested size: 421.29842pt x 288.88547pt.
 Package epstopdf Info: Source file: <figs/gen-algo-pseudo.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 1658448 bytes
 (epstopdf)             Output file: <figs/gen-algo-pseudo-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 102318 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/gen-algo-pseudo-eps-c
 onverted-to.pdf figs/gen-algo-pseudo.eps>
@@ -959,10 +959,10 @@ ut line 372.
 (pdftex.def)             Requested size: 343.78354pt x 199.24388pt.
 [18 <./figs/gen-algo-2-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/diff-evo.eps>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 2965534 bytes
 (epstopdf)             Output file: <figs/diff-evo-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 149412 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diff-evo-eps-converte
 d-to.pdf figs/diff-evo.eps>
@@ -983,10 +983,10 @@ Package pdftex.def Info: figs/diff-evo-eps-converted-to.pdf  used on input line
 verted-to.pdf>] [21]
 Chapter 2.
 Package epstopdf Info: Source file: <figs/progan-scheme.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 2473915 bytes
 (epstopdf)             Output file: <figs/progan-scheme-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 107172 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/progan-scheme-eps-con
 verted-to.pdf figs/progan-scheme.eps>
@@ -1004,11 +1004,11 @@ Package pdftex.def Info: figs/progan-scheme-eps-converted-to.pdf  used on input
  line 551.
 (pdftex.def)             Requested size: 387.44655pt x 163.61084pt.
 Package epstopdf Info: Source file: <figs/stylegan-scheme.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 2218412 bytes
 (epstopdf)             Output file: <figs/stylegan-scheme-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 121704 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/stylegan-scheme-eps-c
 onverted-to.pdf figs/stylegan-scheme.eps>
@@ -1029,11 +1029,11 @@ ut line 559.
 
  <./figs/progan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/mapping-network.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 2100301 bytes
 (epstopdf)             Output file: <figs/mapping-network-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 57830 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/mapping-network-eps-c
 onverted-to.pdf figs/mapping-network.eps>
@@ -1052,11 +1052,11 @@ ut line 570.
 (pdftex.def)             Requested size: 341.67046pt x 162.60461pt.
 [23 <./figs/stylegan-scheme-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/adaptive-instance-norm.eps>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 2707872 bytes
 (epstopdf)             Output file: <figs/adaptive-instance-norm-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 253031 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/adaptive-instance-nor
 m-eps-converted-to.pdf figs/adaptive-instance-norm.eps>
@@ -1075,11 +1075,11 @@ Package pdftex.def Info: figs/adaptive-instance-norm-eps-converted-to.pdf  used
  on input line 601.
 (pdftex.def)             Requested size: 256.95937pt x 270.00807pt.
 Package epstopdf Info: Source file: <figs/frechet-distance.eps>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 1090800 bytes
 (epstopdf)             Output file: <figs/frechet-distance-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 55546 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/frechet-distance-eps-
 converted-to.pdf figs/frechet-distance.eps>
@@ -1099,10 +1099,10 @@ put line 609.
 [24 <./figs/mapping-network-eps-converted-to.pdf>] [25 <./figs/adaptive-instanc
 e-norm-eps-converted-to.pdf> <./figs/frechet-distance-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/water-droplets.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 1319334 bytes
 (epstopdf)             Output file: <figs/water-droplets-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 66258 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/water-droplets-eps-co
 nverted-to.pdf figs/water-droplets.eps>
@@ -1120,10 +1120,10 @@ Package pdftex.def Info: figs/water-droplets-eps-converted-to.pdf  used on inpu
 t line 696.
 (pdftex.def)             Requested size: 422.57771pt x 80.29979pt.
 Package epstopdf Info: Source file: <figs/phase.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 1215665 bytes
 (epstopdf)             Output file: <figs/phase-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 82407 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/phase-eps-converted-t
 o.pdf figs/phase.eps>
@@ -1141,11 +1141,11 @@ Package pdftex.def Info: figs/phase-eps-converted-to.pdf  used on input line 70
 3.
 (pdftex.def)             Requested size: 299.91899pt x 149.35724pt.
 Package epstopdf Info: Source file: <figs/stylegan2-scheme2.eps>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 3346247 bytes
 (epstopdf)             Output file: <figs/stylegan2-scheme2-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2021-05-17 22:32:39
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 191899 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/stylegan2-scheme2-eps
 -converted-to.pdf figs/stylegan2-scheme2.eps>
@@ -1170,11 +1170,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 719--720
 
 [26 <./figs/water-droplets-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/changed-normalization.eps>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 2149397 bytes
 (epstopdf)             Output file: <figs/changed-normalization-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2021-05-17 22:32:38
+(epstopdf)                    date: 2021-06-08 13:18:52
 (epstopdf)                    size: 83132 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/changed-normalization
 -eps-converted-to.pdf figs/changed-normalization.eps>
@@ -1725,7 +1725,7 @@ ype1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1
 /public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/p
 ublic/cm-super/sftt1200.pfb>
-Output written on praca.pdf (73 pages, 32557215 bytes).
+Output written on praca.pdf (73 pages, 32556925 bytes).
 PDF statistics:
  1098 PDF objects out of 1200 (max. 8388607)
  805 compressed objects within 9 object streams

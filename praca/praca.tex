@@ -136,7 +136,7 @@ The following are results of the one of the first GAN applications - facial imag
 \noindent For discriminator training, at each iteration we pass some real samples taken from the training data labeled as $1$ and some generated samples provided by generator labeled as $0$. New images are generated based on noise input derived from e.g. Gaussian distribution. This way, we can use more conventional supervised training frameworks to update the parameters of discriminator. The discriminator outputs a value $D(x)$ indicating the chance that x is a real image. Model objective is to maximize the chance of recognizing real images and generated images as separate classes. To measure the performance the variation of \textit{cross-entropy loss} is used and therefore the objective function can be written as follows
 
 \begin{equation}
-max_{D} V(D) = \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\log D(\textbf{x})] + \mathbb{E}_{\textbf{z} \sim p_{z}(\textbf{z})} [\log(1-D(G(\textbf{z})))].
+max_{D} V(D) = \mathbb{E}_{\textbf{x} \sim p_{data}(\textbf{x})} [\log D(\textbf{x})].
 \end{equation}
 
 \noindent For each batch of training data containing labeled real and generated samples, model updates the parameters of discriminator to optimize the loss function. After the parameters are updated, generator is trained to produce better samples (in terms of quality and variety). The output of generator is connected to discriminator, whose parameters are kept frozen at the time of generator training. On the generator side, it's objective is to generate images with the highest possible value of $D(x)$ to \textit{fool} the discriminator. This condition can be written as
@@ -406,7 +406,7 @@ Each member of every population is described as $D$-dimensional parameter vector
 \noindent In the \textbf{mutation} step donor vector $v_{i, g}$ is produced. It is calculated by adding the scaled difference of two vectors to the third vector from the population. There are two most popular variations of mutation used in differential algorithm, one is the \textit{DE/rand/1} version, where all three vectors used in mutation are taken at random, which allows us to write a formula for donor vector  $v_{i, g}$ as
 
 \begin{equation}
-\mathbf{v}_{i, g}=\mathbf{x}_{r_{1}, g}+F\left(\mathbf{x}_{r_{2}, g}-x_{\mathbf{r}_{3}, g}\right),
+\mathbf{v}_{i, g}=\mathbf{x}_{r_{1}, g}+F\left(\mathbf{x}_{r_{2}, g}-\mathbf{x}_{r_{3}, g}\right),
 \end{equation}
 
 \noindent where $r_{1}, r_{2},r_{3} \in \{1, 2, ..., N\}$ are randomly selected indices and $F$ is the aforementioned scaling factor.
