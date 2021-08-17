@@ -1,4 +1,5 @@
-\documentclass[12pt,a4paper,openany]{book}
+\documentclass[11pt,a4paper,openany]{book}
+\usepackage{mathptmx}
 \usepackage{amssymb, amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -26,8 +27,13 @@
 \usepackage{lipsum}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-
-\raggedbottom
+\usepackage{titleps}
+\setlength{\parindent}{0.5cm}
+\renewpagestyle{plain}{%
+\sethead{}{}{}
+\setfoot[\thepage][][]{}{}{\thepage}
+}%
+\pagestyle{plain}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Large}
@@ -68,7 +74,7 @@
 \pagestyle{myheadings}
 \pagestyle{plain}
 \usepackage{geometry}
-\newgeometry{tmargin=2.5cm, bmargin=2.5cm, lmargin=3cm, rmargin=2.5cm}
+\newgeometry{tmargin=2.5cm, bmargin=2.5cm, lmargin=3cm, rmargin=2cm}
 \newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 \newcommand*{\QEDB}{\hfill\ensuremath{\square}}
 \newcommand{\ignore}[1]{}
@@ -77,10 +83,22 @@
     {\MakeUppercase{\romannumeral #1}}
 
 \begin{document}
+\thispagestyle{empty}
 \includepdf[pages={1}]{titlepage.pdf}
+\thispagestyle{empty}
+\newpage
+$  $
+\newpage
+\pagestyle{empty}
+{
+  \renewcommand{\thispagestyle}[1]{}
+  \tableofcontents
+}
+\clearpage
+\pagestyle{plain}
 
-\tableofcontents
-
+\clearpage
+\pagenumbering{arabic}
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
